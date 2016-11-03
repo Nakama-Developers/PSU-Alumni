@@ -1,0 +1,83 @@
+*{
+    box-sizing: border-box;
+}
+
+html, body {margin:0;padding:0;height:100%;}
+body {
+    background-color: #fff;
+    width: fit-content;
+     background-image: url(../img/body.jpg);
+}
+.header{
+    display: block;
+    height: 10%;    
+    width: 100%;
+    padding-bottom: 10%;
+
+}
+.psu-logo{
+    display: block;
+    position: fixed;
+    height: 10%;    
+    width: 100%;
+    z-index: 15;
+    padding-bottom: 10%;
+    float: left;
+    background-image: url(../img/newheader.jpg);
+    background-repeat: no-repeat, no-repeat;
+    background-size: auto;
+    background-position: center;
+    
+}
+@media only screen and (max-width: 850px) {
+    .psu-logo {
+        background-size: contain;
+    }
+}
+
+.side-navegation{
+    color: #0094ff;
+    height: fill-available;
+    width: 10%;
+    float: left;
+    padding-top: 60px;
+    padding-bottom: 50px;   
+}
+
+label{
+    padding-bottom: 25px;
+}
+input{
+    float: right;
+}
+.outer-layer{
+    float: left;
+    background-color: #fff;
+    width: 89%;
+    height: fill-available; 
+   
+}
+
+.table-layout{
+    border-collapse: collapse;
+    width: 75%;
+    height: 100%;
+    float: left;
+}
+
+th   {
+    cursor: pointer;
+    text-align: center;
+    padding: 8px 335px 0px  15px;
+    color: #0094ff;
+}
+ td {
+    cursor: pointer;
+    text-align: center;
+    padding: 8px 305px 0px  15px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+table tbody { height:450px; overflow-y:scroll; display:block; }
+table thead { display:block; }
