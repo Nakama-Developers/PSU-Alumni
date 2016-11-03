@@ -2,10 +2,12 @@
     box-sizing: border-box;
 }
 
-body {
+body{
     background-color: #fff;
      background-image: url(../img/body.jpg);
+    
 }
+
 .header{
     display: block;
     height: 10%;    
@@ -13,6 +15,7 @@ body {
     padding-bottom: 10%;
 
 }
+
 .psu-logo{
     display: block;
     position: fixed;
@@ -27,6 +30,7 @@ body {
     background-position: center;
     
 }
+
 @media only screen and (max-width: 850px) {
     .psu-logo {
         background-size: contain;
@@ -46,9 +50,11 @@ body {
 label{
     padding-bottom: 25px;
 }
+
 input{
     float: right;
 }
+
 .outer-layer{
     overflow-x: auto;
     float: left;
@@ -68,7 +74,7 @@ table{
    
 }
 
-thead {
+thead{
      display:block; 
      background-color: #f3f3f3;
 }
@@ -80,21 +86,21 @@ tbody{
     margin-bottom: 10px;
 }
 
-th   {
+th{
     cursor: pointer;
     border: none;
     text-align: center;
     color: #0094ff;
     width: 1%;
-    padding-bottom: 5px;
+    padding-bottom: 8px;
 }
- td {
+
+td{
     cursor: pointer;
     border: none;
     text-align: center;
     width: 10%;
-    padding-bottom: 2px;
-
+    padding: 5px 0px 5px 0px;
 }
 
 tr:nth-child(even){background-color: #f2f2f2}
