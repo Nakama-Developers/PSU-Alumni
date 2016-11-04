@@ -87,17 +87,14 @@ tbody{
 }
 
 th{
-
-    cursor: pointer;
     border: none;
     text-align: center;
     color: #0094ff;
-    width: 1%;
+    width: 8%;
     padding-bottom: 8px;
 }
 
 td{
-
     cursor: pointer;
     border: none;
     text-align: center;

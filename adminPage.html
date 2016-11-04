@@ -21,7 +21,9 @@
                 <label>Sort By ID</label>
                 <input type="checkbox">
                 <label>Sort By Graduation year</label>
-                <input type="checkbox">   
+                <input type="checkbox">
+               <button onclick="study()" id="studyModeBtn">To study mode</button>
+               <button onclick="contact()"  id="contactModeBtn" hidden="hidden">To contact mode</button>   
             </div>
         
             
@@ -31,7 +33,8 @@
                     <tr>
                         <th>Name</th>
                         <th>ID</th>
-                        <th>Email</th>
+                        <th id="contactNumberColumn">contact number</th>
+                        <th id="emailColumn">Email</th>                 
                     </tr>
                 </thead>
                 <tbody id="data" >
@@ -40,6 +43,6 @@
             </table>  
           </div>    
       
-     <script src="javascript/loadData.js"></script>   
+     <script src="javascript/loadData.js"></script>       
     </body>
 </html>
