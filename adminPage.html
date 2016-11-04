@@ -4,18 +4,14 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <!-- jQuery library -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <!-- Latest compiled JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">      
         <!--external style-->
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link  type="text/css" rel="stylesheet" href="style/adminPageStyle.css">
-
+        <script src="javascript/loadData.js"></script>
         <title>Admin Page</title>
     </head>
-    <body>
+    <body onload="loadData()" >
                 <header class="header">
                     <div class="psu-logo"></div>
                 </header>
@@ -38,132 +34,12 @@
                         <th>Email</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>Omar</td>
-                        <td>213110174</td>
-                        <td>Omar@example.com</td>
-                    </tr>
-                    <tr>
-                        <td>Omar</td>
-                        <td>213110174</td>
-                        <td>Omar@example.com</td>
-                    </tr>
-                    <tr>
-                        <td>Omar</td>
-                        <td>213110174</td>
-                        <td>Omar@example.com</td>
-                    </tr>
-                <tr>
-                        <td>Omar</td>
-                        <td>213110174</td>
-                        <td>Omar@example.com</td>
-                    </tr>
-                 <tr>
-                        <td>Omar</td>
-                        <td>213110174</td>
-                        <td>Omar@example.com</td>
-                    </tr>
-                 <tr>
-                        <td>Omar</td>
-                        <td>213110174</td>
-                        <td>Omar@example.com</td>
-                    </tr>
-                 <tr>
-                        <td>Omar</td>
-                        <td>213110174</td>
-                        <td>Omar@example.com</td>
-                    </tr> <tr>
-                        <td>Omar</td>
-                        <td>213110174</td>
-                        <td>Omar@example.com</td>
-                    </tr> <tr>
-                        <td>Omar</td>
-                        <td>213110174</td>
-                        <td>Omar@example.com</td>
-                    </tr>
-                <tr>
-                        <td>Omar</td>
-                        <td>213110174</td>
-                        <td>Omar@example.com</td>
-                    </tr>
-                <tr>
-                        <td>Omar</td>
-                        <td>213110174</td>
-                        <td>Omar@example.com</td>
-                    </tr>
-                <tr>
-                        <td>Omar</td>
-                        <td>213110174</td>
-                        <td>Omar@example.com</td>
-                    </tr>
-                <tr>
-                        <td>Omar</td>
-                        <td>213110174</td>
-                        <td>Omar@example.com</td>
-                    </tr>
-                <tr>
-                        <td>Omar</td>
-                        <td>213110174</td>
-                        <td>Omar@example.com</td>
-                    </tr>
-                <tr>
-                        <td>Omar</td>
-                        <td>213110174</td>
-                        <td>Omar@example.com</td>
-                    </tr>
-                 <tr>
-                        <td>Omar</td>
-                        <td>213110174</td>
-                        <td>Omar@example.com</td>
-                    </tr>
-                <tr>
-                        <td>Omar</td>
-                        <td>213110174</td>
-                        <td>Omar@example.com</td>
-                    </tr>
-                <tr>
-                        <td>Omar</td>
-                        <td>213110174</td>
-                        <td>Omar@example.com</td>
-                    </tr>
-                <tr>
-                        <td>Omar</td>
-                        <td>213110174</td>
-                        <td>Omar@example.com</td>
-                    </tr>
-                <tr>
-                        <td>Omar</td>
-                        <td>213110174</td>
-                        <td>Omar@example.com</td>
-                    </tr>
-                <tr>
-                        <td>Omar</td>
-                        <td>213110174</td>
-                        <td>Omar@example.com</td>
-                    </tr>
-                <tr>
-                        <td>Omar</td>
-                        <td>213110174</td>
-                        <td>Omar@example.com</td>
-                    </tr><tr>
-                        <td>Omar</td>
-                        <td>213110174</td>
-                        <td>Omar@example.com</td>
-                    </tr>
-                <tr>
-                        <td>Omar</td>
-                        <td>213110174</td>
-                        <td>Omar@example.com</td>
-                    </tr><tr>
-                        <td>Omar</td>
-                        <td>213110174</td>
-                        <td>Omar@example.com</td>
-                    </tr>                   
+                <tbody id="data" >
+                                     
                 </tbody>
             </table>  
           </div>    
       
-        
+     <script src="javascript/loadData.js"></script>   
     </body>
 </html>
