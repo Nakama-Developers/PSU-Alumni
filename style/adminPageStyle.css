@@ -8,44 +8,163 @@ body{
         font-family: Cambria;
 }
 
-.header{
-    display: block;
-    height: 10%;    
-    width: 100%;
-    padding-bottom: 10%;
+
+.search-panel{
+  height: 18%;
+}
+
+.search-panel > div{
+  height: 33.33%;
+}
+
+.search-box{
+  padding-top: 15px;
+  position: relative;
 
 }
 
-.psu-logo{
-    display: block;
-    position: fixed;
-    height: 10%;    
-    width: 100%;
-    z-index: 15;
-    padding-bottom: 10%;
-    float: left;
-    background-image: url(../img/newheader.jpg);
-    background-repeat: no-repeat, no-repeat;
-    background-size: auto;
-    background-position: center;
-    
+.search-box > .search{
+  width: 35%;
+  vertical-align: bottom;
+  padding: 5px 5px;
+  border: 1px solid #ddd;
+  border-right: none;
+  display: inline-block;
+  position: absolute;
+  top: 30px;
+  left: 155px;
 }
 
-@media only screen and (max-width: 850px) {
-    .psu-logo {
-        background-size: contain;
-    }
+.search-box > .N{
+    position: absolute;
+    top: 30px;
+    right: 30px;
 }
+
+.search-box > .P{
+    position: absolute;
+    top: 30px;
+    right: 100px;
+}
+
+.search-box > .search-btn{
+  padding: 5px 20px;
+  background-color: #FFF;
+  font-weight: bold;
+  font-family: Segoe MDL2 Assets;
+  border: 1px solid #ddd;
+  border-left: none;
+  display: inline-block;
+  color: #fff;
+  background-color: #45D6E9;
+  position: absolute;
+  top: 30px;
+  left: 630px;
+}
+
+.grouping{
+  position: relative;
+}
+
+.catagories{
+  position: absolute;
+  top: 105px;
+  left: 159px;;
+}
+
+.grouping > .catagories > a{
+  border: 1px solid transparent;
+  border-bottom: none;
+  display: inline-block;
+  text-decoration: none;
+  color: #999;
+  padding: 10px 100px;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.grouping > .catagories > a.allCata:hover{
+  border-top-width: 2px;
+  border-top-style: solid;
+  border-top-color: #2ABBCF;
+}
+
+.grouping > .catagories > a.master:hover{
+  border-top-width: 2px;
+  border-top-style: solid;
+  border-top-color: #C00;
+}
+
+.grouping > .catagories > a.bacholer:hover{
+  border-top-width: 2px;
+  border-top-style: solid;
+  border-top-color: #0C0;
+}
+
+.grouping > .catagories > a:hover{
+  border: 1px solid #ddd;
+  border-bottom: none;
+  color: #888;
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 1);;
+}
+
+
+
+
 
 .side-navegation{
-    color: #0094ff;
-    height: fill-available;
     width: 10%;
+    height: 100%;
+    background-color: rgba(37, 182, 201, 0.5);
+    background-image: url("img/header-style.png");
+    background-position: bottom left;
+    background-repeat: no-repeat;
     float: left;
     padding-top: 60px;
+    position: relative;
     padding-bottom: 50px;
     margin-right: 5px;   
+
 }
+
+
+.logo{
+  margin-top: 65%;
+  margin-bottom: 65%;
+  height: 40%;
+}
+
+.logo img{
+  display: block;
+  margin: auto;
+  width: 30%;
+  height: auto;
+}
+
+.options > ul{
+  padding: 0;
+  list-style: none;
+  
+}
+
+.options > ul > li{
+  display: block;
+}
+
+.options > ul > li > a{
+  display: block;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+  color: #FFF;
+  padding: 15px 0;
+  font-size: 1.5em;
+}
+
+.options > ul > li > a:hover{
+  font-weight: bold;
+}
+
 
 label{
     padding-bottom: 25px;
@@ -60,9 +179,11 @@ input{
     overflow-x: auto;
     float: left;
     background-color: #f3f3f3;
-    width: 89.5%;
+    width: 87%;
     height: 499px; 
-   
+    position: relative;
+    top: 150px;
+    left: 20px;
 }
 
 table{

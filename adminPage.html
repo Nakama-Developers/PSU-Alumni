@@ -13,21 +13,46 @@
         <title>Admin Page</title>
     </head>
     <body onload="loadData()" >
-                <header class="header">
-                    <div class="psu-logo"></div>
-                </header>
-           <div class="side-navegation">
-                <label>Sort By Name</label>
-                <input type="checkbox">
-                <label>Sort By ID</label>
-                <input type="checkbox">
-                <label>Sort By Graduation year</label>
-                <input type="checkbox">
-                 
-            </div>
+                
+            <div class="search-panel">
+                <div class="search-box">
+                  <input class="search" type="text" name="search" placeholder="Search Here ...">
+                  <input class="search-btn" type="submit" name="search-btn" value="">
+                  <button type="button" class="P btn btn-info">Previous</button>
+                  <button type="button" class="N btn btn-info">Next</button>
+                </div>
+                <div class="search-tools">
+
+                </div>
+                <div class="grouping">
+                <div class="catagories">
+                     <a href="#" class="allCata">All
+                     </a><a href="#" class="master">Master
+                     </a><a href="#" class="bacholer">Bacholer
+                     </a>
+                </div>
+                </div>
+             </div>
+
+
+   
+          <div class="side-navegation">
+             <div class="logo">
+                 <img src="img/transperant-logo.png" alt="PSU logo" />
+             </div>
+             <div class="options">
+                <ul>
+                 <li><a href="#">Create Survy</a></li>
+                 <li><a href="#">Setting</a></li>
+                 <li><a href="#">Edit</a></li>
+                </ul>
+             </div>
+             
+           </div>
+
+
         
-            
-          <div class="outer-layer">
+        <div class="outer-layer">
             <table class="table-layout">
                 
                 <tbody id="data" >
@@ -397,7 +422,6 @@
                 </tr>                   
                 </tbody>
             </table>  
-          </div>    
-          
+          </div>   
     </body>
 </html>
