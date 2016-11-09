@@ -7,6 +7,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">      
         <!--external style-->
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
         <link  type="text/css" rel="stylesheet" href="style/adminPageStyle.css">
         <script src="javascript/loadData.js"></script>
         <title>Admin Page</title>
@@ -22,8 +23,7 @@
                 <input type="checkbox">
                 <label>Sort By Graduation year</label>
                 <input type="checkbox">
-               <button onclick="study()" id="studyModeBtn">To study mode</button>
-               <button onclick="contact()"  id="contactModeBtn" hidden="hidden">To contact mode</button>   
+                 
             </div>
         
             
@@ -32,9 +32,9 @@
                 
                 <tbody id="data" >
                 <tr>
-                <th>Name:</th>
+                <th>Name:<span class="fa fa-sort not-active-icon"></span></th>
                 <td>Omaar</td>
-                <th class="ID">ID</th>
+                <th>ID <span class="fa fa-sort-desc not-active-icon"></span></th>
                 <td>213110174</td>
                 <th>Contact Number</th>
                 <td>+966552968296</td>
