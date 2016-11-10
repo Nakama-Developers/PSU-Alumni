@@ -10,6 +10,28 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
         <link  type="text/css" rel="stylesheet" href="style/adminPageStyle.css">
         
+        <script>
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>
         <title>Admin Page</title>
     </head>
     <body onload="loadData()" >
@@ -20,6 +42,15 @@
                   <input class="search-btn" type="submit" name="search-btn" value="">
                   <button type="button" class="P btn btn-info">Previous</button>
                   <button type="button" class="N btn btn-info">Next</button>
+                </div>
+                <div class="dropdown">
+                    <button onclick="myFunction()" class="dropbtn">Sort By</button>
+                        <div id="myDropdown" class="dropdown-content">
+                            <a href="#">Name</a>
+                            <a href="#">ID</a>
+                            <a href="#">Company size</a>
+                            <a href="#">Years od Experience</a>
+                        </div>
                 </div>
                 <div class="search-tools">
 
