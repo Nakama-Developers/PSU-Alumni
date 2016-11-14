@@ -265,7 +265,8 @@ html, body{
 
 .record > .open-profile{
   visibility: visible;
-  height: 200px;
+  height: 220px;
+  padding: 10px 0;
   -webkit-transition: height 0.3s;
   transition: height 0.3s;
   box-shadow: 2px 2px 8px rgba(38,182,201, 0.5)  inset;
@@ -301,10 +302,9 @@ html, body{
 }
 
 .block-info{
-  margin-top: 10px;
   width: 30%;
-  height: 0;
   display: inline-block;
+  vertical-align: top;
 }
 
 .block-info > *, .social-contact > *{
