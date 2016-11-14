@@ -98,14 +98,15 @@ html, body{
 
 .search-box{
   padding-top: 15px;
-  width: 90%;
+  width: 25%;
+  height: fit-content;
   float: left;
   position: absolute;
   top: 1%; left: 32%;
 }
 
 .search-box > .search{
-  width: 35%;
+  width: 100%;
   vertical-align: bottom;
   padding: 5px 5px;
   border: 1px solid #ddd;
@@ -113,7 +114,7 @@ html, body{
   display: inline-block;
 }
 
-.search-box > .search-btn{
+.search-box > .search-btn{    
   padding: 6px 20px;
   background-color: #FFF;
   font-weight: bold;
@@ -123,6 +124,8 @@ html, body{
   display: inline-block;
   color: #fff;
   background-color: #45D6E9;
+  position: absolute;
+  right: 0;
 }
 
 .search-tools{
