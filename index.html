@@ -36,7 +36,7 @@
           <input class="search" type="text" name="search" placeholder="Search Here ..."><input class="search-btn" type="submit" name="search-btn" value="">
         </div>
         <div class="search-tools">
-          <span>Sort By:</span>
+          <span class="label">Sort By:</span>
           <div class="sort">
             <select name="sort-method">
               <option class="options">Name</option>
@@ -124,56 +124,81 @@
               <img src="img/transperant-logo.png" alt="profile-pic" />
             </div>
             <section class="block-info personal-info">
-              <span>Personal Info</span>
-              <div class="labels">
-                <label for="name">Name:</label>
-                <label for="nationality">Nationality:</label>
-                <label for="Phone">Phones:</label>
-                <label for="email">E-mail:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="name" value="Ahmed Ali" readonly>
-                <input type="text" name="name" value="Syrian" readonly>
-                <input type="text" name="name" value="+966562249819" readonly>
-                <input type="email" name="name" value="ahmed.ali@gmail.com" readonly>
-              </div>
+              <span class="block-title">Personal Info</span>
+                <div class="block-inputs">
+                    <div>
+                        <label for="name">Name:</label>
+                        <input class="field" id="name" type="text" name="name" value="Ahmed Ali" readonly>
+                    </div>
+                    <div>
+                        <label for="nationality">Nationality:</label>
+                        <input class="field" id="nationality" type="text" name="name" value="Syrian" readonly>
+                    </div>
+                    <div>
+                        <label for="Phone">Phones:</label>
+                        <input class="field" id="Phone" type="text" name="name" value="+966562249819" readonly>
+                    </div>
+                    <div>
+                        <label for="email">E-mail:</label>
+                        <input class="field" id="email" type="email" name="name" value="ahmed.ali@gmail.com" readonly>
+                    </div>
+                </div>
             </section><section class="block-info academic-info">
-              <span>Academic Info</span>
-              <div class="labels">
-                <label for="acad-id">Academic ID:</label>
-                <label for="major">Major:</label>
-                <label for="gpa">GPA:</label>
-                <label for="grad-year">Graduation Year:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="acad-id" value="213110987" readonly>
-                <input type="text" name="major" value="Software Engineering" readonly>
-                <input type="number" step="0.01" name="gpa" value="3.34" readonly>
-                <input type="text" name="grad-year" value="2016 / 2017" readonly>
+              <span class="block-title">Academic Info</span>
+              <div class="block-inputs">
+                  <div>
+                      <label for="acad-id">Academic ID:</label>
+                      <input class="field" id="acad-id" type="text" name="acad-id" value="213110987" readonly>
+                  </div>
+                  <div>
+                      <label for="major">Major:</label>
+                      <input class="field" id="major" type="text" name="major" value="Software Engineering" readonly>
+                  </div>
+                  <div>
+                      <label for="gpa">GPA:</label>
+                      <input class="field" id="gpa" type="number" step="0.01" name="gpa" value="3.34" readonly>
+                  </div>
+                  <div>
+                      <label for="grad-year">Graduation Year:</label>
+                      <input class="field" id="grad-year" type="text" name="grad-year" value="2016 / 2017" readonly>
+                  </div>
               </div>
             </section><section class="block-info company-info">
-              <span>Company Info</span>
-              <div class="labels">
-                <label for="title">Job Title:</label>
-                <label for="current-comp">Current Company:</label>
-                <label for="co-op-comp">Co-op Company:</label>
-                <label for="comp-size">Company Size:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="title" value="CEO" readonly>
-                <input type="text" name="current-comp" value="Microsoft" readonly>
-                <input type="text" name="co-op-comp" value="Google" readonly>
-                <input type="text" name="comp-size" value="Very Large" readonly>
+              <span class="block-title">Career Info</span>
+              <div class="block-inputs">
+                  <div>
+                      <label for="title">Job Title:</label>
+                      <input class="field" type="text" name="title" value="CEO" readonly>
+                  </div>
+                  <div>
+                      <label for="current-comp">Current Company:</label>
+                      <input class="field" type="text" name="current-comp" value="Microsoft" readonly>
+                  </div>
+                  <div>
+                      <label for="co-op-comp">Co-op Company:</label>
+                      <input class="field" type="text" name="co-op-comp" value="Google" readonly>
+                  </div>
+                  <div>
+                      <label for="comp-size">Company Size:</label>
+                      <input class="field" type="text" name="comp-size" value="Very Large" readonly>
+                  </div>
               </div>
             </section>
             <section class="social-contact">
               <div class="social-media">
-
+                  <a title="view his profile" href="#" class="alumni">
+                      <img src="../img/transperant-logo.png" alt="PSU-logo"/>
+                  </a>
+                  <span title="view his facebook profile" class="facebook"></span>
+                  <span title="view his twitter account" class="twitter"></span>
+                  <span title="view his LinkedIn account" class="linkedIn"></span>
               </div>
-              <div class="profile-link">
-
+              <div dir="rtl" class="functions">
+                  <span title="edit profile" class="edit"></span>
+                  <span title="write note" class="write-note"></span>
               </div>
             </section>
+            <span title="close" class="close-btn"></span>
           </article>
         </div>
         <div class="record">
@@ -209,56 +234,81 @@
               <img src="img/transperant-logo.png" alt="profile-pic" />
             </div>
             <section class="block-info personal-info">
-              <span>Personal Info</span>
-              <div class="labels">
-                <label for="name">Name:</label>
-                <label for="nationality">Nationality:</label>
-                <label for="Phone">Phones:</label>
-                <label for="email">E-mail:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="name" value="Ahmed Ali" readonly>
-                <input type="text" name="name" value="Syrian" readonly>
-                <input type="text" name="name" value="+966562249819" readonly>
-                <input type="email" name="name" value="ahmed.ali@gmail.com" readonly>
-              </div>
+              <span class="block-title">Personal Info</span>
+                <div class="block-inputs">
+                    <div>
+                        <label for="name">Name:</label>
+                        <input class="field" id="name" type="text" name="name" value="Ahmed Ali" readonly>
+                    </div>
+                    <div>
+                        <label for="nationality">Nationality:</label>
+                        <input class="field" id="nationality" type="text" name="name" value="Syrian" readonly>
+                    </div>
+                    <div>
+                        <label for="Phone">Phones:</label>
+                        <input class="field" id="Phone" type="text" name="name" value="+966562249819" readonly>
+                    </div>
+                    <div>
+                        <label for="email">E-mail:</label>
+                        <input class="field" id="email" type="email" name="name" value="ahmed.ali@gmail.com" readonly>
+                    </div>
+                </div>
             </section><section class="block-info academic-info">
-              <span>Academic Info</span>
-              <div class="labels">
-                <label for="acad-id">Academic ID:</label>
-                <label for="major">Major:</label>
-                <label for="gpa">GPA:</label>
-                <label for="grad-year">Graduation Year:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="acad-id" value="213110987" readonly>
-                <input type="text" name="major" value="Software Engineering" readonly>
-                <input type="number" step="0.01" name="gpa" value="3.34" readonly>
-                <input type="text" name="grad-year" value="2016 / 2017" readonly>
+              <span class="block-title">Academic Info</span>
+              <div class="block-inputs">
+                  <div>
+                      <label for="acad-id">Academic ID:</label>
+                      <input class="field" id="acad-id" type="text" name="acad-id" value="213110987" readonly>
+                  </div>
+                  <div>
+                      <label for="major">Major:</label>
+                      <input class="field" id="major" type="text" name="major" value="Software Engineering" readonly>
+                  </div>
+                  <div>
+                      <label for="gpa">GPA:</label>
+                      <input class="field" id="gpa" type="number" step="0.01" name="gpa" value="3.34" readonly>
+                  </div>
+                  <div>
+                      <label for="grad-year">Graduation Year:</label>
+                      <input class="field" id="grad-year" type="text" name="grad-year" value="2016 / 2017" readonly>
+                  </div>
               </div>
             </section><section class="block-info company-info">
-              <span>Company Info</span>
-              <div class="labels">
-                <label for="title">Job Title:</label>
-                <label for="current-comp">Current Company:</label>
-                <label for="co-op-comp">Co-op Company:</label>
-                <label for="comp-size">Company Size:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="title" value="CEO" readonly>
-                <input type="text" name="current-comp" value="Microsoft" readonly>
-                <input type="text" name="co-op-comp" value="Google" readonly>
-                <input type="text" name="comp-size" value="Very Large" readonly>
+              <span class="block-title">Career Info</span>
+              <div class="block-inputs">
+                  <div>
+                      <label for="title">Job Title:</label>
+                      <input class="field" type="text" name="title" value="CEO" readonly>
+                  </div>
+                  <div>
+                      <label for="current-comp">Current Company:</label>
+                      <input class="field" type="text" name="current-comp" value="Microsoft" readonly>
+                  </div>
+                  <div>
+                      <label for="co-op-comp">Co-op Company:</label>
+                      <input class="field" type="text" name="co-op-comp" value="Google" readonly>
+                  </div>
+                  <div>
+                      <label for="comp-size">Company Size:</label>
+                      <input class="field" type="text" name="comp-size" value="Very Large" readonly>
+                  </div>
               </div>
             </section>
             <section class="social-contact">
               <div class="social-media">
-
+                  <a title="view his profile" href="#" class="alumni">
+                      <img src="../img/transperant-logo.png" alt="PSU-logo"/>
+                  </a>
+                  <span title="view his facebook profile" class="facebook"></span>
+                  <span title="view his twitter account" class="twitter"></span>
+                  <span title="view his LinkedIn account" class="linkedIn"></span>
               </div>
-              <div class="profile-link">
-
+              <div dir="rtl" class="functions">
+                  <span title="edit profile" class="edit"></span>
+                  <span title="write note" class="write-note"></span>
               </div>
             </section>
+            <span title="close" class="close-btn"></span>
           </article>
         </div>
         <div class="record">
@@ -294,56 +344,81 @@
               <img src="img/transperant-logo.png" alt="profile-pic" />
             </div>
             <section class="block-info personal-info">
-              <span>Personal Info</span>
-              <div class="labels">
-                <label for="name">Name:</label>
-                <label for="nationality">Nationality:</label>
-                <label for="Phone">Phones:</label>
-                <label for="email">E-mail:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="name" value="Ahmed Ali" readonly>
-                <input type="text" name="name" value="Syrian" readonly>
-                <input type="text" name="name" value="+966562249819" readonly>
-                <input type="email" name="name" value="ahmed.ali@gmail.com" readonly>
-              </div>
+              <span class="block-title">Personal Info</span>
+                <div class="block-inputs">
+                    <div>
+                        <label for="name">Name:</label>
+                        <input class="field" id="name" type="text" name="name" value="Ahmed Ali" readonly>
+                    </div>
+                    <div>
+                        <label for="nationality">Nationality:</label>
+                        <input class="field" id="nationality" type="text" name="name" value="Syrian" readonly>
+                    </div>
+                    <div>
+                        <label for="Phone">Phones:</label>
+                        <input class="field" id="Phone" type="text" name="name" value="+966562249819" readonly>
+                    </div>
+                    <div>
+                        <label for="email">E-mail:</label>
+                        <input class="field" id="email" type="email" name="name" value="ahmed.ali@gmail.com" readonly>
+                    </div>
+                </div>
             </section><section class="block-info academic-info">
-              <span>Academic Info</span>
-              <div class="labels">
-                <label for="acad-id">Academic ID:</label>
-                <label for="major">Major:</label>
-                <label for="gpa">GPA:</label>
-                <label for="grad-year">Graduation Year:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="acad-id" value="213110987" readonly>
-                <input type="text" name="major" value="Software Engineering" readonly>
-                <input type="number" step="0.01" name="gpa" value="3.34" readonly>
-                <input type="text" name="grad-year" value="2016 / 2017" readonly>
+              <span class="block-title">Academic Info</span>
+              <div class="block-inputs">
+                  <div>
+                      <label for="acad-id">Academic ID:</label>
+                      <input class="field" id="acad-id" type="text" name="acad-id" value="213110987" readonly>
+                  </div>
+                  <div>
+                      <label for="major">Major:</label>
+                      <input class="field" id="major" type="text" name="major" value="Software Engineering" readonly>
+                  </div>
+                  <div>
+                      <label for="gpa">GPA:</label>
+                      <input class="field" id="gpa" type="number" step="0.01" name="gpa" value="3.34" readonly>
+                  </div>
+                  <div>
+                      <label for="grad-year">Graduation Year:</label>
+                      <input class="field" id="grad-year" type="text" name="grad-year" value="2016 / 2017" readonly>
+                  </div>
               </div>
             </section><section class="block-info company-info">
-              <span>Company Info</span>
-              <div class="labels">
-                <label for="title">Job Title:</label>
-                <label for="current-comp">Current Company:</label>
-                <label for="co-op-comp">Co-op Company:</label>
-                <label for="comp-size">Company Size:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="title" value="CEO" readonly>
-                <input type="text" name="current-comp" value="Microsoft" readonly>
-                <input type="text" name="co-op-comp" value="Google" readonly>
-                <input type="text" name="comp-size" value="Very Large" readonly>
+              <span class="block-title">Career Info</span>
+              <div class="block-inputs">
+                  <div>
+                      <label for="title">Job Title:</label>
+                      <input class="field" type="text" name="title" value="CEO" readonly>
+                  </div>
+                  <div>
+                      <label for="current-comp">Current Company:</label>
+                      <input class="field" type="text" name="current-comp" value="Microsoft" readonly>
+                  </div>
+                  <div>
+                      <label for="co-op-comp">Co-op Company:</label>
+                      <input class="field" type="text" name="co-op-comp" value="Google" readonly>
+                  </div>
+                  <div>
+                      <label for="comp-size">Company Size:</label>
+                      <input class="field" type="text" name="comp-size" value="Very Large" readonly>
+                  </div>
               </div>
             </section>
             <section class="social-contact">
               <div class="social-media">
-
+                  <a title="view his profile" href="#" class="alumni">
+                      <img src="../img/transperant-logo.png" alt="PSU-logo"/>
+                  </a>
+                  <span title="view his facebook profile" class="facebook"></span>
+                  <span title="view his twitter account" class="twitter"></span>
+                  <span title="view his LinkedIn account" class="linkedIn"></span>
               </div>
-              <div class="profile-link">
-
+              <div dir="rtl" class="functions">
+                  <span title="edit profile" class="edit"></span>
+                  <span title="write note" class="write-note"></span>
               </div>
             </section>
+            <span title="close" class="close-btn"></span>
           </article>
         </div>
         <div class="record">
@@ -379,56 +454,81 @@
               <img src="img/transperant-logo.png" alt="profile-pic" />
             </div>
             <section class="block-info personal-info">
-              <span>Personal Info</span>
-              <div class="labels">
-                <label for="name">Name:</label>
-                <label for="nationality">Nationality:</label>
-                <label for="Phone">Phones:</label>
-                <label for="email">E-mail:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="name" value="Ahmed Ali" readonly>
-                <input type="text" name="name" value="Syrian" readonly>
-                <input type="text" name="name" value="+966562249819" readonly>
-                <input type="email" name="name" value="ahmed.ali@gmail.com" readonly>
-              </div>
+              <span class="block-title">Personal Info</span>
+                <div class="block-inputs">
+                    <div>
+                        <label for="name">Name:</label>
+                        <input class="field" id="name" type="text" name="name" value="Ahmed Ali" readonly>
+                    </div>
+                    <div>
+                        <label for="nationality">Nationality:</label>
+                        <input class="field" id="nationality" type="text" name="name" value="Syrian" readonly>
+                    </div>
+                    <div>
+                        <label for="Phone">Phones:</label>
+                        <input class="field" id="Phone" type="text" name="name" value="+966562249819" readonly>
+                    </div>
+                    <div>
+                        <label for="email">E-mail:</label>
+                        <input class="field" id="email" type="email" name="name" value="ahmed.ali@gmail.com" readonly>
+                    </div>
+                </div>
             </section><section class="block-info academic-info">
-              <span>Academic Info</span>
-              <div class="labels">
-                <label for="acad-id">Academic ID:</label>
-                <label for="major">Major:</label>
-                <label for="gpa">GPA:</label>
-                <label for="grad-year">Graduation Year:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="acad-id" value="213110987" readonly>
-                <input type="text" name="major" value="Software Engineering" readonly>
-                <input type="number" step="0.01" name="gpa" value="3.34" readonly>
-                <input type="text" name="grad-year" value="2016 / 2017" readonly>
+              <span class="block-title">Academic Info</span>
+              <div class="block-inputs">
+                  <div>
+                      <label for="acad-id">Academic ID:</label>
+                      <input class="field" id="acad-id" type="text" name="acad-id" value="213110987" readonly>
+                  </div>
+                  <div>
+                      <label for="major">Major:</label>
+                      <input class="field" id="major" type="text" name="major" value="Software Engineering" readonly>
+                  </div>
+                  <div>
+                      <label for="gpa">GPA:</label>
+                      <input class="field" id="gpa" type="number" step="0.01" name="gpa" value="3.34" readonly>
+                  </div>
+                  <div>
+                      <label for="grad-year">Graduation Year:</label>
+                      <input class="field" id="grad-year" type="text" name="grad-year" value="2016 / 2017" readonly>
+                  </div>
               </div>
             </section><section class="block-info company-info">
-              <span>Company Info</span>
-              <div class="labels">
-                <label for="title">Job Title:</label>
-                <label for="current-comp">Current Company:</label>
-                <label for="co-op-comp">Co-op Company:</label>
-                <label for="comp-size">Company Size:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="title" value="CEO" readonly>
-                <input type="text" name="current-comp" value="Microsoft" readonly>
-                <input type="text" name="co-op-comp" value="Google" readonly>
-                <input type="text" name="comp-size" value="Very Large" readonly>
+              <span class="block-title">Career Info</span>
+              <div class="block-inputs">
+                  <div>
+                      <label for="title">Job Title:</label>
+                      <input class="field" type="text" name="title" value="CEO" readonly>
+                  </div>
+                  <div>
+                      <label for="current-comp">Current Company:</label>
+                      <input class="field" type="text" name="current-comp" value="Microsoft" readonly>
+                  </div>
+                  <div>
+                      <label for="co-op-comp">Co-op Company:</label>
+                      <input class="field" type="text" name="co-op-comp" value="Google" readonly>
+                  </div>
+                  <div>
+                      <label for="comp-size">Company Size:</label>
+                      <input class="field" type="text" name="comp-size" value="Very Large" readonly>
+                  </div>
               </div>
             </section>
             <section class="social-contact">
               <div class="social-media">
-
+                  <a title="view his profile" href="#" class="alumni">
+                      <img src="../img/transperant-logo.png" alt="PSU-logo"/>
+                  </a>
+                  <span title="view his facebook profile" class="facebook"></span>
+                  <span title="view his twitter account" class="twitter"></span>
+                  <span title="view his LinkedIn account" class="linkedIn"></span>
               </div>
-              <div class="profile-link">
-
+              <div dir="rtl" class="functions">
+                  <span title="edit profile" class="edit"></span>
+                  <span title="write note" class="write-note"></span>
               </div>
             </section>
+            <span title="close" class="close-btn"></span>
           </article>
         </div>
         <div class="record">
@@ -464,56 +564,81 @@
               <img src="img/transperant-logo.png" alt="profile-pic" />
             </div>
             <section class="block-info personal-info">
-              <span>Personal Info</span>
-              <div class="labels">
-                <label for="name">Name:</label>
-                <label for="nationality">Nationality:</label>
-                <label for="Phone">Phones:</label>
-                <label for="email">E-mail:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="name" value="Ahmed Ali" readonly>
-                <input type="text" name="name" value="Syrian" readonly>
-                <input type="text" name="name" value="+966562249819" readonly>
-                <input type="email" name="name" value="ahmed.ali@gmail.com" readonly>
-              </div>
+              <span class="block-title">Personal Info</span>
+                <div class="block-inputs">
+                    <div>
+                        <label for="name">Name:</label>
+                        <input class="field" id="name" type="text" name="name" value="Ahmed Ali" readonly>
+                    </div>
+                    <div>
+                        <label for="nationality">Nationality:</label>
+                        <input class="field" id="nationality" type="text" name="name" value="Syrian" readonly>
+                    </div>
+                    <div>
+                        <label for="Phone">Phones:</label>
+                        <input class="field" id="Phone" type="text" name="name" value="+966562249819" readonly>
+                    </div>
+                    <div>
+                        <label for="email">E-mail:</label>
+                        <input class="field" id="email" type="email" name="name" value="ahmed.ali@gmail.com" readonly>
+                    </div>
+                </div>
             </section><section class="block-info academic-info">
-              <span>Academic Info</span>
-              <div class="labels">
-                <label for="acad-id">Academic ID:</label>
-                <label for="major">Major:</label>
-                <label for="gpa">GPA:</label>
-                <label for="grad-year">Graduation Year:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="acad-id" value="213110987" readonly>
-                <input type="text" name="major" value="Software Engineering" readonly>
-                <input type="number" step="0.01" name="gpa" value="3.34" readonly>
-                <input type="text" name="grad-year" value="2016 / 2017" readonly>
+              <span class="block-title">Academic Info</span>
+              <div class="block-inputs">
+                  <div>
+                      <label for="acad-id">Academic ID:</label>
+                      <input class="field" id="acad-id" type="text" name="acad-id" value="213110987" readonly>
+                  </div>
+                  <div>
+                      <label for="major">Major:</label>
+                      <input class="field" id="major" type="text" name="major" value="Software Engineering" readonly>
+                  </div>
+                  <div>
+                      <label for="gpa">GPA:</label>
+                      <input class="field" id="gpa" type="number" step="0.01" name="gpa" value="3.34" readonly>
+                  </div>
+                  <div>
+                      <label for="grad-year">Graduation Year:</label>
+                      <input class="field" id="grad-year" type="text" name="grad-year" value="2016 / 2017" readonly>
+                  </div>
               </div>
             </section><section class="block-info company-info">
-              <span>Company Info</span>
-              <div class="labels">
-                <label for="title">Job Title:</label>
-                <label for="current-comp">Current Company:</label>
-                <label for="co-op-comp">Co-op Company:</label>
-                <label for="comp-size">Company Size:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="title" value="CEO" readonly>
-                <input type="text" name="current-comp" value="Microsoft" readonly>
-                <input type="text" name="co-op-comp" value="Google" readonly>
-                <input type="text" name="comp-size" value="Very Large" readonly>
+              <span class="block-title">Career Info</span>
+              <div class="block-inputs">
+                  <div>
+                      <label for="title">Job Title:</label>
+                      <input class="field" type="text" name="title" value="CEO" readonly>
+                  </div>
+                  <div>
+                      <label for="current-comp">Current Company:</label>
+                      <input class="field" type="text" name="current-comp" value="Microsoft" readonly>
+                  </div>
+                  <div>
+                      <label for="co-op-comp">Co-op Company:</label>
+                      <input class="field" type="text" name="co-op-comp" value="Google" readonly>
+                  </div>
+                  <div>
+                      <label for="comp-size">Company Size:</label>
+                      <input class="field" type="text" name="comp-size" value="Very Large" readonly>
+                  </div>
               </div>
             </section>
             <section class="social-contact">
               <div class="social-media">
-
+                  <a title="view his profile" href="#" class="alumni">
+                      <img src="../img/transperant-logo.png" alt="PSU-logo"/>
+                  </a>
+                  <span title="view his facebook profile" class="facebook"></span>
+                  <span title="view his twitter account" class="twitter"></span>
+                  <span title="view his LinkedIn account" class="linkedIn"></span>
               </div>
-              <div class="profile-link">
-
+              <div dir="rtl" class="functions">
+                  <span title="edit profile" class="edit"></span>
+                  <span title="write note" class="write-note"></span>
               </div>
             </section>
+            <span title="close" class="close-btn"></span>
           </article>
         </div>
         <div class="record">
@@ -549,56 +674,81 @@
               <img src="img/transperant-logo.png" alt="profile-pic" />
             </div>
             <section class="block-info personal-info">
-              <span>Personal Info</span>
-              <div class="labels">
-                <label for="name">Name:</label>
-                <label for="nationality">Nationality:</label>
-                <label for="Phone">Phones:</label>
-                <label for="email">E-mail:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="name" value="Ahmed Ali" readonly>
-                <input type="text" name="name" value="Syrian" readonly>
-                <input type="text" name="name" value="+966562249819" readonly>
-                <input type="email" name="name" value="ahmed.ali@gmail.com" readonly>
-              </div>
+              <span class="block-title">Personal Info</span>
+                <div class="block-inputs">
+                    <div>
+                        <label for="name">Name:</label>
+                        <input class="field" id="name" type="text" name="name" value="Ahmed Ali" readonly>
+                    </div>
+                    <div>
+                        <label for="nationality">Nationality:</label>
+                        <input class="field" id="nationality" type="text" name="name" value="Syrian" readonly>
+                    </div>
+                    <div>
+                        <label for="Phone">Phones:</label>
+                        <input class="field" id="Phone" type="text" name="name" value="+966562249819" readonly>
+                    </div>
+                    <div>
+                        <label for="email">E-mail:</label>
+                        <input class="field" id="email" type="email" name="name" value="ahmed.ali@gmail.com" readonly>
+                    </div>
+                </div>
             </section><section class="block-info academic-info">
-              <span>Academic Info</span>
-              <div class="labels">
-                <label for="acad-id">Academic ID:</label>
-                <label for="major">Major:</label>
-                <label for="gpa">GPA:</label>
-                <label for="grad-year">Graduation Year:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="acad-id" value="213110987" readonly>
-                <input type="text" name="major" value="Software Engineering" readonly>
-                <input type="number" step="0.01" name="gpa" value="3.34" readonly>
-                <input type="text" name="grad-year" value="2016 / 2017" readonly>
+              <span class="block-title">Academic Info</span>
+              <div class="block-inputs">
+                  <div>
+                      <label for="acad-id">Academic ID:</label>
+                      <input class="field" id="acad-id" type="text" name="acad-id" value="213110987" readonly>
+                  </div>
+                  <div>
+                      <label for="major">Major:</label>
+                      <input class="field" id="major" type="text" name="major" value="Software Engineering" readonly>
+                  </div>
+                  <div>
+                      <label for="gpa">GPA:</label>
+                      <input class="field" id="gpa" type="number" step="0.01" name="gpa" value="3.34" readonly>
+                  </div>
+                  <div>
+                      <label for="grad-year">Graduation Year:</label>
+                      <input class="field" id="grad-year" type="text" name="grad-year" value="2016 / 2017" readonly>
+                  </div>
               </div>
             </section><section class="block-info company-info">
-              <span>Company Info</span>
-              <div class="labels">
-                <label for="title">Job Title:</label>
-                <label for="current-comp">Current Company:</label>
-                <label for="co-op-comp">Co-op Company:</label>
-                <label for="comp-size">Company Size:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="title" value="CEO" readonly>
-                <input type="text" name="current-comp" value="Microsoft" readonly>
-                <input type="text" name="co-op-comp" value="Google" readonly>
-                <input type="text" name="comp-size" value="Very Large" readonly>
+              <span class="block-title">Career Info</span>
+              <div class="block-inputs">
+                  <div>
+                      <label for="title">Job Title:</label>
+                      <input class="field" type="text" name="title" value="CEO" readonly>
+                  </div>
+                  <div>
+                      <label for="current-comp">Current Company:</label>
+                      <input class="field" type="text" name="current-comp" value="Microsoft" readonly>
+                  </div>
+                  <div>
+                      <label for="co-op-comp">Co-op Company:</label>
+                      <input class="field" type="text" name="co-op-comp" value="Google" readonly>
+                  </div>
+                  <div>
+                      <label for="comp-size">Company Size:</label>
+                      <input class="field" type="text" name="comp-size" value="Very Large" readonly>
+                  </div>
               </div>
             </section>
             <section class="social-contact">
               <div class="social-media">
-
+                  <a title="view his profile" href="#" class="alumni">
+                      <img src="../img/transperant-logo.png" alt="PSU-logo"/>
+                  </a>
+                  <span title="view his facebook profile" class="facebook"></span>
+                  <span title="view his twitter account" class="twitter"></span>
+                  <span title="view his LinkedIn account" class="linkedIn"></span>
               </div>
-              <div class="profile-link">
-
+              <div dir="rtl" class="functions">
+                  <span title="edit profile" class="edit"></span>
+                  <span title="write note" class="write-note"></span>
               </div>
             </section>
+            <span title="close" class="close-btn"></span>
           </article>
         </div>
         <div class="record">
@@ -634,56 +784,81 @@
               <img src="img/transperant-logo.png" alt="profile-pic" />
             </div>
             <section class="block-info personal-info">
-              <span>Personal Info</span>
-              <div class="labels">
-                <label for="name">Name:</label>
-                <label for="nationality">Nationality:</label>
-                <label for="Phone">Phones:</label>
-                <label for="email">E-mail:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="name" value="Ahmed Ali" readonly>
-                <input type="text" name="name" value="Syrian" readonly>
-                <input type="text" name="name" value="+966562249819" readonly>
-                <input type="email" name="name" value="ahmed.ali@gmail.com" readonly>
-              </div>
+              <span class="block-title">Personal Info</span>
+                <div class="block-inputs">
+                    <div>
+                        <label for="name">Name:</label>
+                        <input class="field" id="name" type="text" name="name" value="Ahmed Ali" readonly>
+                    </div>
+                    <div>
+                        <label for="nationality">Nationality:</label>
+                        <input class="field" id="nationality" type="text" name="name" value="Syrian" readonly>
+                    </div>
+                    <div>
+                        <label for="Phone">Phones:</label>
+                        <input class="field" id="Phone" type="text" name="name" value="+966562249819" readonly>
+                    </div>
+                    <div>
+                        <label for="email">E-mail:</label>
+                        <input class="field" id="email" type="email" name="name" value="ahmed.ali@gmail.com" readonly>
+                    </div>
+                </div>
             </section><section class="block-info academic-info">
-              <span>Academic Info</span>
-              <div class="labels">
-                <label for="acad-id">Academic ID:</label>
-                <label for="major">Major:</label>
-                <label for="gpa">GPA:</label>
-                <label for="grad-year">Graduation Year:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="acad-id" value="213110987" readonly>
-                <input type="text" name="major" value="Software Engineering" readonly>
-                <input type="number" step="0.01" name="gpa" value="3.34" readonly>
-                <input type="text" name="grad-year" value="2016 / 2017" readonly>
+              <span class="block-title">Academic Info</span>
+              <div class="block-inputs">
+                  <div>
+                      <label for="acad-id">Academic ID:</label>
+                      <input class="field" id="acad-id" type="text" name="acad-id" value="213110987" readonly>
+                  </div>
+                  <div>
+                      <label for="major">Major:</label>
+                      <input class="field" id="major" type="text" name="major" value="Software Engineering" readonly>
+                  </div>
+                  <div>
+                      <label for="gpa">GPA:</label>
+                      <input class="field" id="gpa" type="number" step="0.01" name="gpa" value="3.34" readonly>
+                  </div>
+                  <div>
+                      <label for="grad-year">Graduation Year:</label>
+                      <input class="field" id="grad-year" type="text" name="grad-year" value="2016 / 2017" readonly>
+                  </div>
               </div>
             </section><section class="block-info company-info">
-              <span>Company Info</span>
-              <div class="labels">
-                <label for="title">Job Title:</label>
-                <label for="current-comp">Current Company:</label>
-                <label for="co-op-comp">Co-op Company:</label>
-                <label for="comp-size">Company Size:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="title" value="CEO" readonly>
-                <input type="text" name="current-comp" value="Microsoft" readonly>
-                <input type="text" name="co-op-comp" value="Google" readonly>
-                <input type="text" name="comp-size" value="Very Large" readonly>
+              <span class="block-title">Career Info</span>
+              <div class="block-inputs">
+                  <div>
+                      <label for="title">Job Title:</label>
+                      <input class="field" type="text" name="title" value="CEO" readonly>
+                  </div>
+                  <div>
+                      <label for="current-comp">Current Company:</label>
+                      <input class="field" type="text" name="current-comp" value="Microsoft" readonly>
+                  </div>
+                  <div>
+                      <label for="co-op-comp">Co-op Company:</label>
+                      <input class="field" type="text" name="co-op-comp" value="Google" readonly>
+                  </div>
+                  <div>
+                      <label for="comp-size">Company Size:</label>
+                      <input class="field" type="text" name="comp-size" value="Very Large" readonly>
+                  </div>
               </div>
             </section>
             <section class="social-contact">
               <div class="social-media">
-
+                  <a title="view his profile" href="#" class="alumni">
+                      <img src="../img/transperant-logo.png" alt="PSU-logo"/>
+                  </a>
+                  <span title="view his facebook profile" class="facebook"></span>
+                  <span title="view his twitter account" class="twitter"></span>
+                  <span title="view his LinkedIn account" class="linkedIn"></span>
               </div>
-              <div class="profile-link">
-
+              <div dir="rtl" class="functions">
+                  <span title="edit profile" class="edit"></span>
+                  <span title="write note" class="write-note"></span>
               </div>
             </section>
+            <span title="close" class="close-btn"></span>
           </article>
         </div>
         <div class="record">
@@ -719,56 +894,81 @@
               <img src="img/transperant-logo.png" alt="profile-pic" />
             </div>
             <section class="block-info personal-info">
-              <span>Personal Info</span>
-              <div class="labels">
-                <label for="name">Name:</label>
-                <label for="nationality">Nationality:</label>
-                <label for="Phone">Phones:</label>
-                <label for="email">E-mail:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="name" value="Ahmed Ali" readonly>
-                <input type="text" name="name" value="Syrian" readonly>
-                <input type="text" name="name" value="+966562249819" readonly>
-                <input type="email" name="name" value="ahmed.ali@gmail.com" readonly>
-              </div>
+              <span class="block-title">Personal Info</span>
+                <div class="block-inputs">
+                    <div>
+                        <label for="name">Name:</label>
+                        <input class="field" id="name" type="text" name="name" value="Ahmed Ali" readonly>
+                    </div>
+                    <div>
+                        <label for="nationality">Nationality:</label>
+                        <input class="field" id="nationality" type="text" name="name" value="Syrian" readonly>
+                    </div>
+                    <div>
+                        <label for="Phone">Phones:</label>
+                        <input class="field" id="Phone" type="text" name="name" value="+966562249819" readonly>
+                    </div>
+                    <div>
+                        <label for="email">E-mail:</label>
+                        <input class="field" id="email" type="email" name="name" value="ahmed.ali@gmail.com" readonly>
+                    </div>
+                </div>
             </section><section class="block-info academic-info">
-              <span>Academic Info</span>
-              <div class="labels">
-                <label for="acad-id">Academic ID:</label>
-                <label for="major">Major:</label>
-                <label for="gpa">GPA:</label>
-                <label for="grad-year">Graduation Year:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="acad-id" value="213110987" readonly>
-                <input type="text" name="major" value="Software Engineering" readonly>
-                <input type="number" step="0.01" name="gpa" value="3.34" readonly>
-                <input type="text" name="grad-year" value="2016 / 2017" readonly>
+              <span class="block-title">Academic Info</span>
+              <div class="block-inputs">
+                  <div>
+                      <label for="acad-id">Academic ID:</label>
+                      <input class="field" id="acad-id" type="text" name="acad-id" value="213110987" readonly>
+                  </div>
+                  <div>
+                      <label for="major">Major:</label>
+                      <input class="field" id="major" type="text" name="major" value="Software Engineering" readonly>
+                  </div>
+                  <div>
+                      <label for="gpa">GPA:</label>
+                      <input class="field" id="gpa" type="number" step="0.01" name="gpa" value="3.34" readonly>
+                  </div>
+                  <div>
+                      <label for="grad-year">Graduation Year:</label>
+                      <input class="field" id="grad-year" type="text" name="grad-year" value="2016 / 2017" readonly>
+                  </div>
               </div>
             </section><section class="block-info company-info">
-              <span>Company Info</span>
-              <div class="labels">
-                <label for="title">Job Title:</label>
-                <label for="current-comp">Current Company:</label>
-                <label for="co-op-comp">Co-op Company:</label>
-                <label for="comp-size">Company Size:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="title" value="CEO" readonly>
-                <input type="text" name="current-comp" value="Microsoft" readonly>
-                <input type="text" name="co-op-comp" value="Google" readonly>
-                <input type="text" name="comp-size" value="Very Large" readonly>
+              <span class="block-title">Career Info</span>
+              <div class="block-inputs">
+                  <div>
+                      <label for="title">Job Title:</label>
+                      <input class="field" type="text" name="title" value="CEO" readonly>
+                  </div>
+                  <div>
+                      <label for="current-comp">Current Company:</label>
+                      <input class="field" type="text" name="current-comp" value="Microsoft" readonly>
+                  </div>
+                  <div>
+                      <label for="co-op-comp">Co-op Company:</label>
+                      <input class="field" type="text" name="co-op-comp" value="Google" readonly>
+                  </div>
+                  <div>
+                      <label for="comp-size">Company Size:</label>
+                      <input class="field" type="text" name="comp-size" value="Very Large" readonly>
+                  </div>
               </div>
             </section>
             <section class="social-contact">
               <div class="social-media">
-
+                  <a title="view his profile" href="#" class="alumni">
+                      <img src="../img/transperant-logo.png" alt="PSU-logo"/>
+                  </a>
+                  <span title="view his facebook profile" class="facebook"></span>
+                  <span title="view his twitter account" class="twitter"></span>
+                  <span title="view his LinkedIn account" class="linkedIn"></span>
               </div>
-              <div class="profile-link">
-
+              <div dir="rtl" class="functions">
+                  <span title="edit profile" class="edit"></span>
+                  <span title="write note" class="write-note"></span>
               </div>
             </section>
+            <span title="close" class="close-btn"></span>
           </article>
         </div>
         <div class="record">
@@ -804,56 +1004,81 @@
               <img src="img/transperant-logo.png" alt="profile-pic" />
             </div>
             <section class="block-info personal-info">
-              <span>Personal Info</span>
-              <div class="labels">
-                <label for="name">Name:</label>
-                <label for="nationality">Nationality:</label>
-                <label for="Phone">Phones:</label>
-                <label for="email">E-mail:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="name" value="Ahmed Ali" readonly>
-                <input type="text" name="name" value="Syrian" readonly>
-                <input type="text" name="name" value="+966562249819" readonly>
-                <input type="email" name="name" value="ahmed.ali@gmail.com" readonly>
-              </div>
+              <span class="block-title">Personal Info</span>
+                <div class="block-inputs">
+                    <div>
+                        <label for="name">Name:</label>
+                        <input class="field" id="name" type="text" name="name" value="Ahmed Ali" readonly>
+                    </div>
+                    <div>
+                        <label for="nationality">Nationality:</label>
+                        <input class="field" id="nationality" type="text" name="name" value="Syrian" readonly>
+                    </div>
+                    <div>
+                        <label for="Phone">Phones:</label>
+                        <input class="field" id="Phone" type="text" name="name" value="+966562249819" readonly>
+                    </div>
+                    <div>
+                        <label for="email">E-mail:</label>
+                        <input class="field" id="email" type="email" name="name" value="ahmed.ali@gmail.com" readonly>
+                    </div>
+                </div>
             </section><section class="block-info academic-info">
-              <span>Academic Info</span>
-              <div class="labels">
-                <label for="acad-id">Academic ID:</label>
-                <label for="major">Major:</label>
-                <label for="gpa">GPA:</label>
-                <label for="grad-year">Graduation Year:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="acad-id" value="213110987" readonly>
-                <input type="text" name="major" value="Software Engineering" readonly>
-                <input type="number" step="0.01" name="gpa" value="3.34" readonly>
-                <input type="text" name="grad-year" value="2016 / 2017" readonly>
+              <span class="block-title">Academic Info</span>
+              <div class="block-inputs">
+                  <div>
+                      <label for="acad-id">Academic ID:</label>
+                      <input class="field" id="acad-id" type="text" name="acad-id" value="213110987" readonly>
+                  </div>
+                  <div>
+                      <label for="major">Major:</label>
+                      <input class="field" id="major" type="text" name="major" value="Software Engineering" readonly>
+                  </div>
+                  <div>
+                      <label for="gpa">GPA:</label>
+                      <input class="field" id="gpa" type="number" step="0.01" name="gpa" value="3.34" readonly>
+                  </div>
+                  <div>
+                      <label for="grad-year">Graduation Year:</label>
+                      <input class="field" id="grad-year" type="text" name="grad-year" value="2016 / 2017" readonly>
+                  </div>
               </div>
             </section><section class="block-info company-info">
-              <span>Company Info</span>
-              <div class="labels">
-                <label for="title">Job Title:</label>
-                <label for="current-comp">Current Company:</label>
-                <label for="co-op-comp">Co-op Company:</label>
-                <label for="comp-size">Company Size:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="title" value="CEO" readonly>
-                <input type="text" name="current-comp" value="Microsoft" readonly>
-                <input type="text" name="co-op-comp" value="Google" readonly>
-                <input type="text" name="comp-size" value="Very Large" readonly>
+              <span class="block-title">Career Info</span>
+              <div class="block-inputs">
+                  <div>
+                      <label for="title">Job Title:</label>
+                      <input class="field" type="text" name="title" value="CEO" readonly>
+                  </div>
+                  <div>
+                      <label for="current-comp">Current Company:</label>
+                      <input class="field" type="text" name="current-comp" value="Microsoft" readonly>
+                  </div>
+                  <div>
+                      <label for="co-op-comp">Co-op Company:</label>
+                      <input class="field" type="text" name="co-op-comp" value="Google" readonly>
+                  </div>
+                  <div>
+                      <label for="comp-size">Company Size:</label>
+                      <input class="field" type="text" name="comp-size" value="Very Large" readonly>
+                  </div>
               </div>
             </section>
             <section class="social-contact">
               <div class="social-media">
-
+                  <a title="view his profile" href="#" class="alumni">
+                      <img src="../img/transperant-logo.png" alt="PSU-logo"/>
+                  </a>
+                  <span title="view his facebook profile" class="facebook"></span>
+                  <span title="view his twitter account" class="twitter"></span>
+                  <span title="view his LinkedIn account" class="linkedIn"></span>
               </div>
-              <div class="profile-link">
-
+              <div dir="rtl" class="functions">
+                  <span title="edit profile" class="edit"></span>
+                  <span title="write note" class="write-note"></span>
               </div>
             </section>
+            <span title="close" class="close-btn"></span>
           </article>
         </div>
         <div class="record">
@@ -889,56 +1114,81 @@
               <img src="img/transperant-logo.png" alt="profile-pic" />
             </div>
             <section class="block-info personal-info">
-              <span>Personal Info</span>
-              <div class="labels">
-                <label for="name">Name:</label>
-                <label for="nationality">Nationality:</label>
-                <label for="Phone">Phones:</label>
-                <label for="email">E-mail:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="name" value="Ahmed Ali" readonly>
-                <input type="text" name="name" value="Syrian" readonly>
-                <input type="text" name="name" value="+966562249819" readonly>
-                <input type="email" name="name" value="ahmed.ali@gmail.com" readonly>
-              </div>
+              <span class="block-title">Personal Info</span>
+                <div class="block-inputs">
+                    <div>
+                        <label for="name">Name:</label>
+                        <input class="field" id="name" type="text" name="name" value="Ahmed Ali" readonly>
+                    </div>
+                    <div>
+                        <label for="nationality">Nationality:</label>
+                        <input class="field" id="nationality" type="text" name="name" value="Syrian" readonly>
+                    </div>
+                    <div>
+                        <label for="Phone">Phones:</label>
+                        <input class="field" id="Phone" type="text" name="name" value="+966562249819" readonly>
+                    </div>
+                    <div>
+                        <label for="email">E-mail:</label>
+                        <input class="field" id="email" type="email" name="name" value="ahmed.ali@gmail.com" readonly>
+                    </div>
+                </div>
             </section><section class="block-info academic-info">
-              <span>Academic Info</span>
-              <div class="labels">
-                <label for="acad-id">Academic ID:</label>
-                <label for="major">Major:</label>
-                <label for="gpa">GPA:</label>
-                <label for="grad-year">Graduation Year:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="acad-id" value="213110987" readonly>
-                <input type="text" name="major" value="Software Engineering" readonly>
-                <input type="number" step="0.01" name="gpa" value="3.34" readonly>
-                <input type="text" name="grad-year" value="2016 / 2017" readonly>
+              <span class="block-title">Academic Info</span>
+              <div class="block-inputs">
+                  <div>
+                      <label for="acad-id">Academic ID:</label>
+                      <input class="field" id="acad-id" type="text" name="acad-id" value="213110987" readonly>
+                  </div>
+                  <div>
+                      <label for="major">Major:</label>
+                      <input class="field" id="major" type="text" name="major" value="Software Engineering" readonly>
+                  </div>
+                  <div>
+                      <label for="gpa">GPA:</label>
+                      <input class="field" id="gpa" type="number" step="0.01" name="gpa" value="3.34" readonly>
+                  </div>
+                  <div>
+                      <label for="grad-year">Graduation Year:</label>
+                      <input class="field" id="grad-year" type="text" name="grad-year" value="2016 / 2017" readonly>
+                  </div>
               </div>
             </section><section class="block-info company-info">
-              <span>Company Info</span>
-              <div class="labels">
-                <label for="title">Job Title:</label>
-                <label for="current-comp">Current Company:</label>
-                <label for="co-op-comp">Co-op Company:</label>
-                <label for="comp-size">Company Size:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="title" value="CEO" readonly>
-                <input type="text" name="current-comp" value="Microsoft" readonly>
-                <input type="text" name="co-op-comp" value="Google" readonly>
-                <input type="text" name="comp-size" value="Very Large" readonly>
+              <span class="block-title">Career Info</span>
+              <div class="block-inputs">
+                  <div>
+                      <label for="title">Job Title:</label>
+                      <input class="field" type="text" name="title" value="CEO" readonly>
+                  </div>
+                  <div>
+                      <label for="current-comp">Current Company:</label>
+                      <input class="field" type="text" name="current-comp" value="Microsoft" readonly>
+                  </div>
+                  <div>
+                      <label for="co-op-comp">Co-op Company:</label>
+                      <input class="field" type="text" name="co-op-comp" value="Google" readonly>
+                  </div>
+                  <div>
+                      <label for="comp-size">Company Size:</label>
+                      <input class="field" type="text" name="comp-size" value="Very Large" readonly>
+                  </div>
               </div>
             </section>
             <section class="social-contact">
               <div class="social-media">
-
+                  <a title="view his profile" href="#" class="alumni">
+                      <img src="../img/transperant-logo.png" alt="PSU-logo"/>
+                  </a>
+                  <span title="view his facebook profile" class="facebook"></span>
+                  <span title="view his twitter account" class="twitter"></span>
+                  <span title="view his LinkedIn account" class="linkedIn"></span>
               </div>
-              <div class="profile-link">
-
+              <div dir="rtl" class="functions">
+                  <span title="edit profile" class="edit"></span>
+                  <span title="write note" class="write-note"></span>
               </div>
             </section>
+            <span title="close" class="close-btn"></span>
           </article>
         </div>
         <div class="record">
@@ -974,56 +1224,81 @@
               <img src="img/transperant-logo.png" alt="profile-pic" />
             </div>
             <section class="block-info personal-info">
-              <span>Personal Info</span>
-              <div class="labels">
-                <label for="name">Name:</label>
-                <label for="nationality">Nationality:</label>
-                <label for="Phone">Phones:</label>
-                <label for="email">E-mail:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="name" value="Ahmed Ali" readonly>
-                <input type="text" name="name" value="Syrian" readonly>
-                <input type="text" name="name" value="+966562249819" readonly>
-                <input type="email" name="name" value="ahmed.ali@gmail.com" readonly>
-              </div>
+              <span class="block-title">Personal Info</span>
+                <div class="block-inputs">
+                    <div>
+                        <label for="name">Name:</label>
+                        <input class="field" id="name" type="text" name="name" value="Ahmed Ali" readonly>
+                    </div>
+                    <div>
+                        <label for="nationality">Nationality:</label>
+                        <input class="field" id="nationality" type="text" name="name" value="Syrian" readonly>
+                    </div>
+                    <div>
+                        <label for="Phone">Phones:</label>
+                        <input class="field" id="Phone" type="text" name="name" value="+966562249819" readonly>
+                    </div>
+                    <div>
+                        <label for="email">E-mail:</label>
+                        <input class="field" id="email" type="email" name="name" value="ahmed.ali@gmail.com" readonly>
+                    </div>
+                </div>
             </section><section class="block-info academic-info">
-              <span>Academic Info</span>
-              <div class="labels">
-                <label for="acad-id">Academic ID:</label>
-                <label for="major">Major:</label>
-                <label for="gpa">GPA:</label>
-                <label for="grad-year">Graduation Year:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="acad-id" value="213110987" readonly>
-                <input type="text" name="major" value="Software Engineering" readonly>
-                <input type="number" step="0.01" name="gpa" value="3.34" readonly>
-                <input type="text" name="grad-year" value="2016 / 2017" readonly>
+              <span class="block-title">Academic Info</span>
+              <div class="block-inputs">
+                  <div>
+                      <label for="acad-id">Academic ID:</label>
+                      <input class="field" id="acad-id" type="text" name="acad-id" value="213110987" readonly>
+                  </div>
+                  <div>
+                      <label for="major">Major:</label>
+                      <input class="field" id="major" type="text" name="major" value="Software Engineering" readonly>
+                  </div>
+                  <div>
+                      <label for="gpa">GPA:</label>
+                      <input class="field" id="gpa" type="number" step="0.01" name="gpa" value="3.34" readonly>
+                  </div>
+                  <div>
+                      <label for="grad-year">Graduation Year:</label>
+                      <input class="field" id="grad-year" type="text" name="grad-year" value="2016 / 2017" readonly>
+                  </div>
               </div>
             </section><section class="block-info company-info">
-              <span>Company Info</span>
-              <div class="labels">
-                <label for="title">Job Title:</label>
-                <label for="current-comp">Current Company:</label>
-                <label for="co-op-comp">Co-op Company:</label>
-                <label for="comp-size">Company Size:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="title" value="CEO" readonly>
-                <input type="text" name="current-comp" value="Microsoft" readonly>
-                <input type="text" name="co-op-comp" value="Google" readonly>
-                <input type="text" name="comp-size" value="Very Large" readonly>
+              <span class="block-title">Career Info</span>
+              <div class="block-inputs">
+                  <div>
+                      <label for="title">Job Title:</label>
+                      <input class="field" type="text" name="title" value="CEO" readonly>
+                  </div>
+                  <div>
+                      <label for="current-comp">Current Company:</label>
+                      <input class="field" type="text" name="current-comp" value="Microsoft" readonly>
+                  </div>
+                  <div>
+                      <label for="co-op-comp">Co-op Company:</label>
+                      <input class="field" type="text" name="co-op-comp" value="Google" readonly>
+                  </div>
+                  <div>
+                      <label for="comp-size">Company Size:</label>
+                      <input class="field" type="text" name="comp-size" value="Very Large" readonly>
+                  </div>
               </div>
             </section>
             <section class="social-contact">
               <div class="social-media">
-
+                  <a title="view his profile" href="#" class="alumni">
+                      <img src="../img/transperant-logo.png" alt="PSU-logo"/>
+                  </a>
+                  <span title="view his facebook profile" class="facebook"></span>
+                  <span title="view his twitter account" class="twitter"></span>
+                  <span title="view his LinkedIn account" class="linkedIn"></span>
               </div>
-              <div class="profile-link">
-
+              <div dir="rtl" class="functions">
+                  <span title="edit profile" class="edit"></span>
+                  <span title="write note" class="write-note"></span>
               </div>
             </section>
+            <span title="close" class="close-btn"></span>
           </article>
         </div>
         <div class="record">
@@ -1059,56 +1334,81 @@
               <img src="img/transperant-logo.png" alt="profile-pic" />
             </div>
             <section class="block-info personal-info">
-              <span>Personal Info</span>
-              <div class="labels">
-                <label for="name">Name:</label>
-                <label for="nationality">Nationality:</label>
-                <label for="Phone">Phones:</label>
-                <label for="email">E-mail:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="name" value="Ahmed Ali" readonly>
-                <input type="text" name="name" value="Syrian" readonly>
-                <input type="text" name="name" value="+966562249819" readonly>
-                <input type="email" name="name" value="ahmed.ali@gmail.com" readonly>
-              </div>
+              <span class="block-title">Personal Info</span>
+                <div class="block-inputs">
+                    <div>
+                        <label for="name">Name:</label>
+                        <input class="field" id="name" type="text" name="name" value="Ahmed Ali" readonly>
+                    </div>
+                    <div>
+                        <label for="nationality">Nationality:</label>
+                        <input class="field" id="nationality" type="text" name="name" value="Syrian" readonly>
+                    </div>
+                    <div>
+                        <label for="Phone">Phones:</label>
+                        <input class="field" id="Phone" type="text" name="name" value="+966562249819" readonly>
+                    </div>
+                    <div>
+                        <label for="email">E-mail:</label>
+                        <input class="field" id="email" type="email" name="name" value="ahmed.ali@gmail.com" readonly>
+                    </div>
+                </div>
             </section><section class="block-info academic-info">
-              <span>Academic Info</span>
-              <div class="labels">
-                <label for="acad-id">Academic ID:</label>
-                <label for="major">Major:</label>
-                <label for="gpa">GPA:</label>
-                <label for="grad-year">Graduation Year:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="acad-id" value="213110987" readonly>
-                <input type="text" name="major" value="Software Engineering" readonly>
-                <input type="number" step="0.01" name="gpa" value="3.34" readonly>
-                <input type="text" name="grad-year" value="2016 / 2017" readonly>
+              <span class="block-title">Academic Info</span>
+              <div class="block-inputs">
+                  <div>
+                      <label for="acad-id">Academic ID:</label>
+                      <input class="field" id="acad-id" type="text" name="acad-id" value="213110987" readonly>
+                  </div>
+                  <div>
+                      <label for="major">Major:</label>
+                      <input class="field" id="major" type="text" name="major" value="Software Engineering" readonly>
+                  </div>
+                  <div>
+                      <label for="gpa">GPA:</label>
+                      <input class="field" id="gpa" type="number" step="0.01" name="gpa" value="3.34" readonly>
+                  </div>
+                  <div>
+                      <label for="grad-year">Graduation Year:</label>
+                      <input class="field" id="grad-year" type="text" name="grad-year" value="2016 / 2017" readonly>
+                  </div>
               </div>
             </section><section class="block-info company-info">
-              <span>Company Info</span>
-              <div class="labels">
-                <label for="title">Job Title:</label>
-                <label for="current-comp">Current Company:</label>
-                <label for="co-op-comp">Co-op Company:</label>
-                <label for="comp-size">Company Size:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="title" value="CEO" readonly>
-                <input type="text" name="current-comp" value="Microsoft" readonly>
-                <input type="text" name="co-op-comp" value="Google" readonly>
-                <input type="text" name="comp-size" value="Very Large" readonly>
+              <span class="block-title">Career Info</span>
+              <div class="block-inputs">
+                  <div>
+                      <label for="title">Job Title:</label>
+                      <input class="field" type="text" name="title" value="CEO" readonly>
+                  </div>
+                  <div>
+                      <label for="current-comp">Current Company:</label>
+                      <input class="field" type="text" name="current-comp" value="Microsoft" readonly>
+                  </div>
+                  <div>
+                      <label for="co-op-comp">Co-op Company:</label>
+                      <input class="field" type="text" name="co-op-comp" value="Google" readonly>
+                  </div>
+                  <div>
+                      <label for="comp-size">Company Size:</label>
+                      <input class="field" type="text" name="comp-size" value="Very Large" readonly>
+                  </div>
               </div>
             </section>
             <section class="social-contact">
               <div class="social-media">
-
+                  <a title="view his profile" href="#" class="alumni">
+                      <img src="../img/transperant-logo.png" alt="PSU-logo"/>
+                  </a>
+                  <span title="view his facebook profile" class="facebook"></span>
+                  <span title="view his twitter account" class="twitter"></span>
+                  <span title="view his LinkedIn account" class="linkedIn"></span>
               </div>
-              <div class="profile-link">
-
+              <div dir="rtl" class="functions">
+                  <span title="edit profile" class="edit"></span>
+                  <span title="write note" class="write-note"></span>
               </div>
             </section>
+            <span title="close" class="close-btn"></span>
           </article>
         </div>
         <div class="record">
@@ -1144,56 +1444,81 @@
               <img src="img/transperant-logo.png" alt="profile-pic" />
             </div>
             <section class="block-info personal-info">
-              <span>Personal Info</span>
-              <div class="labels">
-                <label for="name">Name:</label>
-                <label for="nationality">Nationality:</label>
-                <label for="Phone">Phones:</label>
-                <label for="email">E-mail:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="name" value="Ahmed Ali" readonly>
-                <input type="text" name="name" value="Syrian" readonly>
-                <input type="text" name="name" value="+966562249819" readonly>
-                <input type="email" name="name" value="ahmed.ali@gmail.com" readonly>
-              </div>
+              <span class="block-title">Personal Info</span>
+                <div class="block-inputs">
+                    <div>
+                        <label for="name">Name:</label>
+                        <input class="field" id="name" type="text" name="name" value="Ahmed Ali" readonly>
+                    </div>
+                    <div>
+                        <label for="nationality">Nationality:</label>
+                        <input class="field" id="nationality" type="text" name="name" value="Syrian" readonly>
+                    </div>
+                    <div>
+                        <label for="Phone">Phones:</label>
+                        <input class="field" id="Phone" type="text" name="name" value="+966562249819" readonly>
+                    </div>
+                    <div>
+                        <label for="email">E-mail:</label>
+                        <input class="field" id="email" type="email" name="name" value="ahmed.ali@gmail.com" readonly>
+                    </div>
+                </div>
             </section><section class="block-info academic-info">
-              <span>Academic Info</span>
-              <div class="labels">
-                <label for="acad-id">Academic ID:</label>
-                <label for="major">Major:</label>
-                <label for="gpa">GPA:</label>
-                <label for="grad-year">Graduation Year:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="acad-id" value="213110987" readonly>
-                <input type="text" name="major" value="Software Engineering" readonly>
-                <input type="number" step="0.01" name="gpa" value="3.34" readonly>
-                <input type="text" name="grad-year" value="2016 / 2017" readonly>
+              <span class="block-title">Academic Info</span>
+              <div class="block-inputs">
+                  <div>
+                      <label for="acad-id">Academic ID:</label>
+                      <input class="field" id="acad-id" type="text" name="acad-id" value="213110987" readonly>
+                  </div>
+                  <div>
+                      <label for="major">Major:</label>
+                      <input class="field" id="major" type="text" name="major" value="Software Engineering" readonly>
+                  </div>
+                  <div>
+                      <label for="gpa">GPA:</label>
+                      <input class="field" id="gpa" type="number" step="0.01" name="gpa" value="3.34" readonly>
+                  </div>
+                  <div>
+                      <label for="grad-year">Graduation Year:</label>
+                      <input class="field" id="grad-year" type="text" name="grad-year" value="2016 / 2017" readonly>
+                  </div>
               </div>
             </section><section class="block-info company-info">
-              <span>Company Info</span>
-              <div class="labels">
-                <label for="title">Job Title:</label>
-                <label for="current-comp">Current Company:</label>
-                <label for="co-op-comp">Co-op Company:</label>
-                <label for="comp-size">Company Size:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="title" value="CEO" readonly>
-                <input type="text" name="current-comp" value="Microsoft" readonly>
-                <input type="text" name="co-op-comp" value="Google" readonly>
-                <input type="text" name="comp-size" value="Very Large" readonly>
+              <span class="block-title">Career Info</span>
+              <div class="block-inputs">
+                  <div>
+                      <label for="title">Job Title:</label>
+                      <input class="field" type="text" name="title" value="CEO" readonly>
+                  </div>
+                  <div>
+                      <label for="current-comp">Current Company:</label>
+                      <input class="field" type="text" name="current-comp" value="Microsoft" readonly>
+                  </div>
+                  <div>
+                      <label for="co-op-comp">Co-op Company:</label>
+                      <input class="field" type="text" name="co-op-comp" value="Google" readonly>
+                  </div>
+                  <div>
+                      <label for="comp-size">Company Size:</label>
+                      <input class="field" type="text" name="comp-size" value="Very Large" readonly>
+                  </div>
               </div>
             </section>
             <section class="social-contact">
               <div class="social-media">
-
+                  <a title="view his profile" href="#" class="alumni">
+                      <img src="../img/transperant-logo.png" alt="PSU-logo"/>
+                  </a>
+                  <span title="view his facebook profile" class="facebook"></span>
+                  <span title="view his twitter account" class="twitter"></span>
+                  <span title="view his LinkedIn account" class="linkedIn"></span>
               </div>
-              <div class="profile-link">
-
+              <div dir="rtl" class="functions">
+                  <span title="edit profile" class="edit"></span>
+                  <span title="write note" class="write-note"></span>
               </div>
             </section>
+            <span title="close" class="close-btn"></span>
           </article>
         </div>
         <div class="record">
@@ -1229,56 +1554,81 @@
               <img src="img/transperant-logo.png" alt="profile-pic" />
             </div>
             <section class="block-info personal-info">
-              <span>Personal Info</span>
-              <div class="labels">
-                <label for="name">Name:</label>
-                <label for="nationality">Nationality:</label>
-                <label for="Phone">Phones:</label>
-                <label for="email">E-mail:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="name" value="Ahmed Ali" readonly>
-                <input type="text" name="name" value="Syrian" readonly>
-                <input type="text" name="name" value="+966562249819" readonly>
-                <input type="email" name="name" value="ahmed.ali@gmail.com" readonly>
-              </div>
+              <span class="block-title">Personal Info</span>
+                <div class="block-inputs">
+                    <div>
+                        <label for="name">Name:</label>
+                        <input class="field" id="name" type="text" name="name" value="Ahmed Ali" readonly>
+                    </div>
+                    <div>
+                        <label for="nationality">Nationality:</label>
+                        <input class="field" id="nationality" type="text" name="name" value="Syrian" readonly>
+                    </div>
+                    <div>
+                        <label for="Phone">Phones:</label>
+                        <input class="field" id="Phone" type="text" name="name" value="+966562249819" readonly>
+                    </div>
+                    <div>
+                        <label for="email">E-mail:</label>
+                        <input class="field" id="email" type="email" name="name" value="ahmed.ali@gmail.com" readonly>
+                    </div>
+                </div>
             </section><section class="block-info academic-info">
-              <span>Academic Info</span>
-              <div class="labels">
-                <label for="acad-id">Academic ID:</label>
-                <label for="major">Major:</label>
-                <label for="gpa">GPA:</label>
-                <label for="grad-year">Graduation Year:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="acad-id" value="213110987" readonly>
-                <input type="text" name="major" value="Software Engineering" readonly>
-                <input type="number" step="0.01" name="gpa" value="3.34" readonly>
-                <input type="text" name="grad-year" value="2016 / 2017" readonly>
+              <span class="block-title">Academic Info</span>
+              <div class="block-inputs">
+                  <div>
+                      <label for="acad-id">Academic ID:</label>
+                      <input class="field" id="acad-id" type="text" name="acad-id" value="213110987" readonly>
+                  </div>
+                  <div>
+                      <label for="major">Major:</label>
+                      <input class="field" id="major" type="text" name="major" value="Software Engineering" readonly>
+                  </div>
+                  <div>
+                      <label for="gpa">GPA:</label>
+                      <input class="field" id="gpa" type="number" step="0.01" name="gpa" value="3.34" readonly>
+                  </div>
+                  <div>
+                      <label for="grad-year">Graduation Year:</label>
+                      <input class="field" id="grad-year" type="text" name="grad-year" value="2016 / 2017" readonly>
+                  </div>
               </div>
             </section><section class="block-info company-info">
-              <span>Company Info</span>
-              <div class="labels">
-                <label for="title">Job Title:</label>
-                <label for="current-comp">Current Company:</label>
-                <label for="co-op-comp">Co-op Company:</label>
-                <label for="comp-size">Company Size:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="title" value="CEO" readonly>
-                <input type="text" name="current-comp" value="Microsoft" readonly>
-                <input type="text" name="co-op-comp" value="Google" readonly>
-                <input type="text" name="comp-size" value="Very Large" readonly>
+              <span class="block-title">Career Info</span>
+              <div class="block-inputs">
+                  <div>
+                      <label for="title">Job Title:</label>
+                      <input class="field" type="text" name="title" value="CEO" readonly>
+                  </div>
+                  <div>
+                      <label for="current-comp">Current Company:</label>
+                      <input class="field" type="text" name="current-comp" value="Microsoft" readonly>
+                  </div>
+                  <div>
+                      <label for="co-op-comp">Co-op Company:</label>
+                      <input class="field" type="text" name="co-op-comp" value="Google" readonly>
+                  </div>
+                  <div>
+                      <label for="comp-size">Company Size:</label>
+                      <input class="field" type="text" name="comp-size" value="Very Large" readonly>
+                  </div>
               </div>
             </section>
             <section class="social-contact">
               <div class="social-media">
-
+                  <a title="view his profile" href="#" class="alumni">
+                      <img src="../img/transperant-logo.png" alt="PSU-logo"/>
+                  </a>
+                  <span title="view his facebook profile" class="facebook"></span>
+                  <span title="view his twitter account" class="twitter"></span>
+                  <span title="view his LinkedIn account" class="linkedIn"></span>
               </div>
-              <div class="profile-link">
-
+              <div dir="rtl" class="functions">
+                  <span title="edit profile" class="edit"></span>
+                  <span title="write note" class="write-note"></span>
               </div>
             </section>
+            <span title="close" class="close-btn"></span>
           </article>
         </div>
         <div class="record">
@@ -1314,56 +1664,81 @@
               <img src="img/transperant-logo.png" alt="profile-pic" />
             </div>
             <section class="block-info personal-info">
-              <span>Personal Info</span>
-              <div class="labels">
-                <label for="name">Name:</label>
-                <label for="nationality">Nationality:</label>
-                <label for="Phone">Phones:</label>
-                <label for="email">E-mail:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="name" value="Ahmed Ali" readonly>
-                <input type="text" name="name" value="Syrian" readonly>
-                <input type="text" name="name" value="+966562249819" readonly>
-                <input type="email" name="name" value="ahmed.ali@gmail.com" readonly>
-              </div>
+              <span class="block-title">Personal Info</span>
+                <div class="block-inputs">
+                    <div>
+                        <label for="name">Name:</label>
+                        <input class="field" id="name" type="text" name="name" value="Ahmed Ali" readonly>
+                    </div>
+                    <div>
+                        <label for="nationality">Nationality:</label>
+                        <input class="field" id="nationality" type="text" name="name" value="Syrian" readonly>
+                    </div>
+                    <div>
+                        <label for="Phone">Phones:</label>
+                        <input class="field" id="Phone" type="text" name="name" value="+966562249819" readonly>
+                    </div>
+                    <div>
+                        <label for="email">E-mail:</label>
+                        <input class="field" id="email" type="email" name="name" value="ahmed.ali@gmail.com" readonly>
+                    </div>
+                </div>
             </section><section class="block-info academic-info">
-              <span>Academic Info</span>
-              <div class="labels">
-                <label for="acad-id">Academic ID:</label>
-                <label for="major">Major:</label>
-                <label for="gpa">GPA:</label>
-                <label for="grad-year">Graduation Year:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="acad-id" value="213110987" readonly>
-                <input type="text" name="major" value="Software Engineering" readonly>
-                <input type="number" step="0.01" name="gpa" value="3.34" readonly>
-                <input type="text" name="grad-year" value="2016 / 2017" readonly>
+              <span class="block-title">Academic Info</span>
+              <div class="block-inputs">
+                  <div>
+                      <label for="acad-id">Academic ID:</label>
+                      <input class="field" id="acad-id" type="text" name="acad-id" value="213110987" readonly>
+                  </div>
+                  <div>
+                      <label for="major">Major:</label>
+                      <input class="field" id="major" type="text" name="major" value="Software Engineering" readonly>
+                  </div>
+                  <div>
+                      <label for="gpa">GPA:</label>
+                      <input class="field" id="gpa" type="number" step="0.01" name="gpa" value="3.34" readonly>
+                  </div>
+                  <div>
+                      <label for="grad-year">Graduation Year:</label>
+                      <input class="field" id="grad-year" type="text" name="grad-year" value="2016 / 2017" readonly>
+                  </div>
               </div>
             </section><section class="block-info company-info">
-              <span>Company Info</span>
-              <div class="labels">
-                <label for="title">Job Title:</label>
-                <label for="current-comp">Current Company:</label>
-                <label for="co-op-comp">Co-op Company:</label>
-                <label for="comp-size">Company Size:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="title" value="CEO" readonly>
-                <input type="text" name="current-comp" value="Microsoft" readonly>
-                <input type="text" name="co-op-comp" value="Google" readonly>
-                <input type="text" name="comp-size" value="Very Large" readonly>
+              <span class="block-title">Career Info</span>
+              <div class="block-inputs">
+                  <div>
+                      <label for="title">Job Title:</label>
+                      <input class="field" type="text" name="title" value="CEO" readonly>
+                  </div>
+                  <div>
+                      <label for="current-comp">Current Company:</label>
+                      <input class="field" type="text" name="current-comp" value="Microsoft" readonly>
+                  </div>
+                  <div>
+                      <label for="co-op-comp">Co-op Company:</label>
+                      <input class="field" type="text" name="co-op-comp" value="Google" readonly>
+                  </div>
+                  <div>
+                      <label for="comp-size">Company Size:</label>
+                      <input class="field" type="text" name="comp-size" value="Very Large" readonly>
+                  </div>
               </div>
             </section>
             <section class="social-contact">
               <div class="social-media">
-
+                  <a title="view his profile" href="#" class="alumni">
+                      <img src="../img/transperant-logo.png" alt="PSU-logo"/>
+                  </a>
+                  <span title="view his facebook profile" class="facebook"></span>
+                  <span title="view his twitter account" class="twitter"></span>
+                  <span title="view his LinkedIn account" class="linkedIn"></span>
               </div>
-              <div class="profile-link">
-
+              <div dir="rtl" class="functions">
+                  <span title="edit profile" class="edit"></span>
+                  <span title="write note" class="write-note"></span>
               </div>
             </section>
+            <span title="close" class="close-btn"></span>
           </article>
         </div>
         <div class="record">
@@ -1399,56 +1774,81 @@
               <img src="img/transperant-logo.png" alt="profile-pic" />
             </div>
             <section class="block-info personal-info">
-              <span>Personal Info</span>
-              <div class="labels">
-                <label for="name">Name:</label>
-                <label for="nationality">Nationality:</label>
-                <label for="Phone">Phones:</label>
-                <label for="email">E-mail:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="name" value="Ahmed Ali" readonly>
-                <input type="text" name="name" value="Syrian" readonly>
-                <input type="text" name="name" value="+966562249819" readonly>
-                <input type="email" name="name" value="ahmed.ali@gmail.com" readonly>
-              </div>
+              <span class="block-title">Personal Info</span>
+                <div class="block-inputs">
+                    <div>
+                        <label for="name">Name:</label>
+                        <input class="field" id="name" type="text" name="name" value="Ahmed Ali" readonly>
+                    </div>
+                    <div>
+                        <label for="nationality">Nationality:</label>
+                        <input class="field" id="nationality" type="text" name="name" value="Syrian" readonly>
+                    </div>
+                    <div>
+                        <label for="Phone">Phones:</label>
+                        <input class="field" id="Phone" type="text" name="name" value="+966562249819" readonly>
+                    </div>
+                    <div>
+                        <label for="email">E-mail:</label>
+                        <input class="field" id="email" type="email" name="name" value="ahmed.ali@gmail.com" readonly>
+                    </div>
+                </div>
             </section><section class="block-info academic-info">
-              <span>Academic Info</span>
-              <div class="labels">
-                <label for="acad-id">Academic ID:</label>
-                <label for="major">Major:</label>
-                <label for="gpa">GPA:</label>
-                <label for="grad-year">Graduation Year:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="acad-id" value="213110987" readonly>
-                <input type="text" name="major" value="Software Engineering" readonly>
-                <input type="number" step="0.01" name="gpa" value="3.34" readonly>
-                <input type="text" name="grad-year" value="2016 / 2017" readonly>
+              <span class="block-title">Academic Info</span>
+              <div class="block-inputs">
+                  <div>
+                      <label for="acad-id">Academic ID:</label>
+                      <input class="field" id="acad-id" type="text" name="acad-id" value="213110987" readonly>
+                  </div>
+                  <div>
+                      <label for="major">Major:</label>
+                      <input class="field" id="major" type="text" name="major" value="Software Engineering" readonly>
+                  </div>
+                  <div>
+                      <label for="gpa">GPA:</label>
+                      <input class="field" id="gpa" type="number" step="0.01" name="gpa" value="3.34" readonly>
+                  </div>
+                  <div>
+                      <label for="grad-year">Graduation Year:</label>
+                      <input class="field" id="grad-year" type="text" name="grad-year" value="2016 / 2017" readonly>
+                  </div>
               </div>
             </section><section class="block-info company-info">
-              <span>Company Info</span>
-              <div class="labels">
-                <label for="title">Job Title:</label>
-                <label for="current-comp">Current Company:</label>
-                <label for="co-op-comp">Co-op Company:</label>
-                <label for="comp-size">Company Size:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="title" value="CEO" readonly>
-                <input type="text" name="current-comp" value="Microsoft" readonly>
-                <input type="text" name="co-op-comp" value="Google" readonly>
-                <input type="text" name="comp-size" value="Very Large" readonly>
+              <span class="block-title">Career Info</span>
+              <div class="block-inputs">
+                  <div>
+                      <label for="title">Job Title:</label>
+                      <input class="field" type="text" name="title" value="CEO" readonly>
+                  </div>
+                  <div>
+                      <label for="current-comp">Current Company:</label>
+                      <input class="field" type="text" name="current-comp" value="Microsoft" readonly>
+                  </div>
+                  <div>
+                      <label for="co-op-comp">Co-op Company:</label>
+                      <input class="field" type="text" name="co-op-comp" value="Google" readonly>
+                  </div>
+                  <div>
+                      <label for="comp-size">Company Size:</label>
+                      <input class="field" type="text" name="comp-size" value="Very Large" readonly>
+                  </div>
               </div>
             </section>
             <section class="social-contact">
               <div class="social-media">
-
+                  <a title="view his profile" href="#" class="alumni">
+                      <img src="../img/transperant-logo.png" alt="PSU-logo"/>
+                  </a>
+                  <span title="view his facebook profile" class="facebook"></span>
+                  <span title="view his twitter account" class="twitter"></span>
+                  <span title="view his LinkedIn account" class="linkedIn"></span>
               </div>
-              <div class="profile-link">
-
+              <div dir="rtl" class="functions">
+                  <span title="edit profile" class="edit"></span>
+                  <span title="write note" class="write-note"></span>
               </div>
             </section>
+            <span title="close" class="close-btn"></span>
           </article>
         </div>
         <div class="record">
@@ -1484,56 +1884,81 @@
               <img src="img/transperant-logo.png" alt="profile-pic" />
             </div>
             <section class="block-info personal-info">
-              <span>Personal Info</span>
-              <div class="labels">
-                <label for="name">Name:</label>
-                <label for="nationality">Nationality:</label>
-                <label for="Phone">Phones:</label>
-                <label for="email">E-mail:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="name" value="Ahmed Ali" readonly>
-                <input type="text" name="name" value="Syrian" readonly>
-                <input type="text" name="name" value="+966562249819" readonly>
-                <input type="email" name="name" value="ahmed.ali@gmail.com" readonly>
-              </div>
+              <span class="block-title">Personal Info</span>
+                <div class="block-inputs">
+                    <div>
+                        <label for="name">Name:</label>
+                        <input class="field" id="name" type="text" name="name" value="Ahmed Ali" readonly>
+                    </div>
+                    <div>
+                        <label for="nationality">Nationality:</label>
+                        <input class="field" id="nationality" type="text" name="name" value="Syrian" readonly>
+                    </div>
+                    <div>
+                        <label for="Phone">Phones:</label>
+                        <input class="field" id="Phone" type="text" name="name" value="+966562249819" readonly>
+                    </div>
+                    <div>
+                        <label for="email">E-mail:</label>
+                        <input class="field" id="email" type="email" name="name" value="ahmed.ali@gmail.com" readonly>
+                    </div>
+                </div>
             </section><section class="block-info academic-info">
-              <span>Academic Info</span>
-              <div class="labels">
-                <label for="acad-id">Academic ID:</label>
-                <label for="major">Major:</label>
-                <label for="gpa">GPA:</label>
-                <label for="grad-year">Graduation Year:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="acad-id" value="213110987" readonly>
-                <input type="text" name="major" value="Software Engineering" readonly>
-                <input type="number" step="0.01" name="gpa" value="3.34" readonly>
-                <input type="text" name="grad-year" value="2016 / 2017" readonly>
+              <span class="block-title">Academic Info</span>
+              <div class="block-inputs">
+                  <div>
+                      <label for="acad-id">Academic ID:</label>
+                      <input class="field" id="acad-id" type="text" name="acad-id" value="213110987" readonly>
+                  </div>
+                  <div>
+                      <label for="major">Major:</label>
+                      <input class="field" id="major" type="text" name="major" value="Software Engineering" readonly>
+                  </div>
+                  <div>
+                      <label for="gpa">GPA:</label>
+                      <input class="field" id="gpa" type="number" step="0.01" name="gpa" value="3.34" readonly>
+                  </div>
+                  <div>
+                      <label for="grad-year">Graduation Year:</label>
+                      <input class="field" id="grad-year" type="text" name="grad-year" value="2016 / 2017" readonly>
+                  </div>
               </div>
             </section><section class="block-info company-info">
-              <span>Company Info</span>
-              <div class="labels">
-                <label for="title">Job Title:</label>
-                <label for="current-comp">Current Company:</label>
-                <label for="co-op-comp">Co-op Company:</label>
-                <label for="comp-size">Company Size:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="title" value="CEO" readonly>
-                <input type="text" name="current-comp" value="Microsoft" readonly>
-                <input type="text" name="co-op-comp" value="Google" readonly>
-                <input type="text" name="comp-size" value="Very Large" readonly>
+              <span class="block-title">Career Info</span>
+              <div class="block-inputs">
+                  <div>
+                      <label for="title">Job Title:</label>
+                      <input class="field" type="text" name="title" value="CEO" readonly>
+                  </div>
+                  <div>
+                      <label for="current-comp">Current Company:</label>
+                      <input class="field" type="text" name="current-comp" value="Microsoft" readonly>
+                  </div>
+                  <div>
+                      <label for="co-op-comp">Co-op Company:</label>
+                      <input class="field" type="text" name="co-op-comp" value="Google" readonly>
+                  </div>
+                  <div>
+                      <label for="comp-size">Company Size:</label>
+                      <input class="field" type="text" name="comp-size" value="Very Large" readonly>
+                  </div>
               </div>
             </section>
             <section class="social-contact">
               <div class="social-media">
-
+                  <a title="view his profile" href="#" class="alumni">
+                      <img src="../img/transperant-logo.png" alt="PSU-logo"/>
+                  </a>
+                  <span title="view his facebook profile" class="facebook"></span>
+                  <span title="view his twitter account" class="twitter"></span>
+                  <span title="view his LinkedIn account" class="linkedIn"></span>
               </div>
-              <div class="profile-link">
-
+              <div dir="rtl" class="functions">
+                  <span title="edit profile" class="edit"></span>
+                  <span title="write note" class="write-note"></span>
               </div>
             </section>
+            <span title="close" class="close-btn"></span>
           </article>
         </div>
         <div class="record">
@@ -1569,56 +1994,81 @@
               <img src="img/transperant-logo.png" alt="profile-pic" />
             </div>
             <section class="block-info personal-info">
-              <span>Personal Info</span>
-              <div class="labels">
-                <label for="name">Name:</label>
-                <label for="nationality">Nationality:</label>
-                <label for="Phone">Phones:</label>
-                <label for="email">E-mail:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="name" value="Ahmed Ali" readonly>
-                <input type="text" name="name" value="Syrian" readonly>
-                <input type="text" name="name" value="+966562249819" readonly>
-                <input type="email" name="name" value="ahmed.ali@gmail.com" readonly>
-              </div>
+              <span class="block-title">Personal Info</span>
+                <div class="block-inputs">
+                    <div>
+                        <label for="name">Name:</label>
+                        <input class="field" id="name" type="text" name="name" value="Ahmed Ali" readonly>
+                    </div>
+                    <div>
+                        <label for="nationality">Nationality:</label>
+                        <input class="field" id="nationality" type="text" name="name" value="Syrian" readonly>
+                    </div>
+                    <div>
+                        <label for="Phone">Phones:</label>
+                        <input class="field" id="Phone" type="text" name="name" value="+966562249819" readonly>
+                    </div>
+                    <div>
+                        <label for="email">E-mail:</label>
+                        <input class="field" id="email" type="email" name="name" value="ahmed.ali@gmail.com" readonly>
+                    </div>
+                </div>
             </section><section class="block-info academic-info">
-              <span>Academic Info</span>
-              <div class="labels">
-                <label for="acad-id">Academic ID:</label>
-                <label for="major">Major:</label>
-                <label for="gpa">GPA:</label>
-                <label for="grad-year">Graduation Year:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="acad-id" value="213110987" readonly>
-                <input type="text" name="major" value="Software Engineering" readonly>
-                <input type="number" step="0.01" name="gpa" value="3.34" readonly>
-                <input type="text" name="grad-year" value="2016 / 2017" readonly>
+              <span class="block-title">Academic Info</span>
+              <div class="block-inputs">
+                  <div>
+                      <label for="acad-id">Academic ID:</label>
+                      <input class="field" id="acad-id" type="text" name="acad-id" value="213110987" readonly>
+                  </div>
+                  <div>
+                      <label for="major">Major:</label>
+                      <input class="field" id="major" type="text" name="major" value="Software Engineering" readonly>
+                  </div>
+                  <div>
+                      <label for="gpa">GPA:</label>
+                      <input class="field" id="gpa" type="number" step="0.01" name="gpa" value="3.34" readonly>
+                  </div>
+                  <div>
+                      <label for="grad-year">Graduation Year:</label>
+                      <input class="field" id="grad-year" type="text" name="grad-year" value="2016 / 2017" readonly>
+                  </div>
               </div>
             </section><section class="block-info company-info">
-              <span>Company Info</span>
-              <div class="labels">
-                <label for="title">Job Title:</label>
-                <label for="current-comp">Current Company:</label>
-                <label for="co-op-comp">Co-op Company:</label>
-                <label for="comp-size">Company Size:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="title" value="CEO" readonly>
-                <input type="text" name="current-comp" value="Microsoft" readonly>
-                <input type="text" name="co-op-comp" value="Google" readonly>
-                <input type="text" name="comp-size" value="Very Large" readonly>
+              <span class="block-title">Career Info</span>
+              <div class="block-inputs">
+                  <div>
+                      <label for="title">Job Title:</label>
+                      <input class="field" type="text" name="title" value="CEO" readonly>
+                  </div>
+                  <div>
+                      <label for="current-comp">Current Company:</label>
+                      <input class="field" type="text" name="current-comp" value="Microsoft" readonly>
+                  </div>
+                  <div>
+                      <label for="co-op-comp">Co-op Company:</label>
+                      <input class="field" type="text" name="co-op-comp" value="Google" readonly>
+                  </div>
+                  <div>
+                      <label for="comp-size">Company Size:</label>
+                      <input class="field" type="text" name="comp-size" value="Very Large" readonly>
+                  </div>
               </div>
             </section>
             <section class="social-contact">
               <div class="social-media">
-
+                  <a title="view his profile" href="#" class="alumni">
+                      <img src="../img/transperant-logo.png" alt="PSU-logo"/>
+                  </a>
+                  <span title="view his facebook profile" class="facebook"></span>
+                  <span title="view his twitter account" class="twitter"></span>
+                  <span title="view his LinkedIn account" class="linkedIn"></span>
               </div>
-              <div class="profile-link">
-
+              <div dir="rtl" class="functions">
+                  <span title="edit profile" class="edit"></span>
+                  <span title="write note" class="write-note"></span>
               </div>
             </section>
+            <span title="close" class="close-btn"></span>
           </article>
         </div>
         <div class="record">
@@ -1654,56 +2104,81 @@
               <img src="img/transperant-logo.png" alt="profile-pic" />
             </div>
             <section class="block-info personal-info">
-              <span>Personal Info</span>
-              <div class="labels">
-                <label for="name">Name:</label>
-                <label for="nationality">Nationality:</label>
-                <label for="Phone">Phones:</label>
-                <label for="email">E-mail:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="name" value="Ahmed Ali" readonly>
-                <input type="text" name="name" value="Syrian" readonly>
-                <input type="text" name="name" value="+966562249819" readonly>
-                <input type="email" name="name" value="ahmed.ali@gmail.com" readonly>
-              </div>
+              <span class="block-title">Personal Info</span>
+                <div class="block-inputs">
+                    <div>
+                        <label for="name">Name:</label>
+                        <input class="field" id="name" type="text" name="name" value="Ahmed Ali" readonly>
+                    </div>
+                    <div>
+                        <label for="nationality">Nationality:</label>
+                        <input class="field" id="nationality" type="text" name="name" value="Syrian" readonly>
+                    </div>
+                    <div>
+                        <label for="Phone">Phones:</label>
+                        <input class="field" id="Phone" type="text" name="name" value="+966562249819" readonly>
+                    </div>
+                    <div>
+                        <label for="email">E-mail:</label>
+                        <input class="field" id="email" type="email" name="name" value="ahmed.ali@gmail.com" readonly>
+                    </div>
+                </div>
             </section><section class="block-info academic-info">
-              <span>Academic Info</span>
-              <div class="labels">
-                <label for="acad-id">Academic ID:</label>
-                <label for="major">Major:</label>
-                <label for="gpa">GPA:</label>
-                <label for="grad-year">Graduation Year:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="acad-id" value="213110987" readonly>
-                <input type="text" name="major" value="Software Engineering" readonly>
-                <input type="number" step="0.01" name="gpa" value="3.34" readonly>
-                <input type="text" name="grad-year" value="2016 / 2017" readonly>
+              <span class="block-title">Academic Info</span>
+              <div class="block-inputs">
+                  <div>
+                      <label for="acad-id">Academic ID:</label>
+                      <input class="field" id="acad-id" type="text" name="acad-id" value="213110987" readonly>
+                  </div>
+                  <div>
+                      <label for="major">Major:</label>
+                      <input class="field" id="major" type="text" name="major" value="Software Engineering" readonly>
+                  </div>
+                  <div>
+                      <label for="gpa">GPA:</label>
+                      <input class="field" id="gpa" type="number" step="0.01" name="gpa" value="3.34" readonly>
+                  </div>
+                  <div>
+                      <label for="grad-year">Graduation Year:</label>
+                      <input class="field" id="grad-year" type="text" name="grad-year" value="2016 / 2017" readonly>
+                  </div>
               </div>
             </section><section class="block-info company-info">
-              <span>Company Info</span>
-              <div class="labels">
-                <label for="title">Job Title:</label>
-                <label for="current-comp">Current Company:</label>
-                <label for="co-op-comp">Co-op Company:</label>
-                <label for="comp-size">Company Size:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="title" value="CEO" readonly>
-                <input type="text" name="current-comp" value="Microsoft" readonly>
-                <input type="text" name="co-op-comp" value="Google" readonly>
-                <input type="text" name="comp-size" value="Very Large" readonly>
+              <span class="block-title">Career Info</span>
+              <div class="block-inputs">
+                  <div>
+                      <label for="title">Job Title:</label>
+                      <input class="field" type="text" name="title" value="CEO" readonly>
+                  </div>
+                  <div>
+                      <label for="current-comp">Current Company:</label>
+                      <input class="field" type="text" name="current-comp" value="Microsoft" readonly>
+                  </div>
+                  <div>
+                      <label for="co-op-comp">Co-op Company:</label>
+                      <input class="field" type="text" name="co-op-comp" value="Google" readonly>
+                  </div>
+                  <div>
+                      <label for="comp-size">Company Size:</label>
+                      <input class="field" type="text" name="comp-size" value="Very Large" readonly>
+                  </div>
               </div>
             </section>
             <section class="social-contact">
               <div class="social-media">
-
+                  <a title="view his profile" href="#" class="alumni">
+                      <img src="../img/transperant-logo.png" alt="PSU-logo"/>
+                  </a>
+                  <span title="view his facebook profile" class="facebook"></span>
+                  <span title="view his twitter account" class="twitter"></span>
+                  <span title="view his LinkedIn account" class="linkedIn"></span>
               </div>
-              <div class="profile-link">
-
+              <div dir="rtl" class="functions">
+                  <span title="edit profile" class="edit"></span>
+                  <span title="write note" class="write-note"></span>
               </div>
             </section>
+            <span title="close" class="close-btn"></span>
           </article>
         </div>
         <div class="record">
@@ -1739,56 +2214,81 @@
               <img src="img/transperant-logo.png" alt="profile-pic" />
             </div>
             <section class="block-info personal-info">
-              <span>Personal Info</span>
-              <div class="labels">
-                <label for="name">Name:</label>
-                <label for="nationality">Nationality:</label>
-                <label for="Phone">Phones:</label>
-                <label for="email">E-mail:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="name" value="Ahmed Ali" readonly>
-                <input type="text" name="name" value="Syrian" readonly>
-                <input type="text" name="name" value="+966562249819" readonly>
-                <input type="email" name="name" value="ahmed.ali@gmail.com" readonly>
-              </div>
+              <span class="block-title">Personal Info</span>
+                <div class="block-inputs">
+                    <div>
+                        <label for="name">Name:</label>
+                        <input class="field" id="name" type="text" name="name" value="Ahmed Ali" readonly>
+                    </div>
+                    <div>
+                        <label for="nationality">Nationality:</label>
+                        <input class="field" id="nationality" type="text" name="name" value="Syrian" readonly>
+                    </div>
+                    <div>
+                        <label for="Phone">Phones:</label>
+                        <input class="field" id="Phone" type="text" name="name" value="+966562249819" readonly>
+                    </div>
+                    <div>
+                        <label for="email">E-mail:</label>
+                        <input class="field" id="email" type="email" name="name" value="ahmed.ali@gmail.com" readonly>
+                    </div>
+                </div>
             </section><section class="block-info academic-info">
-              <span>Academic Info</span>
-              <div class="labels">
-                <label for="acad-id">Academic ID:</label>
-                <label for="major">Major:</label>
-                <label for="gpa">GPA:</label>
-                <label for="grad-year">Graduation Year:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="acad-id" value="213110987" readonly>
-                <input type="text" name="major" value="Software Engineering" readonly>
-                <input type="number" step="0.01" name="gpa" value="3.34" readonly>
-                <input type="text" name="grad-year" value="2016 / 2017" readonly>
+              <span class="block-title">Academic Info</span>
+              <div class="block-inputs">
+                  <div>
+                      <label for="acad-id">Academic ID:</label>
+                      <input class="field" id="acad-id" type="text" name="acad-id" value="213110987" readonly>
+                  </div>
+                  <div>
+                      <label for="major">Major:</label>
+                      <input class="field" id="major" type="text" name="major" value="Software Engineering" readonly>
+                  </div>
+                  <div>
+                      <label for="gpa">GPA:</label>
+                      <input class="field" id="gpa" type="number" step="0.01" name="gpa" value="3.34" readonly>
+                  </div>
+                  <div>
+                      <label for="grad-year">Graduation Year:</label>
+                      <input class="field" id="grad-year" type="text" name="grad-year" value="2016 / 2017" readonly>
+                  </div>
               </div>
             </section><section class="block-info company-info">
-              <span>Company Info</span>
-              <div class="labels">
-                <label for="title">Job Title:</label>
-                <label for="current-comp">Current Company:</label>
-                <label for="co-op-comp">Co-op Company:</label>
-                <label for="comp-size">Company Size:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="title" value="CEO" readonly>
-                <input type="text" name="current-comp" value="Microsoft" readonly>
-                <input type="text" name="co-op-comp" value="Google" readonly>
-                <input type="text" name="comp-size" value="Very Large" readonly>
+              <span class="block-title">Career Info</span>
+              <div class="block-inputs">
+                  <div>
+                      <label for="title">Job Title:</label>
+                      <input class="field" type="text" name="title" value="CEO" readonly>
+                  </div>
+                  <div>
+                      <label for="current-comp">Current Company:</label>
+                      <input class="field" type="text" name="current-comp" value="Microsoft" readonly>
+                  </div>
+                  <div>
+                      <label for="co-op-comp">Co-op Company:</label>
+                      <input class="field" type="text" name="co-op-comp" value="Google" readonly>
+                  </div>
+                  <div>
+                      <label for="comp-size">Company Size:</label>
+                      <input class="field" type="text" name="comp-size" value="Very Large" readonly>
+                  </div>
               </div>
             </section>
             <section class="social-contact">
               <div class="social-media">
-
+                  <a title="view his profile" href="#" class="alumni">
+                      <img src="../img/transperant-logo.png" alt="PSU-logo"/>
+                  </a>
+                  <span title="view his facebook profile" class="facebook"></span>
+                  <span title="view his twitter account" class="twitter"></span>
+                  <span title="view his LinkedIn account" class="linkedIn"></span>
               </div>
-              <div class="profile-link">
-
+              <div dir="rtl" class="functions">
+                  <span title="edit profile" class="edit"></span>
+                  <span title="write note" class="write-note"></span>
               </div>
             </section>
+            <span title="close" class="close-btn"></span>
           </article>
         </div>
         <div class="record">
@@ -1824,56 +2324,81 @@
               <img src="img/transperant-logo.png" alt="profile-pic" />
             </div>
             <section class="block-info personal-info">
-              <span>Personal Info</span>
-              <div class="labels">
-                <label for="name">Name:</label>
-                <label for="nationality">Nationality:</label>
-                <label for="Phone">Phones:</label>
-                <label for="email">E-mail:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="name" value="Ahmed Ali" readonly>
-                <input type="text" name="name" value="Syrian" readonly>
-                <input type="text" name="name" value="+966562249819" readonly>
-                <input type="email" name="name" value="ahmed.ali@gmail.com" readonly>
-              </div>
+              <span class="block-title">Personal Info</span>
+                <div class="block-inputs">
+                    <div>
+                        <label for="name">Name:</label>
+                        <input class="field" id="name" type="text" name="name" value="Ahmed Ali" readonly>
+                    </div>
+                    <div>
+                        <label for="nationality">Nationality:</label>
+                        <input class="field" id="nationality" type="text" name="name" value="Syrian" readonly>
+                    </div>
+                    <div>
+                        <label for="Phone">Phones:</label>
+                        <input class="field" id="Phone" type="text" name="name" value="+966562249819" readonly>
+                    </div>
+                    <div>
+                        <label for="email">E-mail:</label>
+                        <input class="field" id="email" type="email" name="name" value="ahmed.ali@gmail.com" readonly>
+                    </div>
+                </div>
             </section><section class="block-info academic-info">
-              <span>Academic Info</span>
-              <div class="labels">
-                <label for="acad-id">Academic ID:</label>
-                <label for="major">Major:</label>
-                <label for="gpa">GPA:</label>
-                <label for="grad-year">Graduation Year:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="acad-id" value="213110987" readonly>
-                <input type="text" name="major" value="Software Engineering" readonly>
-                <input type="number" step="0.01" name="gpa" value="3.34" readonly>
-                <input type="text" name="grad-year" value="2016 / 2017" readonly>
+              <span class="block-title">Academic Info</span>
+              <div class="block-inputs">
+                  <div>
+                      <label for="acad-id">Academic ID:</label>
+                      <input class="field" id="acad-id" type="text" name="acad-id" value="213110987" readonly>
+                  </div>
+                  <div>
+                      <label for="major">Major:</label>
+                      <input class="field" id="major" type="text" name="major" value="Software Engineering" readonly>
+                  </div>
+                  <div>
+                      <label for="gpa">GPA:</label>
+                      <input class="field" id="gpa" type="number" step="0.01" name="gpa" value="3.34" readonly>
+                  </div>
+                  <div>
+                      <label for="grad-year">Graduation Year:</label>
+                      <input class="field" id="grad-year" type="text" name="grad-year" value="2016 / 2017" readonly>
+                  </div>
               </div>
             </section><section class="block-info company-info">
-              <span>Company Info</span>
-              <div class="labels">
-                <label for="title">Job Title:</label>
-                <label for="current-comp">Current Company:</label>
-                <label for="co-op-comp">Co-op Company:</label>
-                <label for="comp-size">Company Size:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="title" value="CEO" readonly>
-                <input type="text" name="current-comp" value="Microsoft" readonly>
-                <input type="text" name="co-op-comp" value="Google" readonly>
-                <input type="text" name="comp-size" value="Very Large" readonly>
+              <span class="block-title">Career Info</span>
+              <div class="block-inputs">
+                  <div>
+                      <label for="title">Job Title:</label>
+                      <input class="field" type="text" name="title" value="CEO" readonly>
+                  </div>
+                  <div>
+                      <label for="current-comp">Current Company:</label>
+                      <input class="field" type="text" name="current-comp" value="Microsoft" readonly>
+                  </div>
+                  <div>
+                      <label for="co-op-comp">Co-op Company:</label>
+                      <input class="field" type="text" name="co-op-comp" value="Google" readonly>
+                  </div>
+                  <div>
+                      <label for="comp-size">Company Size:</label>
+                      <input class="field" type="text" name="comp-size" value="Very Large" readonly>
+                  </div>
               </div>
             </section>
             <section class="social-contact">
               <div class="social-media">
-
+                  <a title="view his profile" href="#" class="alumni">
+                      <img src="../img/transperant-logo.png" alt="PSU-logo"/>
+                  </a>
+                  <span title="view his facebook profile" class="facebook"></span>
+                  <span title="view his twitter account" class="twitter"></span>
+                  <span title="view his LinkedIn account" class="linkedIn"></span>
               </div>
-              <div class="profile-link">
-
+              <div dir="rtl" class="functions">
+                  <span title="edit profile" class="edit"></span>
+                  <span title="write note" class="write-note"></span>
               </div>
             </section>
+            <span title="close" class="close-btn"></span>
           </article>
         </div>
         <div class="record">
@@ -1909,56 +2434,81 @@
               <img src="img/transperant-logo.png" alt="profile-pic" />
             </div>
             <section class="block-info personal-info">
-              <span>Personal Info</span>
-              <div class="labels">
-                <label for="name">Name:</label>
-                <label for="nationality">Nationality:</label>
-                <label for="Phone">Phones:</label>
-                <label for="email">E-mail:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="name" value="Ahmed Ali" readonly>
-                <input type="text" name="name" value="Syrian" readonly>
-                <input type="text" name="name" value="+966562249819" readonly>
-                <input type="email" name="name" value="ahmed.ali@gmail.com" readonly>
-              </div>
+              <span class="block-title">Personal Info</span>
+                <div class="block-inputs">
+                    <div>
+                        <label for="name">Name:</label>
+                        <input class="field" id="name" type="text" name="name" value="Ahmed Ali" readonly>
+                    </div>
+                    <div>
+                        <label for="nationality">Nationality:</label>
+                        <input class="field" id="nationality" type="text" name="name" value="Syrian" readonly>
+                    </div>
+                    <div>
+                        <label for="Phone">Phones:</label>
+                        <input class="field" id="Phone" type="text" name="name" value="+966562249819" readonly>
+                    </div>
+                    <div>
+                        <label for="email">E-mail:</label>
+                        <input class="field" id="email" type="email" name="name" value="ahmed.ali@gmail.com" readonly>
+                    </div>
+                </div>
             </section><section class="block-info academic-info">
-              <span>Academic Info</span>
-              <div class="labels">
-                <label for="acad-id">Academic ID:</label>
-                <label for="major">Major:</label>
-                <label for="gpa">GPA:</label>
-                <label for="grad-year">Graduation Year:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="acad-id" value="213110987" readonly>
-                <input type="text" name="major" value="Software Engineering" readonly>
-                <input type="number" step="0.01" name="gpa" value="3.34" readonly>
-                <input type="text" name="grad-year" value="2016 / 2017" readonly>
+              <span class="block-title">Academic Info</span>
+              <div class="block-inputs">
+                  <div>
+                      <label for="acad-id">Academic ID:</label>
+                      <input class="field" id="acad-id" type="text" name="acad-id" value="213110987" readonly>
+                  </div>
+                  <div>
+                      <label for="major">Major:</label>
+                      <input class="field" id="major" type="text" name="major" value="Software Engineering" readonly>
+                  </div>
+                  <div>
+                      <label for="gpa">GPA:</label>
+                      <input class="field" id="gpa" type="number" step="0.01" name="gpa" value="3.34" readonly>
+                  </div>
+                  <div>
+                      <label for="grad-year">Graduation Year:</label>
+                      <input class="field" id="grad-year" type="text" name="grad-year" value="2016 / 2017" readonly>
+                  </div>
               </div>
             </section><section class="block-info company-info">
-              <span>Company Info</span>
-              <div class="labels">
-                <label for="title">Job Title:</label>
-                <label for="current-comp">Current Company:</label>
-                <label for="co-op-comp">Co-op Company:</label>
-                <label for="comp-size">Company Size:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="title" value="CEO" readonly>
-                <input type="text" name="current-comp" value="Microsoft" readonly>
-                <input type="text" name="co-op-comp" value="Google" readonly>
-                <input type="text" name="comp-size" value="Very Large" readonly>
+              <span class="block-title">Career Info</span>
+              <div class="block-inputs">
+                  <div>
+                      <label for="title">Job Title:</label>
+                      <input class="field" type="text" name="title" value="CEO" readonly>
+                  </div>
+                  <div>
+                      <label for="current-comp">Current Company:</label>
+                      <input class="field" type="text" name="current-comp" value="Microsoft" readonly>
+                  </div>
+                  <div>
+                      <label for="co-op-comp">Co-op Company:</label>
+                      <input class="field" type="text" name="co-op-comp" value="Google" readonly>
+                  </div>
+                  <div>
+                      <label for="comp-size">Company Size:</label>
+                      <input class="field" type="text" name="comp-size" value="Very Large" readonly>
+                  </div>
               </div>
             </section>
             <section class="social-contact">
               <div class="social-media">
-
+                  <a title="view his profile" href="#" class="alumni">
+                      <img src="../img/transperant-logo.png" alt="PSU-logo"/>
+                  </a>
+                  <span title="view his facebook profile" class="facebook"></span>
+                  <span title="view his twitter account" class="twitter"></span>
+                  <span title="view his LinkedIn account" class="linkedIn"></span>
               </div>
-              <div class="profile-link">
-
+              <div dir="rtl" class="functions">
+                  <span title="edit profile" class="edit"></span>
+                  <span title="write note" class="write-note"></span>
               </div>
             </section>
+            <span title="close" class="close-btn"></span>
           </article>
         </div>
         <div class="record">
@@ -1994,56 +2544,81 @@
               <img src="img/transperant-logo.png" alt="profile-pic" />
             </div>
             <section class="block-info personal-info">
-              <span>Personal Info</span>
-              <div class="labels">
-                <label for="name">Name:</label>
-                <label for="nationality">Nationality:</label>
-                <label for="Phone">Phones:</label>
-                <label for="email">E-mail:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="name" value="Ahmed Ali" readonly>
-                <input type="text" name="name" value="Syrian" readonly>
-                <input type="text" name="name" value="+966562249819" readonly>
-                <input type="email" name="name" value="ahmed.ali@gmail.com" readonly>
-              </div>
+              <span class="block-title">Personal Info</span>
+                <div class="block-inputs">
+                    <div>
+                        <label for="name">Name:</label>
+                        <input class="field" id="name" type="text" name="name" value="Ahmed Ali" readonly>
+                    </div>
+                    <div>
+                        <label for="nationality">Nationality:</label>
+                        <input class="field" id="nationality" type="text" name="name" value="Syrian" readonly>
+                    </div>
+                    <div>
+                        <label for="Phone">Phones:</label>
+                        <input class="field" id="Phone" type="text" name="name" value="+966562249819" readonly>
+                    </div>
+                    <div>
+                        <label for="email">E-mail:</label>
+                        <input class="field" id="email" type="email" name="name" value="ahmed.ali@gmail.com" readonly>
+                    </div>
+                </div>
             </section><section class="block-info academic-info">
-              <span>Academic Info</span>
-              <div class="labels">
-                <label for="acad-id">Academic ID:</label>
-                <label for="major">Major:</label>
-                <label for="gpa">GPA:</label>
-                <label for="grad-year">Graduation Year:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="acad-id" value="213110987" readonly>
-                <input type="text" name="major" value="Software Engineering" readonly>
-                <input type="number" step="0.01" name="gpa" value="3.34" readonly>
-                <input type="text" name="grad-year" value="2016 / 2017" readonly>
+              <span class="block-title">Academic Info</span>
+              <div class="block-inputs">
+                  <div>
+                      <label for="acad-id">Academic ID:</label>
+                      <input class="field" id="acad-id" type="text" name="acad-id" value="213110987" readonly>
+                  </div>
+                  <div>
+                      <label for="major">Major:</label>
+                      <input class="field" id="major" type="text" name="major" value="Software Engineering" readonly>
+                  </div>
+                  <div>
+                      <label for="gpa">GPA:</label>
+                      <input class="field" id="gpa" type="number" step="0.01" name="gpa" value="3.34" readonly>
+                  </div>
+                  <div>
+                      <label for="grad-year">Graduation Year:</label>
+                      <input class="field" id="grad-year" type="text" name="grad-year" value="2016 / 2017" readonly>
+                  </div>
               </div>
             </section><section class="block-info company-info">
-              <span>Company Info</span>
-              <div class="labels">
-                <label for="title">Job Title:</label>
-                <label for="current-comp">Current Company:</label>
-                <label for="co-op-comp">Co-op Company:</label>
-                <label for="comp-size">Company Size:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="title" value="CEO" readonly>
-                <input type="text" name="current-comp" value="Microsoft" readonly>
-                <input type="text" name="co-op-comp" value="Google" readonly>
-                <input type="text" name="comp-size" value="Very Large" readonly>
+              <span class="block-title">Career Info</span>
+              <div class="block-inputs">
+                  <div>
+                      <label for="title">Job Title:</label>
+                      <input class="field" type="text" name="title" value="CEO" readonly>
+                  </div>
+                  <div>
+                      <label for="current-comp">Current Company:</label>
+                      <input class="field" type="text" name="current-comp" value="Microsoft" readonly>
+                  </div>
+                  <div>
+                      <label for="co-op-comp">Co-op Company:</label>
+                      <input class="field" type="text" name="co-op-comp" value="Google" readonly>
+                  </div>
+                  <div>
+                      <label for="comp-size">Company Size:</label>
+                      <input class="field" type="text" name="comp-size" value="Very Large" readonly>
+                  </div>
               </div>
             </section>
             <section class="social-contact">
               <div class="social-media">
-
+                  <a title="view his profile" href="#" class="alumni">
+                      <img src="../img/transperant-logo.png" alt="PSU-logo"/>
+                  </a>
+                  <span title="view his facebook profile" class="facebook"></span>
+                  <span title="view his twitter account" class="twitter"></span>
+                  <span title="view his LinkedIn account" class="linkedIn"></span>
               </div>
-              <div class="profile-link">
-
+              <div dir="rtl" class="functions">
+                  <span title="edit profile" class="edit"></span>
+                  <span title="write note" class="write-note"></span>
               </div>
             </section>
+            <span title="close" class="close-btn"></span>
           </article>
         </div>
         <div class="record">
@@ -2079,56 +2654,81 @@
               <img src="img/transperant-logo.png" alt="profile-pic" />
             </div>
             <section class="block-info personal-info">
-              <span>Personal Info</span>
-              <div class="labels">
-                <label for="name">Name:</label>
-                <label for="nationality">Nationality:</label>
-                <label for="Phone">Phones:</label>
-                <label for="email">E-mail:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="name" value="Ahmed Ali" readonly>
-                <input type="text" name="name" value="Syrian" readonly>
-                <input type="text" name="name" value="+966562249819" readonly>
-                <input type="email" name="name" value="ahmed.ali@gmail.com" readonly>
-              </div>
+              <span class="block-title">Personal Info</span>
+                <div class="block-inputs">
+                    <div>
+                        <label for="name">Name:</label>
+                        <input class="field" id="name" type="text" name="name" value="Ahmed Ali" readonly>
+                    </div>
+                    <div>
+                        <label for="nationality">Nationality:</label>
+                        <input class="field" id="nationality" type="text" name="name" value="Syrian" readonly>
+                    </div>
+                    <div>
+                        <label for="Phone">Phones:</label>
+                        <input class="field" id="Phone" type="text" name="name" value="+966562249819" readonly>
+                    </div>
+                    <div>
+                        <label for="email">E-mail:</label>
+                        <input class="field" id="email" type="email" name="name" value="ahmed.ali@gmail.com" readonly>
+                    </div>
+                </div>
             </section><section class="block-info academic-info">
-              <span>Academic Info</span>
-              <div class="labels">
-                <label for="acad-id">Academic ID:</label>
-                <label for="major">Major:</label>
-                <label for="gpa">GPA:</label>
-                <label for="grad-year">Graduation Year:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="acad-id" value="213110987" readonly>
-                <input type="text" name="major" value="Software Engineering" readonly>
-                <input type="number" step="0.01" name="gpa" value="3.34" readonly>
-                <input type="text" name="grad-year" value="2016 / 2017" readonly>
+              <span class="block-title">Academic Info</span>
+              <div class="block-inputs">
+                  <div>
+                      <label for="acad-id">Academic ID:</label>
+                      <input class="field" id="acad-id" type="text" name="acad-id" value="213110987" readonly>
+                  </div>
+                  <div>
+                      <label for="major">Major:</label>
+                      <input class="field" id="major" type="text" name="major" value="Software Engineering" readonly>
+                  </div>
+                  <div>
+                      <label for="gpa">GPA:</label>
+                      <input class="field" id="gpa" type="number" step="0.01" name="gpa" value="3.34" readonly>
+                  </div>
+                  <div>
+                      <label for="grad-year">Graduation Year:</label>
+                      <input class="field" id="grad-year" type="text" name="grad-year" value="2016 / 2017" readonly>
+                  </div>
               </div>
             </section><section class="block-info company-info">
-              <span>Company Info</span>
-              <div class="labels">
-                <label for="title">Job Title:</label>
-                <label for="current-comp">Current Company:</label>
-                <label for="co-op-comp">Co-op Company:</label>
-                <label for="comp-size">Company Size:</label>
-              </div>
-              <div class="inputs">
-                <input type="text" name="title" value="CEO" readonly>
-                <input type="text" name="current-comp" value="Microsoft" readonly>
-                <input type="text" name="co-op-comp" value="Google" readonly>
-                <input type="text" name="comp-size" value="Very Large" readonly>
+              <span class="block-title">Career Info</span>
+              <div class="block-inputs">
+                  <div>
+                      <label for="title">Job Title:</label>
+                      <input class="field" type="text" name="title" value="CEO" readonly>
+                  </div>
+                  <div>
+                      <label for="current-comp">Current Company:</label>
+                      <input class="field" type="text" name="current-comp" value="Microsoft" readonly>
+                  </div>
+                  <div>
+                      <label for="co-op-comp">Co-op Company:</label>
+                      <input class="field" type="text" name="co-op-comp" value="Google" readonly>
+                  </div>
+                  <div>
+                      <label for="comp-size">Company Size:</label>
+                      <input class="field" type="text" name="comp-size" value="Very Large" readonly>
+                  </div>
               </div>
             </section>
             <section class="social-contact">
               <div class="social-media">
-
+                  <a title="view his profile" href="#" class="alumni">
+                      <img src="../img/transperant-logo.png" alt="PSU-logo"/>
+                  </a>
+                  <span title="view his facebook profile" class="facebook"></span>
+                  <span title="view his twitter account" class="twitter"></span>
+                  <span title="view his LinkedIn account" class="linkedIn"></span>
               </div>
-              <div class="profile-link">
-
+              <div dir="rtl" class="functions">
+                  <span title="edit profile" class="edit"></span>
+                  <span title="write note" class="write-note"></span>
               </div>
             </section>
+            <span title="close" class="close-btn"></span>
           </article>
         </div>
       </div>

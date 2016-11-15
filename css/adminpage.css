@@ -1,4 +1,4 @@
-@import "psu-font.css";
+@import "external-fonts.css";
 
 html, body{
   margin: 0;
@@ -6,7 +6,7 @@ html, body{
   width: 100%;
   height: 100%;
   color: #888;
-  font-family: psu ,arial;
+  font-family: psu , awesome, arial;
   background-image: url("../img/body.jpg");
   background-repeat: round;
 }
@@ -59,7 +59,7 @@ html, body{
   border-left: 3px solid transparent;
   color: #FFF;
   padding: 15px 0;
-  font-size: 1em;
+  font-size: 0.85em;
 }
 
 .options > ul > li > a:hover, .options > ul > li > a:focus{
@@ -94,24 +94,30 @@ html, body{
 }
 
 .search-box{
-  padding-top: 15px;
+  padding-top: 8px;
 }
 
 .search-box > .search{
   width: 35%;
   vertical-align: bottom;
-  padding: 5px 5px;
-  border: 1px solid #ddd;
+  padding: 4px 4px;
+  border: 1px solid #ccc;
   border-right: none;
   display: inline-block;
 }
 
+.search-box > .search:focus{
+    background-color: #FEFCC8;
+    outline: none;
+    border-color: #45D6E9;
+}
+
 .search-box > .search-btn{
-  padding: 6px 20px;
+  padding: 5px 20px;
   background-color: #FFF;
   font-weight: bold;
   font-family: Segoe MDL2 Assets;
-  border: 1px solid #ddd;
+  border: 1px solid #45D6E9;
   border-left: none;
   display: inline-block;
   color: #fff;
@@ -123,12 +129,17 @@ html, body{
 }
 
 .search-tools > .navegation-tools{
-  padding: 5px;
+  padding: 2.5px;
   position: absolute;
   background-color: #fff;
   border: 1px solid #ddd;
   right: 5%;
   top: 20%;
+}
+
+.search-tools > .label{
+    font-size: 0.8em;
+    font-weight: bold;
 }
 
 .search-tools > .navegation-tools > a{
@@ -140,22 +151,25 @@ html, body{
 
 .search-tools > .navegation-tools > span{
   padding: 0 10px;
+  font-size: 0.8em;
+  font-weight: bold;
   border-left: 1px solid #ccc;
   border-right: 1px solid #ccc;
 }
 
-.sort > select{
-  padding: 5px;
-  border: 1px solid #CCC;
-  color: #888;
-  background-color: rgba(255, 255, 255, 0.6);
-  outline: none;
+.sort{
+    height: 100%;
+    display: inline-block;
 }
 
-.sort > select > .options{
-  padding: 5px;
+.sort > select{
   border: 1px solid #CCC;
+  color: #888;
+  background-color: rgb(255, 255, 255);
   outline: none;
+  height: auto;
+  padding: 2% 0;
+  margin-top: 10%;
 }
 
 .grouping{
@@ -166,6 +180,8 @@ html, body{
   position: absolute;
   bottom: 0;
   left: 0;
+  width: 55%;
+  height: 70%;
 }
 
 .grouping > .catagories > a{
@@ -174,7 +190,11 @@ html, body{
   display: inline-block;
   text-decoration: none;
   color: #999;
-  padding: 10px 100px;
+  height: 100%;
+  width: 33%;
+  padding: 5px 0;
+  font-size: 0.9em;
+  text-align: center;
   background-color: rgba(255, 255, 255, 0.6);
 }
 
@@ -197,7 +217,6 @@ html, body{
 }
 
 .grouping > .catagories > a:hover, .grouping > .catagories > .selected{
-  /*border: 1px solid #ddd;*/
   border-bottom: none;
   color: #888;
   font-weight: bold;
@@ -214,7 +233,7 @@ html, body{
 .records-header{
   position: relative;
   z-index: 1;
-  height: 5%;
+  height: auto;
   background-color: rgba(255, 255, 255, 1);
   border-bottom: 2px solid #ccc;
 }
@@ -232,15 +251,20 @@ html, body{
 
 .records-header > .label{
   font-weight: bold;
+  font-size: 0.9em;
 }
 
 .record{
   border-bottom: 1px solid #ccc;
-  font-size: 0.9em;
+  font-size: 0.8em;
   color: #aaa;
   cursor: pointer;
   -webkit-transition: height 0.5s;
   transition: height 0.5s;
+}
+
+.record:hover{
+    font-weight: bold;
 }
 
 .record-row{
@@ -255,20 +279,22 @@ html, body{
 .record-profile{
   position: relative;
   height: 0;
+  max-height: 0;
   visibility: hidden;
   background: rgba(238,252,251, 0.6);
   border-left: 3px solid #26B6C9;
-  -webkit-transition: height 0.3s;
-  transition: height 0.3s;
+  -webkit-transition: max-height 0.8s, height 0.8s;
+  transition: max-height 0.8s, height 0.8s;
   transition-timing-function: ease-out;
 }
 
 .record > .open-profile{
   visibility: visible;
-  height: 220px;
+  height: auto;
+  max-height: 300px;
   padding: 10px 0;
-  -webkit-transition: height 0.3s;
-  transition: height 0.3s;
+  -webkit-transition: height 0.8s, max-height 0.8s;
+  transition: height 0.8s, max-height 0.8s;
   box-shadow: 2px 2px 8px rgba(38,182,201, 0.5)  inset;
   transition-timing-function: ease-out;
 }
@@ -302,7 +328,7 @@ html, body{
 }
 
 .block-info{
-  width: 30%;
+  width: 29%;
   display: inline-block;
   vertical-align: top;
 }
@@ -316,12 +342,13 @@ html, body{
   transition: opacity 0.5s 0.2s;
 }
 
-.record-profile > section:first-of-type {
+.record-profile > section:first-of-type, .social-contact {
   margin-left: 80px;
 }
 
-.record-profile span{
+.record-profile .block-title{
   font-size: 0.9em;
+  font-weight: normal;
   padding-bottom: 2px;
   display: block;
   color: #45D6E9;
@@ -331,42 +358,173 @@ html, body{
   display: inline-block;
 }
 
-section > .labels{
-  width: 35%;
-}
-
-section > .inputs{
-  width: 60%;
-  border-right: 2px dashed #ccc;
-}
-
-.labels > label{
+.labels > label, .block-inputs label{
   color: #43809D;
-  padding: 5% 0;
 }
 
-.labels > label, .inputs > input{
-  display: block;
-  font-weight: bold;
-  font-size: 1.1em;
-}
-
-.inputs > input{
+.block-inputs > div > input.field{
   background-color:#FEFCC8;
-  border: 1px solid #2ABBCF;
-  padding: 1% 0;
-  margin: 2.5% 0;
+  color: #111;
+  border: 1px solid #45D6E9;/*#2ABBCF*/
+  outline: none;
+  font-size: 0.85em;
+  font-weight: normal;
   border-radius: 5px;
+  margin: 0;
+  padding: 1px;
 }
 
-.inputs > input[Readonly]{
+.block-inputs > div > input.field:focus{
+    border: 2px solid #2ABBCF;
+}
+
+.block-inputs > div > input[Readonly], .block-inputs .field{
   background-color: inherit;
   font-family: inherit;
   font-weight: bold;
+  font-size: 1em;
   color: inherit;
-  border: 1px solid transparent;
+  margin: 0;
+  border: none;
+  padding: 0;
 }
 
+.block-inputs > div > input[Readonly]:focus{
+    border: none;
+}
+
+.block-inputs{
+    width: 95%;
+    border-right: 2px dashed #ccc;
+}
+
+.block-inputs > div{
+    padding: 5px 0;
+}
+
+.block-inputs > div > label, .block-inputs > div > .field{
+    display: inline-block;
+    vertical-align: bottom;
+    font-weight: bold;
+}
+
+.block-inputs .field{
+    width: 59%;
+}
+
+.block-inputs label{
+    width: 39%;
+}
+
+.social-contact > div{
+    padding-top: 15px;
+    display: inline-block;
+    vertical-align: bottom;
+    width: 49%;
+}
+
+.social-contact > .social-media > span, .social-contact > .social-media > a{
+    font-weight: normal;
+    display: inline-block;
+    vertical-align:  bottom;
+    margin-right: 10px;
+    font-size: 1.8em;
+}
+
+.facebook{
+    margin-left: 15px;
+}
+
+.facebook::before{
+    content: "\f230";
+}
+
+.facebook:hover{
+    color: #3B5998;
+}
+
+.twitter::before{
+    content: "\f081";
+}
+
+.twitter:hover{
+    color: #1DA1F2;
+}
+
+.linkedIn::before{
+    content: "\f08c";
+}
+
+.linkedIn:hover{
+    color: #0177B5;
+}
+
+.alumni{
+    width: 26px;
+    height: 26px;
+    border-radius: 4px;
+    background-color: #E84747;
+    padding: 1px 0;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.alumni > img{
+    display: block;
+    height: 100%;
+    width: auto;
+    margin: auto;
+}
+
+.alumni:hover{
+    background-color: #888;
+    transform: scale(1.2);
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.facebook:hover, .twitter:hover, .linkedIn:hover{
+    transition: color 0.3s;
+}
+
+.functions > span{
+    font-weight: normal;
+    display: inline-block;
+    vertical-align:  bottom;
+    margin-left: 10px;
+    font-size: 1.4em;
+    color: #ccc;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.write-note::before{
+    content: "\f249";
+}
+
+.write-note:hover, .edit:hover, .close-btn:hover{
+    transform: scale(1.2);
+    color: inherit;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.edit::before{
+    content: "\f040";
+}
+
+.close-btn::before{
+    content: "\f00d";
+}
+
+.close-btn{
+    display: block;
+    position: absolute;
+    color: #ccc;
+    font-weight: normal;
+    font-size: 1.4em;
+    top: 10px;
+    right: 10px;
+    transition: transform 0.3s, color 0.3s;
+}
+
+/* To be edit */
 .record:nth-child(odd) > .record-row{
   border-left-width: 3px;
   border-left-style: solid;

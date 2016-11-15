@@ -1,0 +1,9 @@
+@font-face {
+  src: url('../fonts/neotech-webfont.woff');
+  font-family: psu;
+}
+
+@font-face {
+  src: url('../fonts/fontawesome-webfont.woff');
+  font-family: awesome;
+}
