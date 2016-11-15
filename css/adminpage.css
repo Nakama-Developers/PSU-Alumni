@@ -42,9 +42,6 @@ html, body{
   height: 100%;
 }
 
-/*p{
-    margin: 1px 1px 1px 1px;
-}*/
 .options > ul{
   padding: 0;
   list-style: none;
@@ -98,15 +95,10 @@ html, body{
 
 .search-box{
   padding-top: 15px;
-  width: 25%;
-  height: fit-content;
-  float: left;
-  position: absolute;
-  top: 1%; left: 32%;
 }
 
 .search-box > .search{
-  width: 100%;
+  width: 35%;
   vertical-align: bottom;
   padding: 5px 5px;
   border: 1px solid #ddd;
@@ -114,7 +106,7 @@ html, body{
   display: inline-block;
 }
 
-.search-box > .search-btn{    
+.search-box > .search-btn{
   padding: 6px 20px;
   background-color: #FFF;
   font-weight: bold;
@@ -124,8 +116,6 @@ html, body{
   display: inline-block;
   color: #fff;
   background-color: #45D6E9;
-  position: absolute;
-  right: 0;
 }
 
 .search-tools{
@@ -133,14 +123,12 @@ html, body{
 }
 
 .search-tools > .navegation-tools{
-  position: absolute;
-  bottom: 0;
-  right: 1.3%;
-  float: right;
   padding: 5px;
   position: absolute;
   background-color: #fff;
   border: 1px solid #ddd;
+  right: 5%;
+  top: 20%;
 }
 
 .search-tools > .navegation-tools > a{
@@ -156,29 +144,18 @@ html, body{
   border-right: 1px solid #ccc;
 }
 
-.sort{
-    text-align: center;
-    outline: none;
-    width: fit-content;
-    height: fit-content;
-    float: left;
-    padding: 15px;
-    position: absolute;
-    top: 1%; left: 66%;
-}
 .sort > select{
-  text-align: center;  
-  color: #FFF;
-  padding: 4px;
+  padding: 5px;
   border: 1px solid #CCC;
-  background-color: #45D6E9;
+  color: #888;
+  background-color: rgba(255, 255, 255, 0.6);
   outline: none;
 }
 
 .sort > select > .options{
-   text-align: center;
+  padding: 5px;
   border: 1px solid #CCC;
- 
+  outline: none;
 }
 
 .grouping{
@@ -238,7 +215,6 @@ html, body{
   position: relative;
   z-index: 1;
   height: 5%;
-  padding-bottom: 28px;
   background-color: rgba(255, 255, 255, 1);
   border-bottom: 2px solid #ccc;
 }
@@ -298,7 +274,6 @@ html, body{
 }
 
 .record-profile > .profile-img{
-    
   opacity: 0.2;
   transform: scale(0.3) translateY(100px);
   position: absolute;
@@ -367,7 +342,7 @@ section > .inputs{
 
 .labels > label{
   color: #43809D;
-  padding: 5% 0 5%;
+  padding: 5% 0;
 }
 
 .labels > label, .inputs > input{
