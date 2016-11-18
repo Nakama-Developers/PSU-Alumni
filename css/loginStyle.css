@@ -1,0 +1,116 @@
+@import 'https://fonts.googleapis.com/css?family=Open+Sans'; 
+body{
+  background-color: #FFF;
+  font-family: "Open Sans",sans-serif;
+  font-weight: lighter;
+  background-image: url("../img/body.jpg");
+
+
+}
+
+
+header{
+     display: block;
+     height: 10%;    
+     width: 88%;
+}
+.header-logo{
+    display: block; 
+    background-position: center;
+    z-index: 6;
+    float: right;
+  
+}
+.main-container{
+  width: 350px;
+  margin: 0 auto;
+  border-radius: 0.5em;
+  overflow: hidden;
+  position: absolute;
+  background-color:#99CCFF;
+  right: 37%;
+  top: 25%;
+  -webkit-box-shadow: 0 3px 10px 5px rgba(0,0,0,0.3);
+  -moz-box-shadow: 0 3px 10px 5px rgba(0,0,0,0.3);
+  -o-box-shadow: 0 3px 10px 5px rgba(0,0,0,0.3);
+  box-shadow: 0 3px 10px 5px rgba(0,0,0,0.3);
+
+}
+.main-container:hover{
+  -webkit-box-shadow: 0 3px 10px 5px rgba(0,0,0,0.5);
+  -moz-box-shadow: 0 3px 10px 5px rgba(0,0,0,0.5);
+  -o-box-shadow: 0 3px 10px 5px rgba(0,0,0,0.5);
+  box-shadow: 0 3px 10px 5px rgba(0,0,0,0.5);
+
+  transition: all 300ms ease-out;
+}
+
+.email-login-container{
+  margin: 1.5em;
+  text-align: center;
+
+
+}
+
+input[type="text"], [type="password"],[type="button"] {
+  outline:none;
+}
+.input-box{
+
+  background-color: #FFF;
+  width: 100%;
+  height: 50px;
+  border: none;
+  padding-left: 0.5em;
+  margin-bottom: 2em;
+
+}
+
+.login-button{
+  color: #808080;
+  background-color:#FFF;
+  width: 100%;
+  height: 50px;
+  border:none;
+  font-size: 1em;
+  cursor: pointer;
+  padding-left: 0.5em;
+}
+
+.login-button:hover{
+  background-color:rgba(255,255,255,0.5);
+  -webkit-transition: background-color 300ms ease-out ;
+    -moz-transition: background-color 300ms ease-out ;
+    -o-transition: background-color 300ms ease-out ;
+    transition: background-color 300ms ease-out ;
+}
+.forget-pass-button {
+  color: rgba(255,255,255, 0.5);
+}
+
+.forget-pass-button:hover{
+  color:rgba(255, 255, 255, 0.8);
+}
+.email-login-container h3{
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.side-logo-box{
+    position: absolute;
+    top: 2%;
+    left: 6%;
+    width: 10%;
+    height: 95%;
+    
+
+}
+.side-logo{
+    width: 90%;
+    height: 100%;
+    padding-left: 10px; 
+}
+
+
+
+
+
