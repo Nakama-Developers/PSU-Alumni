@@ -115,10 +115,8 @@ window.onload = function () {
               </div>\
             </section>\
             <span title="close" class="close-btn"></span>'
-          
+
     }
-
-
 
 
     // Open Student Profile
@@ -127,13 +125,22 @@ window.onload = function () {
     var recordRows = document.getElementsByClassName('record-row');
     var profileImages = document.getElementsByClassName('profile-img');
 
-    for (var i = profiles.length - 1; i >= 0; i--) {
+    for (var i = recordRows.length - 1; i >= 0; i--) {
         (function (i) {
-            profiles[i].addEventListener('click', function () {
+            recordRows[i].addEventListener('click', function () {
                 closeProfile();
                 recordProfiles[i].className += ' open-profile';
                 recordRows[i].className += ' close-row';
                 profileImages[i].className += ' open-profile-img';
+            });
+        })(i);
+    }
+
+    var closeBtns = document.getElementsByClassName("close-btn");
+    for (var i = closeBtns.length - 1; i >= 0; i--) {
+        (function (i) {
+            closeBtns[i].addEventListener('click', function () {
+                closeProfile();
             });
         })(i);
     }
