@@ -1,4 +1,5 @@
-window.onload = function () {
+loadRecords();
+ function loadRecords() {
     // loading records from javascript
     //loading the record rows
     var recordsBox = document.getElementsByClassName('records')[0];
