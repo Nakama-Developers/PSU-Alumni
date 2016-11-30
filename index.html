@@ -10,9 +10,10 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!--external style-->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
     <script type="text/javascript" src="js/events.js" ></script>
     <link  type="text/css" rel="stylesheet" href="css/adminPage.css">
+    <link  type="text/css" rel="stylesheet" href="css/notePopup.css">
 
     <title>Allumni - Control Panel</title>
   </head>
@@ -27,7 +28,6 @@
           <li><a href="#">Publish Annoucment</a></li>
           <li><a href="#">Create Favourate List</a></li>
           <li><a href="#">Setting</a></li>
-          <li><a href="#">Edit</a></li>
         </ul>
       </div>
     </div>
@@ -92,7 +92,22 @@
 
         <!-- End of Header / Start of records -->
         <script type="text/javascript" src="js/loadRecords.js" ></script>
-        
+
+          <!-- End of records / The comments popup-->
+        <!-- The Modal -->
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <article class="modal-content">
+                <header class="modal-header">
+                    <span class="close-popup">×</span>
+                    <h2>Note</h2>          
+                </header>
+                <section class="modal-body">                
+                    <textarea rows="12" cols="4"></textarea>                
+                </section>
+            </article>
+         </div>
       </div>
     </div>
   </body>

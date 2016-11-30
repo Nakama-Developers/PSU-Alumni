@@ -1,43 +1,49 @@
-loadRecords();
- function loadRecords() {
+for (var counter = 0; counter < 20;counter++ ){
+    loadRecords();
+}
+
+ function loadRecords(name, nationality, phone, email, ID, major, gpa, graduationYear, jobTitle, CurrentCompany, coopCompany, companySize ) {
     // loading records from javascript
     //loading the record rows
     var recordsBox = document.getElementsByClassName('records')[0];
-    for (var i = 20; i >= 0; i--) {
+    var nameHTMLid = 'name' + counter;
+    var studentIDHTMLid = 'ID' + counter;
+    var emailHTMLid = 'email' + counter;
+    var numberHTMLid = 'number' + counter;
+    var majorHTMLid = 'major' + counter;
         recordsBox.innerHTML += '<div class="record">\
         <div class="record-row" title="Click for more details"> \
             <div class="info">\
-              <p>\
+              <p id ="'+nameHTMLid+'">\
                 Ahmed Ali\
               </p>\
             </div>\
             <div class="info">\
-              <p>\
+              <p id = "'+studentIDHTMLid+'">\
                 212210282\
               </p>\
             </div>\
             <div class="info">\
-              <p>\
+              <p id = "'+emailHTMLid+'">\
                 ahmed.ali@gmail.com\
               </p>\
             </div>\
             <div class="info">\
-              <p>\
+              <p id= "'+numberHTMLid+'">\
                 +966537514186\
               </p>\
             </div>\
             <div class="info">\
-              <p>\
+              <p id ='+majorHTMLid+'">\
                 Computer Science\
               </p>\
             </div>\
           </div>\
           <article class="record-profile"></article></div>'
-    }
+    
     //loading records profile
     var recordProfile = document.getElementsByClassName('record-profile');
-    for (var i = 20; i >= 0; i--) {
-        recordProfile[i].innerHTML = '<div class="profile-img">\
+        recordProfile[counter].innerHTML = '<div class="profile-img">\
               <img src="img/transperant-logo.png" alt="profile-pic" />\
             </div>\
             <section class="block-info personal-info">\
@@ -45,19 +51,19 @@ loadRecords();
                 <div class="block-inputs">\
                     <div>\
                         <label for="name">Name:</label>\
-                        <input class="field" id="name" type="text" name="name" value="Ahmed Ali" readonly>\
+                        <input class="field" id="'+nameHTMLid+'" type="text" value="Ahmed Ali" readonly>\
                     </div>\
                     <div>\
                         <label for="nationality">Nationality:</label>\
-                        <input class="field" id="nationality" type="text" name="name" value="Syrian" readonly>\
+                        <input class="field" id="nationality'+counter+'" type="text" value="Syrian" readonly>\
                     </div>\
                     <div>\
                         <label for="Phone">Phones:</label>\
-                        <input class="field" id="Phone" type="text" name="name" value="+966562249819" readonly>\
+                        <input class="field" id="'+numberHTMLid+'" type="text" value="+966562249819" readonly>\
                     </div>\
                     <div>\
                         <label for="email">E-mail:</label>\
-                        <input class="field" id="email" type="email" name="name" value="ahmed.ali@gmail.com" readonly>\
+                        <input class="field" id="'+emailHTMLid+'" type="email" value="ahmed.ali@gmail.com" readonly>\
                     </div>\
                 </div>\
             </section><section class="block-info academic-info">\
@@ -65,19 +71,19 @@ loadRecords();
               <div class="block-inputs">\
                   <div>\
                       <label for="acad-id">Academic ID:</label>\
-                      <input class="field" id="acad-id" type="text" name="acad-id" value="213110987" readonly>\
+                      <input class="field" id="'+studentIDHTMLid+'" type="text" name="acad-id" value="213110987" readonly>\
                   </div>\
                   <div>\
                       <label for="major">Major:</label>\
-                      <input class="field" id="major" type="text" name="major" value="Software Engineering" readonly>\
+                      <input class="field" id="'+majorHTMLid+'" type="text" name="major" value="Software Engineering" readonly>\
                   </div>\
                   <div>\
                       <label for="gpa">GPA:</label>\
-                      <input class="field" id="gpa" type="number" step="0.01" name="gpa" value="3.34" readonly>\
+                      <input class="field" id="gpa'+counter+'" type="number" step="0.01" name="gpa" value="3.34" readonly>\
                   </div>\
                   <div>\
                       <label for="grad-year">Graduation Year:</label>\
-                      <input class="field" id="grad-year" type="text" name="grad-year" value="2016 / 2017" readonly>\
+                      <input class="field" id="grad-year'+counter+'" type="text" name="grad-year" value="2016 / 2017" readonly>\
                   </div>\
               </div>\
             </section><section class="block-info company-info">\
@@ -85,19 +91,19 @@ loadRecords();
               <div class="block-inputs">\
                   <div>\
                       <label for="title">Job Title:</label>\
-                      <input class="field" type="text" name="title" value="CEO" readonly>\
+                      <input class="field" type="text" name="title" id="jobTitle'+counter+'" value="CEO" readonly>\
                   </div>\
                   <div>\
                       <label for="current-comp">Current Company:</label>\
-                      <input class="field" type="text" name="current-comp" value="Microsoft" readonly>\
+                      <input class="field" type="text" name="current-comp" id="currentCompany'+counter+'" value="Microsoft" readonly>\
                   </div>\
                   <div>\
                       <label for="co-op-comp">Co-op Company:</label>\
-                      <input class="field" type="text" name="co-op-comp" value="Google" readonly>\
+                      <input class="field" type="text" name="co-op-comp" id="coopCompany'+counter+'" value="Google" readonly>\
                   </div>\
                   <div>\
                       <label for="comp-size">Company Size:</label>\
-                      <input class="field" type="text" name="comp-size" value="Very Large" readonly>\
+                      <input class="field" type="text" name="comp-size" id="companySize'+counter+'" value="Very Large" readonly>\
                   </div>\
               </div>\
             </section>\
@@ -111,13 +117,13 @@ loadRecords();
                   <span title="view his LinkedIn account" class="linkedIn"></span>\
               </div>\
               <div dir="rtl" class="functions">\
-                  <span title="edit profile" class="edit"></span>\
+                  <span title="edit profile" class="edit editIcon"></span>\
                   <span title="write note" class="write-note"></span>\
               </div>\
             </section>\
             <span title="close" class="close-btn"></span>'
-
-    }
+            }
+    
 
 
     // Open Student Profile
@@ -174,4 +180,4 @@ loadRecords();
             catagories[i].className = catagories[i].innerHTML.trim();
         }
     }
-}
+

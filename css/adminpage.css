@@ -509,6 +509,14 @@ html, body{
     content: "\f040";
 }
 
+.editIcon::before{
+    content: "\f040";
+}
+
+.saveIcon::before{
+    content: "\F0C7";
+}
+
 .close-btn::before{
     content: "\f00d";
 }
