@@ -333,11 +333,11 @@ html, body{
   vertical-align: top;
 }
 
-.block-info > *, .social-contact > *{
+.note-container > * ,.block-info > *, .social-contact > *{
   opacity: 0;
 }
 
-.open-profile > .block-info > *, .open-profile > .social-contact > *{
+.note-opened > * ,.open-profile > .block-info > *, .open-profile > .social-contact > *{
   opacity: 1;
   transition: opacity 0.5s 0.2s;
 }
@@ -485,6 +485,10 @@ html, body{
     transition: color 0.3s;
 }
 
+.functions{
+    position: relative;
+}
+
 .functions > span{
     font-weight: normal;
     display: inline-block;
@@ -499,10 +503,17 @@ html, body{
     content: "\f249";
 }
 
-.write-note:hover, .edit:hover, .close-btn:hover{
+.write-note:hover, .opened-icon, .edit:hover, .close-btn:hover{
     transform: scale(1.2);
-    color: inherit;
     transition: transform 0.3s, color 0.3s;
+}
+
+.write-note:hover, span.opened-icon, .noted{
+    color: #ffeb53;
+}
+
+.edit:hover{
+    color: #4078C0;
 }
 
 .edit::before{
@@ -524,12 +535,45 @@ html, body{
 .close-btn{
     display: block;
     position: absolute;
-    color: #ccc;
+    color: inherit;
     font-weight: normal;
     font-size: 1.4em;
-    top: 10px;
+    top: 5%;
     right: 10px;
     transition: transform 0.3s, color 0.3s;
+}
+
+.note-container{
+    position: absolute;
+    right: 35px;
+    top: 15px;
+    background-color: #ffeb53;
+    color: #685f00;
+    width: 0;
+    height: auto;
+    max-height: 0;
+    visibility: hidden;
+    border-radius: 10px;
+    transition: all 0.4s ease-in;
+}
+
+.note-opened{
+    max-height: 250px;
+    visibility: visible;
+    right: 50px;
+    width: 200px;
+    transition: all 0.5s ease-out;
+}
+
+.note-header, .note-body{
+    position: relative;
+    margin: 5px 5px;
+}
+
+.note-header > h2{
+    margin: 0;
+    margin-top: 5px;
+    display: inline-block;
 }
 
 /* To be edit */
