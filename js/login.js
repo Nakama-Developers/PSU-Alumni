@@ -8,6 +8,7 @@ window.onload = function () {
         alterHighlight();
         $("#input1").addClass("clicked-div");
         $("#username-label").addClass("clicked-label");
+        $("#username-label").removeClass("grayColor");
         $("#username").addClass("clicked-input");
         $("#username").focus();
     });
@@ -20,6 +21,7 @@ window.onload = function () {
         alterHighlight();
         $("#input2").addClass("clicked-div");
         $("#password-label").addClass("clicked-label");
+        $("#password-label").removeClass("grayColor");
         $("#password").addClass("clicked-input");
         $("#password").focus();
     });
