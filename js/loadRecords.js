@@ -119,18 +119,9 @@ for (var counter = 0; counter < 20;counter++ ){
               <div dir="rtl" class="functions">\
                   <span title="edit profile" class="edit editIcon"></span>\
                   <span title="write note" class="write-note"></span>\
-                  <article dir="ltr" class="note-container">\
-                    <header class="note-header">\
-                        <span class="close-btn close-note"></span>\
-                        <h2>Note</h2>\
-                    </header>\
-                    <section class="note-body">\
-                        <textarea rows="6" cols="4" autofocus></textarea>\
-                    </section>\
-                  </article>\
               </div>\
             </section>\
-            <span title="close" class="close-btn close-profile"></span>'
+            <span title="close" class="close-btn"></span>'
             }
     
 
@@ -152,7 +143,7 @@ for (var counter = 0; counter < 20;counter++ ){
         })(i);
     }
 
-    var closeBtns = document.getElementsByClassName("close-profile");
+    var closeBtns = document.getElementsByClassName("close-btn");
     for (var i = closeBtns.length - 1; i >= 0; i--) {
         (function (i) {
             closeBtns[i].addEventListener('click', function () {
