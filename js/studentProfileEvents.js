@@ -1,44 +1,83 @@
 $(document).ready(function () {
 
     $("#overviewCategory").click(function () {
+        // adding some style to the clicked category
+        $("#overviewCategory").addClass("opened-category");
+        $("#educationCategory").removeClass("opened-category");
+        $("#careerCategory").removeClass("opened-category");
+        $("#personalInfoCategory").removeClass("opened-category");
+        $("#socialMediaCategory").removeClass("opened-category");
+
+        //showing the clicked info block
         $(".profile-info-overview").css("display", "inline-block");
         $(".profile-info-education").css("display", "none");
         $(".profile-info-career").css("display", "none");
         $(".profile-info-contact").css("display", "none");
-        $(".profile-info-comments").css("display", "none");
-                
+        $(".profile-info-social").css("display", "none");
     })
 
     $("#educationCategory").click(function () {
+        // adding some style to the clicked category
+       $("#overviewCategory").removeClass("opened-category");
+        $("#educationCategory").addClass("opened-category");
+        $("#careerCategory").removeClass("opened-category");
+        $("#personalInfoCategory").removeClass("opened-category");
+        $("#socialMediaCategory").removeClass("opened-category");
+
+        //showing the clicked info block
         $(".profile-info-overview").css("display", "none");
         $(".profile-info-education").css("display", "inline-block");
         $(".profile-info-career").css("display", "none");
         $(".profile-info-contact").css("display", "none");
-        $(".profile-info-comments").css("display", "none");
+        $(".profile-info-social").css("display", "none");
     })
 
     $("#careerCategory").click(function () {
+        // adding some style to the clicked category
+        $("#overviewCategory").removeClass("opened-category");
+        $("#educationCategory").removeClass("opened-category");
+        $("#careerCategory").addClass("opened-category");
+        $("#personalInfoCategory").removeClass("opened-category");
+        $("#socialMediaCategory").removeClass("opened-category");
+
+        //showing the clicked info block
         $(".profile-info-overview").css("display", "none");
         $(".profile-info-education").css("display", "none");
         $(".profile-info-career").css("display", "inline-block");
         $(".profile-info-contact").css("display", "none");
-        $(".profile-info-comments").css("display", "none");
+        $(".profile-info-social").css("display", "none");
     })
 
     $("#personalInfoCategory").click(function () {
+        // adding some style to the clicked category
+        $("#overviewCategory").removeClass("opened-category");
+        $("#educationCategory").removeClass("opened-category");
+        $("#careerCategory").removeClass("opened-category");
+        $("#personalInfoCategory").addClass("opened-category");
+        $("#socialMediaCategory").removeClass("opened-category");
+
+        //showing the clicked info block
         $(".profile-info-overview").css("display", "none");
         $(".profile-info-education").css("display", "none");
         $(".profile-info-career").css("display", "none");
         $(".profile-info-contact").css("display", "inline-block");
-        $(".profile-info-comments").css("display", "none");
+        $(".profile-info-social").css("display", "none");
     })
 
-    $("#commentsCategory").click(function () {
+    $("#socialMediaCategory").click(function () {
+        // adding some style to the clicked category
+        $("#overviewCategory").removeClass("opened-category");
+        $("#educationCategory").removeClass("opened-category");
+        $("#careerCategory").removeClass("opened-category");
+        $("#personalInfoCategory").removeClass("opened-category");
+        $("#socialMediaCategory").addClass("opened-category");
+
+        //showing the clicked info block
         $(".profile-info-overview").css("display", "none");
         $(".profile-info-education").css("display", "none");
         $(".profile-info-career").css("display", "none");
         $(".profile-info-contact").css("display", "none");
-        $(".profile-info-comments").css("display", "inline-block");
+        $(".profile-info-social").css("display", "inline-block");
     })
 })
 

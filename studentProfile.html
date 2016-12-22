@@ -4,32 +4,27 @@
     <head>
         <meta charset="utf-8" />
         <title>Student Profile Page</title>
-         <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link  type="text/css" rel="stylesheet" href="css/studentProfile.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="js/studentProfileEvents.js"></script>
     </head>
     <body>
-        
-       <div class="side-functions">
-      <div class="logo">
-        <img src="img/transperant-logo.png" alt="PSU logo" />
-      </div>
-      <div class="options">
-        <ul>
-          <li><a href="#">Create Survey</a></li>
-          <li><a href="#">Publish Annoucment</a></li>
-          <li><a href="#">Create Favourate List</a></li>
-          <li><a href="#">Setting</a></li>
-        </ul>
-      </div>
-    </div>
-        <div class="main-content">
-        <div class="search-panel">
-            <div class="search-box">
-                <input class="search" type="text" name="search" placeholder="Search Here ..."><input class="search-btn" type="submit" name="search-btn" value="">
-            </div>    
-        </div>
+
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand psu-logo" href="#"><img src="img/psulogo.png" alt="PSU"></span></a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Page 1</a></li>
+                    <li><a href="#">Page 2</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="main-content">  
         <div class="profile-container">
             <div class="profile-heading">
                 <div class="profile-img-block">
@@ -39,11 +34,11 @@
             </div>
             <div class="profile-info-block">
                 <div class="profile-categories">
-                    <div class="categories" id="overviewCategory">Overview</div>
-                    <div class="categories" id="educationCategory">education</div>
-                    <div class="categories" id="careerCategory">Career</div>
-                    <div class="categories" id="personalInfoCategory">Personal Info</div>
-                    <div class="categories" id="commentsCategory">Comments</div>
+                    <div class="category opened-category" id="overviewCategory">Overview</div>
+                    <div class="category" id="educationCategory">education</div>
+                    <div class="category" id="careerCategory">Career</div>
+                    <div class="category" id="personalInfoCategory">Personal Info</div>
+                    <div class="category" id="socialMediaCategory">Social Media</div>
                 </div>
 
 
@@ -147,7 +142,13 @@
                         </ul>            
                     </div>
                 </div>
-                <div class="profile-info profile-info-comments"></div>
+                <div class="profile-info profile-info-social">
+                <div class="info-section">
+                    <span class="social-icons facebook"></span>
+                    <span class="social-icons twitter"></span>
+                    <span class="social-icons linkedIn"></span>
+                </div>
+                </div>
             </div>
                
             </div>

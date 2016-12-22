@@ -15,114 +15,44 @@ html, body{
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-
-.side-functions{
-  width: 13%;
-  height: 100%;
-  background-color: rgba(0,87,129, 0.7);
-  background-image: url("../img/header-style.png");
-  background-position: top left;
-  background-repeat: no-repeat;
-  float: left;
-  z-index: 10;
-  position: relative;
-  -webkit-box-shadow: 4px  4px 0 4px #AAA;
-  box-shadow: 2px 2px 4px 1px #AAA;
+ /*overwriting bootstrap navbar class*/
+.navbar{
+    height: 75px;
+}
+.navbar-inverse{
+    border: none;
+    height: 75px;
+    background-color: rgba(0,87,129, 1);
 }
 
-.logo{
-  margin-top: 40px;
-  height: 22%;
+.navbar-brand{
+    height: auto;
+}
+.navbar-nav > li{
+    height: 50px;
 }
 
-.logo img{
-  display: block;
+.navbar-nav > li > a{
+    height: 50px;
+    padding-top: 40%;   
+}
+
+.psu-logo img{
+  display: inline-block;
   margin: auto;
-  width: auto;
-  height: 100%;
+  width: 200px;
+  height: 50px;
 }
 
-.options > ul{
-  padding: 0;
-  list-style: none;
-}
 
-.options > ul > li{
-  display: block;
-}
-
-.options > ul > li > a{
-  display: block;
-  width: 100%;
-  text-align: center;
-  text-decoration: none;
-  border-left: 3px solid transparent;
-  color: #FFF;
-  padding: 15px 0;
-  font-size: 0.85em;
-}
-
-.options > ul > li > a:hover, .options > ul > li > a:focus{
-  border-left-color: #45D6E9;
-  color: #45D6E9;
-  background-color: rgba(0,87,129, 1);
-  box-shadow: 2px 2px 10px rgba(40, 40, 40, 0.5)  inset;
-  outline: none;
-}
-
-.options > ul > li > a:active{
-  font-weight: bold;
-  box-shadow: 5px 5px 10px rgba(40, 40, 40, 0.5)  inset;
-}
+/*********************************************** Starting the profile info structure *********************************************/
 
 .main-content{
   width: 87%;
   height: 100%;
+  margin-top: 5%;
+  margin-left: 10%;
   float: left;
-}
-
-/*.main-content > div{
-  margin-left: 15px;
-}*/
-
-.search-panel{ 
-  height: 22%;
-}
-
-.search-panel > div{
-  margin-left: 15px;
-  height: 33.33%;
-}
-
-.search-box{
-  padding-top: 8px;
-}
-
-.search-box > .search{
-  width: 35%;
-  vertical-align: bottom;
-  padding: 4px 4px;
-  border: 1px solid #ccc;
-  border-right: none;
-  display: inline-block;
-}
-
-.search-box > .search:focus{
-    background-color: #FEFCC8;
-    outline: none;
-    border-color: #45D6E9;
-}
-
-.search-box > .search-btn{
-  padding: 5px 20px;
-  background-color: #FFF;
-  font-weight: bold;
-  font-family: Segoe MDL2 Assets;
-  border: 1px solid #45D6E9;
-  border-left: none;
-  display: inline-block;
-  color: #fff;
-  background-color: #45D6E9;
 }
 
 
@@ -144,7 +74,7 @@ html, body{
     background-color: rgba(255, 255, 255, 0.9);
     border-style: solid;
     border-width: thin;
-    border-color: #ccc;
+    border-color: rgba(0,87,129, 1);
 }
 
 .profile-heading > .profile-img-block{
@@ -179,11 +109,12 @@ html, body{
    float: left;
    width: 100%;
    height: auto;
+   min-height: 300px;
    margin-top:5%;
    background-color: rgba(255, 255, 255, 0.9);
    border-style: solid;
    border-width: thin;
-   border-color: #ccc;
+   border-color: rgba(0,87,129, 1);
 }
 
 .profile-categories{
@@ -193,9 +124,10 @@ html, body{
     
 }
 
-.categories{
+.category{
     float: left;
     width: 100%;
+    font-size: 16px;
     padding-left: 10%;
     margin-left: 0px;
     margin-top: 30px;
@@ -204,7 +136,15 @@ html, body{
   
 }
 
- .categories:hover{
+.opened-category{
+    font-size: larger;
+    color: #000;
+    border-left-style: solid;
+    border-left-color: rgba(0,87,129, 1);
+    border-left-width: thick;
+}
+
+ .category:hover{
     color: #000;
 }
 
@@ -238,7 +178,7 @@ html, body{
     color: #000;
     border-left-style: solid;
     border-left-width: thin;
-    border-left-color: #ccc;
+    border-left-color: rgba(0,87,129, 1);
 }
 
 .info-overview-section > .student-info-overview-list > li{
@@ -248,7 +188,7 @@ html, body{
     float: left;
     border-bottom-style: solid;
     border-bottom-width: thin;
-    border-bottom-color: #ccc;
+    border-bottom-color: rgba(0,87,129, 1);
 }
 
 .student-overview-info{
@@ -333,6 +273,7 @@ input[readonly]{
     float: left;
     width: 90%;
     height: auto;
+    min-height: 300px;
     border-left-style: solid;
     border-left-width: thin;
     border-left-color: #ccc;
@@ -363,26 +304,56 @@ input[readonly]{
     color: #000;
     font-size: medium;
     margin: 2% 0 2% 0;
-    padding: 5% 0 5% 15%; 
+    padding: 5% 0 3% 15%; 
 }
 
 .student-info:hover{
     background-color: #e2e3ee;
 }
 
+.profile-info-contact{
+    display: none;
+    height: auto;
+}
 
 .profile-info-career{
     display: none;
     height: auto;
 }
 
-.profile-info-comments{
+.profile-info-social{
     display: none;
 }
 
-.profile-info-contact{
-    display: none;
-    height: auto;
+.social-icons{
+    font-size: 100px;
+    padding-left: 15%;
+    margin-top: 100px;
+    color:rgba(0,87,129, 0.7);
 }
+.facebook::before{
+    content: "\f230";
+}
+
+.facebook:hover{
+    color: #3B5998;
+}
+
+.twitter::before{
+    content: "\f081";
+}
+
+.twitter:hover{
+    color: #1DA1F2;
+}
+
+.linkedIn::before{
+    content: "\f08c";
+}
+
+.linkedIn:hover{
+    color: #0177B5;
+}
+
 
 
