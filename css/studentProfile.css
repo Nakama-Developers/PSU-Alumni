@@ -1,0 +1,388 @@
+@import "external-fonts.css";
+
+html, body{
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  color: #888;
+  font-family: psu , awesome, arial;
+  background-image: url("../img/body.jpg");
+  background-repeat: round;
+}
+
+* {
+    
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.side-functions{
+  width: 13%;
+  height: 100%;
+  background-color: rgba(0,87,129, 0.7);
+  background-image: url("../img/header-style.png");
+  background-position: top left;
+  background-repeat: no-repeat;
+  float: left;
+  z-index: 10;
+  position: relative;
+  -webkit-box-shadow: 4px  4px 0 4px #AAA;
+  box-shadow: 2px 2px 4px 1px #AAA;
+}
+
+.logo{
+  margin-top: 40px;
+  height: 22%;
+}
+
+.logo img{
+  display: block;
+  margin: auto;
+  width: auto;
+  height: 100%;
+}
+
+.options > ul{
+  padding: 0;
+  list-style: none;
+}
+
+.options > ul > li{
+  display: block;
+}
+
+.options > ul > li > a{
+  display: block;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+  border-left: 3px solid transparent;
+  color: #FFF;
+  padding: 15px 0;
+  font-size: 0.85em;
+}
+
+.options > ul > li > a:hover, .options > ul > li > a:focus{
+  border-left-color: #45D6E9;
+  color: #45D6E9;
+  background-color: rgba(0,87,129, 1);
+  box-shadow: 2px 2px 10px rgba(40, 40, 40, 0.5)  inset;
+  outline: none;
+}
+
+.options > ul > li > a:active{
+  font-weight: bold;
+  box-shadow: 5px 5px 10px rgba(40, 40, 40, 0.5)  inset;
+}
+
+.main-content{
+  width: 87%;
+  height: 100%;
+  float: left;
+}
+
+/*.main-content > div{
+  margin-left: 15px;
+}*/
+
+.search-panel{ 
+  height: 22%;
+}
+
+.search-panel > div{
+  margin-left: 15px;
+  height: 33.33%;
+}
+
+.search-box{
+  padding-top: 8px;
+}
+
+.search-box > .search{
+  width: 35%;
+  vertical-align: bottom;
+  padding: 4px 4px;
+  border: 1px solid #ccc;
+  border-right: none;
+  display: inline-block;
+}
+
+.search-box > .search:focus{
+    background-color: #FEFCC8;
+    outline: none;
+    border-color: #45D6E9;
+}
+
+.search-box > .search-btn{
+  padding: 5px 20px;
+  background-color: #FFF;
+  font-weight: bold;
+  font-family: Segoe MDL2 Assets;
+  border: 1px solid #45D6E9;
+  border-left: none;
+  display: inline-block;
+  color: #fff;
+  background-color: #45D6E9;
+}
+
+
+/********************************************** Profile info statrs *************************************************************/
+.profile-container{
+    width: 80%;
+    height: 74.2%;
+    float: left;
+    margin: 0 50px 0 50px;
+    background-color: #fbfbfb;
+    background-color: rgba(255, 255, 255, 0.00);
+    
+}
+
+.profile-heading{
+    float: left;
+    width: 100%;
+    height: 15%;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-style: solid;
+    border-width: thin;
+    border-color: #ccc;
+}
+
+.profile-heading > .profile-img-block{
+    float: left;
+    height: 170px;
+    width: 170px;
+    border-radius: 50%;
+    position: relative;
+    top: -60px;
+    left: 10px;
+    z-index: 100;
+    background-color: #ccc;
+}
+
+.profile-image{
+    display: block;
+    height: 100%;
+    width: auto;
+    margin: auto;
+}
+
+.profile-name{
+    height: 100%;
+    position: relative;
+    left: 2%;
+    padding-top: 25px;
+    font-size: x-large;
+    color: rgba(0,87,129, 1);
+}
+
+.profile-info-block{
+   float: left;
+   width: 100%;
+   height: auto;
+   margin-top:5%;
+   background-color: rgba(255, 255, 255, 0.9);
+   border-style: solid;
+   border-width: thin;
+   border-color: #ccc;
+}
+
+.profile-categories{
+    float: left;
+    width: 25%;
+    height: 100%;
+    
+}
+
+.categories{
+    float: left;
+    width: 100%;
+    padding-left: 10%;
+    margin-left: 0px;
+    margin-top: 30px;
+    color: #AAA;
+    cursor: pointer;
+  
+}
+
+ .categories:hover{
+    color: #000;
+}
+
+
+.profile-info{
+    float: left;
+    width: 75%;
+    height: auto;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.profile-info-overview{
+    display: inline-block;
+    float: left;
+    
+}
+
+.student-info-overview-list{
+    height: 100%;
+    margin-top: 0;
+    margin-left: 0;
+    padding-left: 2%;
+}
+
+.info-overview-section{
+    display: inline-block;
+    float: left;
+    width: 60%;
+    height: 100%;
+    font-size: medium;
+    color: #000;
+    border-left-style: solid;
+    border-left-width: thin;
+    border-left-color: #ccc;
+}
+
+.info-overview-section > .student-info-overview-list > li{
+    list-style: none;
+    height: 25%;
+    width: 100%;
+    float: left;
+    border-bottom-style: solid;
+    border-bottom-width: thin;
+    border-bottom-color: #ccc;
+}
+
+.student-overview-info{
+    width: 100%;
+    display: inline-block;
+    color: #000;
+    font-size: medium;
+    margin: 5% 0 5% 0;
+    padding: 5% 0 5% 1%; 
+}
+
+
+.student-overview-info:hover{
+    background-color: #e2e3ee;
+}
+
+.info-overview-section-2{
+    display: inline-block;
+    float: left;
+    width: 40%;
+    height: 100%;
+    font-size: small;
+    color: #000;
+}
+
+.info-overview-section-2 > .student-info-overview-list > li {
+    list-style: none;
+    height: 70px;
+    width: 100%;
+    float: left;
+}
+
+.student-info-optional{
+    width: 100%;
+    height: 20%;
+    margin: 5% 0 5% 8%;  
+}
+
+input[readonly]{
+    border: none;
+    color: rgba(0,87,129, 0.7);
+    font-weight: bold;
+    font-size: medium;
+    width: auto;
+    background-color: rgba(255, 255, 255, 0)
+}
+
+.student-info-optional > input[readonly]{
+    width: 40%;
+}
+
+.company-icon::before{
+    content: "\f0f7";
+    font-style: normal;
+    padding-right: 5%;
+}
+
+.job-icon::before{
+    content: "\f2bb";
+    font-style: normal;
+    padding-right: 5%;
+}
+
+.contact-number-icon::before{  
+    content: "\f095";
+    font-style: normal;
+    padding-right: 5%;
+}
+
+
+                        /*Overview category ended*/
+                /*education category starts*/
+
+.profile-info-education{
+    float: left;
+    height: auto;
+    display:none;
+}
+
+
+.info-section{
+    float: left;
+    width: 90%;
+    height: auto;
+    border-left-style: solid;
+    border-left-width: thin;
+    border-left-color: #ccc;
+    
+}
+
+.student-info-list{
+    width: 100%;
+    height: 100%;
+    margin: 0 3% 0 3%;
+    padding-left: 2%;
+    padding-bottom: 2%; 
+}
+
+.info-section > .student-info-list > li{
+    list-style: none;
+    height: 25%;
+    width: 100%;
+    float: left;
+    border-bottom-style: solid;
+    border-bottom-width: thin;
+    border-bottom-color: #ccc;
+}
+
+.student-info{
+    width: 100%;
+    height: 75%;
+    color: #000;
+    font-size: medium;
+    margin: 2% 0 2% 0;
+    padding: 5% 0 5% 15%; 
+}
+
+.student-info:hover{
+    background-color: #e2e3ee;
+}
+
+
+.profile-info-career{
+    display: none;
+    height: auto;
+}
+
+.profile-info-comments{
+    display: none;
+}
+
+.profile-info-contact{
+    display: none;
+    height: auto;
+}
+
+

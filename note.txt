@@ -1,0 +1,40 @@
+Note for: Omar Maksousa
+Author: Omar Maksousa
+
+Overview:
+    section1:
+	ID
+	Nationality
+	Major
+	GPA
+    section2:
+	CurrentCompany
+	JobTitle
+	contact number
+
+education:
+	ID
+	Major
+	GPA
+	grad. year
+
+Career:
+	Co-Op company
+	started working for
+	job title
+	company type ( governemantal or other )
+	when did he take the job
+	years of experience
+
+personal info:
+	Name
+	Nationality
+	National ID
+	e-mail
+	contact number
+
+	
+
+
+
+

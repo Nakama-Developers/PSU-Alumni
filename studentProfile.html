@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>Student Profile Page</title>
+         <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <link  type="text/css" rel="stylesheet" href="css/studentProfile.css">
+        <script src="js/studentProfileEvents.js"></script>
+    </head>
+    <body>
+        
+       <div class="side-functions">
+      <div class="logo">
+        <img src="img/transperant-logo.png" alt="PSU logo" />
+      </div>
+      <div class="options">
+        <ul>
+          <li><a href="#">Create Survey</a></li>
+          <li><a href="#">Publish Annoucment</a></li>
+          <li><a href="#">Create Favourate List</a></li>
+          <li><a href="#">Setting</a></li>
+        </ul>
+      </div>
+    </div>
+        <div class="main-content">
+        <div class="search-panel">
+            <div class="search-box">
+                <input class="search" type="text" name="search" placeholder="Search Here ..."><input class="search-btn" type="submit" name="search-btn" value="">
+            </div>    
+        </div>
+        <div class="profile-container">
+            <div class="profile-heading">
+                <div class="profile-img-block">
+                    <img alt="profile image" src="img/transperant-logo.png" class="profile-image">
+                </div>
+                <div class="profile-name">Omar Maksousa</div>
+            </div>
+            <div class="profile-info-block">
+                <div class="profile-categories">
+                    <div class="categories" id="overviewCategory">Overview</div>
+                    <div class="categories" id="educationCategory">education</div>
+                    <div class="categories" id="careerCategory">Career</div>
+                    <div class="categories" id="personalInfoCategory">Personal Info</div>
+                    <div class="categories" id="commentsCategory">Comments</div>
+                </div>
+
+
+                <div class="profile-info profile-info-overview">
+                    <div class="info-overview-section">
+                        <ul class="student-info-overview-list">
+                            <li>
+                                <div class="student-overview-info student-ID">Holds the student ID of <input type="text" placeholder="empty" id="studentID" value="213110174" readonly></div>
+                            </li>
+                            <li>
+                                <div class="student-overview-info student-nationality">Is From <input type="text" placeholder="empty" id="studentCountry" value="Syria" readonly></div>
+                            </li>
+                            <li>
+                                <div class="student-overview-info student-major">Studied <input type="text" placeholder="empty" id="studentCountry" value="Software Engineer" readonly> </div>
+                            </li>
+                            <li>
+                                <div class="student-overview-info student-GPA">Got a GPA of <input type="text" placeholder="empty" id="studentCountry" value="3.7" readonly> </div>
+                            </li>
+                        </ul>            
+                    </div>
+                    <div class="info-overview-section-2">
+                        <ul class="student-info-overview-list">
+                            <li>
+                                <div class="student-info-optional student-current-company"><i class="company-icon"></i>Works at <input type="text" placeholder="empty" id="studentCountry" value="Google" readonly></div>
+                            </li>
+                            <li>
+                                <div class="student-info-optional student-job-title"><i class="job-icon"></i>Works as a <input type="text" placeholder="empty" id="studentCountry" value="CEO" readonly></div>
+                            </li>
+                            <li>    
+                                <div class="student-info-optional student-contact-number"><i class="contact-number-icon"></i>Contact number: <input type="text" placeholder="empty" id="studentCountry" value="0552968456" readonly></div>
+                            </li>
+                        </ul>            
+                    </div>
+                </div>
+            
+                
+                    
+             <div class="profile-info profile-info-education">
+                    <div class="info-section">
+                        <ul class="student-info-list">
+                            <li>
+                                <div class="student-info student-ID">Holds the student ID of <input type="text" placeholder="empty" id="studentID" value="213110174" readonly></div>
+                            </li>
+                            <li>
+                                <div class="student-info student-major">Studied <input type="text" placeholder="empty" id="major" value="Software Engineer" readonly></div>
+                            </li>
+                            <li>
+                                <div class="student-info student-GPA">Got a GPA of <input type="text" placeholder="empty" id="GPA" value="3.7" readonly> </div>
+                            </li>
+                            <li>
+                                <div class="student-info student-graduation-year">Graduated on <input type="text" placeholder="empty" id="graduationYear" value="2013-2014" readonly> </div>
+                            </li>
+                        </ul>            
+                    </div>
+                </div>
+                <div class="profile-info profile-info-career">
+                    <div class="info-section">
+                        <ul class="student-info-list">
+                            <li>
+                                <div class="student-info student-coop-company">Did the Co-Op with  <input type="text" placeholder="empty" id="coopCompany" value="Google" readonly></div>
+                            </li>
+                            <li>
+                                <div class="student-info student-first-job">Started working for <input type="text" placeholder="empty" id="firstJob" value="Microsoft" readonly></div>
+                            </li>
+                            <li>
+                                <div class="student-info student-first-job-date">Took the job <input type="text" placeholder="empty" id="firstJobDate" value="after the CO-OP" readonly></div>
+                            </li>
+                            <li>
+                                <div class="student-info student-current-job">Now is working for <input type="text" placeholder="empty" id="currentJob" value="Microsoft" readonly></div>
+                            </li>
+                            <li>
+                                <div class="student-info student-job-title">Working as <input type="text" placeholder="empty" id="jobTitle" value="CEO" readonly> </div>
+                            </li>
+                            <li>
+                                <div class="student-info student-company-type">This company is in <input type="text" placeholder="empty" id="companyType" value="Private Sector" readonly> </div>
+                            </li>
+                            <li>
+                                <div class="student-info student-experience-years">Has experience of <input type="text" placeholder="empty" id="experienceYears" value="2 years" readonly></div>
+                            </li>
+                        </ul>            
+                    </div>
+                </div>
+                <div class="profile-info profile-info-contact">
+                    <div class="info-section">
+                        <ul class="student-info-list">
+                            <li>
+                                <div class="student-info student-name"> <input type="text" placeholder="empty" id="name" value="Omar Maksousa" readonly></div>
+                            </li>
+                            <li>
+                                <div class="student-info student-nationality">Country <input type="text" placeholder="empty" id="nationality" value="Syria" readonly></div>
+                            </li>
+                            <li>
+                                <div class="student-info student-first-nationalID">National ID <input type="text" placeholder="empty" id="nationalID" value="2160186789" readonly></div>
+                            </li>
+                            <li>
+                                <div class="student-info student-email">E-Mail <input type="text" placeholder="empty" id="email" value="o.maksousa@hotmail.com" readonly></div>
+                            </li>
+                            <li>
+                                <div class="student-info student-contact-number">Contact number <input type="text" placeholder="empty" id="conatctNumber" value="0552968456" readonly> </div>
+                            </li>
+                        </ul>            
+                    </div>
+                </div>
+                <div class="profile-info profile-info-comments"></div>
+            </div>
+               
+            </div>
+        </div>
+    </div>
+    </body>
+</html>
