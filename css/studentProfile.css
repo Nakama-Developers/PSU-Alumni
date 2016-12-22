@@ -111,7 +111,7 @@ html, body{
    height: auto;
    min-height: 300px;
    margin-top:5%;
-   background-color: rgba(255, 255, 255, 0.9);
+   background-color: White;
    border-style: solid;
    border-width: thin;
    border-color: rgba(0,87,129, 1);
@@ -137,7 +137,7 @@ html, body{
 }
 
 .opened-category{
-    font-size: larger;
+    font-size: 20px;
     color: #000;
     border-left-style: solid;
     border-left-color: rgba(0,87,129, 1);
@@ -154,6 +154,22 @@ html, body{
     width: 75%;
     height: auto;
     background-color: rgba(255, 255, 255, 0.9);
+}
+
+.editIcon{
+    position: relative;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    font-size: 20px;
+    color: rgba(0,87,129, 1);
+}
+.editIcon::before{
+    content: "\f040";
+}
+
+.saveIcon::before{
+    content: "\F0C7";
 }
 
 .profile-info-overview{
