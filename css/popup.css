@@ -12,6 +12,18 @@
     background-color:rgba(0, 0, 0, 0.14);
 }
 
+ /* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 14; /* Sit infront of a text */
+    left: 0;
+    top: 0; /*these two atributes to make the color of the focus fill the whole screen*/
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+}
+
 /* Modal Content/Box */
 .modal-content {
     background-color: #ffc;
@@ -43,9 +55,15 @@
 }
 
 textarea{
-        width: 98%;
-        background-color:#ffc;
-        border: none; 
+        width: 100%;
+        background-color: inherit;
+        border: none;
+        padding: 0;
+        outline: none;
+        font-family: inherit;
+        font-size: 1em;
+        font-weight: bold;
+        color: inherit;
     }
    
 /* The Close Button */
@@ -62,4 +80,3 @@ textarea{
     text-decoration: none;
     cursor: pointer;
 }
-
