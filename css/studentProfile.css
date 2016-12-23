@@ -168,6 +168,15 @@ html, body{
     content: "\f040";
 }
 
+.saveIcon{
+    position: relative;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    font-size: 20px;
+    color: rgba(0,87,129, 1);
+   
+}
 .saveIcon::before{
     content: "\F0C7";
 }
@@ -204,7 +213,7 @@ html, body{
     float: left;
     border-bottom-style: solid;
     border-bottom-width: thin;
-    border-bottom-color: rgba(0,87,129, 1);
+    border-bottom-color: #ccc;
 }
 
 .student-overview-info{
@@ -292,7 +301,7 @@ input[readonly]{
     min-height: 300px;
     border-left-style: solid;
     border-left-width: thin;
-    border-left-color: #ccc;
+    border-left-color: rgba(0,87,129, 1);
     
 }
 
@@ -371,5 +380,27 @@ input[readonly]{
     color: #0177B5;
 }
 
+.profile-info-resume{
+    display: none;
+}
+/* uploading Resume*/
+.upload-drop-zone {
+  height: 200px;
+  border-width: 2px;
+  margin-bottom: 20px;
+}
+
+/* skin.css Style*/
+.upload-drop-zone {
+  color: #ccc;
+  border-style: dashed;
+  border-color: #ccc;
+  line-height: 200px;
+  text-align: center
+}
+.upload-drop-zone.drop {
+  color: #222;
+  border-color: #222;
+}
 
 
