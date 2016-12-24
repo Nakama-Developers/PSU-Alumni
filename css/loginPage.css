@@ -63,11 +63,11 @@ html, body{
 }
 
 .login-form div > input{
-    height: 0;
+    height: 1px;
 }
 
 .login-form  div > label{
-    height: 35px;
+    height: 34px;
     cursor: pointer;
     font-size: 25px;
     user-select: none;
@@ -78,12 +78,20 @@ html, body{
 .login-form .input-div{
     border-bottom: 2px solid #ccc;
     outline: none;
-    width: 95%;
-    margin: auto;
     transition: border-bottom 0.3s;
 }
 
-.login-form .input-div, .login-form .submit-div{
+.login-form .input-div, .login-form .errors-div, .login-form .recaptch-container{
+    width: 95%;
+    margin: auto;
+}
+
+.login-form .errors-div{
+    color: #F00;
+    font-size: 0.8em;
+}
+
+.login-form .input-div, .login-form .submit-div, .login-form .errors-div, .login-form .recaptch-container{
     padding-top: 15px;
 }
 

@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿<?php
+    session_start();
+    if(isset($_SESSION['signedIn'])){
+        
+?>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -28,6 +33,7 @@
           <li><a href="#">Publish Annoucment</a></li>
           <li><a href="#">Create Favourate List</a></li>
           <li><a href="#">Setting</a></li>
+          <li><a href="logIn.php?logout=true">Log out</a></li>
         </ul>
       </div>
     </div>
@@ -112,3 +118,8 @@
     </div>
   </body>
 </html>
+<?php
+    } else{
+        header("location: login.php");
+    }
+?>
