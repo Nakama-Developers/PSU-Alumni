@@ -2,6 +2,7 @@
 
 require "php/dbconfig.php";
     session_start();
+
     // log out
     if(isset($_GET['logout'])){
         if($_GET['logout'] == true){
@@ -11,62 +12,76 @@ require "php/dbconfig.php";
 
     $error = "";
     $error_div = "";
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $username = $db->quote($_POST['username']);
         $username = strtr($username, array('_' => '\_', '%' => '\%'));
         $password =$db->quote(md5($_POST['password']));
         $q = $db->query("SELECT Role FROM user WHERE Username=$username AND Password=$password")->fetch();
-        if ($q["Role"] === "admin") {
-            if (isset($_SESSION['attempt'])){
-                // After 3 failed attempts the user must solve the reCAPTCHA
-                if($_SESSION['attempt'] > 2){
-                    // checking if the user has solved the reCAPTCHA
-                    $url = "https://www.google.com/recaptcha/api/siteverify";
+        if(isset($_SESSION['attempt'])){
+            // After 2 failed attempts the user must solve the reCAPTCHA
+            if($_SESSION['attempt'] > 2){
+                // checking if the user has solved the reCAPTCHA
+                $url = "https://www.google.com/recaptcha/api/siteverify";
 
-                    $privatekey = "--------- Private key -----------";
+                    $privatekey = "--------- Private Key ----------";
 
                     $response = file_get_contents($url."?secret=".$privatekey."&response=".$_POST['g-recaptcha-response']."&remoteip=".$_SERVER['REMOTE_ADDR']);
                     $data = json_decode($response);
                     if(isset($data->success) and $data->success == true){
-                        $_SESSION['signedIn'] = true;
-                        header("location: index.php");
-                    } else{
+                        // ----------- Auth ------------
+                        if(!auth()){
+                            show_form(true);
+                        }
+                    }
+                    else{
                         $GLOBALS['error'] = "humen only - no offense -";
                         $GLOBALS['error_div'] = show_error();
                         show_form(true);
                     }
-                } else{
-                    $_SESSION['signedIn'] = true;
-                    header("location: index.php");
+                } 
+                else{
+                    // --------- Auth -------------
+                    // Determine whether to display reCAPTCHA 
+                    if(!auth() && $_SESSION['attempt'] => 2){
+                        // A failed attempt is registered.
+                        show_form(true);
+                    } else{
+                        // A failed attempt is registered.
+                        show_form();
+                    }
                 }
-            } else{
-                $_SESSION['signedIn'] = true;
-                header("location: index.php");
             }
-        } // TODO: to add more users with different roles
-        else if ($q["Role"] === null) {
-            $GLOBALS['error'] = "wrong username or password";
-            $GLOBALS['error_div'] = show_error();
-            // Counting failed attempts
-            if (isset($_SESSION['attempt'])) {
-                $_SESSION['attempt'] = $_SESSION['attempt'] + 1;
-                // determine whether to dislay the reCAPTCHA or not
-                if($_SESSION['attempt'] > 2){
-                    show_form(true);
-                }else{
-                    show_form();
-                }
-            } else {
+            // Registering the first Failed attempt 
+            else{
                 $_SESSION['attempt'] = 1;
-                show_form();
+                // --------- Auth -----------
+                if(!auth()){
+                   show_form();
+                }
             }
-        }
-    } else{
+    } 
+    // Making sure to reset the attempt counter when the user access the page again. (Usability)
+    else{
         if(isset($_SESSION['attempt'])){
             unset($_SESSION['attempt']);
         }
         show_form();
     }
+
+    // ******** Authentication ************** //
+    function auth(){
+        global $q;
+         if ($q["Role"] === "admin"){
+             $_SESSION['signedIn'] = true;
+             header("location: index.php");
+         } else {
+             $_SESSION['attempt'] = $_SESSION['attempt'] + 1;
+             $GLOBALS['error'] = "wrong username or password";
+             $GLOBALS['error_div'] = show_error();
+             return FALSE;
+         }
+    }
+   
 
     function show_error(){
         if ($GLOBALS['error'] !== null || $GLOBALS['error'] !== "") {
