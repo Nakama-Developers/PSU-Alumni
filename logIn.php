@@ -42,7 +42,7 @@ require "php/dbconfig.php";
                 else{
                     // --------- Auth -------------
                     // Determine whether to display reCAPTCHA 
-                    if(!auth() && $_SESSION['attempt'] => 2){
+                    if(!auth() && $_SESSION['attempt'] >= 2){
                         // A failed attempt is registered.
                         show_form(true);
                     } else{

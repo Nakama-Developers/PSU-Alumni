@@ -1,4 +1,4 @@
-for (var counter = 0; counter < 20;counter++ ){
+/*for (var counter = 0; counter < 20;counter++ ){
     loadRecords();
 }
 
@@ -131,7 +131,7 @@ for (var counter = 0; counter < 20;counter++ ){
               </div>\
             </section>\
             <span title="close" class="close-btn close-profile"></span>'
-            }
+            }*/
     
 
 

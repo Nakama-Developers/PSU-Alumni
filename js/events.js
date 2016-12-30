@@ -23,13 +23,7 @@ $(document).ready(function () {
         $('.write-note').addClass('opened-icon');
     })
     // Get the <span> element that closes the modal
-    var span = document.getElementsByClassName("close-popup")[0];
     var closeNote = document.getElementsByClassName("close-note")[0];
-
-    // When the user clicks on <span> (x), close the modal
-    span.onclick = function () {
-        modal.style.display = "none";
-    }
 
     $('.close-note').click(function () {
         $('.note-container').removeClass('note-opened');
