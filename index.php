@@ -37,6 +37,7 @@
     <!--external style-->
     
     <script type="text/javascript" src="js/events.js" ></script>
+    <script type="text/javascript" src="js/adminPageAjax.js" ></script>
     <link  type="text/css" rel="stylesheet" href="css/adminPage.css">
     <link  type="text/css" rel="stylesheet" href="css/popup.css">
 
@@ -65,11 +66,12 @@
         <div class="search-tools">
           <span class="label">Sort By:</span>
           <div class="sort">
-            <select name="sort-method">
-              <option class="options">Name</option>
-              <option>Student ID</option>
-              <option>Graduation Year</option>
-              <option>GPA</option>
+            <select name="sort-method" id="sort_method" onchange="sort(value);">
+                <option value="student_ID">Student ID</option>
+                <option value="student_name" >Student Name</option>         
+                <option value="gpa">GPA</option>
+                <option value="grad_year">Graduation Year</option>
+                <option value="comp_size">Company Size</option>
             </select>
           </div>
           <div class="navegation-tools">

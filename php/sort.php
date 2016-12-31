@@ -2,13 +2,13 @@
 
 require "dbconnect.php";
 
-//$input_name = $_GET['name'];
-//$input_order = $_GET['type'];
+$input_name = $_GET['sort_type'];
+$input_order = 'asc';
 
 
 //TEST CASE 1
-$input_name = 'name';
-$input_order= 'asc';
+//$input_name = 'name';
+//$input_order= 'asc';
 
 /*
 //TEST CASE 2
@@ -24,16 +24,16 @@ $input_order= 'asc';
 
 $order;
 
-if ($input_name =='id' && $input_order =='asc'){
+if ($input_name =='student_ID' && $input_order =='asc'){
   $order = 'Student_ID ASC';
 }
-else if ($input_name =='id' && $input_order =='desc'){
+else if ($input_name =='student_ID' && $input_order =='desc'){
   $order = 'Student_ID DESC';
 }
-else if ($input_name =='name' && $input_order =='asc'){
+else if ($input_name =='student_name' && $input_order =='asc'){
   $order ='Name ASC';
 }
-else if ($input_name =='name' && $input_order =='desc'){
+else if ($input_name =='student_name' && $input_order =='desc'){
   $order = 'Name DESC';
 }
 else if ($input_name =='grad_year' && $input_order =='asc'){
@@ -64,8 +64,7 @@ $output=array();
 $json_rows = array();
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
-      $id = $row['Student_ID'];
-
+      $id = $row['Student_ID'].' ';
       $output[$id]['Name'] = $row['Name'];
       $output[$id]['Major'] = $row['Major'];
       $output[$id]['GPA'] = $row['GPA'];
