@@ -149,10 +149,16 @@ html, body{
   font-weight: bold;
 }
 
+.search-tools > .navegation-tools > a:hover{
+    color: #888;
+    transition: color 0.3s, font-size 0.3s;
+}
+
 .search-tools > .navegation-tools > span{
   padding: 0 10px;
   font-size: 0.8em;
   font-weight: bold;
+  color: #aaa;
   border-left: 1px solid #ccc;
   border-right: 1px solid #ccc;
 }

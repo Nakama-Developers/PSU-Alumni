@@ -136,30 +136,33 @@
 
 
     // Open Student Profile
-    var profiles = document.getElementsByClassName('record');
-    var recordProfiles = document.getElementsByClassName('record-profile');
-    var recordRows = document.getElementsByClassName('record-row');
-    var profileImages = document.getElementsByClassName('profile-img');
+openProfilesEvents();
+    function openProfilesEvents(){
+        var profiles = document.getElementsByClassName('record');
+        var recordProfiles = document.getElementsByClassName('record-profile');
+        var recordRows = document.getElementsByClassName('record-row');
+        var profileImages = document.getElementsByClassName('profile-img');
 
-    for (var i = recordRows.length - 1; i >= 0; i--) {
-        (function (i) {
-            recordRows[i].addEventListener('click', function () {
-                closeProfile();
-                recordProfiles[i].className += ' open-profile';
-                recordRows[i].className += ' close-row';
-                profileImages[i].className += ' open-profile-img';
-            });
-        })(i);
-    }
+        for (var i = recordRows.length - 1; i >= 0; i--) {
+            (function (i) {
+                recordRows[i].addEventListener('click', function () {
+                    closeProfile();
+                    recordProfiles[i].className += ' open-profile';
+                    recordRows[i].className += ' close-row';
+                    profileImages[i].className += ' open-profile-img';
+                });
+            })(i);
+        }
 
-    var closeBtns = document.getElementsByClassName("close-profile");
-    for (var i = closeBtns.length - 1; i >= 0; i--) {
-        (function (i) {
-            closeBtns[i].addEventListener('click', function () {
-                closeProfile();
-            });
-        })(i);
-    }
+        var closeBtns = document.getElementsByClassName("close-profile");
+        for (var i = closeBtns.length - 1; i >= 0; i--) {
+            (function (i) {
+                closeBtns[i].addEventListener('click', function () {
+                    closeProfile();
+                });
+            })(i);
+        }   
+    }    
 
     // close whatever is opened from student profiles
     function closeProfile() {
