@@ -78,6 +78,36 @@
                 <option value="comp_size">Company Size</option>
             </select>
           </div>
+
+          <span class="label">Filter By:</span>
+            <div class="filter">
+                <select class="filter-method">
+                    <option>GPA</option>
+                    <option>0.5 - 1.0</option>
+                    <option>1.0 - 1.5</option>
+                    <option>1.5 - 2.0</option>
+                    <option>2.0 - 2.5</option>
+                    <option>2.5 - 3.0</option>
+                    <option>3.5 - 4.0</option>
+                </select>
+                <select class="filter-method">
+                    <option>Nationality</option>
+                    <option>Saudi</option>
+                    <option>Other</option>
+                </select>
+                <select class="filter-method">
+                    <option>Company size</option>
+                    <option>Large</option>
+                    <option>Medium</option>
+                    <option>small</option>
+                </select>
+                <select class="filter-method">
+                    <option>Major</option>
+                    <option>option</option>
+                    <option>option</option>
+                </select>               
+            
+            </div>
           <div class="navegation-tools">
             <a href="#" id="prev"><</a>
             <span id="resultsNumDisplay">1 - $recordsPerPage</span>

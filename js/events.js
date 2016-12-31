@@ -257,7 +257,7 @@ $(document).ready(function () {
     var next = 2;
 
     $('#next').click(function () {
-        $.ajax({ url: "http://localhost:57644/php/navpages.php?pageNum=" + next, success: function (response) {
+        $.ajax({ url: "php/navpages.php?pageNum=" + next, success: function (response) {
             var data = JSON.parse(response);
             if (data.studentsRows != '') {
                 var starter = next * numRecordsPerPage;
@@ -273,7 +273,7 @@ $(document).ready(function () {
     });
 
     $('#prev').click(function () {
-        $.ajax({ url: "http://localhost:57644/php/navpages.php?pageNum=" + prev, success: function (response) {
+        $.ajax({ url: "php/navpages.php?pageNum=" + prev, success: function (response) {
             var data = JSON.parse(response);
             if (data.studentsRows != '') {
                 var end = prev * numRecordsPerPage;

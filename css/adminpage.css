@@ -178,6 +178,22 @@ html, body{
   margin-top: 10%;
 }
 
+.filter{
+    height: 100%;
+    display: inline-block;
+    
+}
+
+.filter > select{
+  border: 1px solid #CCC;
+  color: #888;
+  background-color: rgb(255, 255, 255);
+  outline: none;
+  height: auto;
+  width: 130px;
+  padding: 1% 0;
+ 
+}
 .grouping{
   position: relative;
 }
