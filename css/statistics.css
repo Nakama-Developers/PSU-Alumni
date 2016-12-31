@@ -1,0 +1,35 @@
+.charts-container{
+    height: 90%;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+.tools-set{
+    height: 10%;
+}
+
+.search-tools{
+    height: 50%;
+}
+
+.grouping{
+    height: 50%;
+}
+
+.catagories{
+    height: 100%;
+}
+
+.chart{
+    width: 45%;
+    box-shadow: 3px 3px 5px 0 #ccc;
+    display: inline-block;
+    margin: 20px 15px;
+    max-height : 600px;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.pie-chart-container{
+    padding: 25px 0;
+    width: 40%;
+    margin: auto;
+}

@@ -34,12 +34,15 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Charts.js CDN-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.bundle.min.js" type="text/javascript"></script>
     <!--external style-->
     
     <script type="text/javascript" src="js/events.js" ></script>
     <script type="text/javascript" src="js/adminPageAjax.js" ></script>
     <link  type="text/css" rel="stylesheet" href="css/adminPage.css">
     <link  type="text/css" rel="stylesheet" href="css/popup.css">
+    <link  type="text/css" rel="stylesheet" href="css/statistics.css">
 
     <title>Allumni - Control Panel</title>
   </head>
@@ -50,8 +53,9 @@
       </div>
       <div class="options">
         <ul>
-          <li><a href="#">Create Survey</a></li>
+          <li><a href="index.php">Home</a></li>
           <li><a href="#">Publish Annoucment</a></li>
+          <li><a id="chartsLink" href="#">Statistics</a></li>
           <li><a href="#">Create Favourate List</a></li>
           <li><a href="#">Setting</a></li>
           <li><a href="logIn.php?logout=true">Log out</a></li>
