@@ -78,8 +78,6 @@
                 <option value="Company_size">Company Size</option>
             </select>
           </div>
-
-          <span class="label">Filter By:</span>
             <div class="filter">
            <input class="submit-button" type="submit" value="Go" onclick='filter()'>
            <span class="filter-span">Filter By:</span>        
