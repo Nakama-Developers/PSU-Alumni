@@ -1,6 +1,59 @@
 <?php
 
+require "dbconfig.php";
+require "filter.php";
+//session_start();
+
 $recordsPerPage = 40;
+
+function extractQuery(){
+    if(isset($_SESSION['sort']) && isset($_SESSION['filters'])){
+
+        if($_SESSION['sort'] === "GPA" || $_SESSION['sort'] === "Graduation_year"){
+            $query = "SELECT * FROM student_info ORDER BY {$_SESSION['sort']} DESC;";
+        }else{
+            $query = "SELECT * FROM student_info ORDER BY {$_SESSION['sort']};";   
+        }
+
+    }else if (isset($_SESSION['sort'])){
+
+        if($_SESSION['sort'] === "GPA" || $_SESSION['sort'] === "Graduation_year"){
+            $query = "SELECT * FROM student_info ORDER BY {$_SESSION['sort']} DESC;";
+        }else{
+            $query = "SELECT * FROM student_info ORDER BY {$_SESSION['sort']};";   
+        }
+
+    } else if (isset($_SESSION['filters'])){
+        $query = "SELECT * FROM student_info " . filterToQuery() . ";";
+    } else{
+        $query = "SELECT * FROM student_info;";
+    }
+    return $query;
+}
+
+function printRecords($pageNum){
+    // global $db, $recordsPerPage;
+    $printedRecordsNum = 0;
+    $query = extractQuery();
+    $q = $GLOBALS['db']->query($query);
+    $studentsRows = "";
+    $rows = $q->fetchAll();
+    $starter = ($pageNum - 1) * $GLOBALS['recordsPerPage'];
+    $end = $pageNum * $GLOBALS['recordsPerPage'];
+    for($i = $starter; $i < $end; $i++){
+        if(isset($rows[$i])){
+            $printedRecordsNum++;
+            $studentsRows .= ('<div class="record">' .
+            printStudentRow($rows[$i]) . printStudentProfile($rows[$i]) .
+            '</div>');
+        } else{
+            break;
+        }
+    }
+    $result = array('resultsNum' => $printedRecordsNum, 'studentsRows' => $studentsRows);
+
+    echo json_encode($result);
+}
 
 function printStudentRow($row){
         return '<div class="record-row" title="Click for more details">

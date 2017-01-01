@@ -1,7 +1,7 @@
 ﻿<?php
     require "php/dbconfig.php";
     require "php/printData.php";
-    session_start();
+    //session_start();
 
     if(isset($_SESSION['signedIn'])){
         $q = $db->query("SELECT * FROM student_info;");
@@ -23,7 +23,7 @@
             }
             $studentsRows .= '<script type="text/javascript" src="js/loadRecords.js" ></script></section>';
         echo <<<_HTML_
-        <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -72,41 +72,72 @@
           <div class="sort">
             <select name="sort-method" id="sort_method" onchange="sort(value);">
                 <option value="student_ID">Student ID</option>
-                <option value="student_name" >Student Name</option>         
-                <option value="gpa">GPA</option>
-                <option value="grad_year">Graduation Year</option>
-                <option value="comp_size">Company Size</option>
+                <option value="Name" >Student Name</option>         
+                <option value="GPA">GPA</option>
+                <option value="Graduation_year">Graduation Year</option>
+                <option value="Company_size">Company Size</option>
             </select>
           </div>
 
           <span class="label">Filter By:</span>
             <div class="filter">
-                <select class="filter-method">
-                    <option>GPA</option>
-                    <option>0.5 - 1.0</option>
-                    <option>1.0 - 1.5</option>
-                    <option>1.5 - 2.0</option>
-                    <option>2.0 - 2.5</option>
-                    <option>2.5 - 3.0</option>
-                    <option>3.5 - 4.0</option>
-                </select>
-                <select class="filter-method">
-                    <option>Nationality</option>
-                    <option>Saudi</option>
-                    <option>Other</option>
-                </select>
-                <select class="filter-method">
-                    <option>Company size</option>
-                    <option>Large</option>
-                    <option>Medium</option>
-                    <option>small</option>
-                </select>
-                <select class="filter-method">
-                    <option>Major</option>
-                    <option>option</option>
-                    <option>option</option>
-                </select>               
-            
+           <input class="submit-button" type="submit" value="Go" onclick='filter()'>
+           <span class="filter-span">Filter By:</span>        
+                    <div class="filter-option-block" id="gpa_filter">
+                        <span  onclick="gpaFilterBlock()">GPA</span>
+                        <ul class="options">
+                            <li>
+                                <label for="0">0.5 - 2.0</label>
+                                <input value="0" name="GPA" id="0" type="checkbox">
+                            </li>
+                            <li>
+                                <label for="2">2.0 - 2.5</label>
+                                <input value="2" name="GPA" id="2" type="checkbox">
+                            </li>
+                            <li>
+                                <label for="2.5">2.5 - 3.0</label>
+                                <input value="2.5" name="GPA" id="2.5" type="checkbox">
+                            </li>
+                            <li>
+                                <label for="3">3.0 - 3.5</label>
+                                <input value="3" name="GPA" id="3" type="checkbox">
+                            </li>
+                            <li>
+                                <label for="3.5">3.5 - 4.0</label>
+                                <input value="3.5" name="GPA" id="3.5" type="checkbox">
+                            </li>
+                        </ul>
+                    </div>                 
+                    <div class="filter-option-block" id="comp_size_filter">
+                        <span onclick = 'comp_size_filter_block()' >Company Size</span>
+                        <ul class="options">
+                            <li>
+                                <label for="large">Large</label>
+                                <input value="large" name="Company-size" id="large" type="checkbox">
+                            </li>
+                            <li>
+                                <label for="medium">Medium</label>
+                                <input value="medium" name="Company-size" id="medium" type="checkbox">
+                            </li>
+                            <li>
+                                <label for="small">Small</label>
+                                <input value="small" name="Company-size" id="small" type="checkbox">
+                            </li>
+                        </ul>
+                    </div>                                         
+                    <div class="filter-option-block" id = 'nationality_filter'>
+                        <span onclick = 'nationality_filter_block()'>Nationality</span>
+                        <ul class="options">
+                            <li>
+                                <label for="saudi">Saudi</label>
+                                <input value="saudi" name="Nationality" id="saudi" type="checkbox">
+                            </li>
+                            <li>
+                                <label for="nosaudi">Non Saudi</label>
+                                <input value="nosaudi" name="Nationality" id="nosaudi" type="checkbox">
+                            </li>
+                        </ul>
+                    </div>
             </div>
           <div class="navegation-tools">
             <a href="#" id="prev"><</a>

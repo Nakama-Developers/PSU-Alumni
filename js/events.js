@@ -11,16 +11,66 @@ $(document).ready(function () {
             if (data != undefined) {
                 $('.main-content').html('<div class="tools-set">\
                                         <div class="search-tools">\
-                                          <span class="label">Sort By:</span>\
-                                          <div class="sort">\
-                                            <select name="sort-method" id="sort_method" onchange="sort(value);">\
-                                                <option value="student_ID">Student ID</option>\
-                                                <option value="student_name" >Student Name</option>\
-                                                <option value="gpa">GPA</option>\
-                                                <option value="grad_year">Graduation Year</option>\
-                                                <option value="comp_size">Company Size</option>\
-                                            </select>\
-                                          </div>\
+                                            <span class="label">Filter By:</span>\
+                                            <div class="filter">\
+                                           <input class="submit-button" type="submit" value="Go" onclick="filter()">\
+                                           <span class="filter-span">Filter By:</span>\
+                                                    <div class="filter-option-block" id="gpa_filter">\
+                                                        <span  onclick="gpaFilterBlock()">GPA</span>\
+                                                        <ul class="options">\
+                                                            <li>\
+                                                                <label for="0">0.5 - 2.0</label>\
+                                                                <input value="0" name="GPA" id="0" type="checkbox">\
+                                                            </li>\
+                                                            <li>\
+                                                                <label for="2">2.0 - 2.5</label>\
+                                                                <input value="2" name="GPA" id="2" type="checkbox">\
+                                                            </li>\
+                                                            <li>\
+                                                                <label for="2.5">2.5 - 3.0</label>\
+                                                                <input value="2.5" name="GPA" id="2.5" type="checkbox">\
+                                                            </li>\
+                                                            <li>\
+                                                                <label for="3">3.0 - 3.5</label>\
+                                                                <input value="3" name="GPA" id="3" type="checkbox">\
+                                                            </li>\
+                                                            <li>\
+                                                                <label for="3.5">3.5 - 4.0</label>\
+                                                                <input value="3.5" name="GPA" id="3.5" type="checkbox">\
+                                                            </li>\
+                                                        </ul>\
+                                                    </div>\
+                                                    <div class="filter-option-block" id="comp_size_filter">\
+                                                        <span onclick = "comp_size_filter_block()" >Company Size</span>\
+                                                        <ul class="options">\
+                                                            <li>\
+                                                                <label for="large">Large</label>\
+                                                                <input value="large" name="Company-size" id="large" type="checkbox">\
+                                                            </li>\
+                                                            <li>\
+                                                                <label for="medium">Medium</label>\
+                                                                <input value="medium" name="Company-size" id="medium" type="checkbox">\
+                                                            </li>\
+                                                            <li>\
+                                                                <label for="small">Small</label>\
+                                                                <input value="small" name="Company-size" id="small" type="checkbox">\
+                                                            </li>\
+                                                        </ul>\
+                                                    </div>\
+                                                    <div class="filter-option-block" id = "nationality_filter">\
+                                                        <span onclick = "nationality_filter_block()">Nationality</span>\
+                                                        <ul class="options">\
+                                                            <li>\
+                                                                <label for="saudi">Saudi</label>\
+                                                                <input value="saudi" name="Nationality" id="saudi" type="checkbox">\
+                                                            </li>\
+                                                            <li>\
+                                                                <label for="nosaudi">Non Saudi</label>\
+                                                                <input value="nosaudi" name="Nationality" id="nosaudi" type="checkbox">\
+                                                            </li>\
+                                                        </ul>\
+                                                    </div>\
+                                            </div>\
                                         </div>\
                                         <div class="grouping">\
                                           <div class="catagories">\
@@ -89,8 +139,8 @@ $(document).ready(function () {
                         }]
                     },
                     options: {
-                            responsive: true
-                        }
+                        responsive: true
+                    }
                 };
                 // console.log(companiesChartObject.data.datasets[0].data[0]);
 
@@ -183,7 +233,7 @@ $(document).ready(function () {
                 var nationalitiesChartObject = {
                     type: 'pie',
                     data: {
-                        labels:forthLabels,
+                        labels: forthLabels,
                         datasets: [
                                 {
                                     data: forthValues,
@@ -251,16 +301,31 @@ $(document).ready(function () {
             }
         }
     }
+
+    document.getElementById('sort_method').onchange = function () {
+        // console.log(this.value);
+        $.ajax({ url: "php/sort.php?sort-method=" + this.value, success: function (response) {
+            var data = JSON.parse(response);
+            if (data.studentsRows != '') { 
+                $('#pageRecords').html(data.studentsRows + '');
+                openProfilesEvents();
+                runRecordsEvents();
+            }
+        } 
+        });
+    };
+
     // Nav tags
     var numRecordsPerPage = 40;
     var prev = 0;
     var next = 2;
 
     $('#next').click(function () {
+
         $.ajax({ url: "php/navpages.php?pageNum=" + next, success: function (response) {
             var data = JSON.parse(response);
             if (data.studentsRows != '') {
-                var starter = next * numRecordsPerPage;
+                var starter = (next -1) * numRecordsPerPage;
                 $('#pageRecords').html(data.studentsRows + '');
                 $('#resultsNumDisplay').text(starter + ' - ' + (starter + data.resultsNum));
                 openProfilesEvents();
@@ -276,7 +341,7 @@ $(document).ready(function () {
         $.ajax({ url: "php/navpages.php?pageNum=" + prev, success: function (response) {
             var data = JSON.parse(response);
             if (data.studentsRows != '') {
-                var end = prev * numRecordsPerPage;
+                var end = (prev + 1) * numRecordsPerPage;
                 $('#pageRecords').html(data.studentsRows + '');
                 $('#resultsNumDisplay').text((end - numRecordsPerPage) + ' - ' + end);
                 openProfilesEvents();
@@ -288,3 +353,40 @@ $(document).ready(function () {
         });
     });
 });
+//filter
+    function gpaFilterBlock() {
+        if( $('#gpa_filter').find('ul').is(':visible') ) {
+            $('#gpa_filter').find('ul').css('display', 'none');
+        }
+        else{
+            $('#gpa_filter').find('ul').css('display', 'block');
+        }
+        
+    }
+     function comp_size_filter_block() {
+        if( $('#comp_size_filter').find('ul').is(':visible') ) {
+            $('#comp_size_filter').find('ul').css('display', 'none');
+        }
+        else{
+            $('#comp_size_filter').find('ul').css('display', 'block');
+        }
+        
+    }
+     function nationality_filter_block() {
+        if( $('#nationality_filter').find('ul').is(':visible') ) {
+            $('#nationality_filter').find('ul').css('display', 'none');
+        }
+        else{
+            $('#nationality_filter').find('ul').css('display', 'block');
+        }
+        
+    }
+     function major_filter_block() {
+        if( $('#major_filter').find('ul').is(':visible') ) {
+            $('#major_filter').find('ul').css('display', 'none');
+        }
+        else{
+            $('#major_filter').find('ul').css('display', 'block');
+        }
+        
+    }

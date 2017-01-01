@@ -1,11 +1,11 @@
 <?php
 
-require "dbconnect.php";
+require "dbconfig.php";
+require "printdata.php";
+// session_start();
 
-$input_name = $_GET['sort_type'];
-$input_order = 'asc';
-
-
+$_SESSION['sort'] = $_GET['sort-method'];
+echo printRecords(1);
 //TEST CASE 1
 //$input_name = 'name';
 //$input_order= 'asc';
@@ -21,7 +21,7 @@ $input_name = 'comp_size';
 $input_order= 'asc';
 */
 
-
+/*
 $order;
 
 if ($input_name =='student_ID' && $input_order =='asc'){
@@ -81,5 +81,5 @@ if ($result->num_rows > 0) {
 }
 $json_output = json_encode($output);
 echo $json_output;
-
+*/
 ?>
