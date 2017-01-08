@@ -22,7 +22,7 @@
             //}
             }
             $studentsRows .= '<script type="text/javascript" src="js/loadRecords.js" ></script></section>';
-        echo <<<_HTML_
+        echo '
 <!DOCTYPE html>
 <html>
   <head>
@@ -54,7 +54,7 @@
       <div class="options">
         <ul>
           <li><a href="index.php">Home</a></li>
-          <li><a href="#">Publish Annoucment</a></li>
+          <!--<li><a href="#">Publish Annoucment</a></li>-->
           <li><a id="chartsLink" href="#">Statistics</a></li>
           <li><a href="#">Create Favourate List</a></li>
           <li><a href="#">Setting</a></li>
@@ -79,75 +79,74 @@
             </select>
           </div>
             <div class="filter">
-           <input class="submit-button" type="submit" value="Go" onclick='filter()'>
            <span class="filter-span">Filter By:</span>        
                     <div class="filter-option-block" id="gpa_filter">
-                        <span  onclick="gpaFilterBlock()">GPA</span>
+                        <span>GPA</span>
                         <ul class="options">
                             <li>
                                 <label for="0">0.5 - 2.0</label>
-                                <input value="0" name="GPA" id="0" type="checkbox">
+                                <input class="filterInput" value="0" name="GPA" id="0" type="checkbox"' . isChecked(0,"GPA") . '>
                             </li>
                             <li>
                                 <label for="2">2.0 - 2.5</label>
-                                <input value="2" name="GPA" id="2" type="checkbox">
+                                <input class="filterInput" value="2" name="GPA" id="2" type="checkbox"' . isChecked(2,"GPA") . ' >
                             </li>
                             <li>
                                 <label for="2.5">2.5 - 3.0</label>
-                                <input value="2.5" name="GPA" id="2.5" type="checkbox">
+                                <input class="filterInput" value="2.5" name="GPA" id="2.5" type="checkbox"' . isChecked(2.5,"GPA") . ' >
                             </li>
                             <li>
                                 <label for="3">3.0 - 3.5</label>
-                                <input value="3" name="GPA" id="3" type="checkbox">
+                                <input class="filterInput" value="3" name="GPA" id="3" type="checkbox"' . isChecked(3,"GPA") . '>
                             </li>
                             <li>
                                 <label for="3.5">3.5 - 4.0</label>
-                                <input value="3.5" name="GPA" id="3.5" type="checkbox">
+                                <input class="filterInput" value="3.5" name="GPA" id="3.5" type="checkbox"' . isChecked(3.5,"GPA") . '>
                             </li>
                         </ul>
                     </div>                 
                     <div class="filter-option-block" id="comp_size_filter">
-                        <span onclick = 'comp_size_filter_block()' >Company Size</span>
+                        <span>Company Size</span>
                         <ul class="options">
                             <li>
                                 <label for="large">Large</label>
-                                <input value="large" name="Company-size" id="large" type="checkbox">
+                                <input class="filterInput" value="large" name="Company_size" id="large" type="checkbox"' . isChecked("large","Company_size") . '>
                             </li>
                             <li>
                                 <label for="medium">Medium</label>
-                                <input value="medium" name="Company-size" id="medium" type="checkbox">
+                                <input class="filterInput" value="medium" name="Company_size" id="medium" type="checkbox"' . isChecked("medium","Company_size") . '>
                             </li>
                             <li>
                                 <label for="small">Small</label>
-                                <input value="small" name="Company-size" id="small" type="checkbox">
+                                <input class="filterInput" value="small" name="Company_size" id="small" type="checkbox"' . isChecked("small","Company_size") . '>
                             </li>
                         </ul>
                     </div>                                         
-                    <div class="filter-option-block" id = 'nationality_filter'>
-                        <span onclick = 'nationality_filter_block()'>Nationality</span>
+                    <div class="filter-option-block" id ="nationality_filte">
+                        <span>Nationality</span>
                         <ul class="options">
                             <li>
                                 <label for="saudi">Saudi</label>
-                                <input value="saudi" name="Nationality" id="saudi" type="checkbox">
+                                <input class="filterInput" value="saudi" name="Nationality" id="saudi" type="checkbox"' . isChecked("saudi","Nationality") . '>
                             </li>
                             <li>
                                 <label for="nosaudi">Non Saudi</label>
-                                <input value="nosaudi" name="Nationality" id="nosaudi" type="checkbox">
+                                <input class="filterInput" value="nosaudi" name="Nationality" id="nosaudi" type="checkbox"' . isChecked("nosaudi","Nationality") . '>
                             </li>
                         </ul>
                     </div>
             </div>
           <div class="navegation-tools">
             <a href="#" id="prev"><</a>
-            <span id="resultsNumDisplay">1 - $recordsPerPage</span>
+            <span id="resultsNumDisplay">1 - ' . $recordsPerPage . '</span>
             <a href="#" id="next">></a>
           </div>
         </div>
         <div class="grouping">
           <div class="catagories">
-            <a href="#" class="All">All
+            <a href="#" class="All">Alumni
             </a><a href="#" class="Master">Master
-            </a><a href="#" class="Bacholer">Bacholer
+            </a><a href="#" class="Bacholer">Co-op
             </a>
           </div>
         </div>
@@ -182,13 +181,12 @@
         </div>
 
         <!-- End of Header / Start of records -->
-        $studentsRows
+        ' . $studentsRows . '
         <!-- End of records -->
       </div>
     </div>
   </body>
-</html>
-_HTML_;
+</html>';
 
     } else{
         header("location: login.php");

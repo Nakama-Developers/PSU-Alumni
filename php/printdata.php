@@ -1,8 +1,7 @@
 <?php
 
 require "dbconfig.php";
-require "filter.php";
-//session_start();
+session_start();
 
 $recordsPerPage = 40;
 
@@ -10,9 +9,9 @@ function extractQuery(){
     if(isset($_SESSION['sort']) && isset($_SESSION['filters'])){
 
         if($_SESSION['sort'] === "GPA" || $_SESSION['sort'] === "Graduation_year"){
-            $query = "SELECT * FROM student_info ORDER BY {$_SESSION['sort']} DESC;";
+            $query = "SELECT * FROM student_info " . filterToQuery() . " ORDER BY {$_SESSION['sort']} DESC;";
         }else{
-            $query = "SELECT * FROM student_info ORDER BY {$_SESSION['sort']};";   
+            $query = "SELECT * FROM student_info " . filterToQuery() . " ORDER BY {$_SESSION['sort']};";   
         }
 
     }else if (isset($_SESSION['sort'])){
@@ -55,6 +54,120 @@ function printRecords($pageNum){
     echo json_encode($result);
 }
 
+function filterToQuery(){
+    if(isset($_SESSION['filters'])){
+        $q = array();
+        if(isset($_SESSION['filters']['GPA'])){
+            $gpafilters = array();
+            for($i = 0; $i < count($_SESSION['filters']['GPA']); $i++){
+                array_push($gpafilters, gpaToQuery($_SESSION['filters']['GPA'][$i]));
+            }
+            array_push($q, "(" . implode(' OR ', $gpafilters) .") ");
+
+        }if(isset($_SESSION['filters']['Nationality'])){
+            $nationalitiesfilters = array();
+            for($i = 0; $i < count($_SESSION['filters']['Nationality']); $i++){
+                array_push($nationalitiesfilters, nationalityToQuery($_SESSION['filters']['Nationality'][$i]));
+            }
+            array_push($q, "(" . implode(' OR ', $nationalitiesfilters) .") ");
+
+        }if(isset($_SESSION['filters']['Company_size'])){
+            $companysizefilters = array();
+            for($i = 0; $i < count($_SESSION['filters']['Company_size']); $i++){
+                array_push($companysizefilters, compSizeToQuery($_SESSION['filters']['Company_size'][$i]));
+            }
+            array_push($q, "(" . implode(' OR ', $companysizefilters) .") ");
+
+        }if(isset($_SESSION['filters']['Major'])){
+            $majorfilters = array();
+            for($i = 0; $i < count($_SESSION['filters']['Major']); $i++){
+                array_push($majorfilters, majorToQuery($_SESSION['filters']['Major'][$i]));
+            }
+            array_push($q, "(" . implode(' OR ', $majorfilters) .") ");
+        }
+        if(isset($q)){
+            $query = "WHERE " . implode(' AND ', $q);
+            return $query;   
+        }
+    }
+}
+
+function gpaToQuery($str){
+    $filter = '';
+    switch ($str) {
+        case '0':
+          $filter = 'GPA > 0 AND GPA <=2';
+          break;
+
+        case '2':
+          $filter = 'GPA > 2 AND GPA <=2.5';
+          break;
+	  
+	     case '2.5':
+          $filter = 'GPA > 2.5 AND GPA <=3';
+          break;
+
+        case '3':
+          $filter = 'GPA > 3 AND GPA <=3.5';
+          break;
+
+        case '3.5':
+          $filter = 'GPA > 3.5 AND GPA <=4';
+          break;
+    }
+    return $filter;
+}
+function nationalityToQuery($str){
+    $filter = '';
+    switch ($str) {
+        case 'saudi':
+          $filter = "Nationality= 'Saudia Arabia'";
+          break;
+
+        case 'nosaudi':
+          $filter = "Nationality!= 'Saudia Arabia'";
+          break;
+    }
+    return $filter;
+}
+
+function compSizeToQuery($str){
+    $filter = '';
+    switch ($str) {
+        case 'small':
+          $filter = "Company_size= 'small'";
+          break;
+
+        case 'medium':
+          $filter = "Company_size= 'Medium'";
+          break;
+
+        case 'large':
+          $filter = "Company_size= 'large'";
+          break;
+    }
+    return $filter;
+}
+
+function majorToQuery($str){
+    $filter = '';
+    switch ($str) {
+        case 'Finance':
+          $filter = "Major= 'finance'";
+          break;
+
+        case 'Marketing':
+          $filter = "Major= 'Marketing'";
+          break;
+
+        case 'Computer Science':
+          $filter = "Major= 'Computer Science'";
+          break;
+    }
+    return $filter;
+}
+
+
 function printStudentRow($row){
         return '<div class="record-row" title="Click for more details">
             <div class="info">
@@ -83,6 +196,17 @@ function printStudentRow($row){
               </p>
             </div>
           </div>';
+}
+
+function isChecked($value, $category){
+    $isChecked = 'No';
+    if(isset($_SESSION['filters'][$category])){
+        if(array_search($value, $_SESSION['filters'][$category]) !== FALSE){
+            $isChecked = "checked";
+        }
+    }
+
+    return $isChecked;
 }
 
 function printStudentProfile($row){
@@ -153,7 +277,7 @@ function printStudentProfile($row){
             </section>
             <section class="social-contact">
               <div class="social-media">
-                  <a title="view his profile" href="#" class="alumni">
+                  <a title="view his profile" href="studentProfile.html" class="alumni">
                       <img src="img/transperant-logo.png" alt="PSU-logo"/>
                   </a>
                   <span title="view his facebook profile" class="facebook"></span>
