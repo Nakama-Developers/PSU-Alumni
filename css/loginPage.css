@@ -29,6 +29,7 @@ html, body{
 
 .header{
     height: 60%;
+    position: relative;
     background-color: #25B6C9;
     text-align: center;
     border-top-right-radius: 20px;
@@ -42,6 +43,16 @@ html, body{
     margin-top: 100px;  
     width: 50%;
     height: auto;
+}
+
+.header > .errors-div{
+    color: #FFF;
+    font-size: 0.95em;
+    font-weight: bold;
+    position: absolute;
+    bottom: -2px;
+    width: 100%;
+    background-color: #D00;
 }
 
 .login-form{
@@ -81,17 +92,12 @@ html, body{
     transition: border-bottom 0.3s;
 }
 
-.login-form .input-div, .login-form .errors-div, .login-form .recaptch-container{
+.login-form .input-div, .login-form .recaptch-container{
     width: 95%;
     margin: auto;
 }
 
-.login-form .errors-div{
-    color: #F00;
-    font-size: 0.8em;
-}
-
-.login-form .input-div, .login-form .submit-div, .login-form .errors-div, .login-form .recaptch-container{
+.login-form .input-div, .login-form .submit-div, .login-form .recaptch-container{
     padding-top: 15px;
 }
 

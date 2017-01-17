@@ -23,7 +23,7 @@ require "php/dbconfig.php";
                 // checking if the user has solved the reCAPTCHA
                 $url = "https://www.google.com/recaptcha/api/siteverify";
 
-                    $privatekey = "--------- Private Key ----------";
+                    $privatekey = "-------------- Private Key --------------";
 
                     $response = file_get_contents($url."?secret=".$privatekey."&response=".$_POST['g-recaptcha-response']."&remoteip=".$_SERVER['REMOTE_ADDR']);
                     $data = json_decode($response);
@@ -113,6 +113,7 @@ require "php/dbconfig.php";
             <article class="article-form">
                 <header class="header">
                     <img src="img/psulogo.png" alt="PSU Logo">
+                    $er_div
                 </header>
                 <section class="login-form">
                     <div class="form-container">
@@ -126,7 +127,6 @@ require "php/dbconfig.php";
                                 <input name="password" class="input" id="password" type="password" required tabindex="4">
                             </div>
                             $reCAPTCHA
-                            $er_div
                             <div class="submit-div">
                                 <input tabindex="5" type="submit" value="Log In">
                             </div>

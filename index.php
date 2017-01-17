@@ -144,9 +144,10 @@
         </div>
         <div class="grouping">
           <div class="catagories">
-            <a href="#" class="All">Alumni
+            <a href="#" class="All">All
+            </a><a href="#" class="Alumni">Alumni
             </a><a href="#" class="Master">Master
-            </a><a href="#" class="Bacholer">Co-op
+            </a><a href="#" class="Co-op">Co-op
             </a>
           </div>
         </div>

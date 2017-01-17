@@ -262,7 +262,7 @@ html, body{
   text-decoration: none;
   color: #999;
   height: 100%;
-  width: 33%;
+  width: 24%;
   padding: 5px 0;
   font-size: 0.9em;
   text-align: center;
@@ -275,13 +275,19 @@ html, body{
   border-top-color: #2ABBCF;
 }
 
+.grouping > .catagories > a.Alumni:hover, .grouping > .catagories > .Alumni-selected{
+  border-top-width: 2px;
+  border-top-style: solid;
+  border-top-color: #FAB900;
+}
+
 .grouping > .catagories > a.Master:hover, .grouping > .catagories > .Master-selected{
   border-top-width: 2px;
   border-top-style: solid;
   border-top-color: #E84747;
 }
 
-.grouping > .catagories > a.Bacholer:hover, .grouping > .catagories > .Bacholer-selected{
+.grouping > .catagories > a.Co-op:hover, .grouping > .catagories > .Co-op-selected{
   border-top-width: 2px;
   border-top-style: solid;
   border-top-color: #75B62A;

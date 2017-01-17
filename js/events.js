@@ -201,7 +201,6 @@ $(document).ready(function () {
     }
 
     /********************* (CAUTION!) *******************************
-    *                                                               *
     *   Please, any event regarding records must be inserted in     *
     *   runRecordsEvents() method.                                  *                          *
     *****************************************************************/
