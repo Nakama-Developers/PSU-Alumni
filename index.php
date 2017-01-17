@@ -4,24 +4,8 @@
     //session_start();
 
     if(isset($_SESSION['signedIn'])){
-        $q = $db->query("SELECT * FROM student_info;");
-        $studentsRows = "";
-        $rows = $q->fetchAll();
-        $counter = 0;
-        //while(isset($rows[$counter])){
-            $studentsRows .= '<section id="pageRecords">';
-            for($i = 0; $i < $recordsPerPage; $i++){
-                if(isset($rows[$counter])){
-                    $studentsRows .= ('<div class="record">' . 
-                    printStudentRow($rows[$counter]) . printStudentProfile($rows[$counter]) .
-                    '</div>');
-                    $counter++;   
-                } else{
-                    break;
-                }
-            //}
-            }
-            $studentsRows .= '<script type="text/javascript" src="js/loadRecords.js" ></script></section>';
+        $rows = printRecords(1);
+        $studentsRows = '<section id="pageRecords">' . $rows['studentsRows'] . '<script type="text/javascript" src="js/loadRecords.js" ></script></section>';
         echo '
 <!DOCTYPE html>
 <html>

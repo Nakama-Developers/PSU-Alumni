@@ -23,7 +23,7 @@ require "php/dbconfig.php";
                 // checking if the user has solved the reCAPTCHA
                 $url = "https://www.google.com/recaptcha/api/siteverify";
 
-                    $privatekey = "-------------- Private Key --------------";
+                    $privatekey = "6LfLrw8UAAAAAAU7NW_2iQV37rQ11mFQlX42UtzS";
 
                     $response = file_get_contents($url."?secret=".$privatekey."&response=".$_POST['g-recaptcha-response']."&remoteip=".$_SERVER['REMOTE_ADDR']);
                     $data = json_decode($response);

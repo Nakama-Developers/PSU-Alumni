@@ -5,7 +5,7 @@ require "printdata.php";
 
 if(isset($_SESSION['signedIn'])) {
     if(isset($_GET['pageNum'])){
-        printRecords($_GET['pageNum']);
+        echo json_encode(printRecords($_GET['pageNum']));
 
     }
 } else{

@@ -49,9 +49,7 @@ function printRecords($pageNum){
             break;
         }
     }
-    $result = array('resultsNum' => $printedRecordsNum, 'studentsRows' => $studentsRows);
-
-    echo json_encode($result);
+    return array('resultsNum' => $printedRecordsNum, 'studentsRows' => $studentsRows);
 }
 
 function filterToQuery(){

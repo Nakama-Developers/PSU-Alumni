@@ -1,9 +1,11 @@
 <?php
 require "dbconfig.php";
 require "printdata.php";
- session_start();
+session_start();
 
-//$_SESSION['filters'] = array('GPA' => ['2.0', '3.0']);//, 'Nationality' => ['saudi'], 'Company_size' => ['large'], 'Major' => ['Computer Science', 'Marketing', 'Finance']);
+// This is how the session filter array looks like:
+//$_SESSION['filters'] = array('GPA' => ['2.0', '3.0']), 'Nationality' => ['saudi'], 'Company_size' => ['large'], 'Major' => ['Computer Science', 'Marketing', 'Finance']);
+
 // unset($_SESSION['filters']);
 
 /*** Responding to filter request ***/
@@ -20,7 +22,7 @@ if(isset($_SESSION['signedIn'])){
                 array_push($_SESSION['filters'][$_GET['category']], $_GET['value']);
             }
             // echo extractQuery();
-            echo printRecords(1);
+            echo json_encode(printRecords(1));
         }else{
             if(isset($_SESSION['filters'][$_GET['category']])){
                 unset($_SESSION['filters'][$_GET['category']][array_search($_GET['value'],$_SESSION['filters'][$_GET['category']])]);
@@ -33,7 +35,7 @@ if(isset($_SESSION['signedIn'])){
                 }
             }
             //echo extractQuery();
-            echo printRecords(1);
+            echo json_encode(printRecords(1));
         }
     }
 }
