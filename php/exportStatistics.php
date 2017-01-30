@@ -1,8 +1,8 @@
 <?php
 
 require "dbconfig.php";
-require "printdata.php";
-// session_start();
+require "utilities.php";
+session_start();
 
 if(isset($_SESSION['signedIn'])){
 

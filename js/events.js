@@ -12,7 +12,6 @@ $(document).ready(function () {
 
     $('#chartsLink').click(function () {
         drawCharts();
-
     });
 
     function drawCharts() {
@@ -202,7 +201,7 @@ $(document).ready(function () {
 
     /********************* (CAUTION!) *******************************
     *   Please, any event regarding records must be inserted in     *
-    *   runRecordsEvents() method.                                  *                          *
+    *   runRecordsEvents() method.                                  *
     *****************************************************************/
     runRecordsEvents();
     function runRecordsEvents() {
@@ -244,7 +243,7 @@ $(document).ready(function () {
 
     // Sort Methods
     document.getElementById('sort_method').onchange = function () {
-        $.ajax({ url: "php/sort.php?sort-method=" + this.value, success: function (response) {
+        $.ajax({ url: "php/events.php?req=sort&sort-method=" + this.value, success: function (response) {
             var data = JSON.parse(response);
             prev = 0;
             next = 2;
@@ -261,8 +260,8 @@ $(document).ready(function () {
     // Filter Methods
     $('.filterInput').change(function () {
         console.log(this.name + ": " + this.value + " " + this.checked);
-        $.ajax({ url: "php/filter.php?" + "category=" + this.name + "&value=" + this.value + "&checked=" + this.checked, success: function (response) {
-            // console.log(response);
+        $.ajax({ url: "php/events.php?req=filter&category=" + this.name + "&value=" + this.value + "&checked=" + this.checked, success: function (response) {
+            //  console.log(response);
             var data = JSON.parse(response);
             prev = 0;
             next = 2;
@@ -283,7 +282,7 @@ $(document).ready(function () {
 
     // Nav tags
     $('#next').click(function () {
-        $.ajax({ url: "php/navpages.php?pageNum=" + next, async: false, success: function (response) {
+        $.ajax({ url: "php/events.php?req=nav&pageNum=" + next, async: false, success: function (response) {
             var data = JSON.parse(response);
             if (data.studentsRows != '') {
                 var starter = (next - 1) * numRecordsPerPage;
@@ -299,7 +298,7 @@ $(document).ready(function () {
     });
 
     $('#prev').click(function () {
-        $.ajax({ url: "php/navpages.php?pageNum=" + prev, async: false, success: function (response) {
+        $.ajax({ url: "php/events.php?req=nav&pageNum=" + prev, async: false, success: function (response) {
             var data = JSON.parse(response);
             if (data.studentsRows != '') {
                 var end = (prev) * numRecordsPerPage;

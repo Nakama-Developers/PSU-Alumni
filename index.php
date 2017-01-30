@@ -1,7 +1,7 @@
 ﻿<?php
     require "php/dbconfig.php";
     require "php/printData.php";
-    //session_start();
+    session_start();
 
     if(isset($_SESSION['signedIn'])){
         $rows = printRecords(1);
@@ -23,7 +23,6 @@
     <!--external style-->
     
     <script type="text/javascript" src="js/events.js" ></script>
-    <script type="text/javascript" src="js/adminPageAjax.js" ></script>
     <link  type="text/css" rel="stylesheet" href="css/adminPage.css">
     <link  type="text/css" rel="stylesheet" href="css/popup.css">
     <link  type="text/css" rel="stylesheet" href="css/statistics.css">
@@ -48,8 +47,30 @@
     </div>
     <div class="main-content">
       <div class="search-panel">
-        <div class="search-box">
-          <input class="search" type="text" name="search" placeholder="Search Here ..."><input class="search-btn" type="submit" name="search-btn" value="">
+        <div class="search-div">
+          <div class="search-box">
+            <input class="search" type="text" name="search" placeholder="Search Here ..."><div class="dropdown">
+            <span class="dropdown-label"></span>
+                <ul class="search-options">
+                            <li>
+                                <label for="student-id">Student ID</label>
+                                <input class="search-option" value="student-id" name="search-option" id="student-id" type="radio">
+                            </li>
+                            <li>
+                                <label for="student-name">Student Name</label>
+                                <input class="search-option" value="student-name" name="search-option" id="student-name" type="radio">
+                            </li>
+                            <li>
+                                <label for="comp-name">Company Name</label>
+                                <input class="search-option" value="comp-name" name="search-option" id="comp-name" type="radio">
+                            </li>
+                            <li>
+                                <label for="job-title">Job Title</label>
+                                <input class="search-option" value="job-title" name="search-option" id="job-title" type="radio">
+                            </li>
+                        </ul>
+            </div><input class="search-btn" type="submit" name="search-btn" value="">
+          </div>
         </div>
         <div class="search-tools">
           <span class="label">Sort By:</span>
@@ -63,8 +84,9 @@
             </select>
           </div>
             <div class="filter">
-           <span class="filter-span">Filter By:</span>        
-                    <div class="filter-option-block" id="gpa_filter">
+           <span class="filter-span">Filter By:</span>  
+                <ul class="menu">      
+                    <li class="filter-option-block" id="gpa_filter">
                         <span>GPA</span>
                         <ul class="options">
                             <li>
@@ -88,8 +110,8 @@
                                 <input class="filterInput" value="3.5" name="GPA" id="3.5" type="checkbox"' . isChecked(3.5,"GPA") . '>
                             </li>
                         </ul>
-                    </div>                 
-                    <div class="filter-option-block" id="comp_size_filter">
+                    </li>                 
+                    <li class="filter-option-block" id="comp_size_filter">
                         <span>Company Size</span>
                         <ul class="options">
                             <li>
@@ -105,8 +127,8 @@
                                 <input class="filterInput" value="small" name="Company_size" id="small" type="checkbox"' . isChecked("small","Company_size") . '>
                             </li>
                         </ul>
-                    </div>                                         
-                    <div class="filter-option-block" id ="nationality_filte">
+                    </li>                                         
+                    <li class="filter-option-block" id ="nationality_filte">
                         <span>Nationality</span>
                         <ul class="options">
                             <li>
@@ -118,7 +140,8 @@
                                 <input class="filterInput" value="nosaudi" name="Nationality" id="nosaudi" type="checkbox"' . isChecked("nosaudi","Nationality") . '>
                             </li>
                         </ul>
-                    </div>
+                    </li>
+                </ul>
             </div>
           <div class="navegation-tools">
             <a href="#" id="prev"><</a>

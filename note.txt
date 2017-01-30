@@ -1,37 +1,70 @@
-Note for: Omar Maksousa
-Author: Omar Maksousa
+Note for: NightSound, *
+Author: Big head
 
-Overview:
-    section1:
-	ID
-	Nationality
-	Major
-	GPA
-    section2:
-	CurrentCompany
-	JobTitle
-	contact number
+-----------------------------
+SOLVING CONTACT NUMBER PROBLEM (Sudo Code)
+-----------------------------
+Assuming We have 2 tables:
+- Student table which contains: student_id, phone1, phone2, phone3, phone4, phone5.
+- Contact table which contains: student_id, phone.
 
-education:
-	ID
-	Major
-	GPA
-	grad. year
+$q = $db->query("SELECT student_id, phone1, phone2, phone3, phone4, phone5 FROM Student;");
 
-Career:
-	Co-Op company
-	started working for
-	job title
-	company type ( governemantal or other )
-	when did he take the job
-	years of experience
+while($row = $q->fetch()) {
 
-personal info:
-	Name
-	Nationality
-	National ID
-	e-mail
-	contact number
+    $id = $row['student_id'];
+
+    if($row['phone1'] != null){
+        $db->query("INSERT INTO Contact 
+		    VALUES ('$id','{$row['phone1']}'");
+    }
+    if($row['phone2'] != null){
+        $db->query("INSERT INTO Contact 
+		    VALUES ('$id','{$row['phone2']}'");
+    }
+    if($row['phone3'] != null){
+        $db->query("INSERT INTO Contact 
+		    VALUES ('$id','{$row['phone3']}'");
+    }
+    if($row['phone4'] != null){
+        $db->query("INSERT INTO Contact 
+		    VALUES ('$id','{$row['phone4']}'");
+    }
+    if($row['phone5'] != null){
+        $db->query("INSERT INTO Contact 
+		    VALUES ('$id','{$row['phone5']}'");
+    }
+}
+
+
+-----------------------------
+SOLVING CAREER TABLE PROBLEM (Sudo Code)
+-----------------------------
+$q = $db->query("SELECT student_id, company_name FROM student_career;");
+
+while($row = $q->fetch()) {
+	$current_comp_id = "SELECT company_id FROM company WHERE company_name = '{$row['current_company']}';";
+	$coop_comp_id = "SELECT company_id FROM company WHERE company_name = '{$row['coop_company']}';";
+	$db->query("INSERT INTO student_career (coop_company_id, current_comp_id) 
+		VALUES ('$current_comp_id','$coop_comp_id') WHERE student_id = '{$row['student_id'}';");
+};
+
+HAZA WALLAH A'ALAM     :-)  --->(This is very big head BTW)
+                     
+----------------------------
+
+For inserting admin Data, please, run this code only once:
+
+$db->query("INSERT INTO user 
+		VALUES ('alahmari','Fahad M. Al-Ahmary', '" . md5('12345') . "', 'admin')");
+
+Instructions:
+1- Copy the code into dbconfig.php file for example or any php file (make sure it is connected to DB).
+2- Right click the file and select 'launch or show in browser'.
+3- If everything goes right, blank page is displayed or whatever text is displayed by 'echo'.
+4- Try logging in.
+5- After successful log in ,check the localhost DB. The password should be hashed (encrypted).
+6- Delete the code and continue having fun.
 
 	
 

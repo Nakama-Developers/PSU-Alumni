@@ -97,19 +97,48 @@ html, body{
   padding-top: 8px;
 }
 
-.search-box > .search{
-  width: 35%;
+.search-box{
+  width: 45%;
   vertical-align: bottom;
   padding: 4px 4px;
-  border: 1px solid #ccc;
-  border-right: none;
   display: inline-block;
+}
+
+.search-box > .search{
+    width:  70%;
+    vertical-align: bottom;
+    padding: 4px 4px;
+    border: 1px solid #ccc;
+    border-right: none;
+    display: inline-block;
 }
 
 .search-box > .search:focus{
     background-color: #FEFCC8;
     outline: none;
     border-color: #45D6E9;
+}
+
+.search-box > .dropdown{
+    width: 20px;
+    text-align: center;
+    padding: 2.5px 0;
+    border: 1px solid #ccc;
+    border-left: none;
+    display: inline-block;
+    background-color: #FFF;
+    vertical-align: bottom;
+    position: relative;
+}
+
+.search-box > .dropdown:after{
+    content: "\f0d7";   
+}
+
+.search-options{
+    position: absolute;
+    background-color: #45D6E9;
+    z-index: 2;
 }
 
 .search-box > .search-btn{
@@ -185,39 +214,52 @@ html, body{
     padding-top: 1%;
 }
 
-.filter-option-block{
-    display: inline-block;
-    float: right;
-    position: relative;
-    top: 0;
+.search-options, .menu > li > ul{
+    visibility: hidden;
+    margin: 0;
+    list-style: none;
+    position: absolute;
+    padding: 0;
+    padding-top: 12px;
     width: 100px;
-    height: auto;
-    
-    padding: 2px 2px 2px 2px;
     z-index: 2;
     background-color: #FFF;
-    border-style: solid;
-    border-width: thin;
-    border-color: #ccc;
-    font-size: 14px;
+    border: solid thin #ccc;
+    border-top: none;
+    font-size: 0.9em;
+    left: -1px;
+    text-align: left;
 }
 
-.filter-option-block > ul{
-    display: none;
+.menu{
+    display: inline-block;
     list-style: none;
-    font-size: 14px;
-    text-align: left;
-    padding: 0;    
+    padding: 0;
+    margin: 0;
 }
 
-.filter-option-block:hover > ul{
-    display: block !important;
+.menu > li{
+    border: solid thin #ccc;
+    position: relative;
+    width: 100px;
+    vertical-align: baseline;
+    display: inline-block;
 }
 
-.filter-option-block > ul >li{
+.menu > li > span{
+    display: block;
+    padding: 2px 0;
+    font-size: 0.9em;
+    background-color: #FFF;
+}
 
+.dropdown:hover > .search-options, .menu > li:hover > ul{
+    visibility: visible;
+}
+
+.search-options > li, .filter-option-block > ul >li{
     text-align: left;
-    padding-bottom: 10px;    
+    padding-bottom: 8px;    
 }
 
 .filter-option-block > ul >li > input{
@@ -226,7 +268,6 @@ html, body{
 
 
 .filter-span{
-
     font-size: 0.8em;
     font-weight: bold;
     margin-right: 8px;

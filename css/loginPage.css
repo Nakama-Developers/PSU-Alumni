@@ -47,12 +47,23 @@ html, body{
 
 .header > .errors-div{
     color: #FFF;
-    font-size: 0.95em;
+    font-size: 1.05em;
     font-weight: bold;
     position: absolute;
     bottom: -2px;
     width: 100%;
     background-color: #D00;
+}
+
+.header > .errors-div::before{
+    //content: "\f256";
+    //content: "\f071";
+    //content: "\f12a";
+    //content: "\f06a";
+    content: "\f05e";
+    font-size: 1.2em;
+    font-weight: normal;
+    margin-right: 10px;
 }
 
 .login-form{
@@ -184,5 +195,9 @@ html, body{
 
     .container{
         padding-top: 0;
+    }
+
+    .login-form div > input[type="submit"] {
+        width: 80%;
     }
 }
