@@ -2,9 +2,11 @@
     require "php/dbconfig.php";
     require "php/printData.php";
     session_start();
-
+    // unset($_SESSION['pinned']);
+    // unset($_SESSION['filters']);
     if(isset($_SESSION['signedIn'])){
         $rows = printRecords(1);
+        $pinnedStudentRecords = printPinnedRecords();
         $studentsRows = '<section id="pageRecords">' . $rows['studentsRows'] . '<script type="text/javascript" src="js/loadRecords.js" ></script></section>';
         echo '
 <!DOCTYPE html>
@@ -159,8 +161,7 @@
           </div>
         </div>
       </div>
-      <div class="records">
-        <div class="records-header">
+      <div class="records-header">
           <div class="label">
             <p>
               Name
@@ -171,24 +172,80 @@
               Student ID
             </p>
           </div>
-          <div class="label">
+          <div class="drop-menu label selectable">
             <p>
               E-mail
+              <span class="arrow"></span>
             </p>
+            <ul class="options">
+                <li>
+                    <p>Job Title</p>
+                </li>
+                <li>
+                    <p>Co-op Company</p>
+                </li>
+                <li>
+                    <p>Current Company</p>
+                </li>
+                <li>
+                    <p>Company Size</p>
+                </li>
+                <li>
+                    <p>Nationality</p>
+                </li>
+            </ul>
           </div>
-          <div class="label">
+          <div class="drop-menu label selectable">
             <p>
               Phone
+              <span class="arrow"></span>
             </p>
+            <ul class="options">
+                <li>
+                    <p>Job Title</p>
+                </li>
+                <li>
+                    <p>Co-op Company</p>
+                </li>
+                <li>
+                    <p>Current Company</p>
+                </li>
+                <li>
+                    <p>Company Size</p>
+                </li>
+                <li>
+                    <p>Nationality</p>
+                </li>
+            </ul>
           </div>
-          <div class="label">
+          <div class="drop-menu label selectable">
             <p>
               Major
+              <span class="arrow"></span>
             </p>
+            <ul class="options">
+                <li>
+                    <p>Job Title</p>
+                </li>
+                <li>
+                    <p>Co-op Company</p>
+                </li>
+                <li>
+                    <p>Current Company</p>
+                </li>
+                <li>
+                    <p>Company Size</p>
+                </li>
+                <li>
+                    <p>Nationality</p>
+                </li>
+            </ul>
           </div>
         </div>
-
+      <div class="records">
+        
         <!-- End of Header / Start of records -->
+        <section id="pinnedRecords">' . $pinnedStudentRecords["studentsRows"] . '</section>
         ' . $studentsRows . '
         <!-- End of records -->
       </div>

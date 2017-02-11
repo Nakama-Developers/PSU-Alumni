@@ -1,4 +1,5 @@
 // Open Student Profile
+var isPinEvent = false;
 openProfilesEvents();
 function openProfilesEvents(){
     var profiles = document.getElementsByClassName('record');
@@ -8,33 +9,32 @@ function openProfilesEvents(){
 
     for (var i = recordRows.length - 1; i >= 0; i--) {
         (function (i) {
-            recordRows[i].addEventListener('click', function () {
-                closeProfile();
-                recordProfiles[i].className += ' open-profile';
-                recordRows[i].className += ' close-row';
-                profileImages[i].className += ' open-profile-img';
-            });
+            //recordRows[i].addEventListener('click', openProfile(i));
         })(i);
     }
 
-    var closeBtns = document.getElementsByClassName("close-profile");
-    for (var i = closeBtns.length - 1; i >= 0; i--) {
-        (function (i) {
-            closeBtns[i].addEventListener('click', function () {
-                closeProfile();
-            });
-        })(i);
-    }   
+    // open profile
+    $('.record-row').click(function () {
+        if (!isPinEvent) {
+            closeProfile();
+            $(this).addClass('close-row');
+            $(this).next().addClass('open-profile');
+            $(this).next().children('.profile-img').addClass('open-profile-img');
+        } else {
+            isPinEvent = false;
+        }
+    });
+
+    $('.close-profile').click(function () {
+        closeProfile();
+    });
 }    
 
 // close whatever is opened from student profiles
 function closeProfile() {
-    if (document.getElementsByClassName('open-profile')[0] !== undefined && document.getElementsByClassName('close-row')[0] !== undefined
-&& document.getElementsByClassName('open-profile-img')[0] !== undefined) {
-        document.getElementsByClassName('open-profile')[0].className = 'record-profile';
-        document.getElementsByClassName('close-row')[0].className = 'record-row';
-        document.getElementsByClassName('open-profile-img')[0].className = 'profile-img';
-    }
+    $('.open-profile').removeClass('open-profile');
+    $('.close-row').removeClass('close-row');
+    $('.open-profile-img').removeClass('open-profile-img');
 }
 
 var allCata = document.getElementsByClassName('All')[0];

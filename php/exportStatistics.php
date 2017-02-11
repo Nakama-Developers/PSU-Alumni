@@ -3,14 +3,18 @@
 require "dbconfig.php";
 require "utilities.php";
 session_start();
-
+// unset($_SESSION['pinned']);
+// unset($_SESSION['filters']);
 if(isset($_SESSION['signedIn'])){
 
     $filter = '';
     if(isset($_SESSION['filters'])){
-       $filter =  filterToQuery();
+       $filter =  "WHERE " . filterToQuery();
+       if(isset($_SESSION['pinned'])){
+           $filter .= (" OR " . pinToQuery());
+       }
     } else{
-       $filter =  ""; 
+       $filter =  "";
     }
 
     $firstChart = array(); // Companies most offerring co-op.
@@ -41,20 +45,23 @@ if(isset($_SESSION['signedIn'])){
         $thirdChart[$counter]['Value'] += $row[1];
         $counter++;
     }
-    if($filter == ""){
-        $filter = "WHERE";
-    } else{
-        $filter = filterToQuery() . " AND";
+    if($filter != ""){
+        if(isset($_SESSION['pinned'])){
+           $filter = "(" . filterToQuery() . " OR " . pinToQuery() . ')' ." AND";
+        } else{
+            $filter = filterToQuery() . " AND";
+        }
     }
+
     $forthChart = array(); // # of alumni of Saudis
-    $q = $db->query("SELECT Nationality, count(*) FROM student_info " . $filter ." Nationality='Saudia Arabia';");
+    $q = $db->query("SELECT Nationality, count(*) FROM student_info WHERE " . $filter ." Nationality='Saudia Arabia';");
     $counter = 0;
         // $forthChart[$counter]['Nationality'] = $row[0];
         $forthChart[$counter]['Nationality'] = 'Saudi';
         $forthChart[$counter]['Value'] = $q->fetch()[1];
         $counter++;
         $forthChart[$counter]['Nationality'] = 'Non Saudi';
-        $forthChart[$counter]['Value'] = $db->query("SELECT Nationality, count(*) FROM student_info " . $filter ." Nationality!='Saudia Arabia';")->fetch()[1];
+        $forthChart[$counter]['Value'] = $db->query("SELECT Nationality, count(*) FROM student_info WHERE " . $filter ." Nationality!='Saudia Arabia';")->fetch()[1];
 
     $output = array();
     $output['firstChart'] = $firstChart;

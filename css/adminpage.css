@@ -304,10 +304,16 @@ html, body{
   color: #999;
   height: 100%;
   width: 24%;
-  padding: 5px 0;
-  font-size: 0.9em;
-  text-align: center;
+  padding: 12px 0;
+  font-size: 0.95em;
   background-color: rgba(255, 255, 255, 0.6);
+}
+
+.grouping > .catagories > .selected {
+    font-weight: bold;
+    color: #666;
+    box-shadow: 1px 0px 8px #ccc;
+    background-color: rgba(255, 255, 255, 1);
 }
 
 .grouping > .catagories > a.All:hover, .grouping > .catagories > .All-selected{
@@ -316,16 +322,49 @@ html, body{
   border-top-color: #2ABBCF;
 }
 
+.grouping > .catagories > a.All:before, .grouping > .catagories > a.All-selected:before{
+    content: "\f0ac";
+    font-size:  1.2em;
+    margin: 0 10px;
+}
+
+.grouping > .catagories > a.All-selected:before{
+    font-weight: normal;
+    color: rgba(42,187,207, 1);
+}
+
 .grouping > .catagories > a.Alumni:hover, .grouping > .catagories > .Alumni-selected{
   border-top-width: 2px;
   border-top-style: solid;
-  border-top-color: #FAB900;
+  border-top-color: #E84747;
+}
+
+.grouping > .catagories > a.Alumni:before, .grouping > .catagories > a.Alumni-selected:before{
+    content: "\f19d";
+    font-size:  1.2em;
+    margin: 0 10px;
+}
+
+.grouping > .catagories > a.Alumni-selected:before{
+    font-weight: normal;
+    color: rgba(232,71,71,1);
 }
 
 .grouping > .catagories > a.Master:hover, .grouping > .catagories > .Master-selected{
   border-top-width: 2px;
   border-top-style: solid;
-  border-top-color: #E84747;
+  border-top-color: #FAB900;
+}
+
+.grouping > .catagories > a.Master:before, .grouping > .catagories > a.Master-selected:before{
+    content: "\f19c";
+    font-size:  1.2em;
+    margin: 0 10px;
+}
+
+.grouping > .catagories > a.Master-selected:before{
+    font-weight: normal;
+    color: rgba(250,185,0, 1);
 }
 
 .grouping > .catagories > a.Co-op:hover, .grouping > .catagories > .Co-op-selected{
@@ -334,21 +373,34 @@ html, body{
   border-top-color: #75B62A;
 }
 
+.grouping > .catagories > a.Co-op:before, .grouping > .catagories > a.Co-op-selected:before{
+    content: "\f0b1";
+    font-size:  1.2em;
+    margin: 0 10px;
+}
+
+.grouping > .catagories > a.Co-op-selected:before{
+    font-weight: normal;
+    color: rgba(117,182,42, 1);
+}
+
 .grouping > .catagories > a:hover{
   border-bottom: none;
-  color: #888;
-  font-weight: bold;
+  color: #666;
   box-shadow: 1px 0px 8px #ccc;
   transition: border 0.1s, font 0.1s;
 }
 
-.grouping > .catagories > .selected {
-    font-weight: bold;
-    background-color: rgba(255, 255, 255, 1);
+#pinnedRecords .record{
+    border-bottom: 2px dashed #ccc;
+}
+
+#pinnedRecords > .record:last-child{
+    border-bottom: 2px solid #ccc;
 }
 
 .records{
-  height: 82%;
+  height: 78%;
   overflow: auto;
   box-shadow: -1px 0px 8px #ccc;
 }
@@ -356,13 +408,27 @@ html, body{
 .records-header{
   position: relative;
   z-index: 1;
-  height: auto;
+  height: 4%;
   background-color: rgba(255, 255, 255, 1);
   border-bottom: 2px solid #ccc;
 }
 
 .records-header p{
-  margin: 10px 0;
+  padding: 10.5px 0;
+  margin: 0;
+  position: relative;
+}
+
+.records-header p > .arrow{
+    position: absolute;
+    right: 10px;
+}
+.records-header p > .arrow:before{
+    content: "\f0d7";   
+}
+
+.records-header > .selected > p > .arrow:before{
+    content: "\f0d8";   
 }
 
 .records-header > .label, .record > .record-row > .info{
@@ -377,10 +443,64 @@ html, body{
   font-size: 0.9em;
 }
 
+.records-header > .selectable{
+    position: relative;
+}
+
+.records-header > .selectable:hover{
+    background-color: #eee;
+    transition: color 0.2s, background-color 0.2s;
+    cursor: pointer;
+    color: #666;
+}
+
+.records-header > .selectable.selected{
+    box-shadow: 2px 2px 6px 0px #ccc;
+    color: #666;
+    background-color: #eee;
+    transition: box-shadow 0.3s;
+}
+
+.drop-menu > .options{
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    background-color: rgba(238,238,238, 0.8);
+    visibility: hidden;
+    opacity: 0;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding-bottom: 15px;
+}
+
+.records-header > .drop-menu.selected > .options{
+    visibility: visible;
+    box-shadow: 2px 2px 6px 0px #ccc;
+    opacity: 1;
+    transition: opacity 0.3s, box-shadow 0.3s;
+}
+
+.drop-menu > .options > li{
+    border-top: 1px dotted #555;
+}
+
+.drop-menu > .options > li:last-child{
+    border-bottom: 1px dotted #555;
+}
+
+.drop-menu > .options > li:hover{
+    color: #FFF;
+    background-clip: content-box;
+    background-color: #2ABBCF;
+    transition: color 0.2s, background-color 0.2s;
+}
+
 .record{
   border-bottom: 1px solid #ccc;
   font-size: 0.8em;
-  color: #aaa;
+  color: #999;
   cursor: pointer;
   -webkit-transition: height 0.5s;
   transition: height 0.5s;
@@ -392,7 +512,63 @@ html, body{
 
 .record-row{
   background-color: rgba(255, 255, 255, 0.9);
+  position: relative;
+}
 
+.record-row > .utilities{
+    opacity: 0.3 ;
+    right: 20px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: 15px;
+    position: absolute; 
+}
+
+.record:hover > .record-row > .utilities{
+    opacity: 1;
+}
+
+.record-row > .utilities > .pin{
+    display: inline-block;
+    font-weight: normal;
+    transition: transform 0.3s;
+    position: relative;
+    transform: rotateZ(45DEG);
+    font-size: 1.1em;
+}
+
+.record-row > .utilities > .pin:before{
+    content: "\f08d";
+}
+
+.record-row > .utilities > .pin:hover{
+    font-size: 1.25em;
+    transform: none;
+    transition: transform 0.2s, font-size 0.1s;
+    font-weight: bold;
+}
+
+.pinned{
+    transition: border 0.15s;
+    border-right: 4px solid #0078D7;
+}
+
+.pinned > .record-row{
+    transition: background-Color 0.2s;
+    background-color: #E8F3FB;
+}
+
+.pinned > .record-row > .utilities {
+    opacity: 1;
+}
+
+.pinned > .record-row > .utilities > .pin{
+    font-size: 1.25em;
+    transform: none;
+    transition: transform 0.1s, font-size 0.1s;
+    color: #0078D7;
+    text-shadow: 2px -2px #ccc;
 }
 
 .close-row{
@@ -404,7 +580,8 @@ html, body{
   height: 0;
   max-height: 0;
   visibility: hidden;
-  background: rgba(238,252,251, 0.6);
+  /*background: rgba(238,252,251, 0.6);*/
+  background: rgba(160,240,255, 0.15);
   border-left: 3px solid #26B6C9;
   -webkit-transition: max-height 0.8s, height 0.8s;
   transition: max-height 0.8s, height 0.8s;
@@ -418,7 +595,7 @@ html, body{
   padding: 10px 0;
   -webkit-transition: height 0.8s, max-height 0.8s;
   transition: height 0.8s, max-height 0.8s;
-  box-shadow: 2px 2px 8px rgba(38,182,201, 0.5)  inset;
+  box-shadow: 3px 2px 10px rgba(38,182,201, 0.65) inset;
   transition-timing-function: ease-out;
 }
 
@@ -667,6 +844,7 @@ html, body{
 }
 
 .note-container{
+    z-index: 100;
     position: absolute;
     right: 35px;
     top: 15px;
@@ -681,6 +859,7 @@ html, body{
 }
 
 .note-opened{
+    z-index: 100;
     max-height: 250px;
     visibility: visible;
     right: 50px;

@@ -2,7 +2,6 @@
 
 require "utilities.php";
 // session_start();
-
 $recordsPerPage = 40;
 
 function printRecords($pageNum){
@@ -54,6 +53,9 @@ function printStudentRow($row){
               <p>
                 '. $row['Major'] .'
               </p>
+            </div>
+            <div class="utilities">
+                <a class="pin"></a>
             </div>
           </div>';
 }
@@ -153,6 +155,28 @@ function printStudentProfile($row){
 
 function printGraduateYear($year){  
     return ($year - 1) . ' / ' . $year;
+}
+
+function printPinnedRecords(){
+    $_SESSION['pinStateChange'] = NULL;
+    if(isset($_SESSION['pinned'])){
+        $query = "SELECT * FROM student_info WHERE " . pinToQuery();
+        $q = $GLOBALS['db']->query($query);
+        $studentsRows = "";
+        $rows = $q->fetchAll();
+        for($i = 0; $i < count($rows); $i++){
+            if(isset($rows[$i])){
+                $studentsRows .= ('<div class="record pinned">' .
+                printStudentRow($rows[$i]) . printStudentProfile($rows[$i]) .
+                '</div>');
+            } else{
+                break;
+            }
+        }
+        return array('resultsNum' => count($rows), 'studentsRows' => $studentsRows);
+    } else{
+        return array('resultsNum' => 0, 'studentsRows' => "");
+    }
 }
 ?>
 

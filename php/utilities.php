@@ -7,23 +7,23 @@ function extractQuery(){
     if(isset($_SESSION['sort']) && isset($_SESSION['filters'])){
 
         if($_SESSION['sort'] === "GPA" || $_SESSION['sort'] === "Graduation_year"){
-            $query = "SELECT * FROM student_info " . filterToQuery() . " ORDER BY {$_SESSION['sort']} DESC;";
+            $query = "SELECT * FROM student_info WHERE " . filterToQuery() . integrateNotPinQuery(1) . " ORDER BY {$_SESSION['sort']} DESC;";
         }else{
-            $query = "SELECT * FROM student_info " . filterToQuery() . " ORDER BY {$_SESSION['sort']};";   
+            $query = "SELECT * FROM student_info WHERE " . filterToQuery() . integrateNotPinQuery(1) . " ORDER BY {$_SESSION['sort']};";   
         }
 
     }else if (isset($_SESSION['sort'])){
 
         if($_SESSION['sort'] === "GPA" || $_SESSION['sort'] === "Graduation_year"){
-            $query = "SELECT * FROM student_info ORDER BY {$_SESSION['sort']} DESC;";
+            $query = "SELECT * FROM student_info " . integrateNotPinQuery(0) . " ORDER BY {$_SESSION['sort']} DESC;";
         }else{
-            $query = "SELECT * FROM student_info ORDER BY {$_SESSION['sort']};";   
+            $query = "SELECT * FROM student_info " . integrateNotPinQuery(0) . " ORDER BY {$_SESSION['sort']};";   
         }
 
     } else if (isset($_SESSION['filters'])){
-        $query = "SELECT * FROM student_info " . filterToQuery() . ";";
+        $query = "SELECT * FROM student_info WHERE " . filterToQuery() . integrateNotPinQuery(1) . ";";
     } else{
-        $query = "SELECT * FROM student_info;";
+        $query = "SELECT * FROM student_info " . integrateNotPinQuery(0) . ";";
     }
     return $query;
 }
@@ -60,9 +60,21 @@ function filterToQuery(){
             array_push($q, "(" . implode(' OR ', $majorfilters) .") ");
         }
         if(isset($q)){
-            $query = "WHERE " . implode(' AND ', $q);
+            $query = implode(' AND ', $q);
             return $query;   
         }
+    }
+}
+
+function integrateNotPinQuery($isFiltered){
+    if(isset($_SESSION['pinned'])){
+        if($isFiltered){
+            return "AND NOT " . pinToQuery();
+        } else{
+            return "WHERE NOT " . pinToQuery();
+        }
+    }else{
+        return '';
     }
 }
 
@@ -141,6 +153,17 @@ function majorToQuery($str){
     return $filter;
 }
 
+function pinToQuery(){
+    if(isset($_SESSION['pinned'])){
+        $q = array();
+        for($i = 0; $i < count($_SESSION['pinned']); $i++){
+            array_push($q, "Student_ID = '" . $_SESSION['pinned'][$i] . "'");
+        }
+        return "(" . implode(' OR ', $q) . ") ";
+    }
+
+}
+
 function isChecked($value, $category){
     $isChecked = 'No';
     if(isset($_SESSION['filters'][$category])){
@@ -161,4 +184,11 @@ function removeGaps($array){
     return $cleanArray;
 }
 
+function isPinned($id){
+    if(array_search($id, $_SESSION['pinned']) !== FALSE){
+        return 'pinned';
+    } else{
+        return FALSE;
+    }
+}
 ?>

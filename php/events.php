@@ -16,6 +16,15 @@ if(isset($_GET['req'])){
         case 'nav':
             navPages();
             break;
+        case 'pin':
+            if(isset($_GET['id'])){
+                if($_GET['isPinned'] != "true"){
+                    pin($_GET['id']);
+                }else{
+                    unpin($_GET['id']);
+                }
+            }
+            break;
         default:
             break;
     }

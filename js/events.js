@@ -9,7 +9,6 @@ $(document).ready(function () {
     var numRecordsPerPage = 40;
     var prev = 0;
     var next = 2;
-
     $('#chartsLink').click(function () {
         drawCharts();
     });
@@ -199,7 +198,18 @@ $(document).ready(function () {
 
     }
 
-    /********************* (CAUTION!) *******************************
+    $('.records-header > .selectable').click(function (e) {
+        e.stopPropagation();
+        if(!$(this).attr('class').includes('selected')){
+            $(document).click();   
+        }
+        $(this).toggleClass('selected');
+    });
+
+    $(document).click(function () {
+        $('.records-header > .selectable').removeClass('selected');
+    });
+    /************************* (CAUTION!) ***************************
     *   Please, any event regarding records must be inserted in     *
     *   runRecordsEvents() method.                                  *
     *****************************************************************/
@@ -218,6 +228,43 @@ $(document).ready(function () {
                 $('.edit').addClass('editIcon');
             }
         });
+
+        // Pin Record
+        $('.pin').click(function () {
+            isPinEvent = true;
+            var node = this;
+            var bool = isPinned(this);
+            $.ajax({
+                type: "GET",
+                dataType: "JSON",
+                data: {
+                    req: "pin",
+                    id: node.parentNode.parentNode.childNodes[3].innerText.trim(),
+                    isPinned: bool
+                },
+                url: "php/events.php",
+                success: function (response) {
+                    console.log(isPinned(node) + " " + response.type + " " + response.query);
+                    if (response.recieved == 1) {
+                        $(node).parents('.record').toggleClass('pinned');
+                        if (bool && $(node).parents('.record').parent().attr('id') != 'pageRecords') {
+                            $(node).parents('.record').css('opacity', 0.7);
+                        } else {
+                            $(node).parents('.record').css('opacity', 1);
+                        }
+                        if (bool) {
+                            $(node).attr('title', 'pin this record');
+                        } else {
+                            $(node).attr('title', 'unpin this record');
+                        }
+                    }
+                }
+            });
+        });
+
+        function isPinned(node) {
+            return ($(node).parents('.record').css('border-right-width') === "4px");
+        }
 
         // note popup
         var note = document.getElementsByClassName('note-opened');
@@ -244,15 +291,11 @@ $(document).ready(function () {
     // Sort Methods
     document.getElementById('sort_method').onchange = function () {
         $.ajax({ url: "php/events.php?req=sort&sort-method=" + this.value, success: function (response) {
-            var data = JSON.parse(response);
-            prev = 0;
-            next = 2;
-            $('#resultsNumDisplay').text("0 - " + numRecordsPerPage);
-            if (data.studentsRows != '') {
-                $('#pageRecords').html(data.studentsRows + '');
-                openProfilesEvents();
-                runRecordsEvents();
-            }
+            // TODO: 
+            // response to be a boolean indicating that the backend process has succeeded
+            prev = -1;
+            next = 1;
+            nextPage();
         }
         });
     };
@@ -261,16 +304,11 @@ $(document).ready(function () {
     $('.filterInput').change(function () {
         console.log(this.name + ": " + this.value + " " + this.checked);
         $.ajax({ url: "php/events.php?req=filter&category=" + this.name + "&value=" + this.value + "&checked=" + this.checked, success: function (response) {
-            //  console.log(response);
-            var data = JSON.parse(response);
-            prev = 0;
-            next = 2;
-            $('#resultsNumDisplay').text("0 - " + numRecordsPerPage);
-            if (data.studentsRows != '') {
-                $('#pageRecords').html(data.studentsRows + '');
-                openProfilesEvents();
-                runRecordsEvents();
-            }
+            // TODO: 
+            // response to be a boolean indicating that the backend process has succeeded
+            prev = -1;
+            next = 1;
+            nextPage();
             var companies = document.getElementById('companies');
             // console.log(companies);
             if (companies !== null) {
@@ -282,12 +320,29 @@ $(document).ready(function () {
 
     // Nav tags
     $('#next').click(function () {
+        nextPage();
+    });
+
+    $('#prev').click(function () {
+        prevPage();
+    });
+
+    function nextPage() {
         $.ajax({ url: "php/events.php?req=nav&pageNum=" + next, async: false, success: function (response) {
+            // console.log(response);
             var data = JSON.parse(response);
-            if (data.studentsRows != '') {
+            if (data.records.studentsRows != '') {
                 var starter = (next - 1) * numRecordsPerPage;
-                $('#pageRecords').html(data.studentsRows + '');
-                $('#resultsNumDisplay').text(starter + ' - ' + (starter + data.resultsNum));
+                $('#pageRecords').html(data.records.studentsRows + '');
+                // console.log(data.pinnedRecords);
+                if (data.pinnedRecords != null) {
+                    // console.log(data.pinnedRecords.studentsRows);
+                    $('#pinnedRecords').html(data.pinnedRecords.studentsRows);
+                } else {
+                    $('#pinnedRecords .pin').off();
+                    $('#pinnedRecords .record-row').off();
+                }
+                $('#resultsNumDisplay').text(starter + ' - ' + (starter + data.records.resultsNum));
                 openProfilesEvents();
                 runRecordsEvents();
                 next++;
@@ -295,14 +350,22 @@ $(document).ready(function () {
             }
         }
         });
-    });
+    }
 
-    $('#prev').click(function () {
+    function prevPage() {
         $.ajax({ url: "php/events.php?req=nav&pageNum=" + prev, async: false, success: function (response) {
             var data = JSON.parse(response);
-            if (data.studentsRows != '') {
+            if (data.records.studentsRows != '') {
                 var end = (prev) * numRecordsPerPage;
-                $('#pageRecords').html(data.studentsRows + '');
+                $('#pageRecords').html(data.records.studentsRows + '');
+                // console.log(data.pinnedRecords);
+                if (data.pinnedRecords != null) {
+                    // console.log(data.pinnedRecords.studentsRows);
+                    $('#pinnedRecords').html(data.pinnedRecords.studentsRows);
+                } else {
+                    $('#pinnedRecords .pin').off();
+                    $('#pinnedRecords .record-row').off();
+                }
                 $('#resultsNumDisplay').text((end - numRecordsPerPage) + ' - ' + end);
                 openProfilesEvents();
                 runRecordsEvents();
@@ -311,5 +374,5 @@ $(document).ready(function () {
             }
         }
         });
-    });
+    }
 });

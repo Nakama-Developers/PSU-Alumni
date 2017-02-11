@@ -67,7 +67,12 @@ Instructions:
 6- Delete the code and continue having fun.
 
 	
+For: Ala'a Ezziddin
+Author: Ala'a Ezziddin
 
-
-
+Seraching is done by:
+- Student Id
+- Student name
+- Company Name/ Co-op or current
+- Job title
 
