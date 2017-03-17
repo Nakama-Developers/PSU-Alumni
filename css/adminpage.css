@@ -42,7 +42,7 @@ html, body{
   height: 100%;
 }
 
-.options > ul{
+.options > ul, .options, .options ul{
   padding: 0;
   list-style: none;
 }
@@ -104,41 +104,142 @@ html, body{
   display: inline-block;
 }
 
-.search-box > .search{
-    width:  70%;
+.search-box > .search-container > .search{
+    width:  100%;
     vertical-align: bottom;
     padding: 4px 4px;
+    padding-right: 18px;
     border: 1px solid #ccc;
     border-right: none;
     display: inline-block;
 }
 
-.search-box > .search:focus{
+.search-box > .search-container > .search:focus{
     background-color: #FEFCC8;
     outline: none;
     border-color: #45D6E9;
 }
 
-.search-box > .dropdown{
-    width: 20px;
-    text-align: center;
-    padding: 2.5px 0;
-    border: 1px solid #ccc;
-    border-left: none;
-    display: inline-block;
-    background-color: #FFF;
-    vertical-align: bottom;
+.search-container{
     position: relative;
+    width: 70%;
+    display: inline-block;
+    vertical-align: bottom;
 }
 
-.search-box > .dropdown:after{
-    content: "\f0d7";   
-}
-
-.search-options{
+.search-box > .search-container > .opt-btn{
     position: absolute;
-    background-color: #45D6E9;
-    z-index: 2;
+    display: inline-block;  
+    top: 0;
+    bottom: 0;
+    right: 0;
+    height: 15px;
+    padding: 0 4px;
+    margin: auto;
+    cursor: pointer;
+}
+
+.search-box > .search-container > .opt-btn::before{
+    content: "\f0d7";
+}
+
+.search-box > .search-container > .opt-btn.opened::before{
+    content: "\f0d8";
+}
+
+.search-box > .search-container > .search-options{
+    width: 100%;
+    color: #777;
+    visibility: visible;
+    background-color: rgba(255, 255, 255, 0.85);
+    left: 0;
+}
+
+.search-options > .label{
+    margin: 0;
+    margin-left: 5px;
+    padding-bottom: 15px;
+    font-weight: bold;
+    font-size: 1.07em;
+    text-decoration: underline;
+    color: rgba(0,87,129, 1);
+}
+
+.search-box > .search-container > .search-options > li{
+    display: inline-block;
+    width: 49%;
+}
+
+.search-box > .search-container > .search-options > li *{
+    cursor: pointer;
+}
+
+.search-options > li > label:hover{
+    color:  #45D6E9;
+    border-color: #888;
+    transition: border-color 0.2s, color 0.2s;
+}
+
+.search-options > li > .radio-check + label:hover{
+    color:  #2ABBCF;
+    transition: color 0.5s;
+}
+
+.search-options > li > label{
+    border-left: 1px dashed #ccc;
+    padding-left: 10px;
+}
+
+.radio-container{
+    position: relative;
+    width: 17px;
+    height: 17px;
+    display: inline-block;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    margin: 0 5px;
+    vertical-align: bottom;
+    box-shadow: 2px 2px 4px 0px #eee inset;
+}
+
+.radio{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    opacity: 0;
+}
+
+.radio-check{
+    position: absolute;
+    transform: scale(0);
+    border-radius: 50%;
+    background-color: #FFF;
+    width: 7px;
+    height: 7px;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+}
+
+.radio-container > .radio:checked + .radio-check{
+    transform: scale(1);
+    background-color: #75B62A;
+    box-shadow: 0px 0px 14px 7px rgba(117,182,42, 0.4);
+    transition: box-shadow 0.5s 0.2s, background-color 0.4s, transform 0.3s;
+}
+
+.radio-checked{
+    border-color: #75B62A;
+    transition: border-color 1s;
+}
+
+.search-options > li > .radio-checked + label{
+    color: #2ABBCF;
+    border-color: #888;
+    font-weight: bold;
+    transition: border-color 0.5s, color 0.5s;
 }
 
 .search-box > .search-btn{
@@ -169,6 +270,7 @@ html, body{
 .search-tools > .label{
     font-size: 0.8em;
     font-weight: bold;
+    color: rgba(0,87,129, 1);
 }
 
 .search-tools > .navegation-tools > a{
@@ -212,23 +314,25 @@ html, body{
     height: 100%;
     display: inline-block;
     padding-top: 1%;
+    margin-left: 15px;
 }
 
 .search-options, .menu > li > ul{
     visibility: hidden;
-    margin: 0;
     list-style: none;
     position: absolute;
     padding: 0;
     padding-top: 12px;
-    width: 100px;
-    z-index: 2;
+    margin: 0;
+    width: 102%;
+    z-index: 100;
     background-color: #FFF;
     border: solid thin #ccc;
     border-top: none;
-    font-size: 0.9em;
     left: -1px;
+    font-size: 0.9em;
     text-align: left;
+    box-shadow: 1px 1px 6px 0px #ddd;
 }
 
 .menu{
@@ -236,21 +340,59 @@ html, body{
     list-style: none;
     padding: 0;
     margin: 0;
+    border-radius: 5px;
+    color: #777;
 }
 
 .menu > li{
-    border: solid thin #ccc;
+    border-top: solid 1px #ccc;
+    border-bottom: solid 1px #ccc;
     position: relative;
-    width: 100px;
+    width: 120px;
     vertical-align: baseline;
+    background-color: #FFF;
     display: inline-block;
+}
+
+.menu > li:last-child{
+    border-right: 1px solid #ccc;
+    border-left: 2px dotted #ccc;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.menu > li:first-child{
+    border-left: 1px solid #ccc;
+    border-right: 2px dotted #ccc;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
 }
 
 .menu > li > span{
     display: block;
-    padding: 2px 0;
-    font-size: 0.9em;
-    background-color: #FFF;
+    padding: 4px 4px;
+    font-size: 0.8em;
+    font-weight: bold;
+    /*color: #45829F;*/
+}
+
+.filter > .menu .options > li{
+    margin-left: 10px;
+}
+
+.filter > .menu .options > li > label{
+    padding-left: 10px;
+    border-left: 1px dashed #ccc;
+}
+
+.filter > .menu .options > li:hover > label{
+    color: #45D6E9;
+    cursor: pointer;
+}
+
+.filter > .menu .options > li > span.checked ~ label{
+    font-weight: bold;
+    color: #2ABBCF;
 }
 
 .dropdown:hover > .search-options, .menu > li:hover > ul{
@@ -262,16 +404,178 @@ html, body{
     padding-bottom: 8px;    
 }
 
-.filter-option-block > ul >li > input{
-    float: right;    
+.filter-option-block > ul >li input{
+    /*float: right;*/
 }
 
+.checkbox{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    width:  100%;
+    height: 100%;
+    opacity: 0;
+}
+
+.checkbox-container{
+    position: relative;
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    color: #75B62A;
+    vertical-align: top;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 4px 0px #eee inset;
+    border-radius: 3px;
+    cursor: pointer ;
+    margin-right: 5px;
+}
+
+span.checked{
+    border: 1px solid #75B62A;
+    background-color: #FFF;
+    color: #75B62A;
+    box-shadow: none;
+    font-size: 0.9em;
+}
+
+.filter > .menu .options > li:hover > span.checkbox-container{
+    border-color: #75B62A;
+    box-shadow: 1px 1px 4px 0px rgba(117,182,42, 0.5) inset;
+    transition: box-shadow 0.2s;
+}
+
+.filter > .menu .options > li:hover > span.checked{
+    /*font-size: 1.2em;
+    box-shadow: none;
+    transition: font-size 0.2s;*/
+    background-color: #75B62A;
+    color: #FFF;
+    transition: color 0.2s 0.1s, background-color 0.2s 0.1s;
+}
+
+.filter > .menu .options > li:hover > label{
+    border-color: #777;
+}
+
+span.checkbox-container:before{
+    opacity: 0;
+    content: "\f00c";
+}
+
+span.checked:before{
+    content: "\f00c";
+    opacity: 1;
+    transition: opacity 0.2s;
+}
+
+.menu > li > .scroll-check{
+    font-size: 0.77em;
+    max-height: 180px;
+    overflow-y: scroll;
+}
+
+.filter > .menu > li > .scroll-check > li{
+    margin-left: 5px;
+}
+
+.filter > .menu > li > .scroll-check > li > label{
+    border-left: none;
+    padding-left: 0;
+}
+
+.filter > .menu > li > .scroll-check > li > .checkbox-container{
+    margin: 0;
+    border: none;
+    box-shadow: none;
+    font-size: 1.3em;
+}
+
+.filter > .menu > li > .scroll-check > li > .checkbox-container.checked:hover{
+    margin: 0;
+    border: none;
+    box-shadow: none;
+    background-color: #FFF;
+    color: #75B62A;
+}
+
+.filter > .menu > li > .scroll-check > li:hover > span.checked{
+    /*font-size: 1.2em;
+    box-shadow: none;
+    transition: font-size 0.2s;*/
+    background-color: #FFF;
+    color: #75B62A;
+    box-shadow: none;
+}
+
+.filter > .menu > li > .scroll-check > li:hover > span.checkbox-container{
+    background-color: #FFF;
+    color: #75B62A;
+    box-shadow: none;
+}
+
+.filter > .menu > li > .scroll-check > li > span.checked + label{
+    font-weight: bold;
+    color: #2ABBCF;
+}
+
+.filter > .menu > li > ul.majors-menu{
+    width: 160%;
+}
+
+.filter > .menu > li > ul.others-menu{
+    width: 200%;
+    padding-bottom: 15px;
+}
+
+.filter > .menu > li > ul.others-menu > li{
+    display: inline-block;
+    margin-left: 5px;
+    padding: 0;
+    vertical-align: top;
+    border-right: 2px dashed #ccc;
+    padding-right: 20px;
+}
+
+.filter > .menu > li > ul.others-menu > li:last-child{
+    border-right: 0;
+    margin-left: 10px;
+}
+
+.filter > .menu > li > ul.others-menu > li .checkbox-container{
+    width: 13px;
+    height: 13px;
+}
+
+.filter > .menu > li > ul.others-menu > li > ul{
+    padding-bottom: 10px;
+}
+
+.filter > .menu > li > ul.others-menu > li > ul > li{
+    padding-top: 5px;
+    margin-left: 5px;
+}
+
+.filter > .menu > li > ul.others-menu > li > ul > li label{
+    padding-left: 5px;
+}
+
+.filter > .menu > li > ul.others-menu > li > span{
+    color: rgba(0,87,129, 1);
+}
+
+.filter > .menu > li > ul.others-menu{
+    font-size: 0.78em;
+}
 
 .filter-span{
     font-size: 0.8em;
     font-weight: bold;
-    margin-right: 8px;
     cursor: pointer;
+    color: rgba(0,87,129, 1);
 }
 
 .submit-button{
@@ -388,7 +692,7 @@ html, body{
   border-bottom: none;
   color: #666;
   box-shadow: 1px 0px 8px #ccc;
-  transition: border 0.1s, font 0.1s;
+  transition: border 0.1s, color 0.2s;
 }
 
 #pinnedRecords .record{
@@ -419,8 +723,27 @@ html, body{
   position: relative;
 }
 
-.records-header p > .arrow{
+.records-header > .label > p{
+    position: relative;
+    height: 100%;
+    padding: 0;
+}
+
+/* Vertical aligning any span inside the label */
+.records-header > .label > p > span{
     position: absolute;
+    height: 13px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.records-header > .label > p > span.text{
+    left: 0;
+    right: 0;
+}
+
+.records-header > .label > p > .arrow{
     right: 10px;
 }
 .records-header p > .arrow:before{
@@ -445,6 +768,7 @@ html, body{
 
 .records-header > .selectable{
     position: relative;
+    vertical-align: top;
 }
 
 .records-header > .selectable:hover{
@@ -568,7 +892,7 @@ html, body{
     transform: none;
     transition: transform 0.1s, font-size 0.1s;
     color: #0078D7;
-    text-shadow: 2px -2px #ccc;
+    /*text-shadow: 2px -2px #ccc;*/
 }
 
 .close-row{
@@ -876,6 +1200,28 @@ html, body{
     margin: 0;
     margin-top: 5px;
     display: inline-block;
+}
+
+.logDiv{
+    position: absolute;
+    left: 0;
+    right: 0;
+    display: inline;
+    /*color: #8A6D3B;*/
+    color: rgba(0,0,0, 0.6);
+    font-size: 0.9em;
+    font-weight: bold;
+    text-align: center; 
+    padding: 5px 10px 5px 10px;
+    background-color: #FAEBCC;
+    border-right: 1px solid rgba(50,50,50, 0.4);
+    border-left: 1px solid rgba(50,50,50, 0.4);
+    border-bottom: 1px solid rgba(50,50,50, 0.4);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    width: 100px;
+    max-width: 400px;
+    margin: auto;
 }
 
 /* To be edit */

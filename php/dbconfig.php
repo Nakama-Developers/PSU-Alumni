@@ -13,5 +13,4 @@ try{
     echo "Can't connect to DB " . $e->getMessage();
 }
 
-
 ?>

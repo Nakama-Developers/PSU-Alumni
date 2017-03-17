@@ -25,6 +25,12 @@ if(isset($_GET['req'])){
                 }
             }
             break;
+        case 'feild':
+            setFeild($_GET['id'], $_GET['feild']);
+            break;
+        case 'search':
+            search($_GET['value'], $_GET['type']);
+            break;
         default:
             break;
     }

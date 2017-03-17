@@ -4,18 +4,27 @@
 //light Blue: #26B6C9, 38,182,201
 //Blue: #45829F, 69,130,159
 //Dark Blue: #005781 , 0,87,129
+var headers = ['E-mail', 'Phone', 'Major', 'Job Title', 'Co-op Company', 'Current Company', 'Company Size', 'Nationality'];
+var searchBy = 'Student_ID';
+
 
 $(document).ready(function () {
     var numRecordsPerPage = 40;
     var prev = 0;
     var next = 2;
+    // $('.logDiv').slideUp("fast");
+    $('.logDiv').hide();
+    $('.search-options').hide();
     $('#chartsLink').click(function () {
+        // $('.logDiv').slideDown("fast");
+        $('.logDiv').show();
         drawCharts();
     });
 
     function drawCharts() {
         $("div").remove(".search-box");
         $("div").remove(".navegation-tools");
+        $("div").remove(".records-header");
         $(".search-panel").attr('class', 'tools-set');
         $('.records').html('<div class="chart">\
                                             <canvas id="companies"></canvas>\
@@ -193,6 +202,7 @@ $(document).ready(function () {
 
                 var nationalitiesChart = new Chart(nationalities, nationalitiesChartObject);
             }
+            $('.logDiv').hide();
         }
         });
 
@@ -200,14 +210,16 @@ $(document).ready(function () {
 
     $('.records-header > .selectable').click(function (e) {
         e.stopPropagation();
-        if(!$(this).attr('class').includes('selected')){
-            $(document).click();   
+        if (!$(this).attr('class').includes('selected')) {
+            $(document).click();
         }
         $(this).toggleClass('selected');
     });
 
     $(document).click(function () {
         $('.records-header > .selectable').removeClass('selected');
+        $('.search-options').slideUp("fast");
+        $('.opt-btn').removeClass('opened');
     });
     /************************* (CAUTION!) ***************************
     *   Please, any event regarding records must be inserted in     *
@@ -230,8 +242,9 @@ $(document).ready(function () {
         });
 
         // Pin Record
-        $('.pin').click(function () {
-            isPinEvent = true;
+        $('.pin').click(function (e) {
+            $('.logDiv').show();
+            e.stopPropagation();
             var node = this;
             var bool = isPinned(this);
             $.ajax({
@@ -258,6 +271,7 @@ $(document).ready(function () {
                             $(node).attr('title', 'unpin this record');
                         }
                     }
+                    $('.logDiv').hide();
                 }
             });
         });
@@ -288,8 +302,52 @@ $(document).ready(function () {
         }
     }
 
+    // Drop search options
+    $('.opt-btn').click(function (e) {
+        e.stopPropagation();
+        $(this).toggleClass('opened');
+        $('.search-options').slideToggle('fast');
+    });
+
+    $('.search-options').click(function (e) {
+        e.stopPropagation();
+    });
+
+    // Search option 
+    $('.search-option').change(function (e) {
+        e.stopPropagation();
+        $('.radio-container').removeClass('radio-checked');
+        $(this).parent().toggleClass('radio-checked');
+        searchBy = $(this).val();
+    });
+
+    // SEARCH
+    $('.search').keyup(function () {
+        var val = $(this).val();
+        $.ajax({
+            url: "php/events.php",
+            type: "GET",
+            datatype: "JSON",
+            data: {
+                req: "search",
+                value: val,
+                type: searchBy
+            },
+            success: function () {
+                if (next > 1) {
+                    next--;
+                    prev--;
+                }
+                nextPage();
+            }
+        });
+    });
+
     // Sort Methods
     document.getElementById('sort_method').onchange = function () {
+        // $('.logDiv').slideDown("fast");
+        $('.logDiv').show();
+
         $.ajax({ url: "php/events.php?req=sort&sort-method=" + this.value, success: function (response) {
             // TODO: 
             // response to be a boolean indicating that the backend process has succeeded
@@ -302,6 +360,9 @@ $(document).ready(function () {
 
     // Filter Methods
     $('.filterInput').change(function () {
+        // $('.logDiv').slideDown("fast");
+        $(this).parent().toggleClass('checked');
+        $('.logDiv').show();
         console.log(this.name + ": " + this.value + " " + this.checked);
         $.ajax({ url: "php/events.php?req=filter&category=" + this.name + "&value=" + this.value + "&checked=" + this.checked, success: function (response) {
             // TODO: 
@@ -318,12 +379,68 @@ $(document).ready(function () {
         });
     });
 
+    // select feild
+    $('.options > li').click(function () {
+        // $('.logDiv').slideDown("fast");
+        $('.logDiv').show();
+        var text = $(this).text().trim();
+        var num = $(this).parents('.label').index();
+        switchTextNode($('.options > .' + $(this).attr('class') + ' > p'), $(this).parents('.label').children('.selected').children('.text'));
+        $.ajax({
+            url: "php/events.php",
+            type: "GET",
+            datatype: "JSON",
+            data: {
+                req: "feild",
+                id: --num,
+                feild: text
+            },
+            success: function () {
+                if (next > 1) {
+                    next--;
+                    prev--;
+                }
+                nextPage();
+            }
+        });
+    });
+
+    function changeFeild(num, feild) {
+        $.ajax({
+            url: "php/events.php",
+            type: "GET",
+            datatype: "JSON",
+            data: {
+                req: "feild",
+                id: --num,
+                feild: feild
+            },
+            success: function () {
+                if (next > 1) {
+                    next--;
+                    prev--;
+                }
+                nextPage();
+            }
+        });
+    }
+
+    function switchTextNode(nodeA, nodeB) {
+        var temp = $(nodeA).eq(0).text();
+        $(nodeA).text($(nodeB).text());
+        $(nodeB).text(temp);
+    }
+
     // Nav tags
     $('#next').click(function () {
+        // $('.logDiv').slideDown("fast");
+        $('.logDiv').show();
         nextPage();
     });
 
     $('#prev').click(function () {
+        // $('.logDiv').slideDown("fast");
+        $('.logDiv').show();
         prevPage();
     });
 
@@ -347,7 +464,12 @@ $(document).ready(function () {
                 runRecordsEvents();
                 next++;
                 prev++;
+            } else if (next == 1) {
+                $('#pageRecords').html('<div style="font-size:1.4em;font-weight:bold;padding: 30px 0;color:#0078D7;background-color:rgba(255, 255, 255, 0.4);text-align:center;">Ops!... No Match is Found</div>');
+                $('#resultsNumDisplay').text("0");
             }
+            $('.logDiv').slideUp();
+            // $('.logDiv').hide();
         }
         });
     }
@@ -372,6 +494,8 @@ $(document).ready(function () {
                 next--;
                 prev--;
             }
+            $('.logDiv').slideUp();
+            // $('.logDiv').hide();
         }
         });
     }

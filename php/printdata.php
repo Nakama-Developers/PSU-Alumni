@@ -41,17 +41,17 @@ function printStudentRow($row){
             </div>
             <div class="info">
               <p>
-                '. $row['email'] .'
+                '. $row[feildToQuery($_SESSION['headers']['1'])] .'
               </p>
             </div>
             <div class="info">
               <p>
-                +966537514186
+                ' . $row[feildToQuery($_SESSION['headers']['2'])] . '
               </p>
             </div>
             <div class="info">
               <p>
-                '. $row['Major'] .'
+                '. $row[feildToQuery($_SESSION['headers']['3'])] .'
               </p>
             </div>
             <div class="utilities">
@@ -178,5 +178,23 @@ function printPinnedRecords(){
         return array('resultsNum' => 0, 'studentsRows' => "");
     }
 }
+
+function printGradYearFilter(){
+    $str = '';
+    $currentYear = date("Y");
+    $firstGradYear = $GLOBALS['db']->query("SELECT MIN(Graduation_year) FROM student_info")->fetch()[0];
+    do{
+        $str .= '<li>
+                    <span class="checkbox-container ' . isChecked($firstGradYear,"Graduation_year") . '">
+                        <input class="checkbox filterInput" value="' . $firstGradYear . '" name="Graduation_year" id="' . $firstGradYear . '" type="checkbox"' . isChecked($firstGradYear,"Graduation_year") . '>
+                    </span>
+                    <label for="' . $firstGradYear . '">' . printGraduateYear($firstGradYear) . '</label>
+                </li>';
+        $firstGradYear++;
+    }
+    while($currentYear >= $firstGradYear);
+    return $str;
+}
+
 ?>
 

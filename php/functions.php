@@ -72,6 +72,18 @@ if(isset($_SESSION['signedIn'])){
         echo json_encode($array);
     }
 
+    function setFeild($num, $value){
+        if(isset($_SESSION['headers'])){
+            $_SESSION['headers'][$num] = $value;
+            $_SESSION['pinStateChange'] = 1;
+        }
+    }
+
+    function search($value, $type){
+        $_SESSION['search'] = array($type, $value);
+        echo json_encode(printRecords(1));
+    }
+
 } else{
     header("location: ../login.php");
 }

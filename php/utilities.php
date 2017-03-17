@@ -7,23 +7,23 @@ function extractQuery(){
     if(isset($_SESSION['sort']) && isset($_SESSION['filters'])){
 
         if($_SESSION['sort'] === "GPA" || $_SESSION['sort'] === "Graduation_year"){
-            $query = "SELECT * FROM student_info WHERE " . filterToQuery() . integrateNotPinQuery(1) . " ORDER BY {$_SESSION['sort']} DESC;";
+            $query = "SELECT * FROM student_info WHERE " . filterToQuery() . integrateNotPinQuery(1) . searchToQuery() . " ORDER BY {$_SESSION['sort']} DESC";
         }else{
-            $query = "SELECT * FROM student_info WHERE " . filterToQuery() . integrateNotPinQuery(1) . " ORDER BY {$_SESSION['sort']};";   
+            $query = "SELECT * FROM student_info WHERE " . filterToQuery() . integrateNotPinQuery(1) . searchToQuery() . " ORDER BY {$_SESSION['sort']}";   
         }
 
     }else if (isset($_SESSION['sort'])){
 
         if($_SESSION['sort'] === "GPA" || $_SESSION['sort'] === "Graduation_year"){
-            $query = "SELECT * FROM student_info " . integrateNotPinQuery(0) . " ORDER BY {$_SESSION['sort']} DESC;";
+            $query = "SELECT * FROM student_info " . integrateNotPinQuery(0) . searchToQuery() . " ORDER BY {$_SESSION['sort']} DESC";
         }else{
-            $query = "SELECT * FROM student_info " . integrateNotPinQuery(0) . " ORDER BY {$_SESSION['sort']};";   
+            $query = "SELECT * FROM student_info " . integrateNotPinQuery(0) . searchToQuery() . " ORDER BY {$_SESSION['sort']}";   
         }
 
     } else if (isset($_SESSION['filters'])){
-        $query = "SELECT * FROM student_info WHERE " . filterToQuery() . integrateNotPinQuery(1) . ";";
+        $query = "SELECT * FROM student_info WHERE " . filterToQuery() . integrateNotPinQuery(1) . searchToQuery();
     } else{
-        $query = "SELECT * FROM student_info " . integrateNotPinQuery(0) . ";";
+        $query = "SELECT * FROM student_info " . integrateNotPinQuery(0) . searchToQuery();
     }
     return $query;
 }
@@ -58,6 +58,12 @@ function filterToQuery(){
                 array_push($majorfilters, majorToQuery($_SESSION['filters']['Major'][$i]));
             }
             array_push($q, "(" . implode(' OR ', $majorfilters) .") ");
+        }if(isset($_SESSION['filters']['Graduation_year'])){
+            $gradyearfilters = array();
+            for($i = 0; $i < count($_SESSION['filters']['Graduation_year']); $i++){
+                array_push($gradyearfilters, gradYearToQuery($_SESSION['filters']['Graduation_year'][$i]));
+            }
+            array_push($q, "(" . implode(' OR ', $gradyearfilters) .") ");
         }
         if(isset($q)){
             $query = implode(' AND ', $q);
@@ -149,8 +155,15 @@ function majorToQuery($str){
         case 'Computer Science':
           $filter = "Major= 'Computer Science'";
           break;
+        case 'Information Systems':
+          $filter = "Major= 'Information Systems'";
+          break;
     }
     return $filter;
+}
+
+function gradYearToQuery($str){
+    return "Graduation_year = " . $str;
 }
 
 function pinToQuery(){
@@ -162,6 +175,47 @@ function pinToQuery(){
         return "(" . implode(' OR ', $q) . ") ";
     }
 
+}
+
+function feildToQuery($str){
+    switch ($str) {
+        case 'Major':
+          return $str;
+        case 'Co-op Company':
+          return 'Coop_Company';
+        case 'E-mail':
+          return 'email';
+        case 'Current Company':
+          return 'Current_Company';
+        case 'Company Size':
+          return 'Company_size';
+        case 'Job Title':
+          return 'Job_title';
+        case 'Nationality':
+          return $str;
+        case 'Phone':
+          return 'GPA';
+        default:
+            return 'Student_ID';
+    }
+}
+
+function searchToQuery(){
+    if(isset($_SESSION['search'])){
+        if(!isset($_SESSION['pinned']) && !isset($_SESSION['filters'])){
+            if($_SESSION['search'][0] === 'comp-name'){
+                return " WHERE (Coop_Company LIKE '%" . $_SESSION['search'][1] . "%' OR Current_Company LIKE '%" . $_SESSION['search'][1] . "%')";
+            }
+            return " WHERE {$_SESSION['search'][0]} LIKE '%" . $_SESSION['search'][1] . "%'";
+        } else{
+            if($_SESSION['search'][0] === 'comp-name'){
+                return " AND (Coop_Company LIKE '%" . $_SESSION['search'][1] . "%' OR Current_Company LIKE '%" . $_SESSION['search'][1] . "%')";
+            }
+            return " AND {$_SESSION['search'][0]} LIKE '%" . $_SESSION['search'][1] . "%'";
+        }   
+    } else{
+        return '';
+    }
 }
 
 function isChecked($value, $category){

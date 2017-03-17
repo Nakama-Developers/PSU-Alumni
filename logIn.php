@@ -2,7 +2,6 @@
 
 require "php/dbconfig.php";
     session_start();
-
     // log out
     if(isset($_GET['logout'])){
         if($_GET['logout'] == true){

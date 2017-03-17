@@ -1,5 +1,4 @@
 // Open Student Profile
-var isPinEvent = false;
 openProfilesEvents();
 function openProfilesEvents(){
     var profiles = document.getElementsByClassName('record');
@@ -15,14 +14,10 @@ function openProfilesEvents(){
 
     // open profile
     $('.record-row').click(function () {
-        if (!isPinEvent) {
             closeProfile();
             $(this).addClass('close-row');
             $(this).next().addClass('open-profile');
             $(this).next().children('.profile-img').addClass('open-profile-img');
-        } else {
-            isPinEvent = false;
-        }
     });
 
     $('.close-profile').click(function () {
