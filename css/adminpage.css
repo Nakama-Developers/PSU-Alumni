@@ -254,11 +254,11 @@ html, body{
   background-color: #45D6E9;
 }
 
-.search-tools{
+.tools{
   position: relative;
 }
 
-.search-tools > .navegation-tools{
+.tools > .navegation-tools{
   padding: 2.5px;
   position: absolute;
   background-color: #fff;
@@ -267,25 +267,60 @@ html, body{
   top: 20%;
 }
 
-.search-tools > .label{
+.tools > .label{
     font-size: 0.8em;
     font-weight: bold;
     color: rgba(0,87,129, 1);
 }
 
-.search-tools > .navegation-tools > a{
+.tools > .functions{
+    display: inline-block;
+    font-size: 0.8em;
+    margin-left: 20px;
+}
+
+.tools > .functions > ul{
+    list-style: none;
+    border-radius: 5px;
+    background-color: rgba(38,182,201, 0.3 );
+    border: 1px solid rgba(0,87,129, 0.5);
+    padding: 0;
+}
+
+.tools > .functions > ul > li{
+    display: inline-block;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-right: 3px dotted rgba(0,87,129, 0.5);
+}
+
+.tools > .functions > ul > li:last-child{
+    border-right: 0;
+}
+
+.tools > .functions > ul > li:hover{
+    background-color: rgba(38,182,201, 0.3 );
+}
+
+.tools > .functions > ul > li > a{
+    padding-top: 5px;
+    padding-bottom: 5px; 
+    color: rgba(0,87,129, 1);
+}
+
+.tools > .navegation-tools > a, .tools > .functions > ul a{
   padding: 0 10px;
   text-decoration: none;
   color: #ccc;
   font-weight: bold;
 }
 
-.search-tools > .navegation-tools > a:hover{
+.tools > .navegation-tools > a:hover{
     color: #888;
     transition: color 0.3s, font-size 0.3s;
 }
 
-.search-tools > .navegation-tools > span{
+.tools > .navegation-tools > span{
   padding: 0 10px;
   font-size: 0.8em;
   font-weight: bold;

@@ -31,6 +31,9 @@ if(isset($_GET['req'])){
         case 'search':
             search($_GET['value'], $_GET['type']);
             break;
+        case 'excel':
+            exportToExcel();
+            break;
         default:
             break;
     }

@@ -89,7 +89,7 @@
             </div><input class="search-btn" type="submit" name="search-btn" value="">
           </div>
         </div>
-        <div class="search-tools">
+        <div class="tools">
           <span class="label">Sort By:</span>
           <div class="sort">
             <select name="sort-method" id="sort_method" onchange="sort(value);">
@@ -213,6 +213,17 @@
                                 </ul>
                             </li>
                         </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="functions">
+                <ul>
+                    <li>
+                        <a href="#" id="exportToExcel">Export to excel</a>
+                    </li><li>
+                        <a href="#">Create Favorate list</a>
+                    </li><li>
+                        <a href="#">Create Event</a>
                     </li>
                 </ul>
             </div>

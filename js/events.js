@@ -379,6 +379,20 @@ $(document).ready(function () {
         });
     });
 
+    $('#exportToExcel').click(function () {
+        $.ajax({
+            url: "php/events.php",
+            type: "GET",
+            datatype: "JSON",
+            data: {
+                req: "excel"
+            },
+            success: function (response) {
+                console.log(response);
+            }
+        });
+    });
+
     // select feild
     $('.options > li').click(function () {
         // $('.logDiv').slideDown("fast");

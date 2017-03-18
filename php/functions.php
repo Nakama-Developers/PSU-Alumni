@@ -84,6 +84,10 @@ if(isset($_SESSION['signedIn'])){
         echo json_encode(printRecords(1));
     }
 
+    function exportToExcel(){
+        echo 'pingo!!!';
+    }
+
 } else{
     header("location: ../login.php");
 }
