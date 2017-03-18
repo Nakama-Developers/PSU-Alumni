@@ -108,20 +108,6 @@ $(document).ready(function () {
         $(".profile-info-resume").css("display", "inline-block");
     })
 
-    $('.editBtn').click(function() {
-        var categoryInputs = $('.editBtn').siblings('div').find('input');
-        if (categoryInputs.is('[readonly]')) {
-            categoryInputs.prop('readonly', false);
-            $('.editBtn').removeClass('editIcon');
-            $('.editBtn').addClass('saveIcon');
-        }
-        else {
-            categoryInputs.prop('readonly', true);
-            $('.editBtn').removeClass('saveIcon');
-            $('.editBtn').addClass('editIcon');
-        }
-    })
-
 
 })
 

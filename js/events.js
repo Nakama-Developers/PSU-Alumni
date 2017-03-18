@@ -514,3 +514,6 @@ $(document).ready(function () {
         });
     }
 });
+function redirectToProfile(studentID) {
+            window.location.href = 'studentProfile.php?studentID=' + studentID;
+        }

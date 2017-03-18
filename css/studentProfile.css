@@ -11,52 +11,143 @@ html, body{
 }
 
 * {
-    
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
- /*overwriting bootstrap navbar class*/
-.navbar{
-    height: 75px;
+.top-functions{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgb(58, 128, 162);
+    height: 50px;
+    z-index: 1000;
 }
-.navbar-inverse{
+
+.container{
+    width: 100%;
+    position: relative;
+    top: 5px;
+    padding-left: 180px;
+    display: block;
+    height: 50px;
+    vertical-align: middle;
+}
+
+
+.search-box{
+    display: inline-block;
+    padding-left: 20px;
+    width: 500px;
+    position: relative;
+    top: -15px;
+}
+
+.search-box > .search{
+    display: inline-block;
+    width: 400px;
+    height: 25px;
+    vertical-align: middle;
+    border-radius: 5px;
     border: none;
-    height: 75px;
-    background-color: rgba(0,87,129, 1);
+    padding-left: 8px;
 }
 
-.navbar-brand{
-    height: auto;
-}
-.navbar-nav > li{
-    height: 50px;
+.search:focus{
+    background-color: #FEFCC8;
+    outline: none;
+    border-color: #45D6E9;
 }
 
-.navbar-nav > li > a{
-    height: 50px;
-    padding-top: 40%;   
+.search-btn{
+    display: inline-block;
+    padding: 5px 20px;
+    background-color: #FFF;
+    font-weight: bold;
+    font-family: Segoe MDL2 Assets;
+    border: 1px solid #45D6E9;
+    border-left: none;
+    display: inline-block;
+    color: #fff;
+    background-color: #45D6E9;
+    position: relative;
+    left: -50px;
+    vertical-align: middle;
+    border-radius: 5px;
+  
 }
 
 .psu-logo img{
   display: inline-block;
-  margin: auto;
-  width: 200px;
-  height: 50px;
+  margin: 0;
+  padding-left: 15px;
+  width: auto;
+  height: 40px;
+  z-index: 5;
 }
 
+.links{
+    display: inline-block;
+    position: relative;
+    top: -12px;
+    width: auto;
+    vertical-align: middle;
+    height: 25px;
+    border-right-style: solid;
+    border-right-width: thin;
+    border-right-color: #ccc;
+    padding-right: 20px;
 
+    
+}
+
+.container > .links >  a {
+   display: inline-block;
+   vertical-align: middle;
+   color: white;
+   margin-left: 20px;
+   font-family: Arial;
+   font-weight: bold;
+   text-decoration: none;
+}
+
+.icons{
+    display: inline-block;
+    position: relative;
+    top: -15px;
+    
+}
+
+.icons > span{
+    padding-left: 20px;
+    cursor: pointer;
+}
+
+.messages-icon:before{
+    content: "\f0e0";
+    color: #FFF;
+}
+
+.notifications-icon:before{
+    content: "\f0f3";
+    color: #FFF;
+}
+
+.settings-icon:before{
+    content: "\f013";
+    color: #FFF;
+}
 /*********************************************** Starting the profile info structure *********************************************/
 
 .main-content{
   width: 87%;
   height: 100%;
-  margin-top: 5%;
+  margin-top: 9%;
   margin-left: 10%;
   float: left;
 }
 
 
-/********************************************** Profile info statrs *************************************************************/
+/********************************************** Profile info starts *************************************************************/
 .profile-container{
     width: 80%;
     height: 74.2%;
@@ -79,11 +170,11 @@ html, body{
 
 .profile-heading > .profile-img-block{
     float: left;
-    height: 170px;
-    width: 170px;
+    height: 150px;
+    width: 150px;
     border-radius: 50%;
     position: relative;
-    top: -60px;
+    top: -50px;
     left: 10px;
     z-index: 100;
     background-color: #ccc;
@@ -156,28 +247,28 @@ html, body{
     background-color: rgba(255, 255, 255, 0.9);
 }
 
-.editIcon{
-    position: relative;
-    top: 0;
-    right: 0;
+.edit-icon{
+    margin-right: 5px;
+    float: left;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 14px;
     color: rgba(0,87,129, 1);
 }
-.editIcon::before{
+.edit-icon::before{
     content: "\f040";
 }
 
-.saveIcon{
+.save-icon{
     position: relative;
     top: 0;
     right: 0;
+    float: right;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 15px;
     color: rgba(0,87,129, 1);
    
 }
-.saveIcon::before{
+.save-icon::before{
     content: "\F0C7";
 }
 
@@ -216,6 +307,10 @@ html, body{
     border-bottom-color: #ccc;
 }
 
+.info-overview-section > .student-info-overview-list > li:last-child{
+    border-bottom: none;
+}
+
 .student-overview-info{
     width: 100%;
     display: inline-block;
@@ -227,35 +322,65 @@ html, body{
 
 
 .student-overview-info:hover{
-    background-color: #e2e3ee;
+    background-color:  rgba(228, 228, 228, 0.50);
 }
 
 .info-overview-section-2{
     display: inline-block;
-    float: left;
-    width: 40%;
+    margin-left: 1%;
+    width: 39%;
     height: 100%;
     font-size: small;
     color: #000;
 }
 
+.student-side-info-block{
+    height: 100%;
+    width: 88%;
+    display: inline-block;
+}
+
 .info-overview-section-2 > .student-info-overview-list > li {
     list-style: none;
-    height: 70px;
+    height: 20%;
     width: 100%;
-    float: left;
+    
+}
+
+.side-icon{
+    vertical-align: top;
+    height: 100%;
+    width: 9%;
+    display: inline-block;
+    margin-right: 2.5%;
 }
 
 .student-info-optional{
     width: 100%;
     height: 20%;
-    margin: 5% 0 5% 8%;  
+    margin: 5% 0 20%; 
+      
+}
+
+.student-info-data{
+    color: rgba(0,87,129, 1);  
+}
+
+.edit-info{
+    color: rgba(0,87,129, 1);
+    float: right;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 5px;
+    padding-left: 5px;
+    border-left-style: solid;
+    border-left-width: thin;
+    border-left-color: rgb(58, 128, 162);
 }
 
 input[readonly]{
     border: none;
-    color: rgba(0,87,129, 0.7);
-    font-weight: bold;
+    color: rgba(0,87,129, 1); 
     font-size: medium;
     width: auto;
     background-color: rgba(255, 255, 255, 0)
@@ -272,7 +397,7 @@ input[readonly]{
 }
 
 .job-icon::before{
-    content: "\f2bb";
+    content: "\f0b1";
     font-style: normal;
     padding-right: 5%;
 }
@@ -323,6 +448,10 @@ input[readonly]{
     border-bottom-color: #ccc;
 }
 
+.info-section > .student-info-list > li:last-child{
+    border-bottom: none;
+}
+
 .student-info{
     width: 100%;
     height: 75%;
@@ -333,7 +462,7 @@ input[readonly]{
 }
 
 .student-info:hover{
-    background-color: #e2e3ee;
+    background-color: rgba(228, 228, 228, 0.50);;
 }
 
 .profile-info-contact{

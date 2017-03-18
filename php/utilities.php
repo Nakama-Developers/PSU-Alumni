@@ -245,4 +245,8 @@ function isPinned($id){
         return FALSE;
     }
 }
+function studentProfileData($studentID){
+    $query = "SELECT * FROM student_info WHERE Student_ID = '$studentID' ";
+    return($query);
+}
 ?>

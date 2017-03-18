@@ -128,7 +128,7 @@ function printStudentProfile($row){
             </section>
             <section class="social-contact">
               <div class="social-media">
-                  <a title="view his profile" href="studentProfile.html" class="alumni">
+                  <a title="view his profile" class="alumni" onclick="redirectToProfile('.$row['Student_ID'].')">
                       <img src="img/transperant-logo.png" alt="PSU-logo"/>
                   </a>
                   <span title="view his facebook profile" class="facebook"></span>
@@ -196,5 +196,11 @@ function printGradYearFilter(){
     return $str;
 }
 
+function getStudentProfileData($studentID){
+    $query = studentProfileData($studentID);
+     $q = $GLOBALS['db']-> query($query);
+     $data = $q->fetchAll();
+     return $data;
+}
 ?>
 
