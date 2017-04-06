@@ -1,6 +1,6 @@
-    /* The Modal (background) */
+/* The Modal (background) */
 .modal {
-    display: none; /* Hidden by default */
+    visibility: hidden; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 14; /* Sit infront of a text */
     left: 0;
@@ -9,49 +9,84 @@
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
-    background-color:rgba(0, 0, 0, 0.14);
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
- /* The Modal (background) */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 14; /* Sit infront of a text */
-    left: 0;
-    top: 0; /*these two atributes to make the color of the focus fill the whole screen*/
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-}
-
-/* Modal Content/Box */
+/* Modal Content Box */
 .modal-content {
-    background-color: #ffc;
+    background-color: #fff;
     color: #000;
-    margin: 13% auto; /* 13% from the top and centered */
-    width: 30%; /* Could be more or less, depending on screen size */
-    height: 45%;
-    -moz-box-shadow:5px 5px 7px rgba(33,33,33,1);
-    -webkit-box-shadow: 5px 5px 7px rgba(33,33,33,.7);
-    box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+    margin: auto;
+    margin-top: 250px;
+    width: 200px;
+    height: 104px;
+    opacity: 0.4;
+    transform: translateY(-150px);
+    -moz-box-shadow:3px 3px 7px rgba(133,133,133,1);
+    -webkit-box-shadow: 3px 3px 7px rgba(133,133,133,.7);
+    box-shadow: 3px 3px 7px rgba(133,133,133,.7);
     border: 1px solid #ccc;
-    border-radius: 4px;
-    padding:1em;
+    border-radius: 7px;
+}
+
+.show-modal{
+    opacity: 1;
+    width: 600px;
+    height: 340px;
+    transform: translateY(0px);
+    transition: transform 0.3s, opacity 0.6s 0.1s, height 0.4s 0.1s ease-out, width 0.4s 0.1s ease-out;
+    -webkit-transition: transform 0.3s, opacity 0.6s 0.1s, height 0.4s 0.1s ease-out, width 0.4s 0.1s ease-out;
 }
 
 .modal-header{
-    alignment-adjust: central;
-    text-decoration: underline;
-    color: #000;
+    background-color:  #45829F;
+    color: #FFF;
+    font-weight: bold;
+    height: 30px;
+    position: relative;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0, 0.1);
+    text-shadow: 3px 3px 6px #444;
+    box-shadow: 1px 1px 8px 0px #45829F;
+    border-bottom: 3px dotted rgba(0,0,0, 0.1);
 } 
-       
 
-    
+.modal-header > .title{
+    display: block;
+    width: 60%;
+    padding-top: 4px;
+    text-align: center;
+    margin: auto;
+}
+
+.modal-header > .close{
+    position: absolute;
+    right: 7px;
+    top: 4px;
+    cursor: pointer;
+    font-weight: normal;
+    font-size: 1.1em;
+    transition: color 0.5s, text-shadow 0.3s;
+}
+
+.modal-header > .close:hover{
+    text-shadow: none;
+    color: #ccc;
+    transition: color 0.5s, text-shadow 0.3s;
+}
+
+.modal-header > .close:before{
+    content: "\f00d";
+}
+
 .modal-body{
-         padding-left: 10px;
-         color: #000;
-         height: auto;
-        
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-top: 7px;
+    color: #888;
+    height: auto;    
 }
 
 textarea{
@@ -64,8 +99,8 @@ textarea{
         font-size: 1em;
         font-weight: bold;
         color: inherit;
-    }
-   
+}
+
 /* The Close Button */
 .close-popup {
     color: #aaa;

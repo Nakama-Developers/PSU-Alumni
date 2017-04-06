@@ -170,7 +170,7 @@ function pinToQuery(){
     if(isset($_SESSION['pinned'])){
         $q = array();
         for($i = 0; $i < count($_SESSION['pinned']); $i++){
-            array_push($q, "Student_ID = '" . $_SESSION['pinned'][$i] . "'");
+            array_push($q, "id = '" . $_SESSION['pinned'][$i] . "'");
         }
         return "(" . implode(' OR ', $q) . ") ";
     }

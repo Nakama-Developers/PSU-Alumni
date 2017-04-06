@@ -220,6 +220,13 @@ $(document).ready(function () {
         $('.records-header > .selectable').removeClass('selected');
         $('.search-options').slideUp("fast");
         $('.opt-btn').removeClass('opened');
+        $('.filter-option-block > .options').css('visibility', 'hidden');
+    });
+
+    $('.filter-option-block').click(function (e) {
+        e.stopPropagation();
+        $('.filter-option-block > .options').css('visibility', 'hidden');
+        $(this).children('.options').css('visibility', 'visible');
     });
     /************************* (CAUTION!) ***************************
     *   Please, any event regarding records must be inserted in     *
@@ -379,6 +386,9 @@ $(document).ready(function () {
         });
     });
 
+
+
+    // Excel
     $('#exportToExcel').click(function () {
         $.ajax({
             url: "php/events.php",
@@ -419,6 +429,7 @@ $(document).ready(function () {
         });
     });
 
+    // DEPRECATED
     function changeFeild(num, feild) {
         $.ajax({
             url: "php/events.php",
@@ -449,13 +460,13 @@ $(document).ready(function () {
     $('#next').click(function () {
         // $('.logDiv').slideDown("fast");
         $('.logDiv').show();
-        nextPage();
+        setTimeout(nextPage, 50);
     });
 
     $('#prev').click(function () {
         // $('.logDiv').slideDown("fast");
         $('.logDiv').show();
-        prevPage();
+        setTimeout(prevPage, 50);
     });
 
     function nextPage() {
@@ -513,6 +524,29 @@ $(document).ready(function () {
         }
         });
     }
+
+    $('.modal .close').click(function () {
+        $('.modal').css('visibility', 'hidden');
+        $('.menu').removeClass('focus');
+        $('.modal-content').removeClass('show-modal');
+    });
+
+    $('.modal').click(function () {
+        $('.modal').css('visibility', 'hidden');
+        $('.menu').removeClass('focus');
+        $('.modal-content').removeClass('show-modal');
+    });
+
+    $('.modal-content').click(function (e) {
+        $('.filter-option-block > .options').css('visibility', 'hidden');
+        e.stopPropagation();
+    });
+
+    $('.functions a').click(function () {
+        $('.menu').addClass('focus');
+        $('.modal').css('visibility', 'visible');
+        setTimeout(50, $('.modal-content').addClass('show-modal'));
+    });
 });
 function redirectToProfile(studentID) {
             window.location.href = 'studentProfile.php?studentID=' + studentID;

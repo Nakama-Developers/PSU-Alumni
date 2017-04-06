@@ -36,7 +36,7 @@ function printStudentRow($row){
             </div>
             <div class="info">
               <p>
-                '. $row['Student_ID'] .'
+                '. $row['id'] .'
               </p>
             </div>
             <div class="info">
@@ -90,7 +90,7 @@ function printStudentProfile($row){
               <div class="block-inputs">
                   <div>
                       <label for="acad-id">Academic ID:</label>
-                      <input class="field" type="text" name="acad-id" value="'. $row['Student_ID'] .'" readonly>
+                      <input class="field" type="text" name="acad-id" value="'. $row['id'] .'" readonly>
                   </div>
                   <div>
                       <label for="major">Major:</label>
@@ -128,7 +128,7 @@ function printStudentProfile($row){
             </section>
             <section class="social-contact">
               <div class="social-media">
-                  <a title="view his profile" class="alumni" onclick="redirectToProfile('.$row['Student_ID'].')">
+                  <a title="view his profile" class="alumni" onclick="redirectToProfile('.$row['id'].')">
                       <img src="img/transperant-logo.png" alt="PSU-logo"/>
                   </a>
                   <span title="view his facebook profile" class="facebook"></span>

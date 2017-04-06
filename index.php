@@ -59,7 +59,7 @@
                         <p class="label">Search By:</p>
                         <li>
                             <span class="radio-container radio-checked">
-                                <input class="radio search-option" value="Student_ID" name="search-option" id="student-id" type="radio" checked>
+                                <input class="radio search-option" value="id" name="search-option" id="student-id" type="radio" checked>
                                 <span class="radio-check"></span>
                             </span>
                             <label for="student-id">Student ID</label>
@@ -93,7 +93,7 @@
           <span class="label">Sort By:</span>
           <div class="sort">
             <select name="sort-method" id="sort_method" onchange="sort(value);">
-                <option value="student_ID">Student ID</option>
+                <option value="id">Student ID</option>
                 <option value="Name" >Student Name</option>         
                 <option value="GPA">GPA</option>
                 <option value="Graduation_year">Graduation Year</option>
@@ -108,8 +108,9 @@
                         <ul class="options scroll-check">
                             ' . printGradYearFilter() . '
                         </ul>
+                        <span class="count" id="count-other"><span class="value">3</span></span>
                     </li><li class="filter-option-block" id="gpa_filter">
-                        <span>Major</span>
+                        <span>Major & Collage</span>
                         <ul class="options majors-menu">
                             <li>
                                 <span class="checkbox-container ' . isChecked("Computer Science","Major") . '">
@@ -136,6 +137,7 @@
                                 <label for="Information Systems">Information Systems</label>
                             </li>
                         </ul>
+                        <span class="count" id="count-other"><span class="value">2</span></span>
                     </li><li class="filter-option-block" id="gpa_filter">
                         <span>Other</span>
                         <ul class="options others-menu">
@@ -213,6 +215,7 @@
                                 </ul>
                             </li>
                         </ul>
+                        <span class="count" id="count-other"><span class="value">1</span></span>
                     </li>
                 </ul>
             </div>
@@ -334,6 +337,17 @@
     </div>
     <div class="logDiv">
         Loading...
+    </div>
+    <div class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="title">Pop Up</span>
+                <span class="close" title="close"></span>
+            </div>
+            <div class="modal-body">
+                
+            </div>
+        </div>
     </div>
   </body>
 </html>';

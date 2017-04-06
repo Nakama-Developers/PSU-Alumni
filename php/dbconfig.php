@@ -1,7 +1,7 @@
 <?php
 
 $dbtype = "mysql";
-$dbname = "psu-alumni";
+$dbname = "psu-alumni-v1";
 $hostname= "localhost";
 $username = "root";
 $password = "";
