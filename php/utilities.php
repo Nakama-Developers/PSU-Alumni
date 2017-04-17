@@ -245,8 +245,64 @@ function isPinned($id){
         return FALSE;
     }
 }
+
 function studentProfileData($studentID){
     $query = "SELECT * FROM student_info WHERE Student_ID = '$studentID' ";
     return($query);
+}
+
+function storingStudentInfo($dataArray){
+
+    // this one for the student table or for the view
+    if($dataArray['table']=='student' || $dataArray['table']=='student_info' ){
+    $updateQueryPart1 = "UPDATE student SET ";   
+    $arrayLength = count($dataArray);
+    foreach ($dataArray as &$value) {
+        $columnName = array_search($value, $dataArray);
+        if($columnName == 'table'){
+            $arrayLength--;
+                continue;
+            }
+        $updateQueryPart2 = $updateQueryPart2 . $columnName. "=" .$value;
+        if($arrayLength != 1){
+            $updateQueryPart2 = $updateQueryPart2.",";
+        }
+        $arrayLength--;
+    }
+   unset($value);
+   $updateQueryPart3 = "WHERE id = ".$dataArray['studentID'];
+   $fullQuery = $updateQueryPart1.$updateQueryPart2.$updateQueryPart3;
+   return  $fullQuery;
+    }
+
+
+    // this one for the career table
+    elseif($dataArray['table']=='student_career'){
+        $updateQueryPart1 = "UPDATE student_career SET ";
+    
+        // before the loop get the company id number from the company table and if it does not exist create it and select its id
+
+        $arrayLength = count($dataArray);
+        foreach ($dataArray as &$value) {
+            $columnName = array_search($value, $dataArray);
+            if($columnName == 'table' /* or it is equal to coopCompanyName or equal to currentCompanyName*/ ){
+                $arrayLength--;
+                continue;
+            }
+            $updateQueryPart2 = $updateQueryPart2 . $columnName. "=" .$value;
+            if($arrayLength != 1){
+                $updateQueryPart2 = $updateQueryPart2.",";
+            }
+            $arrayLength--;
+        }
+        
+        // before you add the WHERE clause add the company id to the sql
+
+       unset($value);
+       $updateQueryPart3 = "WHERE id = ".$dataArray['studentID'];
+       $fullQuery = $updateQueryPart1.$updateQueryPart2.$updateQueryPart3;
+       return  $fullQuery;
+    }
+    
 }
 ?>

@@ -88,6 +88,10 @@ if(isset($_SESSION['signedIn'])){
         echo 'pingo!!!';
     }
 
+    function decodingEditedStudentData($studentInfoArray){
+         $data = json_decode($studentInfoArray);
+         insertingStudentEditedData($data);
+    }
 } else{
     header("location: ../login.php");
 }

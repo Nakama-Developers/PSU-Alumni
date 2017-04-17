@@ -34,6 +34,9 @@ if(isset($_GET['req'])){
         case 'excel':
             exportToExcel();
             break;
+        case 'store':
+            storeDataInDB($_GET['studentInfo']);
+            break;
         default:
             break;
     }

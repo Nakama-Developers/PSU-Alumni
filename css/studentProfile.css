@@ -9,12 +9,15 @@ html, body{
   background-image: url("../img/body.jpg");
   background-repeat: round;
 }
-
+div{
+    border-radius: 3px;
+}
 * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 .top-functions{
+    display: none;
     position: fixed;
     top: 0;
     width: 100%;
@@ -153,7 +156,6 @@ html, body{
     height: 74.2%;
     float: left;
     margin: 0 50px 0 50px;
-    background-color: #fbfbfb;
     background-color: rgba(255, 255, 255, 0.00);
     
 }
@@ -205,7 +207,8 @@ html, body{
    background-color: White;
    border-style: solid;
    border-width: thin;
-   border-color: rgba(0,87,129, 1);
+   border-color: #888;
+   
 }
 
 .profile-categories{
@@ -247,15 +250,33 @@ html, body{
     background-color: rgba(255, 255, 255, 0.9);
 }
 
-.edit-icon{
-    margin-right: 5px;
-    float: left;
-    cursor: pointer;
-    font-size: 14px;
-    color: rgba(0,87,129, 1);
+.edit-btn{
+    display:block;
+    box-sizing: content-box;
+    font-size: 12px;
+    -webkit-font-smoothing: antialiased;
+    text-align: center;
+    vertical-align: middle;
+    width:100px;
+    margin-left: 25%;
+    background-color:#4267b2;
+    border-radius: 2px;
+    color: #fff;
+    padding: 5px 0 5px;
 }
-.edit-icon::before{
-    content: "\f040";
+.save-btn{
+    display:none;
+    box-sizing: content-box;
+    font-size: 12px;
+    -webkit-font-smoothing: antialiased;
+    text-align: center;
+    vertical-align: middle;
+    width:100px;
+    margin-left: 25%;
+    background-color:#4267b2;
+    border-radius: 2px;
+    color: #fff;
+    padding: 5px 0 5px;
 }
 
 .save-icon{
@@ -465,6 +486,10 @@ input[readonly]{
     background-color: rgba(228, 228, 228, 0.50);;
 }
 
+.profile-info-certificate{
+    height: auto;
+    display: none;
+}
 .profile-info-contact{
     display: none;
     height: auto;
