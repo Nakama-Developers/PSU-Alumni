@@ -98,9 +98,35 @@ html, body{
 }
 
 .login-form .input-div{
-    border-bottom: 2px solid #ccc;
+    border-bottom: 2px dotted #ccc;
     outline: none;
     transition: border-bottom 0.3s;
+}
+
+.login-form .input-div:nth-child(3){
+    border-bottom: none;
+}
+
+.login-form .input-div:nth-child(3):focus, .login-form .input-div:nth-child(3):active{
+    border-bottom: none;
+}
+
+select.status{
+    width: 200px;
+    border: 2px solid #ccc;
+    border-radius: 7px;
+    color: #888;
+    text-align: center;
+    font-weight: bold;
+    padding: 5px 20px;
+    transition: border-color 0.5s, color 0.3s 0.3s;
+}
+
+select.status:focus{
+    outline: none;
+    border-color: #25B6C9;
+    color: #25B6C9;
+    transition: border-color 0.5s, color 0.3s 0.3s;
 }
 
 .login-form .input-div, .login-form .recaptch-container{

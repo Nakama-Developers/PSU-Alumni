@@ -9,13 +9,14 @@ $(document).ready(function () {
         $("#personalInfoCategory").removeClass("opened-category");
         $("#socialMediaCategory").removeClass("opened-category");
         $("#ResumeCategory").removeClass("opened-category");
+        adadadadada
 
         //showing the clicked info block
         $(".profile-info-overview").css("display", "inline-block");
         $(".profile-info-education").css("display", "none");
         $(".profile-info-certificate").css("display", "none");
         $(".profile-info-career").css("display", "none");
-        $(".profile-info-contact").css("display", "none");
+        $(".profile-info-personal").css("display", "none");
         $(".profile-info-social").css("display", "none");
         $(".profile-info-resume").css("display", "none");
     })
@@ -35,7 +36,7 @@ $(document).ready(function () {
         $(".profile-info-education").css("display", "inline-block");
         $(".profile-info-certificate").css("display", "none");
         $(".profile-info-career").css("display", "none");
-        $(".profile-info-contact").css("display", "none");
+        $(".profile-info-personal").css("display", "none");
         $(".profile-info-social").css("display", "none");
         $(".profile-info-resume").css("display", "none");
     })
@@ -55,7 +56,7 @@ $(document).ready(function () {
         $(".profile-info-education").css("display", "none");
         $(".profile-info-certificate").css("display", "inline-block");
         $(".profile-info-career").css("display", "none");
-        $(".profile-info-contact").css("display", "none");
+        $(".profile-info-personal").css("display", "none");
         $(".profile-info-social").css("display", "none");
         $(".profile-info-resume").css("display", "none");
     })
@@ -75,7 +76,7 @@ $(document).ready(function () {
         $(".profile-info-education").css("display", "none");
         $(".profile-info-certificate").css("display", "none");
         $(".profile-info-career").css("display", "inline-block");
-        $(".profile-info-contact").css("display", "none");
+        $(".profile-info-personal").css("display", "none");
         $(".profile-info-social").css("display", "none");
         $(".profile-info-resume").css("display", "none");
     })
@@ -95,7 +96,7 @@ $(document).ready(function () {
         $(".profile-info-education").css("display", "none");
         $(".profile-info-certificate").css("display", "none");
         $(".profile-info-career").css("display", "none");
-        $(".profile-info-contact").css("display", "inline-block");
+        $(".profile-info-personal").css("display", "inline-block");
         $(".profile-info-social").css("display", "none");
         $(".profile-info-resume").css("display", "none");
     })
@@ -115,7 +116,7 @@ $(document).ready(function () {
         $(".profile-info-education").css("display", "none");
         $(".profile-info-certificate").css("display", "none");
         $(".profile-info-career").css("display", "none");
-        $(".profile-info-contact").css("display", "none");
+        $(".profile-info-personal").css("display", "none");
         $(".profile-info-social").css("display", "inline-block");
         $(".profile-info-resume").css("display", "none");
     })
@@ -135,75 +136,181 @@ $(document).ready(function () {
         $(".profile-info-education").css("display", "none");
         $(".profile-info-certificate").css("display", "none");
         $(".profile-info-career").css("display", "none");
-        $(".profile-info-contact").css("display", "none");
+        $(".profile-info-personal").css("display", "none");
         $(".profile-info-social").css("display", "none");
         $(".profile-info-resume").css("display", "inline-block");
     })
 
+
+
+    //**************************************************************************************
+
     // updating the student info
     $('#educationEditBtn').click(function editInputs() {
-
-        $('.profile-info-education').css("background-color",'#cacaca');
+        $('.profile-info-education').find('input').prop('readonly', false);
+        $('.profile-info-education').css("background-color", '#cacaca');
         $('#educationSaveBtn').css("display", "block");
         $('#educationEditBtn').css("display", "none");
     });
     $('#educationSaveBtn').click(function saveInputs() {
+        $('.profile-info-education').find('input').prop('readonly', true);
+
         // getting the values
-        var info = {tableName:"student",Student_ID:$('#studentID').val(), major:$('#major').val(), GPA:$('#GPA').val(),graduationYear:$('#graduationYear').val()};
-        var myJSON = JSON.stringify(info);
-        $('.profile-info-education').css("background-color",'#fff');
+        var information = { tableName: "student" };
+        var data = { Student_ID: $('#studentID').val(), Major: $('#major').val(), GPA: $('#GPA').val(), Graduation_year: $('#graduationYear').val() };
+        var informationJSON = JSON.stringify(information);
+        var dataJSON = JSON.stringify(data);
+        $('.profile-info-education').css("background-color", '#fff');
         $('#educationSaveBtn').css("display", "none");
         $('#educationEditBtn').css("display", "block");
+        adadadada
         $.ajax({
             type: "GET",
-             url: "../php/events.php" + "?req=store &studentInfo="+myJSON, 
-             dataType: "json",
-            success: function (data) {
-                // send a popup that says successful like the loading one in the admin page
-            }
+            contentType: "application/json",
+            data:
+            {
+                req: "store",
+                information: informationJSON,
+                data: dataJSON
+            },
+            url: "php/events.php",
+
+            success: function (data)//we got the response
+            {
+                alert(data);
+            },
+            error: function (exception) { alert('Exeption:' + exception); }
         })
+
     });
+
+    /* $('#certificateEditBtn').click(function editCertificateInputs() {
+    $('.profile-info-certificate').find('input').prop('readonly', false);
+    $('.profile-info-certificate').css("background-color", '#cacaca');
+    $('#certificateSaveBtn').css("display", "block");
+    $('#certificateEditBtn').css("display", "none");
+    });
+    $('#certificateSaveBtn').click(function saveCertificateInputs() {
+    $('.profile-info-certificate').find('input').prop('readonly', true);
+
+    //getting the values
+    var information = { tableName: "certificate"};
+    var data = {Student_ID: $('#studentID').val(), Degree: $('#degree').val(), Degree_Major: $('#majorDegree').val(), University: $('#university').val(),Year:$('#degreeYear').val() };
+    var informationJSON = JSON.stringify(information);
+    var dataJSON = JSON.stringify(data);
+    $('.profile-info-certificate').css("background-color", '#fff');
+    $('#certificateSaveBtn').css("display", "none");
+    $('#certificateEditBtn').css("display", "block");
+        
+    $.ajax({
+    type: "GET",
+    contentType: "application/json",
+    data: 
+    {
+    req: "store",
+    information: informationJSON,
+    data: dataJSON
+    },
+    url: "php/events.php",
+            
+    success:function(data)//we got the response
+    {
+    alert(data);
+    },
+    error:function(exception){alert('Exeption:'+exception);}
+    })
+    });*/
 
 
     $('#careerEditBtn').click(function editCareerInputs() {
+        $('.profile-info-career').find('input').prop('readonly', false);
         $('.profile-info-career').css("background-color", "#cacaca");
-        $('.profile-info-career').find('#careerSaveBtn').css("display", "block");
+        $('#careerSaveBtn').css("display", "block");
         $('#careerEditBtn').css("display", "none");
     });
     $('#careerSaveBtn').click(function saveCareerInputs() {
-        // getting the values
-        var info = {table:"student_career",Student_ID:$('#studentID').val(), Coop_company:$('#coopCompany').val(), Time_To_Get_Job:$('#timeToGetJob').val(),Current_company:$('#currentJob').val(),Job_title:$('#jobTitle').val()};
-        var myJSON = JSON.stringify(info);
+        $('.profile-info-career').find('input').prop('readonly', true);
         $('.profile-info-career').css("background-color", "#fff");
-        $.ajax({
-            type: "GET",
-             url: "../php/events.php" + "?req=store &studentInfo="+myJSON, 
-             dataType: "json",
-            success: function (data) {
-                // send a popup that says successful like the loading one in the admin page
-            }
-        })
-    });
-
-
-    $('#contactEditBtn').click(function editContactInputs() {
-        $('.profile-info-contact').find('input').css("background-color", "red");
-        $('.profile-info-contact').find('#contactSaveBtn').css("display", "block");
-        $('#contactEditBtn').css("display", "none");
-    });
-    $('#contactSaveBtn').click(function saveContactInputs() {
         // getting the values
-        var info = {tableName:"student",Student_ID:$('#studentID').val(),Nationality:$('#nationality').val(), National_ID:$('#nationalID').val(), Phone:$('#conatctNumber').val(),email:$('#email').val()};
-        var myJSON = JSON.stringify(info);
-        $('.profile-info-education').find('input').css("background-color", "blue");
+        var information = { tableName: "student_career", Student_ID: $('#studentID').val(), Coop_company: $('#coopCompany').val(), Current_company: $('#currentJob').val() };
+        var studentData = { Time_To_Get_Job: $('#timeToGetJob').val(), Job_title: $('#jobTitle').val(), Worked_coop: $('#workedCoop').val() };
+        var informationJSON = JSON.stringify(information);
+        var dataJSON = JSON.stringify(studentData);
+
+        alert(informationJSON);
+        alert(dataJSON);
+
+
         $.ajax({
             type: "GET",
-             url: "../php/events.php" + "?req=store &studentInfo="+myJSON, 
-             dataType: "json",
-            success: function (data) {
-                // send a popup that says successful like the loading one in the admin page
-            }
+            contentType: "application/json",
+            data:
+            {
+                req: "store",
+                information: informationJSON,
+                data: dataJSON
+            },
+            url: "php/events.php",
+
+            success: function (data)//we got the response
+            {
+                alert(data);
+            },
+            error: function (exception) { alert('Exeption:' + exception); }
         })
+        $('.profile-info-career').css("background-color", '#fff');
+        $('#careerSaveBtn').css("display", "none");
+        $('#careerEditBtn').css("display", "block");
     });
-})
+
+
+
+    $('#personalEditBtn').click(function editPersonalInputs() {
+        $('.profile-info-personal').find('input').prop('readonly', false);
+        $('.profile-info-personal').css("background-color", "#cacaca");
+        $('#personalSaveBtn').css("display", "block");
+        $('#personalEditBtn').css("display", "none");
+    });
+
+
+
+    $('#personalSaveBtn').click(function savePersonalInputs() {
+        $('.profile-info-personal').find('input').prop('readonly', true);
+        $('.profile-info-personal').css("background-color", "#fff");
+        // getting the values
+
+        var phoneElementsArray = document.getElementsByClassName('contactNumber');
+        var phoneDataArray = [];
+        for (var i = 0; i < phoneElementsArray.length; i++) {
+            phoneDataArray[i] = phoneElementsArray[i].value;
+        }
+        var information = { tableName: "student" };
+        var studentData = { Student_ID: $('#studentID').val(), National_ID: $('#nationalID').val(), Nationality: $('#nationality').val(), email: $('#email').val(), PhoneArray: phoneDataArray };
+        var informationJSON = JSON.stringify(information);
+        var dataJSON = JSON.stringify(studentData);
+
+        alert(informationJSON);
+        alert(dataJSON);
+        $.ajax({
+            type: "GET",
+            contentType: "application/json",
+            data:
+            {
+                req: "store",
+                information: informationJSON,
+                data: dataJSON
+            },
+            url: "php/events.php",
+
+            success: function (data)//we got the response
+            {
+                alert(data);
+            },
+            error: function (exception) { alert('Exeption:' + exception); }
+        })
+        $('.profile-info-personal').css("background-color", '#fff');
+        $('#personalSaveBtn').css("display", "none");
+        $('#personalEditBtn').css("display", "block");
+    });
+});
 

@@ -3,7 +3,7 @@
 require "utilities.php";
 // session_start();
 $recordsPerPage = 40;
-
+$lastVisitDate;
 function printRecords($pageNum){
     // global $db, $recordsPerPage;
     $printedRecordsNum = 0;
@@ -16,6 +16,7 @@ function printRecords($pageNum){
     for($i = $starter; $i < $end; $i++){
         if(isset($rows[$i])){
             $printedRecordsNum++;
+            $GLOBALS['lastVisitDate'] = NULL;
             $studentsRows .= ('<div class="record">' .
             printStudentRow($rows[$i]) . printStudentProfile($rows[$i]) .
             '</div>');
@@ -55,9 +56,22 @@ function printStudentRow($row){
               </p>
             </div>
             <div class="utilities">
+                ' . printInviteBtn($row['id']) . '
                 <a class="pin"></a>
             </div>
           </div>';
+}
+
+function printInviteBtn($id){
+    if(isInvited($id) == NULL){
+        return '<a class="invited" title="Invite">Invited</a>';
+    } else if(isSignedUp($id) == NULL){
+        return '<a class="not-invited" title="Invite">Not Invited</a>';
+    } else{
+        // he is invited and signed up
+        // Let's print his last visit date
+        $GLOBALS['lastVisitDate'] =  '<span class="last_visit_date">' . isSignedUp($id) . '</span>';
+    }
 }
 
 function printStudentProfile($row){
@@ -146,7 +160,8 @@ function printStudentProfile($row){
                     <section class="note-body">
                         <textarea rows="6" cols="4" autofocus></textarea>
                     </section>
-                  </article>
+                  </article>'.
+                  $GLOBALS['lastVisitDate'].'
               </div>
             </section>
             <span title="close" class="close-btn close-profile"></span>
@@ -201,11 +216,6 @@ function getStudentProfileData($studentID){
      $q = $GLOBALS['db']-> query($query);
      $data = $q->fetchAll();
      return $data;
-}
-
-function insertingStudentEditedData($data){
-     $query = storingStudentInfo($data);
-     $q = $GLOBALS['db']-> query($query);
 }
 ?>
 

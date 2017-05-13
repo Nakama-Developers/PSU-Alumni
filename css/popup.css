@@ -53,12 +53,13 @@
     border-bottom: 3px dotted rgba(0,0,0, 0.1);
 } 
 
-.modal-header > .title{
+.modal-header > .popup-title{
     display: block;
     width: 60%;
     padding-top: 4px;
     text-align: center;
     margin: auto;
+    letter-spacing: 1px;
 }
 
 .modal-header > .close{
@@ -82,11 +83,36 @@
 }
 
 .modal-body{
-    padding-left: 7px;
-    padding-right: 7px;
-    padding-top: 7px;
-    color: #888;
-    height: auto;    
+    visibility: hidden;
+    opacity: 0;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 10px;
+    color: #666;
+    height: 90%;    
+}
+
+.show-modal > .modal-body{
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0.4s, opacity 0.3s 0.5s;
+}
+
+.excelExport{
+    height: 100%;
+}
+
+.excelExport > .row-input{
+    height: 28.33%;
+    position: relative;
+}
+
+.excelExport > .row-input:last-child{
+    height: 15%;
+}
+
+.excelExport > .row-input > div{
+    margin: auto;
 }
 
 textarea{
@@ -99,6 +125,175 @@ textarea{
         font-size: 1em;
         font-weight: bold;
         color: inherit;
+}
+
+#excel-grouping-options{
+    margin: 0;
+    font-size: 0.85em;
+    padding-left: 10px;
+    margin-top: 10px;   
+    margin-bottom: 15px;
+}
+
+#excel-grouping-options > li{
+    width: 31%;
+    display: inline-block;
+    border-right: 2px dashed #ccc;
+    margin-left: 10px;
+}
+
+#excel-grouping-options > li:last-child{
+    border-right: none;
+}
+
+#excel-grouping-options > li span{
+    border-radius: 6px;
+    text-align: center;
+    font-weight: bold;
+}
+
+#excel-grouping-options > li span.first:before{
+    content: "1";
+    text-align: center;
+    font-size: 1.05em;
+}
+
+#excel-grouping-options > li span.second:before{
+    content: "2";
+    text-align: center;
+    font-size: 1.05em;
+}
+
+#excel-grouping-options > li span.third:before{
+    content: "3";
+    text-align: center;
+    font-size: 1.05em;
+}
+
+.input-title{
+    color: rgba(0,87,129, 0.7);
+    font-weight: bold;
+    letter-spacing: 1px;
+    display: inline-block;
+}
+
+.excel-sheet-title > *{
+    margin-top: 35px;
+}
+
+input[type="text"]{
+    border: none;
+    border-bottom: 2px dotted #ccc;
+    padding: 3px 4px 2px 4px;
+    color: inherit;
+    font-family: inherit;
+    transition: border-color 0.3s, background-color 0.5s;
+}
+
+input[type="text"]:focus{
+    outline: none;
+    border-color: rgba(38,182,201, 1);
+    transition: border-color 0.3s, background-color 0.5s;
+    /*background-color: #eee;*/
+    color: #333;
+}
+
+#excel-grouping-options > li > div{
+    padding: 2px 0;
+}
+
+#Export-options{
+    position: absolute;
+    top: 20%;
+    font-weight: bold;
+}
+
+.btn{
+    display: inline-block;
+    height: 30px;
+    text-align: center;
+    color: rgba(0,87,129, 0.7);
+    background-color: #eee;
+    border: 1px solid rgba(0,0,0,0.1);
+    font-weight: bold;
+    font-family: inherit;
+    border-radius: 5px;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+a.center{
+    position: absolute;
+    left: 0;
+    right: -30px;
+    margin: auto;
+}
+
+.excel > .icon:before{
+    content: "\f1c3";
+    font-weight: normal; 
+}
+
+a.excel{
+    color: rgba(33,115,70, 1 );
+    background-color: rgba(33,115,70, 0.13);
+    animation: border-light-excel 0.5s 0.7s 4 alternate, excel-btn-transform 1s;
+    transition: color 4s 4s;
+}
+
+a.excel *{
+    color: inherit;
+}
+
+@keyframes border-light-excel{
+    from{
+        border: 1px solid rgba(0,0,0, 0.1);
+    }
+    to{
+        border: 1px solid rgba(33,115,70, 0.9);
+    }
+}
+
+@keyframes excel-btn-transform{
+    from{
+        opacity: 0.2;
+        transform: translateX(114%);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+a > .btn, a > .btn:focus{
+    border: none;
+    height: 28px;
+    background-color: transparent;
+}
+
+.btn:hover, .btn:active{
+    opacity: 0.7;
+    transition: opacity 0.2s;
+    outline: none;
+}
+
+.btn:focus{
+    outline: none;
+    border: 2px dotted rgba(0, 0, 0, 0.2);
+}
+
+.excelExport > .row-input > .btn{
+    width: 30%;
+}
+
+.excelExport > .row-input > input:last-child{
+    float: right;
+}
+
+input.proceedBtn{
+    background-color: rgba(38,182,201, 1);
+    color: #fff;
+    z-index: 1000;
 }
 
 /* The Close Button */
