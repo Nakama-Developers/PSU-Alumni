@@ -1,146 +1,172 @@
 $(document).ready(function () {
 
-    $("#overviewCategory").click(function () {
-        // adding some style to the clicked category
-        $("#overviewCategory").addClass("opened-category");
-        $("#educationCategory").removeClass("opened-category");
-        $("#certificatesCategory").removeClass("opened-category");
-        $("#careerCategory").removeClass("opened-category");
-        $("#personalInfoCategory").removeClass("opened-category");
-        $("#socialMediaCategory").removeClass("opened-category");
-        $("#ResumeCategory").removeClass("opened-category");
-        adadadadada
+    $(".category").click(function () {
+        $(".category").removeClass("opened-category");
+        $(".profile-info").css("display", "none");
+        $(".profile-info-" + $(this).attr("id")).css("display", "block");
+        $(this).addClass("opened-category");
+    });
 
-        //showing the clicked info block
-        $(".profile-info-overview").css("display", "inline-block");
-        $(".profile-info-education").css("display", "none");
-        $(".profile-info-certificate").css("display", "none");
-        $(".profile-info-career").css("display", "none");
-        $(".profile-info-personal").css("display", "none");
-        $(".profile-info-social").css("display", "none");
-        $(".profile-info-resume").css("display", "none");
+    $(".mobile-menu > .menuBtn").click(function (e) {
+        e.stopPropagation();
+        $(".menu").toggleClass("show");
+        $(".menu").toggleClass("toggle-menu");
+    });
+
+    $(".menu").click(function (e) {
+        e.stopPropagation();
+    });
+
+    $(document).click(function () {
+        $(".menu").removeClass("show");
+        $(".menu").removeClass("toggle-menu");
+    });
+
+    /*
+
+    *****   THIS IS BULL SH*T    *****
+
+    $("#overviewCategory").click(function () {
+    // adding some style to the clicked category
+    $("#overviewCategory").addClass("opened-category");
+    $("#educationCategory").removeClass("opened-category");
+    $("#certificatesCategory").removeClass("opened-category");
+    $("#careerCategory").removeClass("opened-category");
+    $("#personalInfoCategory").removeClass("opened-category");
+    $("#socialMediaCategory").removeClass("opened-category");
+    $("#ResumeCategory").removeClass("opened-category");
+    adadadadada
+
+    //showing the clicked info block
+    $(".profile-info-overview").css("display", "inline-block");
+    $(".profile-info-education").css("display", "none");
+    $(".profile-info-certificate").css("display", "none");
+    $(".profile-info-career").css("display", "none");
+    $(".profile-info-personal").css("display", "none");
+    $(".profile-info-social").css("display", "none");
+    $(".profile-info-resume").css("display", "none");
     })
 
     $("#educationCategory").click(function () {
-        // adding some style to the clicked category
-        $("#overviewCategory").removeClass("opened-category");
-        $("#educationCategory").addClass("opened-category");
-        $("#certificatesCategory").removeClass("opened-category");
-        $("#careerCategory").removeClass("opened-category");
-        $("#personalInfoCategory").removeClass("opened-category");
-        $("#socialMediaCategory").removeClass("opened-category");
-        $("#ResumeCategory").removeClass("opened-category");
+    // adding some style to the clicked category
+    $("#overviewCategory").removeClass("opened-category");
+    $("#educationCategory").addClass("opened-category");
+    $("#certificatesCategory").removeClass("opened-category");
+    $("#careerCategory").removeClass("opened-category");
+    $("#personalInfoCategory").removeClass("opened-category");
+    $("#socialMediaCategory").removeClass("opened-category");
+    $("#ResumeCategory").removeClass("opened-category");
 
-        //showing the clicked info block
-        $(".profile-info-overview").css("display", "none");
-        $(".profile-info-education").css("display", "inline-block");
-        $(".profile-info-certificate").css("display", "none");
-        $(".profile-info-career").css("display", "none");
-        $(".profile-info-personal").css("display", "none");
-        $(".profile-info-social").css("display", "none");
-        $(".profile-info-resume").css("display", "none");
+    //showing the clicked info block
+    $(".profile-info-overview").css("display", "none");
+    $(".profile-info-education").css("display", "inline-block");
+    $(".profile-info-certificate").css("display", "none");
+    $(".profile-info-career").css("display", "none");
+    $(".profile-info-personal").css("display", "none");
+    $(".profile-info-social").css("display", "none");
+    $(".profile-info-resume").css("display", "none");
     })
 
     $("#certificatesCategory").click(function () {
-        // adding some style to the clicked category
-        $("#overviewCategory").removeClass("opened-category");
-        $("#educationCategory").removeClass("opened-category");
-        $("#certificatesCategory").addClass("opened-category");
-        $("#careerCategory").removeClass("opened-category");
-        $("#personalInfoCategory").removeClass("opened-category");
-        $("#socialMediaCategory").removeClass("opened-category");
-        $("#ResumeCategory").removeClass("opened-category");
+    // adding some style to the clicked category
+    $("#overviewCategory").removeClass("opened-category");
+    $("#educationCategory").removeClass("opened-category");
+    $("#certificatesCategory").addClass("opened-category");
+    $("#careerCategory").removeClass("opened-category");
+    $("#personalInfoCategory").removeClass("opened-category");
+    $("#socialMediaCategory").removeClass("opened-category");
+    $("#ResumeCategory").removeClass("opened-category");
 
-        //showing the clicked info block
-        $(".profile-info-overview").css("display", "none");
-        $(".profile-info-education").css("display", "none");
-        $(".profile-info-certificate").css("display", "inline-block");
-        $(".profile-info-career").css("display", "none");
-        $(".profile-info-personal").css("display", "none");
-        $(".profile-info-social").css("display", "none");
-        $(".profile-info-resume").css("display", "none");
+    //showing the clicked info block
+    $(".profile-info-overview").css("display", "none");
+    $(".profile-info-education").css("display", "none");
+    $(".profile-info-certificate").css("display", "inline-block");
+    $(".profile-info-career").css("display", "none");
+    $(".profile-info-personal").css("display", "none");
+    $(".profile-info-social").css("display", "none");
+    $(".profile-info-resume").css("display", "none");
     })
 
     $("#careerCategory").click(function () {
-        // adding some style to the clicked category
-        $("#overviewCategory").removeClass("opened-category");
-        $("#educationCategory").removeClass("opened-category");
-        $("#certificatesCategory").removeClass("opened-category");
-        $("#careerCategory").addClass("opened-category");
-        $("#personalInfoCategory").removeClass("opened-category");
-        $("#socialMediaCategory").removeClass("opened-category");
-        $("#ResumeCategory").removeClass("opened-category");
+    // adding some style to the clicked category
+    $("#overviewCategory").removeClass("opened-category");
+    $("#educationCategory").removeClass("opened-category");
+    $("#certificatesCategory").removeClass("opened-category");
+    $("#careerCategory").addClass("opened-category");
+    $("#personalInfoCategory").removeClass("opened-category");
+    $("#socialMediaCategory").removeClass("opened-category");
+    $("#ResumeCategory").removeClass("opened-category");
 
-        //showing the clicked info block
-        $(".profile-info-overview").css("display", "none");
-        $(".profile-info-education").css("display", "none");
-        $(".profile-info-certificate").css("display", "none");
-        $(".profile-info-career").css("display", "inline-block");
-        $(".profile-info-personal").css("display", "none");
-        $(".profile-info-social").css("display", "none");
-        $(".profile-info-resume").css("display", "none");
+    //showing the clicked info block
+    $(".profile-info-overview").css("display", "none");
+    $(".profile-info-education").css("display", "none");
+    $(".profile-info-certificate").css("display", "none");
+    $(".profile-info-career").css("display", "inline-block");
+    $(".profile-info-personal").css("display", "none");
+    $(".profile-info-social").css("display", "none");
+    $(".profile-info-resume").css("display", "none");
     })
 
     $("#personalInfoCategory").click(function () {
-        // adding some style to the clicked category
-        $("#overviewCategory").removeClass("opened-category");
-        $("#educationCategory").removeClass("opened-category");
-        $("#certificatesCategory").removeClass("opened-category");
-        $("#careerCategory").removeClass("opened-category");
-        $("#personalInfoCategory").addClass("opened-category");
-        $("#socialMediaCategory").removeClass("opened-category");
-        $("#ResumeCategory").removeClass("opened-category");
+    // adding some style to the clicked category
+    $("#overviewCategory").removeClass("opened-category");
+    $("#educationCategory").removeClass("opened-category");
+    $("#certificatesCategory").removeClass("opened-category");
+    $("#careerCategory").removeClass("opened-category");
+    $("#personalInfoCategory").addClass("opened-category");
+    $("#socialMediaCategory").removeClass("opened-category");
+    $("#ResumeCategory").removeClass("opened-category");
 
-        //showing the clicked info block
-        $(".profile-info-overview").css("display", "none");
-        $(".profile-info-education").css("display", "none");
-        $(".profile-info-certificate").css("display", "none");
-        $(".profile-info-career").css("display", "none");
-        $(".profile-info-personal").css("display", "inline-block");
-        $(".profile-info-social").css("display", "none");
-        $(".profile-info-resume").css("display", "none");
+    //showing the clicked info block
+    $(".profile-info-overview").css("display", "none");
+    $(".profile-info-education").css("display", "none");
+    $(".profile-info-certificate").css("display", "none");
+    $(".profile-info-career").css("display", "none");
+    $(".profile-info-personal").css("display", "inline-block");
+    $(".profile-info-social").css("display", "none");
+    $(".profile-info-resume").css("display", "none");
     })
 
     $("#socialMediaCategory").click(function () {
-        // adding some style to the clicked category
-        $("#overviewCategory").removeClass("opened-category");
-        $("#educationCategory").removeClass("opened-category");
-        $("#certificatesCategory").removeClass("opened-category");
-        $("#careerCategory").removeClass("opened-category");
-        $("#personalInfoCategory").removeClass("opened-category");
-        $("#socialMediaCategory").addClass("opened-category");
-        $("#ResumeCategory").removeClass("opened-category");
+    // adding some style to the clicked category
+    $("#overviewCategory").removeClass("opened-category");
+    $("#educationCategory").removeClass("opened-category");
+    $("#certificatesCategory").removeClass("opened-category");
+    $("#careerCategory").removeClass("opened-category");
+    $("#personalInfoCategory").removeClass("opened-category");
+    $("#socialMediaCategory").addClass("opened-category");
+    $("#ResumeCategory").removeClass("opened-category");
 
-        //showing the clicked info block
-        $(".profile-info-overview").css("display", "none");
-        $(".profile-info-education").css("display", "none");
-        $(".profile-info-certificate").css("display", "none");
-        $(".profile-info-career").css("display", "none");
-        $(".profile-info-personal").css("display", "none");
-        $(".profile-info-social").css("display", "inline-block");
-        $(".profile-info-resume").css("display", "none");
+    //showing the clicked info block
+    $(".profile-info-overview").css("display", "none");
+    $(".profile-info-education").css("display", "none");
+    $(".profile-info-certificate").css("display", "none");
+    $(".profile-info-career").css("display", "none");
+    $(".profile-info-personal").css("display", "none");
+    $(".profile-info-social").css("display", "inline-block");
+    $(".profile-info-resume").css("display", "none");
     })
 
     $("#ResumeCategory").click(function () {
-        // adding some style to the clicked category
-        $("#overviewCategory").removeClass("opened-category");
-        $("#educationCategory").removeClass("opened-category");
-        $("#certificatesCategory").removeClass("opened-category");
-        $("#careerCategory").removeClass("opened-category");
-        $("#personalInfoCategory").removeClass("opened-category");
-        $("#socialMediaCategory").removeClass("opened-category");
-        $("#ResumeCategory").addClass("opened-category");
+    // adding some style to the clicked category
+    $("#overviewCategory").removeClass("opened-category");
+    $("#educationCategory").removeClass("opened-category");
+    $("#certificatesCategory").removeClass("opened-category");
+    $("#careerCategory").removeClass("opened-category");
+    $("#personalInfoCategory").removeClass("opened-category");
+    $("#socialMediaCategory").removeClass("opened-category");
+    $("#ResumeCategory").addClass("opened-category");
 
-        //showing the clicked info block
-        $(".profile-info-overview").css("display", "none");
-        $(".profile-info-education").css("display", "none");
-        $(".profile-info-certificate").css("display", "none");
-        $(".profile-info-career").css("display", "none");
-        $(".profile-info-personal").css("display", "none");
-        $(".profile-info-social").css("display", "none");
-        $(".profile-info-resume").css("display", "inline-block");
+    //showing the clicked info block
+    $(".profile-info-overview").css("display", "none");
+    $(".profile-info-education").css("display", "none");
+    $(".profile-info-certificate").css("display", "none");
+    $(".profile-info-career").css("display", "none");
+    $(".profile-info-personal").css("display", "none");
+    $(".profile-info-social").css("display", "none");
+    $(".profile-info-resume").css("display", "inline-block");
     })
-
+    */
 
 
     //**************************************************************************************
@@ -148,7 +174,6 @@ $(document).ready(function () {
     // updating the student info
     $('#educationEditBtn').click(function editInputs() {
         $('.profile-info-education').find('input').prop('readonly', false);
-        $('.profile-info-education').css("background-color", '#cacaca');
         $('#educationSaveBtn').css("display", "block");
         $('#educationEditBtn').css("display", "none");
     });

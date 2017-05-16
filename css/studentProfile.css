@@ -1,21 +1,36 @@
 @import "external-fonts.css";
+html{
+    /* Same size as footer height */
+    padding-bottom: 90px;
+    position: relative;
+}
+
 
 html, body{
   margin: 0;
   width: 100%;
-  height: 100%;
+  height: auto;
+  min-height: 100%;
   color: #888;
   font-family: psu , awesome,awesome2, arial;
   background-image: url("../img/noiseBg.png");
   background-repeat: repeat;
 }
+
 div{
     border-radius: 3px;
 }
+
+ul{
+    padding: 0;
+    margin: 0;
+}
+
 * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
+
 .top-functions{
     position: fixed;
     top: 0;
@@ -106,8 +121,6 @@ div{
     border-right-width: thin;
     border-right-color: #ccc;
     padding-right: 20px;
-
-    
 }
 
 .container > .links >  a {
@@ -270,10 +283,6 @@ div{
     color: rgba(0,87,129, 1);
 }
 
-.profile-brief > *{
-    margin-left: 15px;
-}
-
 .role{
     font-size: 0.75em;
     color: rgba(42,187,207, 1);
@@ -367,6 +376,28 @@ div{
    
 }
 
+.mobile-menu{
+    height: 8%;
+    background-color: rgba(255,255,255, 0.4);
+    display: none;
+    border-bottom: 1px dotted #ccc;
+}
+
+.menuBtn{
+    margin-left: 2px;
+    margin-top: 2px;
+    text-align: center;
+    height: 35px;
+    width: 35px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.menuBtn:before{
+    font-size: 28px;
+    content: "\f0c9";
+}
+
 .menu{
     display: inline-block;
     width: 20%;
@@ -400,14 +431,12 @@ div{
 }
 
 .category{
-    width: 100%;
-    font-size: 16px;
-    padding-left: 10%;
-    margin-left: 0px;
-    padding: 10px;
+    width: 90%;
+    padding: 10px 0px 10px 10%;
     cursor: pointer;
     border-left: solid transparent 3px;
     border-bottom: 1px dotted #ccc;
+    box-sizing: content-box;
     /*border-right: solid #ccc 1px;*/
 }
 
@@ -417,7 +446,7 @@ div{
     background-color: #FFF;
     box-shadow: 4px 0 8px 0px rgba(42,187,207, 0.6) inset;
     border-right: 1px solid #fff;
-    box-sizing: content-box;
+    transition: background-color 0.3s, border 0.3s, box-shadow 0.2s 0.1s;
 }
 
 .category:hover{
@@ -426,37 +455,31 @@ div{
 
 .profile-info{
     display: inline-block;
-    width: 75%;
     height: auto;
 }
 
-.edit-btn{
+.btn{
     display:block;
-    box-sizing: content-box;
-    font-size: 12px;
-    -webkit-font-smoothing: antialiased;
-    text-align: center;
-    vertical-align: middle;
-    width:100px;
-    margin-left: 25%;
-    background-color:#4267b2;
-    border-radius: 2px;
-    color: #fff;
-    padding: 5px 0 5px;
+    width:  100px;
+    color: #FFF;
+    padding: 5px 0;
+    background-clip: border-box;
+    background-color: rgba(243,205,89, 1);
+    border: 1px solid rgba(100,100,100,0.3);
+    border-radius: 5px;
+    border-bottom-width: 4px;
+    font-weight: bolder;
+    margin: auto;
+    cursor: pointer;
 }
+
+.btn:focus, .btn:active{
+    outline: none;
+}
+
 .save-btn{
-    display:none;
-    box-sizing: content-box;
-    font-size: 12px;
-    -webkit-font-smoothing: antialiased;
-    text-align: center;
-    vertical-align: middle;
-    width:100px;
-    margin-left: 25%;
-    background-color:#4267b2;
-    border-radius: 2px;
-    color: #fff;
-    padding: 5px 0 5px;
+    display: none;
+    background-color: #45D6E9;
 }
 
 .save-icon{
@@ -475,15 +498,12 @@ div{
 
 .profile-info-overview{
     display: inline-block;
-     
-    
 }
 
 .info-overview-section{
     display: inline-block; 
     width: 60%;
     height: 100%;
-    font-size: medium;
     color: #000;
 }
 
@@ -491,7 +511,6 @@ div{
     list-style: none;
     height: 25%;
     width: 100%;
-     
     border-bottom-style: solid;
     border-bottom-width: thin;
     border-bottom-color: #ccc;
@@ -505,7 +524,6 @@ div{
     width: 100%;
     display: inline-block;
     color: #000;
-    font-size: medium;
     margin: 5% 0 5% 0;
     padding: 5% 0 5% 1%; 
 }
@@ -520,7 +538,6 @@ div{
     margin-left: 1%;
     width: 39%;
     height: 100%;
-    font-size: small;
     color: #000;
 }
 
@@ -534,7 +551,6 @@ div{
     list-style: none;
     height: 20%;
     width: 100%;
-    
 }
 
 .side-icon{
@@ -595,24 +611,21 @@ input[readonly]{
 }
 
 .info-section{
-    width: 90%;
     height: auto;
     min-height: 300px;
+    padding: 0 2% 0 2%;
 }
 
 .student-info-list{
     width: 100%;
     height: 100%;
-    margin: 0 3% 0 3%;
-    padding-left: 2%;
-    padding-bottom: 2%; 
+    padding: 0; 
 }
 
 .info-section > .student-info-list > li{
     list-style: none;
     height: 25%;
     width: 100%;
-     
     border-bottom-style: solid;
     border-bottom-width: thin;
     border-bottom-color: #ccc;
@@ -626,9 +639,8 @@ input[readonly]{
     width: 100%;
     height: 75%;
     color: #000;
-    font-size: medium;
-    margin: 2% 0 2% 0;
-    padding: 5% 0 3% 15%; 
+    margin: 1% 0 1% 0;
+    padding: 5% 0 3% 10%; 
 }
 
 .student-info:hover{
@@ -721,7 +733,7 @@ footer{
     box-shadow: 0 -2px 8px 1px rgba(42,187,207, 0.5);
     color: #FFF;
     font-size: 0.9em;
-    padding: 10px 0;
+    padding: 10px 5px;
 }
 
 footer address small a{
@@ -771,6 +783,52 @@ footer address small a:before{
     width: 100%;
 }
 
+.profile-info-block{
+    position: relative;
+    border-radius: 0;
+}
+
+.mobile-menu{
+    display: block;
+}
+
+.right-div{
+    height: 92%;
+    width: 100%;
+}
+
+.menu{
+    visibility: hidden;
+    width: 0%;
+    position: absolute;
+    background-color: rgba(252,252,252, 1 );
+    box-shadow: 0 2px 8px 1px #ccc;
+    border-radius: 0;
+}
+
+.menu > *{
+    opacity: 0;
+}
+
+.toggle-menu{
+    height: 92%;
+    width: 25%;
+    transition: width 0.3s;
+}
+
+.toggle-menu > *{
+    opacity: 1;
+    transition: opacity 0.2s 0.2s;
+}
+
+.show{
+    visibility: visible;
+}
+
+.category{
+    padding: 10px 0px 10px 8%;
+}
+
 }
 
 @media only screen and (max-width: 500px){
@@ -796,11 +854,26 @@ footer address small a:before{
 .profile-info-block{
     margin-top: 20px;
     border-top-width: 3px;
-    font-size: 0.4em;
+    font-size: 0.8em;
 }
 
 .general-info > ul > li{
     font-size: 0.9em;
+}
+
+}
+
+@media only screen and (max-width: 370px){
+    .category{
+    padding-left: 8px;
+    border-left: 2px solid transparent;
+}
+.opened-category{
+    border-left: solid rgba(42,187,207, 1) 2px;
+}
+
+.toggle-menu{
+    width: 100px;
 }
 
 }

@@ -93,16 +93,20 @@
                 </div>
             </div>
             <div class="profile-info-block">
+                <div class="mobile-menu">
+                    <span class="menuBtn">
+                    </span>
+                </div>
                 <div class="menu">
                     <ul class="profile-categories">
-                    <li class="category opened-category" id="overviewCategory">Overview</li>
-                    <li class="category" id="educationCategory">Education</li>
-                    <li class="category" id="certificatesCategory">Degrees</li>
-                    <li class="category" id="careerCategory">Career</li>
-                    <li class="category" id="personalInfoCategory">Personal Info</li>
-                    <li class="category" id="socialMediaCategory">Social Media</li>
-                    <li class="category" id="ResumeCategory">Résumé</li>
-                 </ul>
+                        <li class="category opened-category" id="overviewCategory">Overview</li>
+                        <li class="category" id="education">Education</li>
+                        <li class="category" id="certificates">Degrees</li>
+                        <li class="category" id="career">Career</li>
+                        <li class="category" id="personal">Personal Info</li>
+                        <li class="category" id="social">Social Media</li>
+                        <li class="category" id="resume">Résumé</li>
+                    </ul>
                 </div><div class="right-div">
                     <div class="profile-info profile-info-overview">
                         <div class="info-overview-section">
@@ -139,8 +143,8 @@
                                 </li>
                                 <li>
                                    <div class="student-info edit-btn-block">
-                                       <button class="edit-btn" id="educationEditBtn">EDIT</button> 
-                                       <button class="save-btn" id="educationSaveBtn">SAVE</button> 
+                                       <button class="btn" id="educationEditBtn">EDIT</button> 
+                                       <button class="btn save-btn" id="educationSaveBtn">SAVE</button> 
                                    </div>                        
                                 </li>
                             </ul>            
@@ -167,8 +171,8 @@
                             
                                 <li>
                                    <div class="student-info edit-btn-block">
-                                       <button class="edit-btn" id="careerEditBtn">EDIT</button>
-                                       <button class="save-btn" id="careerSaveBtn">SAVE</button>
+                                       <button class="btn" id="careerEditBtn">EDIT</button>
+                                       <button class="btn save-btn" id="careerSaveBtn">SAVE</button>
                                    </div>
                                 </li>
                             </ul>            
@@ -196,8 +200,8 @@
                                 </li>
                                 <li>
                                     <div class="student-info edit-btn-block">
-                                        <button class="edit-btn" id="personalEditBtn">EDIT</button>
-                                        <button class="save-btn" id="personalSaveBtn">SAVE</button>
+                                        <button class="btn" id="personalEditBtn">EDIT</button>
+                                        <button class="btn save-btn" id="personalSaveBtn">SAVE</button>
                                     </div>
                                 </li>
                             </ul>            
@@ -232,7 +236,7 @@
                                 </div>
                               </div>                   
                         </div>
-                    </div>               
+                    </div>             
                     </div>
                 </div>
                 
