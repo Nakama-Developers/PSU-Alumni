@@ -455,6 +455,26 @@ echo implode(" ",$dataArray);
         $currentCompanyName = $informationArray['Current_company'] ;
         $coopCompanyName = $informationArray['Coop_company'];
 
+
+        // adding the company if not exist
+        $CompanyIsExistQuery = "Select Count(*) From company Where Name ='$currentCompanyName'";
+        $q = $GLOBALS['db']-> query($CompanyIsExistQuery);
+        $result = $q->fetchAll();
+        $number = $result[0][0];
+        if($number == 0){
+            $insertNewCompanyQuery = "Insert Into company(Name) Values('$currentCompanyName')";
+            $q = $GLOBALS['db']-> query($insertNewCompanyQuery);
+        }
+        $CompanyIsExistQuery = "Select Count(*) From company Where Name ='$coopCompanyName'";
+        $q = $GLOBALS['db']-> query($CompanyIsExistQuery);
+        $result = $q->fetchAll();
+        $number = $result[0][0];
+        if($number == 0){
+            $insertNewCompanyQuery = "Insert Into company(Name) Values('$coopCompanyName')";
+            $q = $GLOBALS['db']-> query($insertNewCompanyQuery);
+        }
+
+        // showing the companies in the profile
         if($currentCompanyName != NULL){
             $currentCompanyIdQuery = "SELECT Company_ID FROM company WHERE Name ='$currentCompanyName'";
             echo  $currentCompanyIdQuery ;
@@ -469,7 +489,6 @@ echo implode(" ",$dataArray);
             $coopCompanyIdResult = $q->fetchAll();
             $coopCompanyId = $coopCompanyIdResult[0]['Company_ID'];
         }
-
         $updateQueryPart1 = "UPDATE student_career SET ";
         $arrayLength = count($dataArray);
         foreach ($dataArray as &$value) {
