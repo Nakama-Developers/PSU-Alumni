@@ -1,6 +1,6 @@
 <?php
 require('functions.php');
-
+echo ' inside events.php';
 $req;
 
 if(isset($_GET['req'])){
@@ -47,6 +47,9 @@ if($req != NULL){
             break;
         case 'undo-invite':
             undoInvite($_POST['id']);
+            break;
+        case 'store':
+            decodingEditedStudentData($_GET['information'], $_GET['data']);
             break;
         default:
             break;

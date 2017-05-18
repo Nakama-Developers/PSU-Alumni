@@ -290,6 +290,13 @@ _HTML_;
         }
     }
     
+        function decodingEditedStudentData($studentInfoArray, $studentDataArray){
+         $information = json_decode($studentInfoArray);
+         $data = json_decode($studentDataArray);
+         insertingStudentEditedData($information, $data);
+        // echo json_encode('console.log("********'.$data.'*******") INSIDE FUNCTIONS');
+    }
+
 } else{
     header("location: ../index.php");
 }

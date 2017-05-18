@@ -299,10 +299,6 @@ function isPinned($id){
         return FALSE;
     }
 }
-function studentProfileData($studentID){
-    $query = "SELECT * FROM student_info WHERE id = '$studentID' ";
-    return($query);
-}
 
 function sqlEncode($val){
     $val = $GLOBALS['db']->quote($val);
@@ -376,6 +372,128 @@ function createHash($id){
 function addInvitedStudent($id, $hash){
     $query = "INSERT INTO student_hash VALUES (" . sqlEncode($id) . ", '$hash')";
     return $GLOBALS['db']->query($query);
+}
+
+function studentProfileData($studentID){
+    $query = "SELECT DISTINCT student.*,
+(SELECT company.Name FROM company WHERE company.Company_ID IN ( SELECT student_career.Current_company FROM student_career WHERE student_career.Student_ID ='$studentID')) AS 'Current_Company',
+(SELECT company.Name FROM company WHERE company.Company_ID IN ( SELECT student_career.Coop_company FROM student_career WHERE student_career.Student_ID ='$studentID')) AS 'Coop_Company',
+(SELECT student_career.is_Family FROM student_career WHERE student_career.Student_ID ='$studentID') AS 'is_Family',
+(SELECT student_career.Job_title FROM student_career WHERE student_career.Student_ID ='$studentID') AS 'Job_title',
+(SELECT student_career.Worked_coop FROM student_career WHERE student_career.Student_ID ='$studentID') AS 'Worked_coop',
+(SELECT student_career.Time_to_get_job FROM student_career WHERE student_career.Student_ID ='$studentID') AS 'Time_to_get_job',
+contact_number.Phone, certificate.* FROM student_career , ((student natural join contact_number) left outer join certificate on student.student_id = certificate.Student_ID) WHERE student_career.Student_ID = '$studentID'  AND student.Student_ID ='$studentID';";
+
+    return($query);
+}
+
+function storingStudentInfo($informationArray, $dataArray){
+
+$informationArray = json_decode(json_encode($informationArray), True);
+echo implode(" ",$informationArray);
+
+$dataArray = json_decode(json_encode($dataArray), True);
+echo implode(" ",$dataArray);
+
+    // this one for the student table or for the view
+    if($informationArray['tableName'] =='student' || $informationArray['tableName'] =='student_info' ){
+
+        
+
+    // if the phone number is Not Updated
+    if (!array_key_exists('Phone',$dataArray)){
+        $updateQueryPart1 = "UPDATE ".$informationArray['tableName']." SET ";   
+        $arrayLength = count($dataArray);
+        foreach ($dataArray as &$value) {
+        $columnName = array_search($value, $dataArray);
+        $updateQueryPart2 = $updateQueryPart2 . $columnName. "= '$value' ";
+            if($arrayLength != 1){
+                $updateQueryPart2 = $updateQueryPart2.",";
+            }
+        $arrayLength--;
+    }
+   unset($value);
+   $updateQueryPart3 = "WHERE Student_ID = ".$dataArray['Student_ID'];
+   $fullQuery = $updateQueryPart1.$updateQueryPart2.$updateQueryPart3;
+   return  $fullQuery;
+   }
+   else{
+        $updateQueryPart1 = "UPDATE ".$informationArray['tableName']." SET ";   
+        $arrayLength = count($dataArray);
+        foreach ($dataArray as &$value) {
+        $columnName = array_search($value, $dataArray);
+
+        if($columnName == 'PhoneArray'){
+           // foreach ($value as &$number)  // the value here is the phoneNumber Array
+                
+            }
+            $arrayLength--;
+            continue;
+        }
+        $updateQueryPart2 = $updateQueryPart2 . $columnName. "= '$value' ";
+            if($arrayLength != 1){
+                $updateQueryPart2 = $updateQueryPart2.",";
+            }
+        $arrayLength--;
+    }
+   unset($value);
+   $updateQueryPart3 = "WHERE Student_ID = ".$dataArray['Student_ID'];
+   $fullQuery = $updateQueryPart1.$updateQueryPart2.$updateQueryPart3;
+   return  $fullQuery;  
+   }  
+    
+ 
+
+
+    // this one for the career table
+    elseif($informationArray['tableName']=='student_career'){
+        // add all student Ids from table student into student_career to make sure all student Ids are synced
+        $syncronizationQuery = 'INSERT IGNORE INTO student_career (Student_ID) SELECT Student_ID FROM student ';
+        echo  $syncronizationQuery ;
+        $q = $GLOBALS['db']-> query($syncronizationQuery);
+
+        $currentCompanyName = $informationArray['Current_company'] ;
+        $coopCompanyName = $informationArray['Coop_company'];
+
+        if($currentCompanyName != NULL){
+            $currentCompanyIdQuery = "SELECT Company_ID FROM company WHERE Name ='$currentCompanyName'";
+            echo  $currentCompanyIdQuery ;
+            $q = $GLOBALS['db']-> query($currentCompanyIdQuery);
+            $currentCompanyIdResult = $q->fetchAll();
+            $currentCompanyId = $currentCompanyIdResult[0]['Company_ID'];
+        }
+        if($coopCompanyName != NULL){    
+            $coopCompanyIdQuery = "SELECT Company_ID FROM company WHERE Name ='$coopCompanyName'";
+            echo  $coopCompanyIdQuery ;
+            $q = $GLOBALS['db']-> query($coopCompanyIdQuery);
+            $coopCompanyIdResult = $q->fetchAll();
+            $coopCompanyId = $coopCompanyIdResult[0]['Company_ID'];
+        }
+
+        $updateQueryPart1 = "UPDATE student_career SET ";
+        $arrayLength = count($dataArray);
+        foreach ($dataArray as &$value) {
+            $columnName = array_search($value, $dataArray);
+            $updateQueryPart2 = $updateQueryPart2 . $columnName. "= '$value' ";
+            if($arrayLength != 1){
+                $updateQueryPart2 = $updateQueryPart2.",";
+            }
+            $arrayLength--;
+        }  
+        
+        if($currentCompanyName != NULL){
+             $updateQueryPart2 = $updateQueryPart2.", Current_company ='$currentCompanyId' ";
+         }
+         if($coopCompanyName != NULL){
+             $updateQueryPart2 = $updateQueryPart2.", Coop_company = '$coopCompanyId' ";
+         }
+       
+       unset($value);
+       $updateQueryPart3 = "WHERE Student_ID = ".$informationArray['Student_ID'];
+       $fullQuery = $updateQueryPart1.$updateQueryPart2.$updateQueryPart3;
+       return  $fullQuery;
+    }
+    
 }
 
 ?>

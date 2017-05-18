@@ -217,5 +217,12 @@ function getStudentProfileData($studentID){
      $data = $q->fetchAll();
      return $data;
 }
+
+function insertingStudentEditedData($info, $data){
+     $query = storingStudentInfo($info, $data);
+     echo json_encode("inside printData");
+     echo json_encode($query);
+     $q = $GLOBALS['db']-> query($query);
+}
 ?>
 
