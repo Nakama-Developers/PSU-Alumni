@@ -869,3 +869,33 @@ $(document).ready(function () {
 function redirectToProfile(studentID) {
             window.location.href = 'studentProfile.php?studentID=' + studentID;
         }
+
+  
+  // updating the student info
+    
+    $('.saveIcon').click(function saveInputs() {
+        open-profile
+        // getting the values
+        var information = { tableName: "student_info" };
+        var data = { Student_ID:$('td[name=acad-id]').val() , Name:$('td[name=name]').val() ,Major:$('td[name=major]').val() ,GPA:$('td[name=gpa]').val() ,Nationality: $('td[name=nationality]').val(),Graduation_year:$('td[name=grad-year]').val() ,email: $('td[name=email]').val(),Current_Company:$('td[name=current-comp]').val() ,Coop_Company: $('td[name=co-op-comp]').val(),Company_size: $('td[name=comp-size]').val(),Job_title:$('td[name=title]').val()  };
+        var informationJSON = JSON.stringify(information);
+        var dataJSON = JSON.stringify(data);
+        $.ajax({
+            type: "GET",
+            contentType: "application/json",
+            data:
+            {
+                req: "store",
+                information: informationJSON,
+                data: dataJSON
+            },
+            url: "php/events.php",
+
+            success: function (data)//we got the response
+            {
+                alert(data);
+            },
+            error: function (exception) { alert('Exeption:' + exception); }
+        })
+
+    });

@@ -88,7 +88,7 @@ function printStudentProfile($row){
                     </div>
                     <div>
                         <label for="nationality">Nationality:</label>
-                        <input class="field" type="text" value="'. $row['Nationality'] .'" readonly>
+                        <input class="field" type="text" name="nationality" value="'. $row['Nationality'] .'" readonly>
                     </div>
                     <div>
                         <label for="Phone">Phones:</label>
