@@ -193,9 +193,17 @@
                                 <li>
                                     <div class="student-info student-contact-number">Contact number <?php
                                                                                                         for($i = 0; $i<count($studentInfoArray);$i++){
+                                                                                                            if($studentInfoArray[ $i ]['Phone']!= NULL)
                                                                                                             echo " <input type=\"text\" placeholder=\"empty\" class=\"contactNumber\" value= '".$studentInfoArray[ $i ]['Phone']."' readonly> <br>";
                                                                                                         }
+                                                                                                       
 
+                                                                                                          $tmpArr = array();
+foreach ($studentInfoArray as $sub) {
+  $tmpArr[] = implode(',', $sub);
+}
+$result = implode('|', $tmpArr);
+echo $result;
                                                                                                     ?>  </div>
                                 </li>
                                 <li>

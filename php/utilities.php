@@ -387,26 +387,25 @@ contact_number.Phone, certificate.* FROM student_career , ((student natural join
     return($query);
 }
 
-function storingStudentInfo($informationArray, $dataArray){
+function storingStudentInfo($informationArray, $dataArray){    
+    $informationArray = json_decode(json_encode($informationArray), True);
+    echo implode(" ",$informationArray);
 
-$informationArray = json_decode(json_encode($informationArray), True);
-echo implode(" ",$informationArray);
-
-$dataArray = json_decode(json_encode($dataArray), True);
-echo implode(" ",$dataArray);
+    $dataArray = json_decode(json_encode($dataArray), True);
+    $studentID = $dataArray['Student_ID'];
+    echo implode(" ",$dataArray);
 
     // this one for the student table or for the view
     if($informationArray['tableName'] =='student' || $informationArray['tableName'] =='student_info' ){
 
         
-
     // if the phone number is Not Updated
-    if (!array_key_exists('Phone',$dataArray)){
+    if (!array_key_exists('PhoneArray',$dataArray)){
         $updateQueryPart1 = "UPDATE ".$informationArray['tableName']." SET ";   
         $arrayLength = count($dataArray);
         foreach ($dataArray as &$value) {
-        $columnName = array_search($value, $dataArray);
-        $updateQueryPart2 = $updateQueryPart2 . $columnName. "= '$value' ";
+            $columnName = array_search($value, $dataArray);
+            $updateQueryPart2 = $updateQueryPart2 . $columnName. "= '$value' ";
             if($arrayLength != 1){
                 $updateQueryPart2 = $updateQueryPart2.",";
             }
@@ -421,23 +420,35 @@ echo implode(" ",$dataArray);
         $updateQueryPart1 = "UPDATE ".$informationArray['tableName']." SET ";   
         $arrayLength = count($dataArray);
         foreach ($dataArray as &$value) {
-        $columnName = array_search($value, $dataArray);
-
-        if($columnName == 'PhoneArray'){
-           // foreach ($value as &$number)  // the value here is the phoneNumber Array
-                
+            $columnName = array_search($value, $dataArray);
+            if($columnName == 'PhoneArray'){
+                    $deleteQuery = "DELETE FROM contact_number Where Student_ID ='$studentID'";
+                    $q = $GLOBALS['db']-> query($deleteQuery);
+                     //echo implode(" ",$value);
+            foreach ($value as &$number){
+             
+                //  $value here is the phoneNumber Array
+                if($number != NULL){
+                    $insertQuery = "INSERT INTO contact_number VALUES($studentID,'$number')";
+                   echo $insertQuery;
+                   $q = $GLOBALS['db']-> query($insertQuery);
+                     }      
+                   
+                }
+                 unset($number);
+                $arrayLength--;
+                continue;
             }
-            $arrayLength--;
-            continue;
-        }
         $updateQueryPart2 = $updateQueryPart2 . $columnName. "= '$value' ";
-            if($arrayLength != 1){
-                $updateQueryPart2 = $updateQueryPart2.",";
-            }
+        if($arrayLength != 1){
+              $updateQueryPart2 = $updateQueryPart2.",";
+        }
         $arrayLength--;
+        }
+        
     }
    unset($value);
-   $updateQueryPart3 = "WHERE Student_ID = ".$dataArray['Student_ID'];
+   $updateQueryPart3 = "WHERE Student_ID = '$studentID'";
    $fullQuery = $updateQueryPart1.$updateQueryPart2.$updateQueryPart3;
    return  $fullQuery;  
    }  
