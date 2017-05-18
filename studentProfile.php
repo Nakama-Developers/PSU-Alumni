@@ -99,7 +99,7 @@
                 </div>
                 <div class="menu">
                     <ul class="profile-categories">
-                        <li class="category opened-category" id="overviewCategory">Overview</li>
+                        <li class="category opened-category" id="overview">Overview</li>
                         <li class="category" id="education">Education</li>
                         <li class="category" id="certificates">Degrees</li>
                         <li class="category" id="career">Career</li>
@@ -112,16 +112,16 @@
                         <div class="info-overview-section">
                             <ul class="student-info-overview-list">
                                 <li>
-                                    <div class="student-overview-info student-ID">Holds the student ID of <span class="student-info-data"><?php echo $studentID; ?></span> </div>
+                                    <div class="student-info student-ID">Holds the student ID of <span class="student-info-data"><?php echo $studentID; ?></span> </div>
                                 </li>
                                 <li>
-                                    <div class="student-overview-info student-nationality">From <span class="student-info-data"><?php echo $studentInfoArray[0]['Nationality']; ?></span></div>
+                                    <div class="student-info student-nationality">From <span class="student-info-data"><?php echo $studentInfoArray[0]['Nationality']; ?></span></div>
                                 </li>
                                 <li>
-                                    <div class="student-overview-info student-major">Studied <span class="student-info-data"><?php echo $studentInfoArray[0]['Major']; ?></span>  </div>
+                                    <div class="student-info student-major">Studied <span class="student-info-data"><?php echo $studentInfoArray[0]['Major']; ?></span>  </div>
                                 </li>
                                 <li>
-                                    <div class="student-overview-info student-GPA">Got a GPA of <span class="student-info-data"><?php echo $studentInfoArray[0]['GPA']; ?></span>  </div>
+                                    <div class="student-info student-GPA">Got a GPA of <span class="student-info-data"><?php echo $studentInfoArray[0]['GPA']; ?></span>  </div>
                                 </li>
                             </ul>            
                         </div>
