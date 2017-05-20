@@ -374,6 +374,11 @@ function addInvitedStudent($id, $hash){
     return $GLOBALS['db']->query($query);
 }
 
+function getCompanies(){
+    // TODO
+}
+
+
 function studentProfileData($studentID){
     $query = "SELECT DISTINCT student.*,
 (SELECT company.Name FROM company WHERE company.Company_ID IN ( SELECT student_career.Current_company FROM student_career WHERE student_career.Student_ID ='$studentID')) AS 'Current_Company',

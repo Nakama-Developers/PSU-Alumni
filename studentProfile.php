@@ -108,6 +108,14 @@
                         <li class="category" id="resume">Résumé</li>
                     </ul>
                 </div><div class="right-div">
+                    <button class="editBtn styledBtn">
+                        <span>
+                        </span>
+                    </button>
+                    <button class="saveBtn styledBtn">
+                        <span>
+                        </span>
+                    </button>
                     <div class="profile-info profile-info-overview">
                         <div class="info-overview-section">
                             <ul class="student-info-overview-list">

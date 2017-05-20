@@ -2,8 +2,8 @@ $(document).ready(function () {
 
     $(".category").click(function () {
         $(".category").removeClass("opened-category");
-        $(".profile-info").css("display", "none");
-        $(".profile-info-" + $(this).attr("id")).css("display", "block");
+        $(".profile-info").slideUp();
+        $(".profile-info-" + $(this).attr("id")).slideDown();
         $(this).addClass("opened-category");
     });
 
@@ -23,6 +23,21 @@ $(document).ready(function () {
     });
 
     //**************************************************************************************
+
+    $(".editBtn").click(function () {
+        $(this).css("transform", "rotateY(270deg)");
+        $(".saveBtn").css("transform", "rotateY(360deg)");
+        //$('.profile-info[style*="display: block"]').addClass("editBlock");
+        $('.right-div').addClass("editBlock");
+    });
+
+    $(".saveBtn").click(function () {
+        $(this).css("transform", "rotateY(270deg)");
+        $(".editBtn").css("transform", "rotateY(360deg)");
+        //$('.profile-info[style*="display: block"]').removeClass("editBlock");
+        $('.right-div').removeClass("editBlock");
+    });
+
 
     // updating the student info
     $('#educationEditBtn').click(function editInputs() {
