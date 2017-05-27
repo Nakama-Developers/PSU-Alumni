@@ -9,6 +9,7 @@ require "php/dbconfig.php";
         if($_GET['logout'] == true){
             unset($_SESSION['signedIn']);
             unset($_SESSION['role']);
+            session_unset();
         }
     }
 

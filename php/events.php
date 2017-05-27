@@ -1,6 +1,5 @@
 <?php
 require('functions.php');
-echo ' inside events.php';
 $req;
 
 if(isset($_GET['req'])){

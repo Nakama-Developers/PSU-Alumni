@@ -1,8 +1,11 @@
 <?php
 
-require "dbconfig.php";
+require "printdata.php";
+
+echo printCompaniesList();
 
 // adding the company if not exist
+/*
         $currentCompanyIsExistQuery = "Select Count(*) From company Where Name = 'AAAA'";
         $q = $GLOBALS['db']-> query($currentCompanyIsExistQuery);
         $result = $q->fetchAll();
@@ -12,5 +15,5 @@ require "dbconfig.php";
             $insertNewCompanyQuery = "Insert Into company(Name) Values('AAAA')";
             $q = $GLOBALS['db']-> query($insertNewCompanyQuery);
             echo 'done';
-        }
+        }*/
 ?>

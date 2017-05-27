@@ -1,6 +1,6 @@
 <?php
 
-    require "php/printData.php";
+    require_once "php/printData.php";
 
     $studentID = $_GET['studentID'];
     $studentInfoArray = getStudentProfileData($studentID);
@@ -108,11 +108,11 @@
                         <li class="category" id="resume">Résumé</li>
                     </ul>
                 </div><div class="right-div">
-                    <button class="editBtn styledBtn">
+                    <button class="editBtn hide styledBtn">
                         <span>
                         </span>
                     </button>
-                    <button class="saveBtn styledBtn">
+                    <button class="saveBtn hide styledBtn">
                         <span>
                         </span>
                     </button>
@@ -162,13 +162,13 @@
                         <div class="info-section">
                             <ul class="student-info-list">
                                 <li>
-                                    <div class="student-info">Did the Co-Op with  <input type="text" placeholder="empty" id="coopCompany" value='<?php echo $studentInfoArray[0]['Coop_Company']; ?>' readonly></div>
+                                    <div class="student-info">Did the Co-Op with  <input list="companies" type="text" placeholder="empty" id="coopCompany" value='<?php echo $studentInfoArray[0]['Coop_Company']; ?>' readonly></div>
                                 </li>
                                 <li>
                                     <div class="student-info">Job seeking time after Co-op <input type="text" placeholder="empty" id="timeToGetJob" value='<?php echo $studentInfoArray[0]['Time_to_get_job']; ?>'  readonly> Months</div>
                                 </li>
                                 <li>
-                                    <div class="student-info">Currently working for <input type="text" placeholder="empty" id="currentJob" value='<?php echo $studentInfoArray[0]['Current_Company']; ?>' readonly></div>
+                                    <div class="student-info">Currently working for <input list="companies" placeholder="empty" id="currentJob" value='<?php echo $studentInfoArray[0]['Current_Company']; ?>' readonly><?php echo printCompaniesList(); ?></div>
                                 </li>
                                 <li>
                                     <div class="student-info">Working as <input type="text" placeholder="empty" id="jobTitle" value='<?php echo $studentInfoArray[0]['Job_title']; ?>' readonly> </div>

@@ -181,19 +181,24 @@ textarea{
     margin-top: 35px;
 }
 
-input[type="text"]{
+input[type="text"], input[type="email"], input[type="number"], select{
     border: none;
     border-bottom: 2px dotted #ccc;
-    padding: 3px 4px 2px 4px;
     color: inherit;
     font-family: inherit;
     transition: border-color 0.3s, background-color 0.5s;
 }
 
-input[type="text"]:focus{
+input[type="text"], input[type="email"], input[type="number"], label, .addStudent .row-input select{
+    padding: 3px 4px 2px 4px;
+}
+
+
+input[type="text"]:focus, input[type="email"]:focus, input[type="number"]:focus, select:focus{
     outline: none;
     border-color: rgba(38,182,201, 1);
-    transition: border-color 0.3s, background-color 0.5s;
+    border-bottom-style: solid;
+    transition: border 0.3s, background-color 0.5s;
     /*background-color: #eee;*/
     color: #333;
 }
@@ -294,6 +299,94 @@ input.proceedBtn{
     background-color: rgba(38,182,201, 1);
     color: #fff;
     z-index: 1000;
+}
+
+
+                /******************************************************/
+                /*****************     ADD STUDENT     ****************/
+                /******************************************************/
+
+
+.addStudent{
+    font-size: 0.8em;
+}
+
+.addStudent .row-input{
+    padding: 5px 0;
+}
+
+fieldset{
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 4px 0px #ccc;
+}
+
+legend{
+    color: rgba(38,182,201, 1);
+    font-size: 0.9em;
+}
+
+.addStudent label{
+    padding-top: 5px;
+}
+
+fieldset.personal input{
+    width: 250px;
+}
+
+.addStudent .row-input input[type="text"],
+.addStudent .row-input input[type="email"],
+.addStudent .row-input input[type="number"],
+.addStudent .row-input select{
+    float: right;
+}
+
+ul.type-opts{
+    list-style: none;
+    padding: 0;
+}
+
+ul.type-opts > li{
+    display: inline-block;
+    width: 32%;
+}
+
+.addStudent input[type="text"],
+input[type="email"],
+input[type="number"],
+.addStudent .row-input select{
+    border-bottom-width: 1px;
+}
+
+.addStudent .row-input .major-select{
+    width: 130px;
+    font-size: 0.9em;
+}
+
+.academic > div{
+    width: 49%;
+    display: inline-block;
+    padding: 0 15px;
+}
+
+.academic > div:nth-child(2){
+    border-right: 2px dashed #ccc;
+}
+
+.academic  input, .academic select{
+    width: 100px;
+}
+
+.academic .major-select{
+    
+}
+
+#addStudentForm > div:last-child{
+    padding-top: 20px;
+}
+
+#addStudentForm > div:last-child > .btn{
+    width: 30%;
 }
 
 /* The Close Button */

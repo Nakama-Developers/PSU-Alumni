@@ -821,6 +821,10 @@ footer address small a:before{
     display: block;
 }
 
+.hide{
+    display: none;
+}
+
 @media only screen and (max-width: 1000px){
     .profile-container{
         width: 100%;

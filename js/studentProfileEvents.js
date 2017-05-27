@@ -1,6 +1,11 @@
 $(document).ready(function () {
 
     $(".category").click(function () {
+        if ($(this).attr("id") == "overview" || $(this).attr("id") == "resume") {
+            $(".editBtn, .saveBtn").addClass("hide");
+        } else {
+            $(".editBtn, .saveBtn").removeClass("hide");
+        }
         $(".category").removeClass("opened-category");
         $(".profile-info").slideUp();
         $(".profile-info-" + $(this).attr("id")).slideDown();

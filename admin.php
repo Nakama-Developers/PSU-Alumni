@@ -226,7 +226,7 @@
                                 </li><li>
                                     <a href="#">Create Favorate list</a>
                                 </li><li>
-                                    <a href="#">Create Event</a>
+                                    <a href="#" id="addStudent">Add Student</a>
                                 </li><li>
                                     <a href="#" id="invite">Invite</a>
                                 </li>

@@ -218,6 +218,17 @@ function getStudentProfileData($studentID){
      return $data;
 }
 
+function printCompaniesList(){
+    $html = '<datalist id="companies">';
+    $array = getCompanies();
+    $size = count($array);
+    for($i = 0; $i < $size; $i++){
+        $html .= '<option value="' . $array[$i]['Name'] . '">';
+    }
+    $html .= '</datalist>';
+    return $html;
+}
+
 function insertingStudentEditedData($info, $data){
      $query = storingStudentInfo($info, $data);
      echo json_encode("inside printData");

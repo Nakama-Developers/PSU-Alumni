@@ -283,7 +283,12 @@ $(document).ready(function () {
         });
 
         function isPinned(node) {
-            return ($(node).parents('.record').css('border-right-width') === "4px");
+            var pinnedRecord = $(node).parents('.pinned');
+            if (pinnedRecord.length != 0) {
+                return true;
+            } else {
+                return false;
+            }
         }
 
         // note popup
@@ -535,6 +540,86 @@ $(document).ready(function () {
             </div>');
 
         exportToExcelEvents();
+    });
+
+    $("#addStudent").click(function () {
+        $('.modal-header > .popup-title').text('Add Student');
+        $('.modal-body').html('<div class="addStudent">\
+        <form id="addStudentForm" method="POST" action="">\
+            <fieldset class="personal">\
+                <legend>Personal</legend>\
+                <div class="row-input">\
+                    <label for="name"class="input-title">Name: </label>\
+                    <input id="name" type="text" name="name" autofocus required>\
+                </div>\
+                <div class="row-input">\
+                    <label for="email"class="input-title">E-mail: </label>\
+                    <input id="email" type="email" name="email" required>\
+                </div>\
+            </fieldset>\
+            <div class="row-input stu-type">\
+                <ul class="type-opts">\
+                    <li>\
+                        <span class="radio-container radio-checked">\
+                            <input class="radio" value="alumni" name="type-opt" id="alumni" type="radio" checked>\
+                            <span class="radio-check"></span>\
+                        </span>\
+                        <label for="alumni">Alumni</label>\
+                    </li>\
+                    <li>\
+                        <span class="radio-container">\
+                            <input class="radio" value="coop" name="type-opt" id="coop" type="radio">\
+                            <span class="radio-check"></span>\
+                        </span>\
+                        <label for="coop">Co-op</label>\
+                    </li>\
+                    <li>\
+                        <span class="radio-container">\
+                            <input class="radio" value="master" name="type-opt" id="master" type="radio">\
+                            <span class="radio-check"></span>\
+                        </span>\
+                        <label for="master">Master</label>\
+                    </li>\
+                </ul>\
+            </div>\
+            <fieldset class="academic">\
+                <legend>Academic</legend>\
+                <div class="leftdiv">\
+                    <div class="row-input">\
+                        <label for="stuid"class="input-title">University ID: </label>\
+                        <input id="stuid" type="number" name="id" required>\
+                    </div>\
+                    <div class="row-input">\
+                        <label for="major"class="input-title">Major: </label>\
+                        <select class="major-select" id="major" name="major" required>\
+                            <option>Select a Major</option>\
+                            <option>Copmuter Science</option>\
+                            <option>Software Engineering</option>\
+                            <option>Information System</option>\
+                            <option>Finanace</option>\
+                        </select>\
+                    </div>\
+                </div><div class="rightdiv">\
+                    <div class="row-input">\
+                        <label for="gpa"class="input-title">GPA: </label>\
+                        <input id="gpa" type="number" name="gpa" step="0.01" max="4" min="0" required>\
+                    </div>\
+                    <div class="row-input">\
+                        <label for="grad-year"class="input-title">Graduation Year: </label>\
+                        <input id="grad-year" type="number" name="grad-year" min="2003" required>\
+                    </div>\
+                </div>\
+            </fieldset>\
+            <div class="row-input">\
+                    <input class="btn proceedBtn" id="addStu" type="submit" name="addStu" value="Add Student" required>\
+            </div>\
+        </form>\
+        </div>');
+        $('input.radio').change(function () {
+            console.log(this.checked);
+            $('.radio-container').removeClass('radio-checked');
+            $(this).parent().toggleClass('radio-checked');
+        });
     });
 
     // select feild
@@ -859,6 +944,12 @@ $(document).ready(function () {
     $('input.checkbox').change(function () {
         console.log(this.checked);
         $(this).parent().toggleClass('checked');
+    });
+
+    $('input.radio').change(function () {
+        console.log(this.checked);
+        $('.radio-container').removeClass('radio-checked');
+        $(this).parent().toggleClass('radio-checked');
     });
 
     function slideUp() {

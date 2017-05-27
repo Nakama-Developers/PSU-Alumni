@@ -341,7 +341,6 @@ function removeInvite($id){
     $q = $GLOBALS['db']->prepare("DELETE FROM student_hash WHERE Student_ID=" . sqlEncode($id));
     $q->execute();
     return $q->rowCount();
-
 }
 
 function isSignedUp($id){
@@ -375,7 +374,17 @@ function addInvitedStudent($id, $hash){
 }
 
 function getCompanies(){
-    // TODO
+    $q = $GLOBALS['db']->query("SELECT Name FROM company");
+    return $q->fetchAll();
+}
+
+function getCompanyId($name){
+    $q = $GLOBALS['db']->query("SELECT Company_ID FROM company WHERE Name=" . sqlEncode($name));
+    return $q->fetch();
+}
+
+function getStudentCurrentComp(){
+    // TODO:
 }
 
 
