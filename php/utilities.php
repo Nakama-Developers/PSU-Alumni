@@ -389,17 +389,50 @@ function getStudentCurrentComp(){
 
 
 function studentProfileData($studentID){
-    $query = "SELECT DISTINCT student.*,
+    /*$query = "SELECT DISTINCT student.*,
 (SELECT company.Name FROM company WHERE company.Company_ID IN ( SELECT student_career.Current_company FROM student_career WHERE student_career.Student_ID ='$studentID')) AS 'Current_Company',
 (SELECT company.Name FROM company WHERE company.Company_ID IN ( SELECT student_career.Coop_company FROM student_career WHERE student_career.Student_ID ='$studentID')) AS 'Coop_Company',
 (SELECT student_career.is_Family FROM student_career WHERE student_career.Student_ID ='$studentID') AS 'is_Family',
 (SELECT student_career.Job_title FROM student_career WHERE student_career.Student_ID ='$studentID') AS 'Job_title',
 (SELECT student_career.Worked_coop FROM student_career WHERE student_career.Student_ID ='$studentID') AS 'Worked_coop',
 (SELECT student_career.Time_to_get_job FROM student_career WHERE student_career.Student_ID ='$studentID') AS 'Time_to_get_job',
-contact_number.Phone, certificate.* FROM student_career , ((student natural join contact_number) left outer join certificate on student.student_id = certificate.Student_ID) WHERE student_career.Student_ID = '$studentID'  AND student.Student_ID ='$studentID';";
+contact_number.Phone, certificate.* FROM student_career , ((student natural join contact_number) left outer join certificate on student.student_id = certificate.Student_ID) WHERE student_career.Student_ID = '$studentID'  AND student.Student_ID ='$studentID';";*/
+    
+    $query = getStudentEducationInfo($studentID) . getStudentCareerInfo($studentID) . getStudentPersonalInfo($studentID) . getStudentCertificateInfo($studentID);
+    
 
     return($query);
 }
+
+function StudentEducationInfo($studentID){
+    $query = "SELECT Name, Major, GPA, Graduation_year FROM student WHERE Student_ID = '$studentID';";
+    return $query;
+}
+
+function StudentCareerInfo($studentID){
+    $query = " SELECT student_career.is_Family, student_career.Job_title, student_career.Worked_coop, student_career.Time_to_get_job,
+               (SELECT company.Name FROM company WHERE company.Company_ID IN ( SELECT student_career.Coop_company FROM student_career WHERE student_career.Student_ID ='$studentID')) AS 'Coop_Company',
+               (SELECT company.Name FROM company WHERE company.Company_ID IN ( SELECT student_career.Current_company FROM student_career WHERE student_career.Student_ID ='$studentID')) AS 'Current_Company'
+                FROM student_career WHERE student_career.Student_ID ='$studentID';";
+               return $query;
+}              
+
+function StudentPersonalInfo($studentID){
+    $query = " SELECT National_ID, Nationality, email FROM student WHERE Student_ID = '$studentID';";
+    return $query;
+}
+
+function ContactNumber($studentID){
+    $query = "SELECT Phone FROM contact_number WHERE Student_ID = '$studentID';";
+    return $query;
+}
+
+function StudentCertificateInfo($studentID){
+    $query = "SELECT * FROM certificate WHERE Student_ID = '$studentID';";
+    return $query;
+
+}
+
 
 function storingStudentInfo($informationArray, $dataArray){    
     $informationArray = json_decode(json_encode($informationArray), True);

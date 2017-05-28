@@ -211,8 +211,37 @@ function printGradYearFilter(){
     return $str;
 }
 
-function getStudentProfileData($studentID){
-    $query = studentProfileData($studentID);
+
+function getStudentEducationData($studentID){
+    $query = studentEducationInfo($studentID);
+     $q = $GLOBALS['db']-> query($query);
+     $data = $q->fetchAll();
+     return $data;
+}
+
+function getStudentCareerData($studentID){
+    $query = studentCareerInfo($studentID);
+     $q = $GLOBALS['db']-> query($query);
+     $data = $q->fetchAll();
+     return $data;
+}
+
+function getStudentPersonalData($studentID){
+    $query = studentPersonalInfo($studentID);
+     $q = $GLOBALS['db']-> query($query);
+     $data = $q->fetchAll();
+     return $data;
+}
+
+function getContactNumberData($studentID){
+    $query = ContactNumber($studentID);
+     $q = $GLOBALS['db']-> query($query);
+     $data = $q->fetchAll();
+     return $data;
+}
+
+function getCertificateData($studentID){
+    $query = StudentCertificateInfo($studentID);
      $q = $GLOBALS['db']-> query($query);
      $data = $q->fetchAll();
      return $data;

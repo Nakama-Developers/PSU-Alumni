@@ -3,7 +3,11 @@
     require_once "php/printData.php";
 
     $studentID = $_GET['studentID'];
-    $studentInfoArray = getStudentProfileData($studentID);
+    $studentEducationArray = getStudentEducationData($studentID);
+    $studentCareerArray = getStudentCareerData($studentID);
+    $studentPersonalArray = getStudentPersonalData($studentID);
+    $studentContactNumberArray = getContactNumberData($studentID);
+    $studentCertificateArray = getCertificateData($studentID);
     
 ?>
 <!DOCTYPE html>
@@ -56,19 +60,19 @@
                 </div>
                 <div class="profile-brief">
                     <div class="role alumni"><span>Alumni</span></div>
-                    <div class="name"><span><?php echo $studentInfoArray[0]['Name']; ?></span></div>
+                    <div class="name"><span><?php echo $studentEducationArray[0]['Name']; ?></span></div>
                     <div class="general-info">
                         <ul>
                             <li>
                                 <span class="icon comp"></span>
                                 <div>Currently in 
-                                    <span class="student-info-data"><?php echo $studentInfoArray[0]['Current_Company']; ?></span>
+                                    <span class="student-info-data"><?php echo $studentCareerArray[0]['Current_Company']; ?></span>
                                 </div>
                             </li>
                             <li>
                                 <span class="icon job"></span>
                                 <div>Works as 
-                                    <span class="student-info-data"> <?php echo $studentInfoArray[0]['Job_title']; ?> 
+                                    <span class="student-info-data"> <?php echo $studentCareerArray[0]['Job_title']; ?> 
                                     </span>
                                 </div>
                             </li>
@@ -84,7 +88,7 @@
                                 <span class="icon email"></span>
                                 <div>E-mail: 
                                     <span class="student-info-data">
-                                        <a href="mailto:<?php echo $studentInfoArray[0]['email']; ?>"><?php echo $studentInfoArray[0]['email']; ?></a> 
+                                        <a href="mailto:<?php echo $studentPersonalArray[0]['email']; ?>"><?php echo $studentPersonalArray[0]['email']; ?></a> 
                                     </span>
                                 </div>
                             </li>
@@ -123,13 +127,13 @@
                                     <div class="student-info student-ID">Holds the student ID of <span class="student-info-data"><?php echo $studentID; ?></span> </div>
                                 </li>
                                 <li>
-                                    <div class="student-info student-nationality">From <span class="student-info-data"><?php echo $studentInfoArray[0]['Nationality']; ?></span></div>
+                                    <div class="student-info student-nationality">From <span class="student-info-data"><?php echo $studentPersonalArray[0]['Nationality']; ?></span></div>
                                 </li>
                                 <li>
-                                    <div class="student-info student-major">Studied <span class="student-info-data"><?php echo $studentInfoArray[0]['Major']; ?></span>  </div>
+                                    <div class="student-info student-major">Studied <span class="student-info-data"><?php echo $studentEducationArray[0]['Major']; ?></span>  </div>
                                 </li>
                                 <li>
-                                    <div class="student-info student-GPA">Got a GPA of <span class="student-info-data"><?php echo $studentInfoArray[0]['GPA']; ?></span>  </div>
+                                    <div class="student-info student-GPA">Got a GPA of <span class="student-info-data"><?php echo $studentEducationArray[0]['GPA']; ?></span>  </div>
                                 </li>
                             </ul>            
                         </div>
@@ -141,13 +145,13 @@
                                     <div class="student-info student-ID">Holds the student ID of <input type="text" placeholder="empty" id="studentID" value='<?php echo $studentID; ?>' readonly></div>
                                 </li>
                                 <li>
-                                    <div class="student-info student-major">Studied <input type="text" placeholder="empty" id="major" value='<?php echo $studentInfoArray[0]['Major']; ?>' readonly></div>
+                                    <div class="student-info student-major">Studied <input type="text" placeholder="empty" id="major" value='<?php echo $studentEducationArray[0]['Major']; ?>' readonly></div>
                                 </li>
                                 <li>
-                                    <div class="student-info student-GPA">Got a GPA of <input type="text" placeholder="empty" id="GPA" value=<?php echo $studentInfoArray[0]['GPA']; ?> readonly> </div>
+                                    <div class="student-info student-GPA">Got a GPA of <input type="text" placeholder="empty" id="GPA" value=<?php echo $studentEducationArray[0]['GPA']; ?> readonly> </div>
                                 </li>
                                 <li>
-                                    <div class="student-info student-graduation-year">Graduated on <input type="text" placeholder="empty" id="graduationYear" value=<?php echo $studentInfoArray[0]['Graduation_year']; ?> readonly> </div>
+                                    <div class="student-info student-graduation-year">Graduated on <input type="text" placeholder="empty" id="graduationYear" value=<?php echo $studentEducationArray[0]['Graduation_year']; ?> readonly> </div>
                                 </li>
                                 <li>
                                    <div class="student-info edit-btn-block">
@@ -162,19 +166,19 @@
                         <div class="info-section">
                             <ul class="student-info-list">
                                 <li>
-                                    <div class="student-info">Did the Co-Op with  <input list="companies" type="text" placeholder="empty" id="coopCompany" value='<?php echo $studentInfoArray[0]['Coop_Company']; ?>' readonly></div>
+                                    <div class="student-info">Did the Co-Op with  <input list="companies" type="text" placeholder="empty" id="coopCompany" value='<?php echo $studentCareerArray[0]['Coop_Company']; ?>' readonly></div>
                                 </li>
                                 <li>
-                                    <div class="student-info">Job seeking time after Co-op <input type="text" placeholder="empty" id="timeToGetJob" value='<?php echo $studentInfoArray[0]['Time_to_get_job']; ?>'  readonly> Months</div>
+                                    <div class="student-info">Job seeking time after Co-op <input type="text" placeholder="empty" id="timeToGetJob" value='<?php echo $studentCareerArray[0]['Time_to_get_job']; ?>'  readonly> Months</div>
                                 </li>
                                 <li>
-                                    <div class="student-info">Currently working for <input list="companies" placeholder="empty" id="currentJob" value='<?php echo $studentInfoArray[0]['Current_Company']; ?>' readonly><?php echo printCompaniesList(); ?></div>
+                                    <div class="student-info">Currently working for <input list="companies" placeholder="empty" id="currentJob" value='<?php echo $studentCareerArray[0]['Current_Company']; ?>' readonly><?php echo printCompaniesList(); ?></div>
                                 </li>
                                 <li>
-                                    <div class="student-info">Working as <input type="text" placeholder="empty" id="jobTitle" value='<?php echo $studentInfoArray[0]['Job_title']; ?>' readonly> </div>
+                                    <div class="student-info">Working as <input type="text" placeholder="empty" id="jobTitle" value='<?php echo $studentCareerArray[0]['Job_title']; ?>' readonly> </div>
                                 </li>
                                 <li>
-                                    <div class="student-info">Took the job with the same company that did that coop with <input type="text" placeholder="empty" id="workedCoop" value='<?php echo $studentInfoArray[0]['Worked_coop']; ?>' readonly> </div>
+                                    <div class="student-info">Took the job with the same company that did that coop with <input type="text" placeholder="empty" id="workedCoop" value='<?php echo $studentCareerArray[0]['Worked_coop']; ?>' readonly> </div>
                                 </li>
                             
                                 <li>
@@ -190,28 +194,28 @@
                         <div class="info-section">
                             <ul class="student-info-list">
                                 <li>
-                                    <div class="student-info student-nationalID">National ID <input type="text" placeholder="empty" id="nationalID" value="<?php echo $studentInfoArray[0]['National_ID']; ?>" readonly></div>
+                                    <div class="student-info student-nationalID">National ID <input type="text" placeholder="empty" id="nationalID" value="<?php echo $studentPersonalArray[0]['National_ID']; ?>" readonly></div>
                                 </li>
                                 <li>
-                                    <div class="student-info student-nationality">Country <input type="text" placeholder="empty" id="nationality" value="<?php echo $studentInfoArray[0]['Nationality']; ?>" readonly></div>
+                                    <div class="student-info student-nationality">Country <input type="text" placeholder="empty" id="nationality" value="<?php echo $studentPersonalArray[0]['Nationality']; ?>" readonly></div>
                                 </li>
                                 <li>
-                                    <div class="student-info student-email">E-Mail <input type="text" placeholder="empty" id="email" value="<?php echo $studentInfoArray[0]['email']; ?>" readonly></div>
+                                    <div class="student-info student-email">E-Mail <input type="text" placeholder="empty" id="email" value="<?php echo $studentPersonalArray[0]['email']; ?>" readonly></div>
                                 </li>
                                 <li>
                                     <div class="student-info student-contact-number">Contact number <?php
-                                                                                                        for($i = 0; $i<count($studentInfoArray);$i++){
-                                                                                                            if($studentInfoArray[ $i ]['Phone']!= NULL)
-                                                                                                            echo " <input type=\"text\" placeholder=\"empty\" class=\"contactNumber\" value= '".$studentInfoArray[ $i ]['Phone']."' readonly> <br>";
+                                                                                                        for($i = 0; $i<count($studentContactNumberArray);$i++){
+                                                                                                            if($studentContactNumberArray[ $i ]['Phone']!= NULL)
+                                                                                                            echo " <input type=\"text\" placeholder=\"empty\" class=\"contactNumber\" value= '".$studentContactNumberArray[ $i ]['Phone']."' readonly> <br>";
                                                                                                         }
                                                                                                        
 
-                                                                                                          $tmpArr = array();
-foreach ($studentInfoArray as $sub) {
-  $tmpArr[] = implode(',', $sub);
-}
-$result = implode('|', $tmpArr);
-echo $result;
+                                                                                                          //$tmpArr = array();
+                                                                                    /*foreach ($studentContactNumberArray as $sub) {
+                                                                                      $tmpArr[] = implode(',', $sub);
+                                                                                    }
+                                                                                    $result = implode('|', $tmpArr);
+                                                                                    echo $result;*/
                                                                                                     ?>  </div>
                                 </li>
                                 <li>
