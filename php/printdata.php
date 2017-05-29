@@ -259,9 +259,20 @@ function printCompaniesList(){
 }
 
 function insertingStudentEditedData($info, $data){
-     $query = storingStudentInfo($info, $data);
-     echo json_encode("inside printData");
-     echo json_encode($query);
+     $informationArray = json_decode(json_encode($info), True);
+     $dataArray = json_decode(json_encode($data), True);
+
+     if($informationArray['tableName'] =='student' || $informationArray['tableName'] =='student_info'){
+         $query = updateStudentInfo($informationArray, $dataArray);
+     }
+     elseif($informationArray['tableName'] == 'student_career'){
+         $query = updateCareerInfo($informationArray, $dataArray);
+
+     }
+     elseif($informationArray['tableName'] == ''){
+         
+     }
+     echo json_encode($query); //debugging
      $q = $GLOBALS['db']-> query($query);
 }
 ?>

@@ -720,6 +720,10 @@ input[readonly]{
     height: auto;
 }
 
+.delete-number-btn{
+    display: inline-block;
+    cursor: pointer;
+}
 .profile-info-career{
     display: none;
     height: auto;

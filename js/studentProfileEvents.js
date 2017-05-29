@@ -176,13 +176,13 @@ $(document).ready(function () {
         $('.profile-info-personal').css("background-color", "#fff");
         // getting the values
 
-        var phoneElementsArray = document.getElementsByClassName('contactNumber');
+        /*var phoneElementsArray = document.getElementsByClassName('contactNumber');
         var phoneDataArray = [];
         for (var i = 0; i < phoneElementsArray.length; i++) {
-            phoneDataArray[i] = phoneElementsArray[i].value;
-        }
+        phoneDataArray[i] = phoneElementsArray[i].value;
+        }*/
         var information = { tableName: "student" };
-        var studentData = { Student_ID: $('#studentID').val(), National_ID: $('#nationalID').val(), Nationality: $('#nationality').val(), email: $('#email').val(), PhoneArray: phoneDataArray };
+        var studentData = { Student_ID: $('#studentID').val(), National_ID: $('#nationalID').val(), Nationality: $('#nationality').val(), email: $('#email').val()/*, PhoneArray: phoneDataArray*/ };
         var informationJSON = JSON.stringify(information);
         var dataJSON = JSON.stringify(studentData);
 
@@ -209,5 +209,12 @@ $(document).ready(function () {
         $('#personalSaveBtn').css("display", "none");
         $('#personalEditBtn').css("display", "block");
     });
+
+    $('#contactNumberAddBtn').click(function () {
+        Student_ID: $('#studentID').val()
+
+
+    });
+
 });
 
