@@ -83,7 +83,6 @@ $(document).ready(function () {
 
     /* $('#certificateEditBtn').click(function editCertificateInputs() {
     $('.profile-info-certificate').find('input').prop('readonly', false);
-    $('.profile-info-certificate').css("background-color", '#cacaca');
     $('#certificateSaveBtn').css("display", "block");
     $('#certificateEditBtn').css("display", "none");
     });
@@ -121,7 +120,6 @@ $(document).ready(function () {
 
     $('#careerEditBtn').click(function editCareerInputs() {
         $('.profile-info-career').find('input').prop('readonly', false);
-        $('.profile-info-career').css("background-color", "#cacaca");
         $('#careerSaveBtn').css("display", "block");
         $('#careerEditBtn').css("display", "none");
     });
@@ -133,11 +131,6 @@ $(document).ready(function () {
         var studentData = { Time_To_Get_Job: $('#timeToGetJob').val(), Job_title: $('#jobTitle').val(), Worked_coop: $('#workedCoop').val() };
         var informationJSON = JSON.stringify(information);
         var dataJSON = JSON.stringify(studentData);
-
-        alert(informationJSON);
-        alert(dataJSON);
-
-
         $.ajax({
             type: "GET",
             contentType: "application/json",
@@ -174,20 +167,13 @@ $(document).ready(function () {
     $('#personalSaveBtn').click(function savePersonalInputs() {
         $('.profile-info-personal').find('input').prop('readonly', true);
         $('.profile-info-personal').css("background-color", "#fff");
-        // getting the values
+        // updating contact number
+        updateContactNumber();
 
-        /*var phoneElementsArray = document.getElementsByClassName('contactNumber');
-        var phoneDataArray = [];
-        for (var i = 0; i < phoneElementsArray.length; i++) {
-        phoneDataArray[i] = phoneElementsArray[i].value;
-        }*/
         var information = { tableName: "student" };
-        var studentData = { Student_ID: $('#studentID').val(), National_ID: $('#nationalID').val(), Nationality: $('#nationality').val(), email: $('#email').val()/*, PhoneArray: phoneDataArray*/ };
+        var studentData = { Student_ID: $('#studentID').val(), National_ID: $('#nationalID').val(), Nationality: $('#nationality').val(), email: $('#email').val()};
         var informationJSON = JSON.stringify(information);
         var dataJSON = JSON.stringify(studentData);
-
-        alert(informationJSON);
-        alert(dataJSON);
         $.ajax({
             type: "GET",
             contentType: "application/json",
@@ -210,11 +196,36 @@ $(document).ready(function () {
         $('#personalEditBtn').css("display", "block");
     });
 
-    $('#contactNumberAddBtn').click(function () {
-        Student_ID: $('#studentID').val()
+    function updateContactNumber() {
+        var phoneElementsArray = document.getElementsByClassName('contactNumber');
+        var phoneDataArray = [];
+        for (var i = 0; i < phoneElementsArray.length; i++) {
+            phoneDataArray[i] = phoneElementsArray[i].value;
 
+            var information = { tableName: "contact_number" };
+            var studentData = { Student_ID: $('#studentID').val(), PhoneArray: phoneDataArray };
+            var informationJSON = JSON.stringify(information);
+            var dataJSON = JSON.stringify(studentData);
 
-    });
+            $.ajax({
+                type: "GET",
+                contentType: "application/json",
+                data:
+            {
+                req: "store",
+                information: informationJSON,
+                data: dataJSON
+            },
+                url: "php/events.php",
+
+                success: function (data)//we got the response
+                {
+                    alert(data);
+                },
+                error: function (exception) { alert('Exeption:' + exception); }
+            })
+        }
+    }
 
 });
 

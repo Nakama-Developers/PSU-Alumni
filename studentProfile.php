@@ -205,13 +205,15 @@
                                 <li>
                                     <div class="student-info student-contact-number">Contact number <?php
                                                                                                         for($i = 0; $i<count($studentContactNumberArray);$i++){
-                                                                                                            if($studentContactNumberArray[ $i ]['Phone']!= NULL)
+                                                                                                            if($studentContactNumberArray[ $i ]['Phone']!= NULL){
                                                                                                             echo "<div>";
                                                                                                             echo "<input type=\"text\" placeholder=\"empty\" class=\"contactNumber\" value= '".$studentContactNumberArray[ $i ]['Phone']."' readonly> ";
                                                                                                             echo "<span class='delete-number-btn'> x </span>";
                                                                                                             echo "</div>";
-                                                                                                            echo "<br>";
+                                                                                                            echo "<br>";                                                                                                            
+                                                                                                            }   
                                                                                                         }
+                                                                                                        echo "<button id='newNumberBtn'> Add New Number </button>";
                                                                                                        
 
                                                                                                           //$tmpArr = array();
