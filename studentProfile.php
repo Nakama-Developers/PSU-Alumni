@@ -80,7 +80,7 @@
                                 <span class="icon mobile"></span>
                                 <div>Contact number: 
                                     <span class="student-info-data">
-                                        <a href="tel:<?php echo $studentInfoArray[0]['Phone']; ?>">23232323223</a> 
+                                        <a href="tel:<?php echo $studentContactNumberArray[0]['Phone']; ?>"><?php echo $studentContactNumberArray[ 0 ]['Phone'];?></a> 
                                     </span>
                                 </div>
                             </li>
