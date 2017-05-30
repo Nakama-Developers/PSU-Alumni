@@ -267,11 +267,9 @@ function insertingStudentEditedData($info, $data){
      }
      elseif($informationArray['tableName'] == 'student_career'){
          $query = updateCareerInfo($informationArray, $dataArray);
-
      }
      elseif($informationArray['tableName'] == 'contact_number'){
          updateContactNumber($informationArray, $dataArray);
-
      }
      //echo json_encode($query); //debugging
      if($query != NULL){

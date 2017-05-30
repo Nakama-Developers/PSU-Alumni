@@ -245,12 +245,12 @@
                             <div class="panel-body">
                                 <!-- Standar Form -->
                                 <h4>Select files from your computer</h4>
-                                <form action="" method="post" enctype="multipart/form-data" id="js-upload-form">
+                                <form action="php/events.php?req=upload-cv&studentID=<?php echo $studentID;?>" method="post" enctype="multipart/form-data" id="js-upload-form">
                                     <div class="form-inline">
                                         <div class="form-group">
-                                            <input type="file" name="files[]" id="js-upload-files" multiple>
+                                            <input type="file" name="fileToUpload" id="cv" multiple>
                                         </div>
-                                        <button type="submit" class="btn btn-sm btn-primary" id="js-upload-submit">Upload files</button>
+                                        <button type="submit" class="btn btn-sm btn-primary" id="uploadCvButton">Upload files</button>
                                     </div>
                                 </form>
                                     <!-- Upload Finished -->
@@ -259,6 +259,7 @@
                                     <div class="list-group">
                                         <a href="#" class="list-group-item list-group-item-success"><span class="badge alert-success pull-right">Success</span>Resume.pdf</a>                                              
                                     </div>
+                                   
                                 </div>
                               </div>                   
                         </div>

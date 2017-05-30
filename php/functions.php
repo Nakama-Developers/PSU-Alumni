@@ -294,7 +294,35 @@ _HTML_;
          $information = json_decode($studentInfoArray);
          $data = json_decode($studentDataArray);
          insertingStudentEditedData($information, $data);
-        // echo json_encode('console.log("********'.$data.'*******") INSIDE FUNCTIONS');
+    }
+
+    function uploadCv($studentID){
+
+        $imgData =file_get_contents($_FILES['fileToUpload']['tmp_name']);
+        $uploadOk = 1;
+
+        if ($_FILES["fileToUpload"]["size"] > 500000) {
+        echo "Sorry, your file is too large.";
+        $uploadOk = 0;
+        }
+
+        // Check if image file is a actual image or fake image
+        $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+        if($check !== false) {
+            $uploadOk = 1;
+        } else {
+            echo "File is not an image.";
+            $uploadOk = 0;
+        }
+
+        if( $uploadOk == 1){
+            $query = "UPDATE student set C_V = '$imgData' WHERE Student_ID = '$studentID';";
+            // echo $query;
+            $q = $GLOBALS['db']->query($query);
+            }
+            else{
+                echo "something went wrong";
+            }  
     }
 
 } else{

@@ -50,6 +50,9 @@ if($req != NULL){
         case 'store':
             decodingEditedStudentData($_GET['information'], $_GET['data']);
             break;
+        case 'upload-cv':
+            uploadCV($_GET['studentID']);
+            break;
         default:
             break;
     }
